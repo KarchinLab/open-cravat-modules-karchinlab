@@ -1,0 +1,20 @@
+title: Cravat Converter
+version: 1.1.2
+type: converter
+description: File converter for standard cravat input
+developer:
+  name: Kyle Moad
+  organization: In Silico Solutions
+  email: kmoad@insilico.us.com
+  website: http://www.insilico.us.com
+  citation: ''
+requires_opencravat: '>=1.8.0'
+release_note:
+  1.1.2: test update for 1.8.0
+  1.1.1: comment lines return IGNORE.
+  1.1.0: no-data line returns False
+  1.0.5: can handle multiple spaces
+  1.0.4: fixed test key
+  1.0.3: removed empty base error for missing ref or alt bases.
+  1.0.2: fixed test key.
+  1.0.1: also parses space-delimited files.
