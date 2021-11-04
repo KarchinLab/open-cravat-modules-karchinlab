@@ -3,11 +3,13 @@ import rpy2.robjects as robjects
 from rpy2.robjects.vectors import StrVector
 import rpy2.rinterface as ri
 from cravat import BaseConverter
+import os
 
 class CravatConverter(BaseConverter):
     def __init__(self):
         self.format_name = 'gds'
 
+    #make better
     def check_format(self, f):
         return f.name.endswith('.gds')
 
@@ -19,7 +21,7 @@ class CravatConverter(BaseConverter):
     def convert_file(self, f, buffsize = 100):
         SeqArray = importr("SeqArray")
 
-        file = SeqArray.seqOpen(f)
+        file = SeqArray.seqOpen(os.path.realpath(f.name))
 
         sample = SeqArray.seqGetData(file, "sample.id")
 
@@ -78,13 +80,16 @@ class CravatConverter(BaseConverter):
                 result.append(" ".join([lines[line], lines[line+ rows], lines[line+ (2* rows)], lines[line+ (3* rows)], lines[line+ (4* rows)], lines[line+ (5* rows)]]))
             return StrVector(result)
 
+        #returns pairs (a,b) such that the first a is equal to i, the last b is equal to n+1. If we look at all a's inclusively and all b's
+        #exclusively then this generates intervals that partition the set of numbers from 1 to n (inclusively) such that all intervals
+        #contain buff numbers except for possibly the last interval 
         def inclusiveRanges(i, n, buff):
             while i <= n:
                 if i + buff > n+1:
                     buff -= i + buff - n-1
                 yield [i, i+buff]
                 i += buff 
-
+        
         for start, end in inclusiveRanges(1, numOfVariants, buffsize):
             robjects.r('array = c({previous}:{next})'.format(previous = start, next = end - 1))
             SeqArray.seqSetFilter(file, variant_sel = robjects.globalenv['array'], verbose = False)
@@ -93,4 +98,6 @@ class CravatConverter(BaseConverter):
 
             for variant in result:
                 for line in variant:
-                    yield line
+                    #modify result
+                    result = {""}
+                    yield 0,"", line
