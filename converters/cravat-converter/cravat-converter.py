@@ -51,30 +51,20 @@ class CravatConverter(BaseConverter):
             return False, "Wrong number of columns"
         valid_bases = list(self.comp_base.keys())
         try:
-            posnum = int(pos)
+            int(pos)
         except ValueError:
             return False, '2nd column must be integer'
         if not(strand in ['-','+']): return False, '4th column must be + or -'
         ref = ref.upper()
         alt = alt.upper()
-        try:
-            charnum = int(ref)
-            if charnum < posnum:
-                return False, 'Bad ref base'
-        except:
-            for char in ref.upper():
-                if char not in valid_bases: 
-                    return False, 'Bad ref base'
+        for char in ref.upper():
+            if char not in valid_bases: return False, 'Bad ref base'
         for char in alt.upper():
             if char not in valid_bases: return False, 'Bad alt base'
         return True, ''
     
     def check_format(self, f):
         format_correct = False
-        l = f.readline()
-        if '23and' in l or 'Ancestry' in l:
-            return False
-        f.seek(0)
         for l in f:
             if not(l.startswith('#')):
                 format_correct, _ = self._check_line(l)
@@ -99,12 +89,6 @@ class CravatConverter(BaseConverter):
         if len(toks) == 6:
             toks.append('')    
         chrom, pos, strand, ref, alt, sample, tags = toks
-        posnum = int(pos)
-        try:
-            charnum = int(ref)
-            ref = 'N' * (charnum - posnum + 1)
-        except:
-            pass
         if strand == '-':
             pos = int(pos) - len(ref.replace('-','')) + 1
             alt = self._switch_strand(alt)

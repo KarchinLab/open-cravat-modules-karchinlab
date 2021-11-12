@@ -8,10 +8,14 @@ import os
 class CravatConverter(BaseConverter):
     def __init__(self):
         self.format_name = 'gds'
+        self.addl_cols = [
+            {'name':'zygosity','title':'Zygosity','type':'string'}
+        ]
 
-    #make better
     def check_format(self, f):
-        return f.name.endswith('.gds')
+        file = open(os.path.realpath(f.name), 'rb')
+        file_head = file.read(9)
+        return file_head.decode() == 'COREARRAY'
 
     def setup(self, f):
         pass
@@ -98,6 +102,13 @@ class CravatConverter(BaseConverter):
 
             for variant in result:
                 for line in variant:
-                    #modify result
-                    result = {""}
-                    yield 0,"", line
+                    result = [{
+                    'chrom': line[0],
+                    'pos': line[1],
+                    'ref_base': line[2],
+                    'alt_base': line[3],
+                    'tags': None,
+                    'sample_id': line[5],
+                    'zygosity': line[4]
+                    }]
+                    yield 0,"", result
