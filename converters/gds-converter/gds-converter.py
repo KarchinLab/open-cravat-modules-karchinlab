@@ -3,7 +3,6 @@ import rpy2.robjects as robjects
 from rpy2.robjects.vectors import StrVector
 import rpy2.rinterface as ri
 from cravat import BaseConverter
-import rpy2.rinterface
 import os
 
 class CravatConverter(BaseConverter):
@@ -23,18 +22,11 @@ class CravatConverter(BaseConverter):
 
     #intentional lack of implementation for the convert_line function as gds is a binary file format
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        pass
-
     def convert_file(self, f, buffsize = 100):
         SeqArray = importr("SeqArray")
-
         file = SeqArray.seqOpen(os.path.realpath(f.name))
-
         sample = SeqArray.seqGetData(file, "sample.id")
-
         robjects.r('sampleID = {sample}'.format(sample = sample.r_repr()))
-
         numOfVariants = SeqArray.seqSummary(file, varname = "variant.id")[0]
 
         robjects.r('''
@@ -90,7 +82,7 @@ class CravatConverter(BaseConverter):
 
         #returns pairs (a,b) such that the first a is equal to i, the last b is equal to n+1. If we look at all a's inclusively and all b's
         #exclusively then this generates intervals that partition the set of numbers from 1 to n (inclusively) such that all intervals
-        #contain buff numbers except for possibly the last interval 
+        #contain a buff amount of numbers except for possibly the last interval 
         def inclusiveRanges(i, n, buff):
             while i <= n:
                 if i + buff > n+1:
@@ -98,17 +90,14 @@ class CravatConverter(BaseConverter):
                 yield [i, i+buff]
                 i += buff 
         
-        varNum = 0
         for start, end in inclusiveRanges(1, numOfVariants, buffsize):
             robjects.r('array = c({previous}:{next})'.format(previous = start, next = end - 1))
             SeqArray.seqSetFilter(file, variant_sel = robjects.globalenv['array'], verbose = False)
 
             result = SeqArray.seqApply(file, StrVector(["chromosome", "position", "allele", "genotype"]), FUN= printWithStops, margin="by.variant", as_is="list")
 
-            print("Variants computed thus far: " + str(varNum))
             for variant in result:
                 for charLine in variant:
-                    varNum += 1
                     line = charLine.split()
                     if line[3] == '.':
                         continue
@@ -122,5 +111,7 @@ class CravatConverter(BaseConverter):
                     'zygosity': line[4]
                     }]
                     yield 0,line, result
+
+        #closes the embedded R subprocess and deletes rpy2 objects
         ri.endr(0)
         del file, output, printWithStops, sample, variant
