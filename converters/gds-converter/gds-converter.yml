@@ -4,9 +4,9 @@ type: converter
 description: Converter for GDS format input
 developer:
   name: Jacob Lopez
-  organization: ''
+  organization: Johns Hopkins University
   email: jacoblopez757@gmail.com
   website: ''
   citation: ''
-requires_opencravat: '>=1.8.0'
+requires_opencravat: '>2.2.7'
 release_note:

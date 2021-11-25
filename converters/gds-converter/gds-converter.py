@@ -22,7 +22,7 @@ class CravatConverter(BaseConverter):
 
     #intentional lack of implementation for the convert_line function as gds is a binary file format
 
-    def convert_file(self, f, buffsize = 100):
+    def convert_file(self, f, exc_handler = None, buffsize = 10000):
         SeqArray = importr("SeqArray")
         file = SeqArray.seqOpen(os.path.realpath(f.name))
         sample = SeqArray.seqGetData(file, "sample.id")

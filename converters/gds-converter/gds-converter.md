@@ -1,4 +1,4 @@
-#GDS Converter
+TODO: warning signs
 
 This is a file converter that allows OpenCravat to analyze Genomic Data Structure (GDS) files. 
 
@@ -6,8 +6,11 @@ The GDS file format was developed by Dr. Xiuwen Zheng and is a flexible and port
 GDS is suited for large-scale datasets, especially for data which are much larger than the available random-access memory. This makes it a suitable file type for storing large 
 amounts of genomic information. The file is compressed to reduce file size but still retains many of the same benefits as the VCF file format.
 
+TODO: include links
+
+TODO: remove versions
 Requirments: 
-OS: Mac OS or Linux
+OS: Mac OS or Linux DOES NOT INSTALL ON WINDOWS
 Python: >= 3.9.7
 Python Library rpy2: >= 3.4.5
 R: >= 4.1.1
