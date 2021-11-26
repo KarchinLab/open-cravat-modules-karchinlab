@@ -14,13 +14,13 @@ Requirments:
 - R Package *SeqArray*
 
 Installation:
- 1. Installing R: Further installation link and instructions can be found at http://lib.stat.cmu.edu/R/CRAN/
- 2. Installing rpy2: Call "pip install rpy2" in terminal. Note: this assumes that python and pip are already installed.
+ 1. Installing R: Further installation link and instructions can be found at [http://lib.stat.cmu.edu/R/CRAN/](http://lib.stat.cmu.edu/R/CRAN/)
+ 2. Installing rpy2: Call `pip install rpy2` in terminal. Note: this assumes that python and pip are already installed.
  3. Installing the R Package SeqArray:
-    A. We will be installing this through python and the rpy2 library. First, run python in terminal by calling "python" or "python3".
-    B. In python you can call the following short script and this will download and install the necessary packages.
-    "from rpy2.robjects.packages import importr
+    - We will be installing this through python and the rpy2 library. It MUST be installed through the rpy2 library. Installing the R Package directly could install it to a directory inaccessable to python. First, run python in terminal by calling `python` or `python3`.
+    - In python you can call the following short script and this will download and install the necessary packages.
+    ```from rpy2.robjects.packages import importr
     import rpy2.robjects.packages as rpackages
     rpackages.importr('utils').chooseCRANmirror(ind=1)
     rpackages.importr('utils').install_packages('BiocManager')
-    importr('BiocManager').install('SeqArray')"
+    importr('BiocManager').install('SeqArray')```
