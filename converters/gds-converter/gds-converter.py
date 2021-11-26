@@ -91,26 +91,41 @@ class CravatConverter(BaseConverter):
                 i += buff 
         
         for start, end in inclusiveRanges(1, numOfVariants, buffsize):
-            robjects.r('array = c({previous}:{next})'.format(previous = start, next = end - 1))
-            SeqArray.seqSetFilter(file, variant_sel = robjects.globalenv['array'], verbose = False)
+            try:
+                robjects.r('array = c({previous}:{next})'.format(previous = start, next = end - 1))
+                SeqArray.seqSetFilter(file, variant_sel = robjects.globalenv['array'], verbose = False)
 
-            result = SeqArray.seqApply(file, StrVector(["chromosome", "position", "allele", "genotype"]), FUN= printWithStops, margin="by.variant", as_is="list")
+                result = SeqArray.seqApply(file, StrVector(["chromosome", "position", "allele", "genotype"]), FUN= printWithStops, margin="by.variant", as_is="list")
 
-            for variant in result:
-                for charLine in variant:
-                    line = charLine.split()
-                    if line[3] == '.':
-                        continue
-                    result = [{
-                    'chrom': line[0],
-                    'pos': line[1],
-                    'ref_base': line[2],
-                    'alt_base': line[3],
-                    'tags': None,
-                    'sample_id': line[5],
-                    'zygosity': line[4]
-                    }]
-                    yield 0,line, result
+                for variant in result:
+                    for charLine in variant:
+                        try:
+                            line = charLine.split()
+                            if line[3] == '.':
+                                continue
+                            result = [{
+                            'chrom': line[0],
+                            'pos': line[1],
+                            'ref_base': line[2],
+                            'alt_base': line[3],
+                            'tags': None,
+                            'sample_id': line[5],
+                            'zygosity': line[4]
+                            }]
+                            yield 0,line, result
+                        except Exception as e:
+                            if exc_handler:
+                                exc_handler(0,"",e)
+                                continue
+                            else:
+                                raise e
+            except Exception as e:
+                if exc_handler:
+                    exc_handler(0,"",e)
+                    continue
+                else:
+                    raise e
+
 
         #closes the embedded R subprocess and deletes rpy2 objects
         ri.endr(0)
