@@ -1,5 +1,5 @@
 title: Gene Ontology Summary
-version: 2.2.0
+version: 2.3.0
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
 required_annotator: base
@@ -13,6 +13,7 @@ developer:
   website: http://www.insilico.us.com
   citation: ''
 release_note:
+  2.3.0: F or mfo for aspect
   2.2.0: new color scheme
   2.1.1: bug fix
   2.1.0: updated data used from go annotator

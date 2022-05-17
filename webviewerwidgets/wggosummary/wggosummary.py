@@ -51,7 +51,7 @@ async def get_data (queries):
     go = {}
     for hugo in hugos:
         query = 'select go_id from go_annotation where hugo="' + hugo +\
-            '" and go_aspect="F"'
+            '" and go_aspect in ("F", "mfo")'
         await cursor.execute(query)
         for row in await cursor.fetchall():
             go_id = row[0]
