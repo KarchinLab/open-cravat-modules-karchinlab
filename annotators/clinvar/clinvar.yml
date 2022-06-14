@@ -1,4 +1,4 @@
-datasource: 2021.10.01
+datasource: 2022.06.14
 description: ClinVar is an archive of reports of the relationships among human variations
   and phenotypes, with supporting evidence.
 developer:
@@ -45,7 +45,15 @@ output_columns:
   type: string
   width: 55
   link_format: https://www.ncbi.nlm.nih.gov/clinvar/variation/${.*}/
+- desc: Addional detail on clinical significance used when it is conflicting
+  name: sig_conf
+  title: Significance Detail
+  type: string
+  width: 55
+  filterable: false
+  hidden: true
 release_note:
+  2022.06.14: Added significance detail for conflicting variants.  Data updated.
   2021.10.01: data updated
   2021.08.04: data updated
   2021.05.01: data updated
@@ -66,7 +74,7 @@ tags:
 - literature
 title: ClinVar
 type: annotator
-version: 2021.10.01
+version: 2022.06.14
 requires_opencravat: '>=1.4.0'
 requires:
 - wgclinvar
