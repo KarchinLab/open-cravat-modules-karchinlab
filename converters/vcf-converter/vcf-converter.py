@@ -189,27 +189,43 @@ class CravatConverter(BaseConverter):
         if len(variant.samples) > 0:
             all_gt_zero = True
             for call in variant.samples:
-                # Dedup gt but maintain order
-                for gt in list(OrderedDict.fromkeys(call.gt_alleles)):
-                    if gt == '0' or gt is None:
-                        continue
+                # Handle case where GT field not present
+                if call.gt_alleles is not None:
+                    # Dedup gt but maintain order
+                    for gt in list(OrderedDict.fromkeys(call.gt_alleles)):
+                        if gt == '0' or gt is None:
+                            continue
+                        all_gt_zero = False
+                        gt = int(gt)
+                        wdict = copy.copy(wdict_blanks[gt])
+                        if wdict['alt_base'] == '*':
+                            continue
+                        wdict['sample_id'] = call.sample
+                        if call.is_het == True:
+                            wdict['zygosity'] = 'het'
+                        elif call.is_het == False:
+                            wdict['zygosity'] = 'hom'
+                        elif call.is_het is None:
+                            wdict['zygosity'] = None
+                        else:
+                            wdict['zygosity'] = None
+                        wdict['tot_reads'], wdict['alt_reads'], wdict['af'] = self.extract_read_info(call, gt)
+                        wdict['hap_block'] = None #TODO
+                        wdict['hap_strand'] = None #TODO
+                        wdicts.append(wdict)
+                        self.gt_occur.append(gt)
+                else:
+                    # If GT field absent, annotate all alleles but leave zygosity unknown
                     all_gt_zero = False
-                    gt = int(gt)
+                    gt = 1
                     wdict = copy.copy(wdict_blanks[gt])
-                    if wdict['alt_base'] == '*':
-                        continue
-                    wdict['sample_id'] = call.sample
-                    if call.is_het == True:
-                        wdict['zygosity'] = 'het'
-                    elif call.is_het == False:
-                        wdict['zygosity'] = 'hom'
-                    elif call.is_het is None:
-                        wdict['zygosity'] = None
-                    else:
-                        wdict['zygosity'] = None
-                    wdict['tot_reads'], wdict['alt_reads'], wdict['af'] = self.extract_read_info(call, gt)
-                    wdict['hap_block'] = None #TODO
-                    wdict['hap_strand'] = None #TODO
+                    wdict.update({
+                        'sample_id': call.sample,
+                        'zygosity': None,
+                        'tot_reads': None,
+                        'hap_block': None,
+                        'hap_strand': None,
+                    })
                     wdicts.append(wdict)
                     self.gt_occur.append(gt)
             if all_gt_zero:
