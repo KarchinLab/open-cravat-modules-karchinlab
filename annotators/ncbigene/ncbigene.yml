@@ -24,7 +24,7 @@ tags:
 - literature
 title: NCBI Gene
 type: annotator
-version: 2019.08.02
-datasource: 2019.03.23
+version: 2022.08.30
+datasource: 2022.08.30
 requires:
 - wgncbigene
