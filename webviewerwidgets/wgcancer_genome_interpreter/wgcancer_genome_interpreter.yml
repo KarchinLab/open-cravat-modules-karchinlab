@@ -1,0 +1,15 @@
+title: Cancer Genome Interpreter
+version: 1.0.0
+type: webviewerwidget
+required_annotator: cancer_genome_interpreter
+description: Cancer Genome Interpreter webviewer widget
+developer:
+  name: Madison Larsen
+  organization: Potomac IT Group
+  email: mlarsen@potomacitgroup.com
+  website: 
+  citation: ''
+tags:
+- visualization
+requires_opencravat: '>=2.2.1'
+private: true

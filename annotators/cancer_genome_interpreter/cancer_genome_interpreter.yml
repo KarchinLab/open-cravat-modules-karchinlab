@@ -53,6 +53,36 @@ output_columns:
   hidden: false
   desc: The tumor type in which the biomarker has been described. 
 
+- hidden: true
+  name: all
+  title: All Annotations
+  type: string
+  width: 75
+  filterable: false
+  table: true
+  table_headers:
+  - name: association
+    title: Association
+    type: string
+  - name: biomarker
+    title: Biomarker
+    type: string
+  - name: drug
+    title: Drug
+    type: string
+  - name: evidence
+    title: Evidence
+    type: string
+  - name: source
+    title: Source
+    type: string
+  - name: tumor
+    title: Tumor
+    type: string
+
+requires:
+- wgcancer_genome_interpreter
+
 tags:
 - cancer
 - clinical relevance
@@ -60,8 +90,10 @@ tags:
 commercial_warning: 'Freely available for non-commercial use.'
 
 title: Cancer Genome Interpreter
-version: 1.2.0
+version: 1.3.0
 release_note:
+  1.3.0: data update
   1.2.0: data fix
   1.1.0: Data update
 type: annotator
+private: true
