@@ -4,9 +4,9 @@ type: webviewerwidget
 required_annotator: cancer_genome_interpreter
 description: Cancer Genome Interpreter webviewer widget
 developer:
-  name: Madison Larsen
-  organization: Potomac IT Group
-  email: mlarsen@potomacitgroup.com
+  name: OpenCravat
+  organization: KarchinLab
+  email: support@cravat.us
   website: 
   citation: ''
 tags:

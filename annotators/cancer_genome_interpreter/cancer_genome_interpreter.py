@@ -14,24 +14,24 @@ class CravatAnnotator(BaseAnnotator):
             all_results = []
             for row in rows:
                 assoc = row[0]
+                
                 biomarker = row[1]
                 drug = row[2]
                 evidence = row[3]
                 source = row[4]
                 tumor = row[5]
                 full_result = [assoc, biomarker, drug, evidence, source, tumor]
-                all_results.append({'association': assoc, 'biomarker': biomarker, 'drug': drug, 'evidence': evidence, 'source': source, 'tumor': tumor, 'full_result': full_result})
+                if assoc not in ("Resistant", "Responsive"):
+                    assoc = "Other"
+                all_results.append({"Association": assoc, "full_result": full_result})
 
         if all_results:
             all_results_list = [x['full_result'] for x in all_results]
-            best_mapping = all_results[0]
-            assoc = best_mapping["association"]
-            biomarker = best_mapping["biomarker"]
-            drug = best_mapping["drug"]
-            evidence = best_mapping["evidence"]
-            source = best_mapping["source"]
-            tumor = best_mapping["tumor"]
-            return {'association': assoc, 'biomarker': biomarker, 'drug': drug, 'evidence': evidence, 'source': source, 'tumor': tumor, 'all': all_results_list}
+            assoc = [x['Association'] for x in all_results]
+            resistant = assoc.count("Resistant")
+            responsive = assoc.count("Responsive")
+            other = assoc.count("Other")
+            return {'resistant': resistant, 'responsive': responsive, 'other': other, 'all': all_results_list}
 
     def cleanup(self):
         pass
