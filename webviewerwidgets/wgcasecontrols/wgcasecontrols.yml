@@ -1,7 +1,7 @@
 title: Case-Control - Most significant p-values
-version: 1.0.0
+version: 1.0.1
 type: webviewerwidget
-required_annotator: base
+required_annotator: casecontrol
 description: Case-Control - Most significant p-values webviewer widget
 requires_opencravat: '>=1.7.0'
 developer:
@@ -12,5 +12,8 @@ developer:
   citation: ''
 tags:
 - visualization
+hidden: true
 release_note:
   1.0.0: Initial release
+  1.0.1: Change required annotator to hide casecontrols widget when not in use
+  
