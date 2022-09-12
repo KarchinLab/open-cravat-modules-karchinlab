@@ -10,48 +10,53 @@ developer:
 level: variant
 
 output_columns:
-- name: association
-  title: Association
-  type: string
+- name: resistant
+  title: Number of Resistant Effects
+  type: int
   width: 80
-  hidden: false
-  category: single
-  desc: How the presence of the biomarker affects the response to the drug.
+  desc: The number of Resistant responses due to how the presence of the biomarker affects the response to the drug.
 
-- name: biomarker
-  title: Biomarker
-  type: string
+- name: responsive
+  title: Number of Responsive Effects
+  type: int
   width: 80
-  hidden: true
-  desc: Genetic alteration described as a biomarker of response to a drug.
+  desc: The number of Responsive responses due to how the presence of the biomarker affects the response to the drug.
 
-- name: drug
-  title: Drug
-  type: string
-  width: 80
-  hidden: true
-  desc: Drugs influenced by the biomarker.
-
-- name: evidence
-  title: Evidence
-  type: string
+- name: other
+  title: Number of Other Effects
+  type: int
   width: 100
-  hidden: true
-  desc: The level of evidence that supports the described biomarker.
+  desc: The number of Other responses due to how the presence of the biomarker affects the response to the drug.
 
-- name: source
-  title: Source
+- hidden: true
+  name: all
+  title: All Annotations
   type: string
-  width: 100
-  hidden: true
-  desc: Reference supporting the biomarker.
+  width: 75
+  filterable: false
+  table: true
+  table_headers:
+  - name: association
+    title: Association
+    type: string
+  - name: biomarker
+    title: Biomarker
+    type: string
+  - name: drug
+    title: Drug
+    type: string
+  - name: evidence
+    title: Evidence
+    type: string
+  - name: source
+    title: Source
+    type: string
+  - name: tumor
+    title: Tumor
+    type: string
 
-- name: tumor
-  title: Tumor Type
-  type: string
-  width: 160
-  hidden: false
-  desc: The tumor type in which the biomarker has been described. 
+requires:
+- wgcancer_genome_interpreter
 
 tags:
 - cancer
@@ -60,8 +65,10 @@ tags:
 commercial_warning: 'Freely available for non-commercial use.'
 
 title: Cancer Genome Interpreter
-version: 1.2.0
+version: 1.3.0
 release_note:
+  1.3.0: data update
   1.2.0: data fix
   1.1.0: Data update
 type: annotator
+private: true

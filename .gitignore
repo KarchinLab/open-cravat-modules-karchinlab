@@ -30,3 +30,8 @@ mappers/hg38old
 mappers/hg381st
 annotators/loftee
 /*.tsv
+
+# Ignore anything in test but input and key
+*/*/test/*
+!*/*/test/input
+!*/*/test/key
