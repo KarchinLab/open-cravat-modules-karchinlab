@@ -9,7 +9,7 @@ widgetGenerators['oncokb'] = {
             let hotspot = getWidgetData(tabName, 'oncokb', row, 'hotspot')
             let pmid = getWidgetData(tabName, 'oncokb', row, 'pmids')
             let geneSummary = getWidgetData(tabName, 'oncokb', row, 'geneSummary')
-            var variantSummmary = getWidgetData(tabName, 'oncokb', row, 'variantSummary')
+            var variantSummary = getWidgetData(tabName, 'oncokb', row, 'variantSummary')
             if (knowneffect == null || knowneffect == undefined) {
                 var span = getEl('span');
                 span.classList.add('nodata');
@@ -20,7 +20,7 @@ widgetGenerators['oncokb'] = {
             if (knowneffect != null || knowneffect != undefined) {
                 var table = getWidgetTableFrame();
                 table.id = "table"
-                var buttons = ["general", "diagnostic", "therapeutic", "prognostic"]
+                var buttons = ["general", "therapeutic", "diagnostic",  "prognostic"]
                 for (var i = 0; i < buttons.length; i++) {
                     var button = getEl("button")
                     button.id = buttons[i]
@@ -49,7 +49,7 @@ widgetGenerators['oncokb'] = {
                             link = link + '(' + pubmed + '[pmid])'
                         }
                     }
-                    var tr = getWidgetTableTr([oncogenic, knowneffect, hotspot, geneSummary, variantSummmary, link], [pmids]);
+                    var tr = getWidgetTableTr([oncogenic, knowneffect, hotspot, geneSummary, variantSummary, link], [pmids]);
                     addEl(tbody, tr);
                 } else {
                     var pubmed = ""
@@ -101,14 +101,14 @@ widgetGenerators['oncokb'] = {
                                 link = link + '(' + pubmed + '[pmid])'
                             }
                         }
-                        var tr = getWidgetTableTr([oncogenic, knowneffect, hotspot, geneSummary, variantSummmary, link], [pmids]);
+                        var tr = getWidgetTableTr([oncogenic, knowneffect, hotspot, geneSummary, variantSummary, link], [pmids]);
                         addEl(tbody, tr);
 
                     } else {
                         if (pubmed == undefined) {
                             var pubmed = ""
                             var link = ""
-                            var tr = getWidgetTableTr([oncogenic, knowneffect, hotspot, geneSummary, variantSummmary, link], [pubmed]);
+                            var tr = getWidgetTableTr([oncogenic, knowneffect, hotspot, geneSummary, variantSummary, link], [pubmed]);
                             addEl(tbody, tr);
                         }
                     }
@@ -138,7 +138,7 @@ widgetGenerators['oncokb'] = {
                     }
                 }
                 document.querySelector('#therapeutic').addEventListener('click', async e => {
-                    var thead = getWidgetTableHead(['NCIT Code', 'Drug Name', 'Approved Indications', 'Pubmed', 'Level', 'Cancer Name', 'Tissue', 'Tumor Form'], ["8%", "15%", "24%", "8%", "5%", "15%", "10%", "10%"]);
+                    var thead = getWidgetTableHead(['NCIT Code', 'Drug Name', 'Pubmed', 'Level', 'Cancer Name', 'Tissue', 'Tumor Form'], ["10%", "20%","10%", "10%", "20%", "15%", "15%"]);
                     var tbody = getEl('tbody');
                     document.querySelector("#therapeutic").style.backgroundColor = '#98d9e9'
                     document.querySelector("#general").style.backgroundColor = 'lightgray'
@@ -158,7 +158,7 @@ widgetGenerators['oncokb'] = {
                             }
                             for (var j = 0; j < rows[0].length; j++) {
                                 let link2 = `https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=${rows[0][j]}`;
-                                var tr = getWidgetTableTr([link2, rows[1][j], rows[2], link, rows[4], rows[5], rows[6], rows[7]], [rows[0][j], rows[3]]);
+                                var tr = getWidgetTableTr([link2, rows[1][j], link, rows[3], rows[4], rows[5], rows[6]], [rows[0][j], rows[2]]);
                                 addEl(tbody, tr);
                             }
                         }

@@ -1,15 +1,18 @@
 title: OncoKB
-version: 1.0.1
+version: 1.0.2
 type: webviewerwidget
 required_annotator: oncokb
 description: OncoKB webviewer widget
 hidden: true
 developer:
-  name: Madison Larsen
-  organization: In Silico Solutions
-  email: mlarsen@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCravat
+  organization: KarchinLab
+  email: support@cravat.us
+  website: ''
   citation: ''
 tags:
 - visualization
 requires_opencravat: '>=2.2.7'
+release_note:
+  1.0.2: updated widget fields.
+private: true
