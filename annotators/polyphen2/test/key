@@ -1,14 +1,14 @@
 #CRAVAT Report
-#Created at Wednesday 12/23/2020 10:04:51
+#Created at Friday 09/16/2022 12:30:19
 #Report level: variant
 #
-Variant Annotation																PolyPhen-2				
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	HDIV Prediction	HDIV Prediction	HDIV Rank Score	HVAR Rank Score	All annotations
-1	chr12	123619507	A	G		Yes	DDX55	ENST00000238146.9	missense_variant	c.1409A>G	p.Gln470Arg	ENST00000238146.9:DDX55:Q8NHQ9:missense_variant:p.Gln470Arg:c.1409A>G; ENST00000421670.3:DDX55:Q8NHQ9:missense_variant:p.Gln77Arg:c.230A>G; ENST00000424014.7:EIF2B1:Q14232:2kb_downstream_variant::c.*2249T>C; ENST00000538744.5:DDX55::missense_variant:p.Gln439Arg:c.1316A>G; ENST00000541259.1:DDX55::processed_transcript::; ENST00000544738.5:DDX55::2kb_downstream_variant,NMD_transcript_variant::c.*2416A>G	1	s0		B	B	0.02946	0.06944	[["ENST00000238146", "Q8NHQ9", 0.0, 0.02946, "B", 0.002, 0.06944, "B"], ["ENST00000538744", "Q8NHQ9", 0.0, 0.02946, "B", 0.002, 0.06944, "B"], ["ENST00000421670", "Q8NHQ9", 0.0, 0.02946, "B", 0.002, 0.06944, "B"]]
-2	chr1	193122201	A	T		Yes	CDC73	ENST00000367435.4	start_lost	c.1A>T	p.Met1?	ENST00000367435.4:CDC73:Q6P1J9:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000482484.1:CDC73::2kb_upstream_variant,processed_transcript::; ENST00000635846.1:CDC73::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000643006.1:CDC73::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000643784.1:CDC73::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000647662.1:CDC73::2kb_upstream_variant,processed_transcript::; ENST00000648071.1:CDC73::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000649606.1:CDC73::processed_transcript::; ENST00000649706.1:CDC73::2kb_upstream_variant,processed_transcript::; ENST00000649895.1:CDC73::processed_transcript::; ENST00000650197.1:CDC73::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T	1	s0						
-3	chr12	101395640	T	G		Yes	ARL1	ENST00000261636.13	stop_lost	c.546A>C	p.Ter182TyrextTer30	ENST00000261636.13:ARL1:P40616:stop_lost:p.Ter182TyrextTer30:c.546A>C; ENST00000536227.5:ARL1:P40616:stop_lost:p.Ter165TyrextTer30:c.495A>C; ENST00000539055.5:ARL1::stop_lost:p.Ter136TyrextTer30:c.408A>C; ENST00000549283.1:ARL1::2kb_downstream_variant,processed_transcript::; ENST00000551092.5:ARL1::2kb_downstream_variant,NMD_transcript_variant::c.*1193A>C; ENST00000551671.5:ARL1::2kb_downstream_variant::c.*689A>C; ENST00000551688.1:ARL1::stop_lost:p.Ter53TyrextTer30:c.159A>C; ENST00000551828.5:ARL1:P40616:stop_lost:p.Ter165TyrextTer?:c.495A>C	1	s0						
+Variant Annotation																Original Input				PolyPhen-2				
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	HDIV Prediction	HDIV Prediction	HDIV Rank Score	HVAR Rank Score	All annotations
+1	chr12	123619507	A	G		Yes	DDX55	ENST00000238146.9	missense_variant	c.1409A>G	p.Gln470Arg	ENST00000238146.9:DDX55:Q8NHQ9:missense_variant:p.Gln470Arg:c.1409A>G; ENST00000421670.3:DDX55:Q8NHQ9:missense_variant:p.Gln77Arg:c.230A>G; ENST00000424014.7:EIF2B1:Q14232:2kb_downstream_variant::c.*2249T>C; ENST00000538744.5:DDX55::missense_variant:p.Gln439Arg:c.1316A>G; ENST00000541259.1:DDX55::processed_transcript::; ENST00000544738.5:DDX55::2kb_downstream_variant,NMD_transcript_variant::c.*2416A>G	1	s0		chr12	123619507	A	G	B	B	0.02946	0.06944	[["ENST00000238146", "Q8NHQ9", 0.0, 0.02946, "B", 0.002, 0.06944, "B"]]
+2	chr1	193122201	A	T		Yes	CDC73	ENST00000367435.4	start_lost	c.1A>T	p.Met1?	ENST00000367435.4:CDC73:Q6P1J9:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000482484.1:CDC73::2kb_upstream_variant,processed_transcript::; ENST00000635846.1:CDC73::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000643006.1:CDC73::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000643784.1:CDC73::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000647662.1:CDC73::2kb_upstream_variant,processed_transcript::; ENST00000648071.1:CDC73::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000649606.1:CDC73::processed_transcript::; ENST00000649706.1:CDC73::2kb_upstream_variant,processed_transcript::; ENST00000649895.1:CDC73::processed_transcript::; ENST00000650197.1:CDC73::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T	1	s0		chr1	193122201	A	T	D	D	0.70673	0.68939	[["ENST00000650099", "Q6P1J9", 0.997, 0.70673, "D", 0.951, 0.68939, "D"], ["ENST00000367435", "Q6P1J9", 0.997, 0.70673, "D", 0.951, 0.68939, "D"]]
+3	chr12	101395640	T	G		Yes	ARL1	ENST00000261636.13	stop_lost	c.546A>C	p.Ter182TyrextTer30	ENST00000261636.13:ARL1:P40616:stop_lost:p.Ter182TyrextTer30:c.546A>C; ENST00000536227.5:ARL1:P40616:stop_lost:p.Ter165TyrextTer30:c.495A>C; ENST00000539055.5:ARL1::stop_lost:p.Ter136TyrextTer30:c.408A>C; ENST00000549283.1:ARL1::2kb_downstream_variant,processed_transcript::; ENST00000551092.5:ARL1::2kb_downstream_variant,NMD_transcript_variant::c.*1193A>C; ENST00000551671.5:ARL1::2kb_downstream_variant::c.*689A>C; ENST00000551688.1:ARL1::stop_lost:p.Ter53TyrextTer30:c.159A>C; ENST00000551828.5:ARL1:P40616:stop_lost:p.Ter165TyrextTer?:c.495A>C	1	s0		chr12	101395640	T	G					
 #CRAVAT Report
-#Created at Wednesday 12/23/2020 10:04:51
+#Created at Friday 09/16/2022 12:30:19
 #Report level: gene
 #
 Variant Annotation					
@@ -17,7 +17,7 @@ DDX55		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),proces
 CDC73		1	0	start_lost	missense_variant(1),start_lost(1),NMD_transcript_variant(1),processed_transcript(1)
 ARL1		1	0	stop_lost	NMD_transcript_variant(1),processed_transcript(1),stop_lost(1)
 #CRAVAT Report
-#Created at Wednesday 12/23/2020 10:04:51
+#Created at Friday 09/16/2022 12:30:19
 #Report level: sample
 #
 Variant Annotation	
@@ -26,7 +26,7 @@ UID	Sample
 2	s0
 3	s0
 #CRAVAT Report
-#Created at Wednesday 12/23/2020 10:04:51
+#Created at Friday 09/16/2022 12:30:19
 #Report level: mapping
 #
 Variant Annotation			
