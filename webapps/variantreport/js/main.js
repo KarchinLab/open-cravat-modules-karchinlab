@@ -503,7 +503,7 @@ function submitForm() {
         showContentDiv();
         submitAnnotate(inputData['chrom'], inputData['pos'], inputData['ref'],
             inputData['alt'], 'hg38')
-        hideSearch();
+        // hideSearch();
     }
 }
 
@@ -617,7 +617,7 @@ function showAnnotation(response) {
     showSectionTitles();
     var parentDiv = document.querySelector('#contdiv_vinfo');
     var retDivs = showWidget('basepanel', ['base'], 'variant', parentDiv);
-    var parentDiv = document.querySelector('#contdiv_gene');
+    var parentDiv = document.querySelector('#contdiv_gene'); 
     showWidget('genepanel', ['base', 'ncbigene', 'ess_gene', 'gnomad_gene', 'go', 'loftool', 'prec', 'phi', 'interpro', 'pangalodb'],
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_clin');
@@ -681,10 +681,6 @@ function getWidgets(callback, callbackArgs) {
 const getNoAnnotMsgGeneLevel = function() {
     return 'No annotation available for ' + annotData['base']['hugo']
 }
-
-//   const getNoAnnotMsgVariantLevel = function () {
-//     return 'No annotation available for ' + getHugoAchange()
-//   }
 
 function getNodataSpan(annotator_name) {
     var span = getEl('span');
@@ -1047,6 +1043,163 @@ const baseWidgetlink = function(title, value, link) {
     addEl(sdiv, ssdiv)
     return sdiv
 }
+
+const barWidget = function(title, scoretitle, value, rankscore, minval, maxval, significance, other, otherscore, colors = {'0.0': [255, 255, 255],'1.0': [255, 0, 0]}){
+    // Bar setup
+    var maindiv = getEl('div')
+    maindiv.classList.add("barWidget")
+    var div = getEl('div')
+    div.classList.add('barDivTitle')
+    var sdiv = getEl('div')
+    sdiv.classList.add('barDiv')
+    
+    // Title
+    var titleSpan = getEl('span')
+    titleSpan.textContent = title
+    addEl(maindiv, titleSpan)
+    
+    // Significance
+    var bottomdiv = getEl('div')
+    bottomdiv.innerHTML = significance
+    bottomdiv.style.display = "flex"
+    if (title == "LoFtool"){
+        bottomdiv.style.justifyContent = "flex-start"
+    }else{
+    bottomdiv.style.justifyContent = "flex-end"
+    }
+    bottomdiv.style.fontSize = ".75rem"
+    
+    //Score
+    sdiv.innerHTML = value;
+    sdiv.style.fontSize = "1rem"
+    sdiv.style.width = value * 100 + "%"
+    
+    // color of bar
+    var orderedPivots = [];
+    for (pivot in colors) {
+        orderedPivots.push(pivot)
+    }
+    orderedPivots.sort(function(a, b) {
+        return a - b
+    })
+    var value = (value - parseFloat(minval)) / (Math.abs(parseFloat(minval)) + Math.abs(parseFloat(maxval)));
+    sdiv.style.width = value * 100 + "%"
+    var c = [];
+    if (value !== '') {
+        if (value <= orderedPivots[0]) {
+            var piv = orderedPivots[0];
+            c = colors['%s', piv];
+        } else if (value >= orderedPivots[orderedPivots.length - 1]) {
+            var piv = orderedPivots[orderedPivots.length - 1];
+            c = colors['%s', piv];
+        } else {
+            var boundColors = {
+                color1: [],
+                color2: []
+            };
+            var boundPivots = [];
+            for (var i = 0; i < (orderedPivots.length - 1); i++) {
+                if (orderedPivots[i] <= value && value < orderedPivots[i + 1]) {
+                    boundPivots[0] = orderedPivots[i];
+                    boundPivots[1] = orderedPivots[i + 1];
+                    boundColors.color1 = colors[boundPivots[0]];
+                    boundColors.color2 = colors[boundPivots[1]];
+                    break;
+                }
+            }
+            //semi-broken when values are negative
+            var ratio = (value - boundPivots[0]) / (boundPivots[1] - boundPivots[0]);
+            c[0] = Math.round(boundColors.color1[0] * (1.0 - ratio) + boundColors.color2[0] * ratio);
+            c[1] = Math.round(boundColors.color1[1] * (1.0 - ratio) + boundColors.color2[1] * ratio);
+            c[2] = Math.round(boundColors.color1[2] * (1.0 - ratio) + boundColors.color2[2] * ratio);
+        }
+
+    } else {
+        c = [255, 255, 255];
+    }
+    var color = 'rgb(' + c.toString() + ')'
+    sdiv.style.backgroundColor = color
+
+    
+    addEl(div, sdiv)
+
+    // Rankscore 
+    if (rankscore != ""){
+        var rankDiv = getEl('div')
+        var rankSpan = getEl("span")
+        rankSpan.textContent = " rankscore"
+        rankSpan.style.fontSize = "0.750rem"
+        var rscore = getEl("span")
+        rscore.style.fontSize = "1rem"
+        rscore.textContent = rankscore
+        addEl(rankDiv, rscore)
+        addEl(rankDiv, rankSpan)
+        addEl(maindiv, rankDiv)
+    }else{
+        // addEl(maindiv, getEl("br"))
+    }
+    // other score
+    if (other != ""){
+        var otherDiv = getEl('div')
+        var otherSpan = getEl("span")
+        otherSpan.textContent = other
+        otherSpan.style.fontSize = "0.750rem"
+
+        var ospan= getEl("span")
+        ospan.style.fontSize = "1rem"
+        ospan.textContent = otherscore
+        addEl(otherDiv, ospan)
+        addEl(otherDiv, otherSpan)
+        addEl(maindiv, otherDiv)
+    }
+
+    // Score span
+    var scoreSpan = getEl("span")
+    scoreSpan.textContent = scoretitle
+    scoreSpan.style.fontSize = "0.750rem"
+    addEl(maindiv, scoreSpan)
+    addEl(maindiv, div)
+
+    // make arrow
+    var arrow = getEl('div')
+    arrow.classList.add("arrow")
+    var line = getEl('div')
+    line.classList.add('line')
+    var point = getEl('div')
+    if (title == "LoFtool"){
+        point.classList.add("pointRight")
+        addEl(arrow, point)
+        addEl(arrow, line)
+        
+    }else{
+        point.classList.add('point')
+        addEl(arrow, line)
+        addEl(arrow, point)
+    }
+    
+    // minimum score range
+    var minSpan = getEl("span")
+    minval = minval.toString()
+    minSpan.textContent = minval
+    minSpan.style.fontSize = "12px"
+
+    // maximum score range
+    var maxSpan = getEl("span")
+    maxSpan.textContent = maxval
+    
+    // arrow with range
+    var linediv = getEl('div')
+    linediv.style.display = "flex"
+    linediv.flex = "0 auto 0 "
+    addEl(linediv, minSpan)
+    addEl(linediv, arrow)
+    addEl(linediv, maxSpan)
+    addEl(maindiv, linediv)
+
+    addEl(maindiv, bottomdiv)
+    return maindiv
+}
+
 var widgetInfo = {};
 var widgetGenerators = {};
 
@@ -1068,23 +1221,29 @@ widgetGenerators['base2'] = {
             var chrom = chrom.substring(3)
             var thous_af = getWidgetData(tabName, 'thousandgenomes', row, 'af');
             var gnomad_af = getWidgetData(tabName, 'gnomad', row, 'af')
-            var vdiv = getEl('div')
-            var span = getEl('span');
-            span.classList.add('detail-info-line-header');
-            span.style.fontSize = '1.25rem';
-            span.style.fontWeight = '600';
-            span.textContent = hugo;
-            addEl(vdiv, span);
-            var span = getEl('span');
-            span.style.fontSize = '1.25rem';
-            span.style.wor = '10px';
-            span.classList.add('basehugo');
+            var sdiv = getEl('div');
+            sdiv.setAttribute("id", "varinfo")
+            var geneName = baseWidget('Gene Symbol', hugo)
+            geneName.classList.add("basepaneldiv")
+            addEl(sdiv, geneName);
             var achange = getWidgetData(tabName, 'base', row, 'achange');
             achange = changeAchange3to1(achange);
-            span.textContent = '\n' + achange;
-            addEl(vdiv, span)
-            addEl(div, getEl('br'));
-            var sdiv = getEl('div');
+            var achange = baseWidget('Protein Change', achange)
+            achange.classList.add("basepaneldiv")
+            addEl(sdiv, achange)
+            var acc = getWidgetData(tabName, 'uniprot', row, 'acc');
+            if (acc == null) {
+                var uniprot = baseWidget('UniProt Accession Number', 'No UniProt available')
+            } else {
+                link2 = 'https://www.uniprot.org/uniprot/' + acc
+                var aa = getEl('a');
+                aa.href = link2
+                aa.textContent = acc
+                var u = getEl('div')
+                var uniprot = baseWidgetlink('UniProt Accession Number', acc, link2)
+            }
+            uniprot.classList.add("basepaneldiv")
+            addEl(sdiv, uniprot)
             var variant_type = null;
             if (nref == 1 && nalt == 1 && ref_base != '-' && alt_base != '-') {
                 variant_type = 'single nucleotide variant';
@@ -1099,27 +1258,21 @@ widgetGenerators['base2'] = {
                 variant_type = 'complex substitution';
             }
             addEl(div, sdiv);
-            addEl(div, getEl('br'));
-            var dl = getEl('dl')
-            addEl(div, dl)
             var wdiv = getEl('div')
             wdiv.style.display = 'flex'
             wdiv.style.flexWrap = 'wrap'
-            // var table = getEl('table');
-            // table.setAttribute("id", "basetable");
             var tbody = getEl('tbody');
-            var sdiv = getEl('div');
-            // var sdiv = getEl('div')
-            // sdiv.style.maxwidth = '95rem'
-            // sdiv.style.maxHeight = '100%'
-            // sdiv.style.overflow = 'auto'
             sdiv.style.display = 'flex'
             sdiv.style.flexWrap = 'wrap'
-            // var tr = document.createElement('tr');
-            // var ssdiv = getEl('div')
-            var variantinfo = baseWidget('Variant Type', variant_type + ' (' + ref_base + '>' + alt_base + ')')
+            sdiv.style.justifyContent = 'space-between'
+            sdiv.style.rowGap = ".85rem"
+            var variantinfo = baseWidget('Variant Type', variant_type)
+            variantinfo.classList.add("basepaneldiv")
             addEl(sdiv, variantinfo)
-            // addDlRow(dl, '', variantinfo)
+            var baseChange = baseWidget('Base Change', ref_base + ' > ' + alt_base)
+            baseChange.classList.add("basepaneldiv")
+            addEl(sdiv, baseChange)
+            
             var variant_length = null;
             if (variant_type == 'single nucleotide variant') {
                 variant_length = '1';
@@ -1130,9 +1283,6 @@ widgetGenerators['base2'] = {
             if (variant_type == 'insertion' && 'complex substitution') {
                 variant_length = nalt;
             }
-            // addDlRow(dl, 'Genomic location', 'chr' + chrom + ':' + getWidgetData(tabName, 'base', row, 'pos') + ' ' + '(genome build GRCh38)', tabName)
-            var genomic_location = baseWidget('Genomic location', 'chr' + chrom + ':' + getWidgetData(tabName, 'base', row, 'pos') + ' ' + '(genome build GRCh38)')
-            addEl(sdiv, genomic_location)
             var so = getWidgetData(tabName, 'base', row, 'so');
             var consequence = '';
             if (so == 'synonymous_variant') {
@@ -1140,9 +1290,19 @@ widgetGenerators['base2'] = {
             } else {
                 consequence = 'nonsynonymous';
             }
-            // addDlRow(dl, 'Variant consequence', consequence + ' (' + so.replace('_', ' ') + ')', tabName)
-            var consequences = baseWidget('Variant consequence', consequence + ' (' + so.replace('_', ' ') + ')')
+            var sequenceOntology = baseWidget('Sequence Ontology', so.replace('_', ' '))
+            sequenceOntology.classList.add("basepaneldiv")
+            addEl(sdiv, sequenceOntology)
+            var consequences = baseWidget('Variant consequence', consequence)
+            consequences.classList.add("basepaneldiv")
             addEl(sdiv, consequences)
+            var link = "https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&position=" + chrom + "%3A" + getWidgetData(tabName, 'base', row, 'pos')
+            var genomic_location = baseWidgetlink('Genomic location', 'chr' + chrom + ':' + getWidgetData(tabName, 'base', row, 'pos'), link)
+            genomic_location.classList.add("basepaneldiv")
+            addEl(sdiv, genomic_location)
+            var genomeBuild = baseWidget("Genome Build", "GRCh38")
+            genomeBuild.classList.add("basepaneldiv")
+            addEl(sdiv, genomeBuild)
             var max_af = null;
             if (thous_af != undefined && gnomad_af != undefined) {
                 if (thous_af > gnomad_af) {
@@ -1157,47 +1317,16 @@ widgetGenerators['base2'] = {
             }
             var snp = getWidgetData(tabName, 'dbsnp', row, 'rsid');
             if (snp == null) {
-                //   addDlRow(dl, 'dbSNP ID', 'No dbSNP ID is available');
                 var dbsnp = baseWidget('dbSNP ID', 'No dbSNP ID is available')
             } else {
                 link = 'https://www.ncbi.nlm.nih.gov/snp/' + snp
                 var dbsnp = baseWidgetlink('dbSNP ID', snp, link)
             }
+            dbsnp.classList.add("basepaneldiv")
             addEl(sdiv, dbsnp)
-            var acc = getWidgetData(tabName, 'uniprot', row, 'acc');
-            if (acc == null) {
-                // addDlRow(dl, 'UniProt Accession Number', 'No annotation available');
-                var uniprot = predWidget('UniProt Accession Number', getNoAnnotMsgVariantLevel())
-            } else {
-                link2 = 'https://www.uniprot.org/uniprot/' + acc
-                // var aa = makeA(acc, link2)
-                var aa = getEl('a');
-                aa.href = link2
-                aa.textContent = acc
-                var u = getEl('div')
-                // aa.classList.add('linkclass')
-
-                var uniprot = baseWidgetlink('UniProt Accession Number', acc, link2)
-            }
-            addEl(sdiv, uniprot)
-            // var td = document.createElement('td');
-            // addEl(td, variantinfo)
-            // addEl(tr, td);
-            // var td = document.createElement('td');
-            // addEl(tr, td);
-            // addEl(td, genomic_location)
-            // var td = document.createElement('td');
-            // addEl(tr, td);
-            // addEl(td, consequences)
-            // var td = document.createElement('td');
-            // addEl(tr, td);
-            // addEl(td, dbsnp)
-            // var td = document.createElement('td');
-            // addEl(tr, td);
-            // addEl(td, uniprot)
-            // addEl(tbody, tr);
-            // addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
-            addDlRow(dl, vdiv, sdiv)
+            div.style.backgroundColor = "white"
+            div.style.width = "82%"
+            addEl(div, sdiv)
         }
     }
 }
@@ -1330,7 +1459,6 @@ widgetGenerators['civic2'] = {
         'function': function(div, row, tabName) {
             var score = getWidgetData(tabName, 'civic', row, 'clinical_a_score');
             var description = getWidgetData(tabName, 'civic', row, 'description');
-            //addInfoLine3(div, 'Clinical Actionability Score', score, tabName);
             addInfoLine3(div, 'Description', description, tabName);
         }
     }
@@ -1352,16 +1480,17 @@ widgetGenerators['siphy2'] = {
             var wdiv = getEl('div')
             wdiv.style.display = 'flex'
             wdiv.style.flexWrap = 'wrap'
+            wdiv.style.overflow = 'hidden'
             var divHeight = '400px';
             var log = getWidgetData(tabName, 'siphy', row, 'logodds');
             var rank = getWidgetData(tabName, 'siphy', row, 'logodds_rank');
             if (rank != null || rank != undefined) {
-                var sdiv = getDialWidget2('SiPhy', annotData['siphy']['logodds_rank'], .80, log)
+                var sdiv = barWidget("SiPhy","score", prettyVal(log), prettyVal(rank), 0, 37.9718, "More" + "<br />" + "Conserved", "","")
             } else {
                 var sdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
+            sdiv.style.width = '250px'
             addDlRow(dl, titleEl, sdiv);
-            // addGradientBarComponent(div, row, 'Rank Score', 'siphy__logodds_rank', tabName);
             var pis = getWidgetData(tabName, 'siphy', row, 'pi');
             var pils = pis != null ? pis.split(';') : [];
             var sdiv = getEl('div')
@@ -2448,7 +2577,6 @@ widgetGenerators['litvar'] = {
             var n = v['rsids2pmids'][rsid];
             var link = 'https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/LitVar/#!?query=' + rsid;
             if (n != undefined) {
-                //addInfoLineLink(div, n , '# publications for the variant (' + rsid + ')', link);
                 if (n == 0) {
                     var a = getNoAnnotMsgVariantLevel()
                 } else if (n == 1) {
@@ -2467,8 +2595,6 @@ widgetGenerators['litvar'] = {
                             var response = JSON.parse(xhr.responseText);
                             n = response['n']
                             v['rsids2pmids'][rsid] = n;
-                            //addInfoLineLink2(div, '',  
-                            //        n + ' publications for the variant (' + rsid + ')', link);
                             if (n == 0) {
                                 var a = getNoAnnotMsgVariantLevel()
                             } else if (n == 1) {
@@ -2501,6 +2627,7 @@ widgetGenerators['basepanel'] = {
         'function': function(div, row, tabName) {
             var generator = widgetGenerators['base2']['variant'];
             var divs = showWidget('base2', ['base', 'dbsnp', 'thousandgenomes', 'gnomad', 'uniprot'], 'variant', div, null, null, false);
+            div.style.backgroundColor = "white"
             addEl(div, getEl('br'));
         }
     }
@@ -2520,28 +2647,14 @@ widgetGenerators['phastcons3'] = {
             var sdiv = getEl('div')
             sdiv.style.display = 'flex'
             sdiv.style.flexWrap = 'wrap'
+            sdiv.style.overflow = 'hidden'
             var vert_r = getWidgetData(tabName, 'phastcons', row, 'phastcons100_vert_r');
             var vert = getWidgetData(tabName, 'phastcons', row, 'phastcons100_vert');
-            if (vert_r != null || vert_r != undefined) {
-                var v = getDialWidget2('Vertebrate', annotData['phastcons']['phastcons100_vert_r'], .80, vert)
-            } else {
-                var v = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
-            }
             var mamm_r = getWidgetData(tabName, 'phastcons', row, 'phastcons30_mamm_r');
             var mamm = getWidgetData(tabName, 'phastcons', row, 'phastcons30_mamm');
-            if (mamm_r != null || mamm_r != undefined) {
-                var m = getDialWidget2('Mammalian', annotData['phastcons']['phastcons30_mamm_r'], .80, mamm)
-
-            } else {
-                var m = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
-            }
-            v.style.paddingBottom = '10px'
-            v.style.paddingTop = '10px'
+            var v = barWidget("Vertebrate", "Score", vert, prettyVal(vert_r), 0.0, 1, "More " + "<br />" + "Conserved", "", "")
+            var m = barWidget("Mammalian", "Score", prettyVal(mamm), prettyVal(mamm_r),  0.0, 1, "More " + "<br />" + "Conserved", "", "")
             v.style.paddingRight = '40px'
-            m.style.paddingBottom = '10px'
-            m.style.paddingTop = '10px'
-            sdiv.style.border = 'solid gray 1px';
-            sdiv.style.maxWidth = '32rem'
             addEl(sdiv, v)
             addEl(sdiv, m)
             addDlRow(dl, titleEl, sdiv)
@@ -2567,21 +2680,21 @@ widgetGenerators['phylop2'] = {
             var vert_r = getWidgetData(tabName, 'phylop', row, 'phylop100_vert_r');
             var vert = getWidgetData(tabName, 'phylop', row, 'phylop100_vert');
             if (vert_r != null || vert_r != undefined) {
-                var v = getDialWidget2('Vertebrate', annotData['phylop']['phylop100_vert_r'], .80, vert)
+                var v = barWidget("Vertebrate", "Score", prettyVal(vert), prettyVal(vert_r), -20, 10.003, "More"  + "<br />" + "Conserved", "", "")
             } else {
                 var v = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
             var mamm_r = getWidgetData(tabName, 'phylop', row, 'phylop30_mamm_r');
             var mamm = getWidgetData(tabName, 'phylop', row, 'phylop30_mamm');
             if (mamm_r != null || mamm_r != undefined) {
-                var m = getDialWidget2('Mammalian', annotData['phylop']['phylop30_mamm_r'], .80, mamm)
+                var m = barWidget("Mammalian", "Score", prettyVal(mamm), prettyVal(mamm_r), -20, 1.312, "More"  + "<br />" + "Conserved", "", "")
             } else {
                 var m = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
             var prim_r = getWidgetData(tabName, 'phylop', row, 'phylop17_primate_r');
             var prim = getWidgetData(tabName, 'phylop', row, 'phylop17_primate');
             if (prim_r != null || prim_r != undefined) {
-                var p = getDialWidget2('Primate', annotData['phylop']['phylop17_primate_r'], .80, prim)
+                var p = barWidget("Primate", "Score", prettyVal(prim), prettyVal(prim_r), -13.362, 0.756, "More"  + "<br />" + "Conserved", "", "")
             } else {
                 var p = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
@@ -2593,8 +2706,6 @@ widgetGenerators['phylop2'] = {
             m.style.paddingTop = '10px';
             p.style.paddingBottom = '10px';
             p.style.paddingTop = '10px';
-            sdiv.style.border = 'solid gray 1px';
-            sdiv.style.maxWidth = '50rem'
             addEl(sdiv, v)
             addEl(sdiv, m)
             addEl(sdiv, p)
@@ -3093,28 +3204,12 @@ widgetGenerators['gerp2'] = {
             var sdiv = getEl('div')
             sdiv.style.display = 'flex'
             sdiv.style.flexWrap = 'wrap'
+            sdiv.style.overflow = 'hidden'
             var rs = getWidgetData(tabName, 'gerp', row, 'gerp_rs');
             var rank = getWidgetData(tabName, 'gerp', row, 'gerp_rs_rank');
-            if (rank != null || rank != undefined) {
-                var ssdiv = getDialWidget2('GERP++', annotData['gerp']['gerp_rs_rank'], .80, rs)
-            } else {
-                var ssdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
-            }
             var nr = getWidgetData(tabName, 'gerp', row, 'gerp_nr');
-            if (nr != null || nr != undefined) {
-                var gerp = contentWidget('GERP++ Neutral Rate', nr)
-            } else {
-                var gerp = contentWidget('GERP++ Neutral Rate', getNoAnnotMsgVariantLevel())
-            }
-            gerp.style.paddingLeft = '40px'
-            ssdiv.style.paddingBottom = '10px'
-            ssdiv.style.paddingTop = '10px'
-            gerp.style.paddingBottom = '10px'
-            gerp.style.paddingTop = '15px'
-            sdiv.style.border = 'solid gray 1px';
-            sdiv.style.maxWidth = '30rem'
-            addEl(sdiv, ssdiv)
-            addEl(sdiv, gerp)
+            var rsScore = barWidget("GERP++", "RS score", prettyVal(rs), prettyVal(rank), -12.3, 6.17, "More"  + "<br />" + "Conserved", " neutral rate",prettyVal(nr))
+            addEl(sdiv, rsScore)
             addDlRow(dl, titleEl, sdiv)
         }
     }
@@ -3201,7 +3296,6 @@ widgetGenerators['geuvadis'] = {
                 var span = getEl('div');
                 span.classList.add('clinvar_traitname');
                 span.textContent = risk
-                // addEl(span, risk)
                 addEl(sdiv, span)
                 addDlRow(dl, titleEl, sdiv);
             } else {
@@ -3224,11 +3318,10 @@ widgetGenerators['linsight'] = {
             var titleEl = makeModuleDescUrlTitle("linsight")
             var value = getWidgetData(tabName, 'linsight', row, 'value');
             if (value != null || value != undefined) {
-                var sdiv = getDialWidget('LINSIGHT Score', annotData['linsight']['value'], .80)
+                addDlRow(dl, titleEl, prettyVal(value) )
             } else {
-                var sdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
+                addDlRow(dl, titleEl, getNoAnnotMsgVariantLevel())
             }
-            addDlRow(dl, titleEl, sdiv);
         }
     }
 }
@@ -3275,20 +3368,25 @@ widgetInfo['loftool2'] = {
     'title': 'LoFtool'
 };
 widgetGenerators['loftool2'] = {
-    'annotators': 'loftool2',
+    'annotators': 'loftool',
     'variant': {
         'width': undefined,
         'height': undefined,
         'function': function(div, row, tabName) {
             var dl = getEl('dl')
             addEl(div, dl)
-            var titleEl = makeModuleDescUrlTitle('loftool2')
+            var titleEl = makeModuleDescUrlTitle("loftool2", "LoFtool")
             var score = getWidgetData(tabName, 'loftool', row, 'loftool_score');
-            if (score != null || score != undefined) {
-                var sdiv = getDialWidget('Score', annotData['loftool']['loftool_score'], .80)
+            if (score != null || score != undefined){
+                var sdiv = barWidget('LoFtool', 'Score', prettyVal(score), '', 0.0, 1.0, "Greater Gene"  + "<br />" + "Tolerance", "", "")
+                
             } else {
                 var sdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
+            sdiv.style.display = "flex"
+            sdiv.style.flexWrap = "wrap"
+            sdiv.style.flexDirection = "column"
+            sdiv.style.width = "fit-content"
             addDlRow(dl, titleEl, sdiv);
         }
     }
@@ -3365,8 +3463,6 @@ widgetGenerators['ensembl_regulatory_build2'] = {
             var id = getWidgetData(tabName, 'ensembl_regulatory_build', row, 'ensr');
             var region = getWidgetData(tabName, 'ensembl_regulatory_build', row, 'region');
             var sdiv = getEl('div')
-            // sdiv.style.display = 'flex'
-            // sdiv.style.flexWrap = 'wrap'
             var link = '';
             if (id != null) {
                 link = 'http://www.ensembl.org/Homo_sapiens/Regulation/Context?db=core;fdb=funcgen;rf=' + id;
@@ -3698,20 +3794,6 @@ widgetGenerators['sift2'] = {
     }
 }
 
-widgetInfo['basepanel'] = {
-    'title': ''
-};
-widgetGenerators['basepanel'] = {
-    'variant': {
-        'width': '100%',
-        'height': '100%',
-        'function': function(div, row, tabName) {
-            var generator = widgetGenerators['base2']['variant'];
-            var divs = showWidget('base2', ['base', 'dbsnp', 'thousandgenomes', 'gnomad', 'uniprot'], 'variant', div, null, null, false);
-            addEl(div, getEl('br'));
-        }
-    }
-}
 widgetInfo['genepanel'] = {
     'title': ''
 };
@@ -3787,11 +3869,16 @@ widgetGenerators['evolutionpanel'] = {
             addEl(div, dl)
             var divs = showWidget('rvis2', ['rvis'], 'variant', div, null, null, false);
             var titleEl = makeModuleDescUrlTitle("ghis")
-            if (annotData['ghis'] != null) {
-                var sdiv = getDialWidget('GHIS Score', annotData['ghis']['ghis'], .80)
+            if (annotData['ghis'] != null) { 
+                var sdiv = barWidget('GHIS', 'Score', prettyVal(annotData['ghis']['ghis']), '', 0.358, 0.987, "More" + "<br />" + "haploinsufficient", "", "")
+                
             } else {
                 var sdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
+            sdiv.style.display = "flex"
+            sdiv.style.flexWrap = "wrap"
+            sdiv.style.flexDirection = "column"
+            sdiv.style.width = "fit-content"
             addDlRow(dl, titleEl, sdiv)
             var divs = showWidget('aloft2', ['aloft'], 'variant', div, null, null, false);
             addEl(div, getEl('br'))
@@ -3970,20 +4057,6 @@ widgetGenerators['noncodingpanel'] = {
             addEl(div, dl)
             addEl(div, getEl('br'));
             var divs = showWidget('vista_enhancer', ['vista_enhancer'], 'variant', div, null, null, false);
-
-            // addEl(div, getEl('br'));
-            // var divs = showWidget('ensembl_regulatory_build2', ['ensembl_regulatory_build'], 'variant', div, null, null, false);
-
-            // addEl(div, getEl('br'));
-            // var divs = showWidget('trinity', ['trinity'], 'variant', div, null, null, false);
-
-            // var dl = getEl('dl')
-            // addEl(div, dl)
-            // addEl(div, getEl('br'));
-            // var divs = showWidget('segway', ['segway'], 'variant', div, null, null, false);
-            // addEl(div, getEl('br'));
-            // var divs = showWidget('mirbase2', ['mirbase'], 'variant', div, null, null, false);
-
         }
     }
 }
@@ -4075,7 +4148,7 @@ widgetGenerators['predictionpanel'] = {
             }
             var mkl_rankscore = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_rankscore');
             if (mkl_rankscore != undefined || mkl_rankscore != null) {
-                var mkl = getDialWidget('coding rankscore', mkl_rankscore, 0.50);
+                var mkl = getDialWidget('coding rankscore', mkl_rankscore, 0.28317);
                 rankscores.push(mkl);
             } else {
                 var mkl = predWidget(null, null);
@@ -4409,7 +4482,6 @@ widgetGenerators['predictionpanel'] = {
                 if (score != null) {
                     score.classList.add('pred_score');
                 }
-                // addEl(tr, addEl(td, addEl(a, tn)))
                 var td = document.createElement('td');
                 if (p != null && p.includes('Damaging') || p == 'Medium' || p == 'Disease Causing') {
                     dam_count = dam_count + 1;
@@ -4701,38 +4773,6 @@ widgetGenerators['allelefreqpanel'] = {
             addEl(div, dl)
             div.style.marginTop = '2vh';
             var hugoAchange = getHugoAchange()
-            //div.style.overflow = 'unset';
-            //var sdiv = getEl('div');
-            /*var span = getEl('div');
-            span.textContent = 'Allele frequencies';
-            addEl(sdiv, span);
-            addEl(sdiv, getEl('br'));
-            addEl(sdiv, getEl('br'));*/
-            //var span = getEl('div');
-            //span.classList.add('detail-info-line-header');
-            //span.style.width = '130px';
-            //span.textContent = 'gnomADv3 allele frequency';
-            //span.style.textAlign = 'left';
-            //span.style.display = 'inline-block';
-            //addEl(sdiv, span);
-            /*var td = getEl('div');
-            td.style.display = 'inline-block';
-            td.style.width = 'calc(100% - 130px)';
-            if (annotData['gnomad3'] == null) {
-                var span = getEl('span');
-                span.textContent = 'No annotation available for ' + hugo + ' ' + achange;
-                addEl(td, span);
-            } else {
-                addBarComponent(td, row, 'Total', 'gnomad3__af', tabName);
-                addBarComponent(td, row, 'African/African American', 'gnomad3__af_afr', tabName);
-                addBarComponent(td, row, 'Latino/Admixed American', 'gnomad3__af_amr', tabName);
-                addBarComponent(td, row, 'Ashkenazi Jewish', 'gnomad3__af_asj', tabName);
-                addBarComponent(td, row, 'East Asian', 'gnomad3__af_eas', tabName);
-                addBarComponent(td, row, 'Finnish', 'gnomad3__af_fin', tabName);
-                addBarComponent(td, row, 'Non-Finnish European', 'gnomad3__af_nfe', tabName);
-                addBarComponent(td, row, 'Other', 'gnomad3__af_oth', tabName);
-                addBarComponent(td, row, 'South Asian', 'gnomad3__af_sas', tabName);
-            }*/
             var titleEl = makeModuleDescUrlTitle("gnomad3", "gnomADv3 Allele Frequency")
             if (annotData['gnomad3'] == null) {
                 var td = getNoAnnotMsgVariantLevel()
@@ -4747,10 +4787,6 @@ widgetGenerators['allelefreqpanel'] = {
                 let nfe = annotData['gnomad3']['af_nfe']
                 let oth = annotData['gnomad3']['af_oth']
                 let sas = annotData['gnomad3']['af_sas']
-                /*af = 1
-                afr = 0.5
-                asj = 0.25
-                eas = 0.05*/
                 var tableData = [af, afr, asj, eas, fin, amr, nfe, oth, sas]
                 var barColors = [
                     `rgba(255, ${(1 - af) * 255}, ${(1 - af) * 240}, 1)`,
@@ -4850,10 +4886,6 @@ widgetGenerators['allelefreqpanel'] = {
                 let eas = annotData['thousandgenomes']['eas_af']
                 let eur = annotData['thousandgenomes']['eur_af']
                 let sas = annotData['thousandgenomes']['sas_af']
-                /*af = 1
-                afr = 0.5
-                asj = 0.25
-                eas = 0.05*/
                 var tableData = [af, amr, afr, eas, eur, sas]
                 var barColors = [
                     `rgba(255, ${(1 - af) * 255}, ${(1 - af) * 240}, 1)`,
@@ -4936,34 +4968,6 @@ widgetGenerators['allelefreqpanel'] = {
                     },
                 })
             }
-            //addEl(sdiv, td);
-            //addEl(sdiv, getEl('br'));
-            //addEl(sdiv, getEl('br'));
-            //var span = getEl('div');
-            //span.classList.add('detail-info-line-header');
-            //span.style.width = '130px';
-            //span.textContent = '1000 Genomes allele frequency';
-            //span.style.textAlign = 'left';
-            //span.style.display = 'inline-block';
-            //addEl(sdiv, span);
-            /*var td = getEl('div');
-            if (annotData['thousandgenomes'] == null) {
-                var span = getEl('span');
-                span.textContent = 'No annotation available for ' + hugo + ' ' + achange;
-                addEl(td, span);
-            } else {
-                addBarComponent(td, row, 'Total', 'thousandgenomes__af', tabName);
-                addBarComponent(td, row, 'African', 'thousandgenomes__afr_af', tabName);
-                addBarComponent(td, row, 'American', 'thousandgenomes__amr_af', tabName);
-                addBarComponent(td, row, 'East Asian', 'thousandgenomes__eas_af', tabName);
-                addBarComponent(td, row, 'European', 'thousandgenomes__eur_af', tabName);
-                addBarComponent(td, row, 'South Asian', 'thousandgenomes__sas_af', tabName);
-            }
-            addDlRow(dl, '1000 Genomes Allele Frequency', td)*/
-            //addEl(sdiv, td);
-            //addEl(div, sdiv);
-            //var br = getEl("br");
-            //addEl(div, br);
         }
     }
 }
@@ -5121,13 +5125,6 @@ function setupEvents() {
     })
 }
 
-function showSearch() {
-    document.querySelector('#inputdiv').style.display = 'block';
-}
-
-function hideSearch() {
-    document.querySelector('#inputdiv').style.display = 'none';
-}
 
 function showContentDiv() {
     document.querySelector('#detaildiv_variant').style.display = 'block';
@@ -5137,26 +5134,13 @@ function hideContentDiv() {
     document.querySelector('#detaildiv_variant').style.display = 'none';
 }
 
-function toggleSearch() {
-    var display = document.querySelector('#inputdiv').style.display;
-    if (display == 'none') {
-        showSearch();
-    } else if (display == 'block') {
-        hideSearch();
-    }
-}
-
-function onClickSearch() {
-    toggleSearch();
-}
-
 function run() {
     mqMaxMatch.addListener(mqMaxMatchHandler);
     mqMinMatch.addListener(mqMinMatchHandler);
     var params = new URLSearchParams(window.location.search);
     if (params.get('chrom') != null && params.get('pos') != null && params.get('ref_base') != null && params.get('alt_base') != null) {
         showSpinner();
-        hideSearch();
+        // hideSearch();
         setupEvents();
         getWidgets(processUrl, null);
     } else {

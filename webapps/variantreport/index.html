@@ -11,7 +11,6 @@
     <script src='js/chartjs-plugin-labels.js'></script>
     <script src='widgets/wglollipop2/wglollipop2.js'></script>
     <script src='/store/js/showdown-1.9.1.min.js'></script>
-    <!--<script src='/store/nocache/webstore.js'></script>-->
 	<link rel='stylesheet' href='css/widget.css' />
 	<link rel='stylesheet' href='css/variantreport.css' />
     <title> OpenCRAVAT Variant Report</title>
@@ -19,38 +18,26 @@
 <body>
     <div id = 'body'> 
         <div id='logodiv'>
-            <!-- <img src='mtblogo_crop.png' style='width: 4vw; position: absolute; left: 2.5vw;' /> -->
-            <div></div>
+            <div>
+                <div id='inputdiv'>
+                <input id="input_variant" name="inputVariant" style="width: 18vh; height: 2vw; min-height: 30px;">
+                <div style="width: 2.8ex;"></div>
+                <br>
+                <button id="input_submit" class="input_directions" onclick="submitForm();" style="width: 18vh; height: 2vw; cursor: pointer; 
+                    margin-bottom: 3px; min-height: 30px;">
+                    Update annotation</button>
+                <div id = "questionMark"></div>
+                <span id = "directions">Type a variant and enter or click the Update annotation button. The syntax of a 
+                    variant is chromosome, position, reference allele, and alternate allele, 
+                    concatenated with a colon. Strand is assumed to be plus. For example, chr17:39724004:C:G</span>
+                </div>
+            </div>
             <div>
               <span id='pagetitle'>OpenCRAVAT Variant Report</span>
             </div>
             <div>
-            <img id='search_btn' src='search.png' onclick='onClickSearch();'/>
-              <!--<a href='https://github.com/KarchinLab/open-cravat/wiki' target='_blank' id='question_btn'>
-                  <img src='/result/images/question.png' style='width: 1.2vw;' />
-              </a>-->
-            <!-- <div id='inputdiv'>
-                <span>Type a variant and enter or click the Update annotation button. The syntax of a 
-                variant is chromosome, position, reference allele, and alternate allele, 
-                concatenated with a colon. Strand is assumed to be plus. For example, chr17:39724004:C:G</span>
-                <br />
-                <input id="input_variant" name="inputVariant" style='margin-top: 8px;' />
-                <button id="input_submit" onclick="submitForm();" style='margin-top: 8px;' >
-                    Update annotation</button>
-            </div> -->
-            <div id='inputdiv' style='display: none; position: absolute; top: 3rem; right: 9.5vw; 
-                    font-size: 12px; z-index: 3; background-color: white; padding: 20px; width: 250px; 
-                    box-shadow: 4px 4px 4px gray; border: 1px dashed gray;'>
-                <span>Type a variant and enter or click the Update annotation button. The syntax of a 
-                variant is chromosome, position, reference allele, and alternate allele, 
-                concatenated with a colon. Strand is assumed to be plus. For example, chr17:39724004:C:G</span>
-                <br />
-                <input id="input_variant" name="inputVariant" style='margin-top: 8px;' />
-                <button id="input_submit" onclick="submitForm();" style='margin-top: 8px;' >
-                    Update annotation</button>
-            </div>
-            <img src='menu_book-black-48dp.svg' style='width: 3.5vw; position: absolute; 
-                right: 17vw; top: 0.8vw; cursor: pointer;' 
+            <img src='menu_book-black-48dp.svg' style='display: flex; justify-content: center; align-items: center;
+                width: 3.5vw; cursor: pointer;' 
                 onclick='window.open("variantreportdocumentation.pdf");'/>
         </div>
         </div>
@@ -72,15 +59,10 @@
                 <a href="#section11"><img src="pred.png" class= "logos_short"> Variant Effect Predictions</a>
                 <a href="#section12"><img src="vfun.png" class= "logos_tall"> Variant-Level Functional Annotations</a>
                 <a href="#section13"><img src="viz.png" class= "logos_short"> Vizualization</a>
-                <!-- <img id = 'material-icons' src='oc_logo.png'> -->
             </div>
             <div class="main">
                 <div id='detaildiv_variant' class='detaildiv singlevariantpage'>
                     <div id='spinnerdiv'>
-                        <!--<img src='mtblogo_crop.png' style='width: 20vw;'/>
-                        <a href='/' target='_blank'>
-                            <img src='/submit/logo.png' style='width: 20vw;'>
-                        </a>-->
                         <img src='/result/images/arrow-spinner.gif'/>
                     </div>
                     <div id='screendiv' style='position: absolute; width: 100%; height: 100%; 
