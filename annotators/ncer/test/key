@@ -1,5 +1,5 @@
 #CRAVAT Report
-#Created at Monday 06/21/2021 22:01:23
+#Created at Tuesday 09/27/2022 10:57:05
 #Report level: variant
 #
 Variant Annotation																Original Input				ncER: non-coding essential regulation
@@ -14,12 +14,12 @@ UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontolo
 8	chr10	87894027	-	CG		Yes	PTEN	ENST00000371953.8	frameshift_elongation	c.81_82insCG	p.Ile28ArgfsTer27	ENST00000371953.8:PTEN:P60484:frameshift_elongation:p.Ile28ArgfsTer27:c.81_82insCG	1	s2		chr10	87894027	-	CG	99.799811
 9	chr10	87894027	-	CT		Yes	PTEN	ENST00000371953.8	frameshift_elongation	c.81_82insCT	p.Ile28LeufsTer27	ENST00000371953.8:PTEN:P60484:frameshift_elongation:p.Ile28LeufsTer27:c.81_82insCT	1	s3		chr10	87894027	-	CT	99.799811
 10	chr1	100719861	A	T		Yes	VCAM1	ENST00000294728.7	start_lost	c.1A>T	p.Met1?	ENST00000294728.7:VCAM1:P19320:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000347652.6:VCAM1:P19320:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000370115.1:VCAM1::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000370119.8:VCAM1:P19320:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000650339.1:VCAM1::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T	1	s4		chr1	100719861	A	T	97.261818
-11	chr1	10100	C	T									1	s0		chr1	10100	C	T	1.494932
+11	chr1	10100	C	T									1	s0		chr1	10100	C	T	55.424464
 12	chr1	110340653	CGGCTTT	-		Yes	RBM15	ENST00000369784.8	frameshift_truncation	c.1249_1255del	p.Gly417SerfsTer6	ENST00000369784.8:RBM15:Q96T37:frameshift_truncation:p.Gly417SerfsTer6:c.1249_1255del; ENST00000449169.1:RBM15-AS1::2kb_upstream_variant,lnc_RNA::; ENST00000487146.8:RBM15::frameshift_truncation:p.Gly417SerfsTer6:c.1249_1255del; ENST00000602849.1:RBM15:Q96T37:frameshift_truncation:p.Gly417SerfsTer6:c.1249_1255del; ENST00000617047.1:RBM15::frameshift_truncation:p.Gly373SerfsTer6:c.1117_1123del; ENST00000618772.4:RBM15:Q96T37:frameshift_truncation:p.Gly417SerfsTer6:c.1249_1255del; ENST00000650953.2:RBM15::frameshift_truncation:p.Gly373SerfsTer6:c.1117_1123del; ENST00000652342.2:RBM15:Q96T37:frameshift_truncation:p.Gly373SerfsTer6:c.1117_1123del; ENST00000652747.1:RBM15:Q96T37:frameshift_truncation:p.Gly417SerfsTer6:c.1249_1255del; ENST00000654015.1:RBM15::frameshift_truncation:p.Gly373SerfsTer6:c.1117_1123del	1	s1		chr1	110340653	CGGCTTT	-	99.268376
 13	chr11	108227625	A	T		Yes	ATM	ENST00000278616.8	start_lost	c.1A>T	p.Met1?	ENST00000278616.8:ATM:Q13315:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000384240.1:AP001925.1::2kb_downstream_variant,misc_RNA::; ENST00000452508.6:ATM:Q13315:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000526567.5:ATM::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000530958.5:ATM::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000638443.1:ATM::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000639240.1:ATM::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000639953.1:ATM::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000640388.1:ATM::missense_variant,start_lost:p.Met1?:c.1A>T	1	s2		chr11	108227625	A	T	99.680228
 14	chr11	113789394	G	A									1	s3		chr11	113789394	G	A	87.760443
 #CRAVAT Report
-#Created at Monday 06/21/2021 22:01:23
+#Created at Tuesday 09/27/2022 10:57:05
 #Report level: gene
 #
 Variant Annotation					
@@ -32,7 +32,7 @@ VCAM1		1	0	start_lost	missense_variant(1),start_lost(1),NMD_transcript_variant(1
 RBM15		1	0	frameshift_truncation	frameshift_truncation(1)
 ATM		1	0	start_lost	missense_variant(1),start_lost(1),NMD_transcript_variant(1)
 #CRAVAT Report
-#Created at Monday 06/21/2021 22:01:23
+#Created at Tuesday 09/27/2022 10:57:05
 #Report level: sample
 #
 Variant Annotation	
@@ -52,7 +52,7 @@ UID	Sample
 13	s2
 14	s3
 #CRAVAT Report
-#Created at Monday 06/21/2021 22:01:23
+#Created at Tuesday 09/27/2022 10:57:05
 #Report level: mapping
 #
 Variant Annotation			
