@@ -1,6 +1,6 @@
 title: PolyPhen-2
-version: 2022.09.19
-datasource: 2022.09.19
+version: 2022.09.27
+datasource: 2022.09.27
 type: annotator
 level: variant
 output_columns:
