@@ -1,7 +1,10 @@
-from rpy2.robjects.packages import importr
-import rpy2.robjects as robjects
-from rpy2.robjects.vectors import StrVector
-import rpy2.rinterface as ri
+try:
+    from rpy2.robjects.packages import importr
+    import rpy2.robjects as robjects
+    from rpy2.robjects.vectors import StrVector
+    import rpy2.rinterface as ri
+except ImportError:
+    pass
 from cravat import BaseConverter
 import os
 
