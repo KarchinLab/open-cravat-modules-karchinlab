@@ -828,8 +828,8 @@ h3 {
   min-width: 155px;
   display: flex;
   flex-grow: 2;
-  background: black;
-  height: 2px;
+  background: #bfbfbf;
+  height: 1.5px;
   float: left;
   margin-left: 5px;
 }
@@ -837,11 +837,12 @@ h3 {
 .point {
   width: 0;
   height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 14px solid black;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid #bfbfbf;
   float: right;
-  margin-top: 1px;
+  margin-top: 3px;
+  margin-right: 2px;
 }
 
 .pointRight {
@@ -849,8 +850,7 @@ h3 {
   height: 0;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-right: 14px solid black;
-  /* float: right; */
+  border-right: 14px solid #bfbfbf;
   margin-top: 1px;
 }
 

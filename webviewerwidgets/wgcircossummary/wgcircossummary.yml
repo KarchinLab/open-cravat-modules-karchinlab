@@ -1,16 +1,17 @@
 title: Circos Summary
-version: 2.1.0
+version: 2.1.1
 requires_opencravat: '>=2.0.2'
 required_annotator: base
 type: webviewerwidget
 description: Circos Summary result viewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT
+  organization: KarchinLab
+  email: cravat@support.us
+  website:
   citation: ''
 release_note:
+  2.1.1: Updated d3.js package
   2.1.0: New color scheme
   2.0.2: aiosqlite instead of aiosqlite3
   1.1.8: works with open-cravat 1.6.1.
@@ -21,3 +22,4 @@ release_note:
   1.1.1: prevents an error with one histogram bar for a SO class.
 tags:
 - visualization
+private: true

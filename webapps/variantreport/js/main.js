@@ -1044,7 +1044,7 @@ const baseWidgetlink = function(title, value, link) {
     return sdiv
 }
 
-const barWidget = function(title, scoretitle, value, rankscore, minval, maxval, significance, other, otherscore, colors = {'0.0': [255, 255, 255],'1.0': [255, 0, 0]}){
+const barWidget = function(title, scoretitle, value, rankscore, minval, maxval, significance, other, otherscore, colors = {'0.0': [255, 255, 255], '1.0': [255, 0, 0]}){
     // Bar setup
     var maindiv = getEl('div')
     maindiv.classList.add("barWidget")
@@ -1052,7 +1052,7 @@ const barWidget = function(title, scoretitle, value, rankscore, minval, maxval, 
     div.classList.add('barDivTitle')
     var sdiv = getEl('div')
     sdiv.classList.add('barDiv')
-    
+
     // Title
     var titleSpan = getEl('span')
     titleSpan.textContent = title
@@ -1065,7 +1065,7 @@ const barWidget = function(title, scoretitle, value, rankscore, minval, maxval, 
     if (title == "LoFtool"){
         bottomdiv.style.justifyContent = "flex-start"
     }else{
-    bottomdiv.style.justifyContent = "flex-end"
+        bottomdiv.style.justifyContent = "flex-end"
     }
     bottomdiv.style.fontSize = ".75rem"
     
@@ -1073,58 +1073,11 @@ const barWidget = function(title, scoretitle, value, rankscore, minval, maxval, 
     sdiv.innerHTML = value;
     sdiv.style.fontSize = "1rem"
     sdiv.style.width = value * 100 + "%"
-    
-    // color of bar
-    var orderedPivots = [];
-    for (pivot in colors) {
-        orderedPivots.push(pivot)
-    }
-    orderedPivots.sort(function(a, b) {
-        return a - b
-    })
-    var value = (value - parseFloat(minval)) / (Math.abs(parseFloat(minval)) + Math.abs(parseFloat(maxval)));
-    sdiv.style.width = value * 100 + "%"
-    var c = [];
-    if (value !== '') {
-        if (value <= orderedPivots[0]) {
-            var piv = orderedPivots[0];
-            c = colors['%s', piv];
-        } else if (value >= orderedPivots[orderedPivots.length - 1]) {
-            var piv = orderedPivots[orderedPivots.length - 1];
-            c = colors['%s', piv];
-        } else {
-            var boundColors = {
-                color1: [],
-                color2: []
-            };
-            var boundPivots = [];
-            for (var i = 0; i < (orderedPivots.length - 1); i++) {
-                if (orderedPivots[i] <= value && value < orderedPivots[i + 1]) {
-                    boundPivots[0] = orderedPivots[i];
-                    boundPivots[1] = orderedPivots[i + 1];
-                    boundColors.color1 = colors[boundPivots[0]];
-                    boundColors.color2 = colors[boundPivots[1]];
-                    break;
-                }
-            }
-            //semi-broken when values are negative
-            var ratio = (value - boundPivots[0]) / (boundPivots[1] - boundPivots[0]);
-            c[0] = Math.round(boundColors.color1[0] * (1.0 - ratio) + boundColors.color2[0] * ratio);
-            c[1] = Math.round(boundColors.color1[1] * (1.0 - ratio) + boundColors.color2[1] * ratio);
-            c[2] = Math.round(boundColors.color1[2] * (1.0 - ratio) + boundColors.color2[2] * ratio);
-        }
-
-    } else {
-        c = [255, 255, 255];
-    }
-    var color = 'rgb(' + c.toString() + ')'
-    sdiv.style.backgroundColor = color
-
-    
-    addEl(div, sdiv)
+    var percvalue = (value - parseFloat(minval)) / (Math.abs(parseFloat(minval)) + Math.abs(parseFloat(maxval)));
+    sdiv.style.width = percvalue * 100 + "%"
 
     // Rankscore 
-    if (rankscore != ""){
+    if (rankscore != null){
         var rankDiv = getEl('div')
         var rankSpan = getEl("span")
         rankSpan.textContent = " rankscore"
@@ -1135,16 +1088,14 @@ const barWidget = function(title, scoretitle, value, rankscore, minval, maxval, 
         addEl(rankDiv, rscore)
         addEl(rankDiv, rankSpan)
         addEl(maindiv, rankDiv)
-    }else{
-        // addEl(maindiv, getEl("br"))
     }
+
     // other score
-    if (other != ""){
+    if (other != null){
         var otherDiv = getEl('div')
         var otherSpan = getEl("span")
         otherSpan.textContent = other
         otherSpan.style.fontSize = "0.750rem"
-
         var ospan= getEl("span")
         ospan.style.fontSize = "1rem"
         ospan.textContent = otherscore
@@ -1187,16 +1138,41 @@ const barWidget = function(title, scoretitle, value, rankscore, minval, maxval, 
     var maxSpan = getEl("span")
     maxSpan.textContent = maxval
     
+    // color of bar
+    // negative values
+    if (minval < 0 ){
+        var difference = 0 - Number(minval)
+        minval = Number(minval) + difference
+        maxval = Number(maxval) + difference
+        value = Number(value) + difference
+    }
+    if (title == "LoFtool"){
+        var range = [0, 235]
+    }else{
+        var range = [235, 0]
+    }
+    var pow = d3.scalePow()
+        .domain([Number(minval), Number(maxval)])
+        .range(range)
+        .exponent(Math.E);
+
+    var scale = pow(Number(value))
+    c = [235, scale, scale]
+    var color = 'rgb(' + c.toString() + ')'
+    sdiv.style.backgroundColor = color
+    addEl(div, sdiv)
+
     // arrow with range
     var linediv = getEl('div')
     linediv.style.display = "flex"
-    linediv.flex = "0 auto 0 "
+    linediv.flex = "0 auto 0"
+
     addEl(linediv, minSpan)
     addEl(linediv, arrow)
     addEl(linediv, maxSpan)
     addEl(maindiv, linediv)
-
     addEl(maindiv, bottomdiv)
+
     return maindiv
 }
 
@@ -1264,7 +1240,7 @@ widgetGenerators['base2'] = {
             var tbody = getEl('tbody');
             sdiv.style.display = 'flex'
             sdiv.style.flexWrap = 'wrap'
-            sdiv.style.justifyContent = 'space-between'
+            sdiv.style.columnGap = '0.875rem'
             sdiv.style.rowGap = ".85rem"
             var variantinfo = baseWidget('Variant Type', variant_type)
             variantinfo.classList.add("basepaneldiv")
@@ -1325,7 +1301,7 @@ widgetGenerators['base2'] = {
             dbsnp.classList.add("basepaneldiv")
             addEl(sdiv, dbsnp)
             div.style.backgroundColor = "white"
-            div.style.width = "82%"
+            div.style.maxWidth = "120vh"
             addEl(div, sdiv)
         }
     }
@@ -1485,7 +1461,7 @@ widgetGenerators['siphy2'] = {
             var log = getWidgetData(tabName, 'siphy', row, 'logodds');
             var rank = getWidgetData(tabName, 'siphy', row, 'logodds_rank');
             if (rank != null || rank != undefined) {
-                var sdiv = barWidget("SiPhy","score", prettyVal(log), prettyVal(rank), 0, 37.9718, "More" + "<br />" + "Conserved", "","")
+                var sdiv = barWidget("SiPhy","score", prettyVal(log), prettyVal(rank), 0, 37.9718, "More" + "<br />" + "Conserved", null, null)
             } else {
                 var sdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
@@ -2652,8 +2628,8 @@ widgetGenerators['phastcons3'] = {
             var vert = getWidgetData(tabName, 'phastcons', row, 'phastcons100_vert');
             var mamm_r = getWidgetData(tabName, 'phastcons', row, 'phastcons30_mamm_r');
             var mamm = getWidgetData(tabName, 'phastcons', row, 'phastcons30_mamm');
-            var v = barWidget("Vertebrate", "Score", vert, prettyVal(vert_r), 0.0, 1, "More " + "<br />" + "Conserved", "", "")
-            var m = barWidget("Mammalian", "Score", prettyVal(mamm), prettyVal(mamm_r),  0.0, 1, "More " + "<br />" + "Conserved", "", "")
+            var v = barWidget("Vertebrate", "Score", vert, prettyVal(vert_r), 0.0, 1, "More " + "<br />" + "Conserved", null, null)
+            var m = barWidget("Mammalian", "Score", prettyVal(mamm), prettyVal(mamm_r),  0.0, 1, "More " + "<br />" + "Conserved", null, null)
             v.style.paddingRight = '40px'
             addEl(sdiv, v)
             addEl(sdiv, m)
@@ -2680,21 +2656,21 @@ widgetGenerators['phylop2'] = {
             var vert_r = getWidgetData(tabName, 'phylop', row, 'phylop100_vert_r');
             var vert = getWidgetData(tabName, 'phylop', row, 'phylop100_vert');
             if (vert_r != null || vert_r != undefined) {
-                var v = barWidget("Vertebrate", "Score", prettyVal(vert), prettyVal(vert_r), -20, 10.003, "More"  + "<br />" + "Conserved", "", "")
+                var v = barWidget("Vertebrate", "Score", prettyVal(vert), prettyVal(vert_r), -20, 10.003, "More"  + "<br />" + "Conserved", null, null)
             } else {
                 var v = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
             var mamm_r = getWidgetData(tabName, 'phylop', row, 'phylop30_mamm_r');
             var mamm = getWidgetData(tabName, 'phylop', row, 'phylop30_mamm');
             if (mamm_r != null || mamm_r != undefined) {
-                var m = barWidget("Mammalian", "Score", prettyVal(mamm), prettyVal(mamm_r), -20, 1.312, "More"  + "<br />" + "Conserved", "", "")
+                var m = barWidget("Mammalian", "Score", prettyVal(mamm), prettyVal(mamm_r), -20, 1.312, "More"  + "<br />" + "Conserved", null, null)
             } else {
                 var m = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
             var prim_r = getWidgetData(tabName, 'phylop', row, 'phylop17_primate_r');
             var prim = getWidgetData(tabName, 'phylop', row, 'phylop17_primate');
             if (prim_r != null || prim_r != undefined) {
-                var p = barWidget("Primate", "Score", prettyVal(prim), prettyVal(prim_r), -13.362, 0.756, "More"  + "<br />" + "Conserved", "", "")
+                var p = barWidget("Primate", "Score", prettyVal(prim), prettyVal(prim_r), -13.362, 0.756, "More"  + "<br />" + "Conserved", null, null)
             } else {
                 var p = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
@@ -3228,26 +3204,21 @@ widgetGenerators['prec2'] = {
             var sdiv = getEl('div');
             sdiv.style.display = 'flex'
             sdiv.style.flexWrap = 'wrap'
+            
             var titleEl = makeModuleDescUrlTitle('prec')
             var prec = getWidgetData(tabName, 'prec', row, 'prec');
-            if (prec != null || prec != undefined) {
-                var ssdiv = getDialWidget('Score', annotData['prec']['prec'], .80)
-            } else {
-                var ssdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
-            }
+            var ssdiv = barWidget("P(rec)", "Probability", prec, null, 0.0001, 0.9998, "Recessive"+ "<br>" +  "Disease Gene", null, null)
             var stat = getWidgetData(tabName, 'prec', row, 'stat')
             if (stat != null || stat != undefined) {
                 var stats = contentWidget('Known Status', stat)
             } else {
-                var stats = contentWidget('Known Status', getNoAnnotMsgVariantLevel())
+                var stats = contentWidget('Known Status', "No Annotation")
             }
-            ssdiv.style.paddingRight = '40px';
-            ssdiv.style.paddingBottom = '10px';
-            ssdiv.style.paddingTop = '10px';
-            stats.style.paddingTop = '15px';
-            stats.style.paddingBottom = '10px';
-            sdiv.style.border = 'solid gray 1px';
-            sdiv.style.maxWidth = '25rem'
+            ssdiv.style.display = "flex"
+            ssdiv.style.flexWrap = "wrap"
+            ssdiv.style.flexDirection = "column"
+            ssdiv.style.width = "fit-content"
+            stats.style.paddingLeft = '40px'
             addEl(sdiv, ssdiv)
             addEl(sdiv, stats)
             addDlRow(dl, titleEl, sdiv)
@@ -3378,7 +3349,7 @@ widgetGenerators['loftool2'] = {
             var titleEl = makeModuleDescUrlTitle("loftool2", "LoFtool")
             var score = getWidgetData(tabName, 'loftool', row, 'loftool_score');
             if (score != null || score != undefined){
-                var sdiv = barWidget('LoFtool', 'Score', prettyVal(score), '', 0.0, 1.0, "Greater Gene"  + "<br />" + "Tolerance", "", "")
+                var sdiv = barWidget('LoFtool', 'Score', prettyVal(score),null, 0.0, 1.0, "Greater Gene"  + "<br />" + "Tolerance", null, null)
                 
             } else {
                 var sdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
@@ -3870,15 +3841,15 @@ widgetGenerators['evolutionpanel'] = {
             var divs = showWidget('rvis2', ['rvis'], 'variant', div, null, null, false);
             var titleEl = makeModuleDescUrlTitle("ghis")
             if (annotData['ghis'] != null) { 
-                var sdiv = barWidget('GHIS', 'Score', prettyVal(annotData['ghis']['ghis']), '', 0.358, 0.987, "More" + "<br />" + "haploinsufficient", "", "")
-                
+                var sdiv = barWidget('GHIS', 'Score', prettyVal(annotData['ghis']['ghis']), null, 0.358, 0.987, "More" + "<br />" + "haploinsufficient", null, null)
+                sdiv.style.display = "flex"
+                sdiv.style.flexWrap = "wrap"
+                sdiv.style.flexDirection = "column"
+                sdiv.style.width = "fit-content"
             } else {
                 var sdiv = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
-            sdiv.style.display = "flex"
-            sdiv.style.flexWrap = "wrap"
-            sdiv.style.flexDirection = "column"
-            sdiv.style.width = "fit-content"
+            
             addDlRow(dl, titleEl, sdiv)
             var divs = showWidget('aloft2', ['aloft'], 'variant', div, null, null, false);
             addEl(div, getEl('br'))
