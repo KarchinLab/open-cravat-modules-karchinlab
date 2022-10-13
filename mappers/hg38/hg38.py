@@ -31,6 +31,7 @@ MAPPING_CCHANGE_I = 4
 MAPPING_AALEN_I = 5
 MAPPING_GENENAME_I = 6
 MAPPING_CODING_I = 7
+MAPPING_MANESELECT_I = 8
 
 
 def basenum_to_base(n):
@@ -70,6 +71,12 @@ def _compare_mapping(m2, m1):
     m2so = max(m2sos)
     minm1so = min(m1sos)
     minm2so = min(m2sos)
+    m1ms = m1[MAPPING_MANESELECT_I]
+    m2ms = m2[MAPPING_MANESELECT_I]
+    if m1ms == True and m2ms == False:
+        return -1
+    elif m2ms == True and m1ms == False:
+        return 1
     if minm2so < 0 and minm1so > 0:
         return -1
     elif minm1so < 0 and minm2so > 0:
@@ -84,7 +91,6 @@ def _compare_mapping(m2, m1):
         return -1
     else:
         return 1
-
 
 def convert_codon_to_codonnum(codon):
     codonnum = 0
@@ -1129,7 +1135,8 @@ class Mapper(cravat.BaseMapper):
                     continue
                 if transcripttypeno == TRANSCRIPTTYPENO_NMD:
                     so += (SO_NMD,)
-                mapping = (uniprot, achange, so, tr, cchange, alen, genename, coding)
+                primarytr = genename in self.primary_transcript and tr.split(".")[0] == self.primary_transcript[genename]
+                mapping = (uniprot, achange, so, tr, cchange, alen, genename, coding, primarytr)
                 if genename not in all_mappings:
                     all_mappings[genename] = []
                 all_mappings[genename].append(mapping)
@@ -1159,7 +1166,8 @@ class Mapper(cravat.BaseMapper):
                 achange = ""
                 cchange = ""
                 coding = NONCODING
-                mapping = (uniprot, achange, so, tr, cchange, alen, genename, coding)
+                primarytr = genename in self.primary_transcript and tr.split(".")[0] == self.primary_transcript[genename]
+                mapping = (uniprot, achange, so, tr, cchange, alen, genename, coding, primarytr)
                 if genename not in all_mappings:
                     all_mappings[genename] = []
                 all_mappings[genename].append(mapping)
@@ -5784,7 +5792,7 @@ class Mapper(cravat.BaseMapper):
         for hugo, mappings in all_mappings.items():
             mappings = all_mappings[hugo]
             if hugo not in primary_mappings:
-                primary_mappings[hugo] = ("", "", (SO_NSO,), "", "", -1, "", "")
+                primary_mappings[hugo] = ("", "", (SO_NSO,), "", "", -1, "", "", False)
             for mapping in mappings:
                 tr = mapping[MAPPING_TR_I]
                 if (
@@ -5798,7 +5806,7 @@ class Mapper(cravat.BaseMapper):
                         primary_mappings[hugo] = mapping
                     elif _compare_mapping(primary_mappings[hugo], mapping) < 0:
                         primary_mappings[hugo] = mapping
-        primary_mapping = ("", "", (SO_NSO,), "", "", -1, "", "")
+        primary_mapping = ("", "", (SO_NSO,), "", "", -1, "", "", False)
         for hugo, mapping in primary_mappings.items():
             if _compare_mapping(primary_mapping, mapping) < 0:
                 primary_mapping = mapping
