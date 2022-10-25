@@ -3,11 +3,11 @@ version: 1.0.0
 type: converter
 description: Converts non genomic input into genomic locations using TransVar
 developer:
-  name: Madison Larsen
-  organization: In Silico Solutions
-  email: support@cravat.us
-  website: 
-  citation: 
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: null
 requires_opencravat: '>=1.7.0'
 tags:
 - converters

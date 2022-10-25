@@ -1,52 +1,46 @@
 datasource: v4.7
-description: GeneHancer is a database of genome-wide enhancer-to-gene and promoter-to-gene associations.
+description: GeneHancer is a database of genome-wide enhancer-to-gene and promoter-to-gene
+  associations.
 developer:
-  name: 'Weizmann Institute of Science'
-  organization: 'Weizmann Institute of Science'
-  email: 'support@cravat.us'
-  website: 'https://genecards.weizmann.ac.il/geneloc_prev/index.shtml'
-  citation: 'Rosen, N., V. Chalifa-Caspi, O. Shmueli, A. Adato, M. Lapidot, J. Stampnitzky, M. Safran, and D. Lancet (2003). GeneLoc: Exon-based integration of human genome maps. Bioinformatics 19(S1).
-URL: http://genecards.weizmann.ac.il/geneloc'
-
+  name: Weizmann Institute of Science
+  organization: Weizmann Institute of Science
+  email: support@opencravat.org
+  website: https://genecards.weizmann.ac.il/geneloc_prev/index.shtml
+  citation: 'Rosen, N., V. Chalifa-Caspi, O. Shmueli, A. Adato, M. Lapidot, J. Stampnitzky,
+    M. Safran, and D. Lancet (2003). GeneLoc: Exon-based integration of human genome
+    maps. Bioinformatics 19(S1). URL: http://genecards.weizmann.ac.il/geneloc'
 level: variant
 output_columns:
-
 - name: feature_name
   title: GeneHancer Type
   type: string
   hidden: false
-  width: 79 
-  desc: Enhancer, promoter, or both. 
-
+  width: 79
+  desc: Enhancer, promoter, or both.
 - name: score
   title: Score
   type: float
-  desc: Enhancer confidence score. Higher scores possess more evidence for enhancer-gene association. 
+  desc: Enhancer confidence score. Higher scores possess more evidence for enhancer-gene
+    association.
   hidden: true
   width: 55
-
 - name: ident
   title: GeneHancer ID
-  type: string 
+  type: string
   hidden: false
   width: 85
-
 - name: target_genes
   title: Gene Targets
-  type: string 
+  type: string
   desc: Candidate target genes and associated score representing the strength of connection.
   hidden: true
   width: 65
-
 requires:
 - wggenehancer
 - wgenhancer
-
 tags:
 - non coding
-
-commercial_warning: 'Freely available for non-commercial use.'
-
+commercial_warning: Freely available for non-commercial use.
 title: GeneHancer
 version: 1.1.0
 release_note:

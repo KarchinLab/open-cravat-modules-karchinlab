@@ -62,13 +62,12 @@ output_columns:
   desc: Control samples with the homozygous reference allele
   width: 60
   hidden: true
-
 description: Performs case-control analysis on cohorts
 developer:
-  name: 'Kyle Moad'
-  organization: 'In Silico Solutions'
-  email: 'support@cravat.us'
-  website: 'http://www.insilico.us.com'
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 release_note:
   1.0.0: initial release

@@ -1,60 +1,58 @@
 datasource: 2020.03.27
-description: PanglaoDB is a single cell gene expression resource for the scientific community. The goal of this database is to provide exploration of single cell RNA sequencing experiments.
+description: PanglaoDB is a single cell gene expression resource for the scientific
+  community. The goal of this database is to provide exploration of single cell RNA
+  sequencing experiments.
 developer:
-  name: 'Oscar Franzen'
-  organization: 'Integrated Cardio Metabolic Centre at Karolinska Institutet.'
-  email: 'support@cravat.us'
-  website: 'https://panglaodb.se/markers.html?cell_type=%27Smooth%20muscle%20cells%27'
-  citation: 'Oscar Franzén, Li-Ming Gan, Johan L M Björkegren, PanglaoDB: a web server for exploration of mouse and human single-cell RNA sequencing data, Database, Volume 2019, 2019, baz046, https://doi.org/10.1093/database/baz046'
-
+  name: Oscar Franzen
+  organization: Integrated Cardio Metabolic Centre at Karolinska Institutet.
+  email: support@opencravat.org
+  website: https://panglaodb.se/markers.html?cell_type=%27Smooth%20muscle%20cells%27
+  citation: "Oscar Franz\xE9n, Li-Ming Gan, Johan L M Bj\xF6rkegren, PanglaoDB: a\
+    \ web server for exploration of mouse and human single-cell RNA sequencing data,\
+    \ Database, Volume 2019, 2019, baz046, https://doi.org/10.1093/database/baz046"
 level: gene
-
 output_columns:
 - name: cell_type
   title: Cell Type
   type: string
   width: 75
   hidden: false
-
 - name: ui
   title: Ubiquitousness Index
   type: float
-  desc: Ranges 0-1. 0 indicates the gene is not expressed in any cell cluster and 1 indicates the gene is expressed in all cell clusters.
+  desc: Ranges 0-1. 0 indicates the gene is not expressed in any cell cluster and
+    1 indicates the gene is expressed in all cell clusters.
   width: 95
   hidden: true
-
 - name: desc
   title: Description
   type: string
   width: 90
   hidden: true
-
 - name: germlayer
   title: Germ Layer
   type: string
   width: 80
   hidden: true
-
 - name: organ
   title: Organ
   type: string
   width: 75
   hidden: false
-
 - name: sensitivity
   title: Sensitivity
   type: float
-  desc: Shows how frequently this marker is expressed in cells of this particular cell type.
+  desc: Shows how frequently this marker is expressed in cells of this particular
+    cell type.
   width: 70
   hidden: true
-
 - name: specificity
   title: Specificity
   type: float
-  desc: Shows how frequently this marker is expressed in cells  NOT of this particular cell type.
+  desc: Shows how frequently this marker is expressed in cells  NOT of this particular
+    cell type.
   width: 70
   hidden: true
-
 - name: hits
   title: All Annotations
   type: string
@@ -83,14 +81,11 @@ output_columns:
   - name: specificity
     title: Specificity
     type: float
-
 requires:
 - wgpangalodb
 requires_opencravat: '>=2.2.1'
 tags:
-  - genes
+- genes
 title: PangaloDB
 version: 1.0.0
 type: annotator
-
-

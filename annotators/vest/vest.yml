@@ -2,13 +2,13 @@ can_summarize_by_gene: true
 datasource: v4
 description: VEST annotation
 developer:
+  name: Johns Hopkins University - Karchin Lab
+  organization: Johns Hopkins University - Karchin Lab
+  email: support@opencravat.org
+  website: http://karchinlab.org/apps/appVest.html
   citation: Douville, C., Masica, D. L., Stenson, P. D., et al. (2016). Assessing
     the pathogenicity of insertion and deletion variants with the variant effect scoring
     tool (VEST-Indel). Human mutation, 37(1), 28-35.
-  email: ''
-  name: Johns Hopkins University - Karchin Lab
-  organization: Johns Hopkins University - Karchin Lab
-  website: http://karchinlab.org/apps/appVest.html
 gene_summary_output_columns:
 - name: max_score
   title: Max Score
@@ -24,36 +24,36 @@ input_format: crx
 level: variant
 name: vest
 old_output_columns:
-    4.3.1:
-        output_columns:
-        - hidden: true
-          name: transcript
-          title: Score Transcript
-          type: string
-          width: 68
-          filterable: false
-        - name: score
-          title: Score
-          type: float
-          hidden: false
-        - name: pval
-          title: P-value
-          type: float
-          filterable: false
-          hidden: true
-        - hidden: true
-          name: all_results
-          title: All transcripts
-          type: string
-          width: 70
-          filterable: false
-        - aggregate: false
-          hidden: true
-          name: hugo
-          title: HUGO
-          type: string
-          filterable: false
-          desc: Gene ID
+  4.3.1:
+    output_columns:
+    - hidden: true
+      name: transcript
+      title: Score Transcript
+      type: string
+      width: 68
+      filterable: false
+    - name: score
+      title: Score
+      type: float
+      hidden: false
+    - name: pval
+      title: P-value
+      type: float
+      filterable: false
+      hidden: true
+    - hidden: true
+      name: all_results
+      title: All transcripts
+      type: string
+      width: 70
+      filterable: false
+    - aggregate: false
+      hidden: true
+      name: hugo
+      title: HUGO
+      type: string
+      filterable: false
+      desc: Gene ID
 output_columns:
 - hidden: true
   name: transcript

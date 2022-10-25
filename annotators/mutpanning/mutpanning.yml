@@ -1,12 +1,12 @@
 datasource: v2.0
 description: Discovers new tumor genes in aggregated sequencing data.
 developer:
-  citation: 'Detlein, Felix, et al. "Identification of cancer driver genes based on
-    nucleotide context." Nature Genetics 52.2 (2020): 208-218.'
-  email: support@cravat.us
   name: Broad Institute
   organization: Broad Institute
+  email: support@opencravat.org
   website: http://www.cancer-genes.org
+  citation: 'Detlein, Felix, et al. "Identification of cancer driver genes based on
+    nucleotide context." Nature Genetics 52.2 (2020): 208-218.'
 input_format: crg
 level: gene
 output_columns:

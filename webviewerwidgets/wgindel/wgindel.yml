@@ -4,15 +4,13 @@ type: webviewerwidget
 required_annotator: base
 description: Insertions and Deletions webviewer widget
 developer:
-  name: Madison Larsen
-  organization: In Silico Solutions
-  email: mlarsen@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
 requires_opencravat: '>=1.8.1'
-release_note:
-  1.0.0: Initial release
 release_note:
   1.1.0: New color scheme

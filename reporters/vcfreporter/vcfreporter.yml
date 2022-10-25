@@ -6,16 +6,17 @@ requires_opencravat: '>=2.2.6'
 output_filename_schema:
 - '{run_name}.vcf'
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 private: false
 hidden: false
 release_note:
   3.1.0: Supports GVCF format NON_REF.
-  3.0.0: Default to 'separate' INFO key structure. URL encode invalid characters according to vcf spec
+  3.0.0: Default to 'separate' INFO key structure. URL encode invalid characters according
+    to vcf spec
   2.2.0: works with --concise-report option.
   2.1.3: Pass through * alleles
   2.1.2: FORMAT is omitted if there is no sample.

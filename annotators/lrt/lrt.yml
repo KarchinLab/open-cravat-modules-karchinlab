@@ -1,12 +1,13 @@
 datasource: v4.1
-description: The likelihood ratio test (LRT) can accurately identify a subset of deleterious mutations that disrupt highly conserved amino acids within protein-coding sequences.
+description: The likelihood ratio test (LRT) can accurately identify a subset of deleterious
+  mutations that disrupt highly conserved amino acids within protein-coding sequences.
 developer:
-  name: 'Sung Chun and Justin C. Fay'
-  organization: 'Computational Biology Program, University of Washington'
-  email: 'support@cravat.us'
-  website: 'http://www.genetics.wustl.edu/jflab/lrt_query.html'
-  citation: 'Chun, Sung, and Justin C. Fay. "Identification of deleterious mutations within three human genomes." Genome research 19.9 (2009): 1553-1561.'
-
+  name: Sung Chun and Justin C. Fay
+  organization: Computational Biology Program, University of Washington
+  email: support@opencravat.org
+  website: http://www.genetics.wustl.edu/jflab/lrt_query.html
+  citation: 'Chun, Sung, and Justin C. Fay. "Identification of deleterious mutations
+    within three human genomes." Genome research 19.9 (2009): 1553-1561.'
 level: variant
 output_columns:
 - name: lrt_score
@@ -15,37 +16,34 @@ output_columns:
   width: 60
   hidden: true
   desc: The original LRT two-sided p-value, ranges from 0 to 1.
-
 - name: lrt_converted_rankscore
   title: Rank Score
   type: float
   width: 80
   hidden: false
-  desc: The ratio of the rank over the total number of the scores in dbNSFP. The scores range from 0.00162 to 0.8433.
-
+  desc: The ratio of the rank over the total number of the scores in dbNSFP. The scores
+    range from 0.00162 to 0.8433.
 - name: lrt_pred
   title: Prediction
   type: string
   width: 70
   hidden: false
-  desc: Deleterious, Neutral, or Unknown, prediction is not solely determined by the score. 
+  desc: Deleterious, Neutral, or Unknown, prediction is not solely determined by the
+    score.
   category: single
   categories:
   - Deleterious
   - Neutral
   - Unknown
-
 - name: lrt_omega
   title: Omega
   type: float
   hidden: true
   width: 60
   desc: Estimated nonsynonymous-to-synonymous-rate ratio.
-
 tags:
 - variant effect prediction
-
-title: Likelihood Ratio Test 
+title: Likelihood Ratio Test
 version: 1.0.0
 type: annotator
 smartfilters:
@@ -54,7 +52,7 @@ smartfilters:
   description: Include variants which have a rank score greater than or equal to 0.90.
   selector:
     type: inputFloat
-    defaultValue: 0.90
+    defaultValue: 0.9
   filter:
     column: lrt__lrt_converted_rankscore
     test: greaterThanEq

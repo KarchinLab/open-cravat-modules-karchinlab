@@ -5,10 +5,10 @@ required_annotator: chasmplus
 requires_opencravat: '>=1.7.0'
 description: NDEX Enriched Cancer Pathways widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 release_note:
   1.1.0: works with single variant page in oc 1.7.0.

@@ -5,7 +5,7 @@ version: 1.0.2
 datasource: 2012-03
 type: annotator
 requires:
-- hg19
+- wgencode_tfbs
 level: variant
 secondary_inputs:
   hg19: {}
@@ -44,12 +44,10 @@ output_columns:
 developer:
   name: ENCODE Project Consortium
   organization: ENCODE Project Consortium
-  email: ''
+  email: support@opencravat.org
   website: http://genome.ucsc.edu/cgi-bin/hgFileUi?db=hg19&g=wgEncodeAwgTfbsUniform#TRACK_HTML
   citation: "ENCODE Project Consortium. An integrated encyclopedia of DNA elements\
     \ in the human genome. Nature 489, 57\u201374 (2012)."
 tags:
 - non coding
-requires:
-- wgencode_tfbs
 requires_opencravat: '>=2.2.1'

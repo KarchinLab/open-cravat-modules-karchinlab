@@ -47,10 +47,10 @@ output_columns:
   width: 90
 description: Writes VCF file information extracted by converter
 developer:
-  name: Kyle Moad
-  organization: In Silico Solutions
-  email: kmoad@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 release_note:
   1.1.5: check info table to see if runnable

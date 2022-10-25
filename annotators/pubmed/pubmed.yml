@@ -1,10 +1,10 @@
 description: PubMed articles related to a particular gene
 developer:
-  citation: ''
-  email: pubmedcentral@ncbi.nlm.nih.gov
   name: NCBI
   organization: NCBI
+  email: support@opencravat.org
   website: https://www.ncbi.nlm.nih.gov/pubmed
+  citation: ''
 input_format: crg
 level: gene
 output_columns:

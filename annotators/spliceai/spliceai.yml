@@ -1,79 +1,75 @@
 datasource: v4.0
-description: A deep neural network that accurately predicts splice junctions from an arbitrary pre-mRNA transcript sequence, enabling precise prediction of noncoding genetic variants that cause cryptic splicing.
+description: A deep neural network that accurately predicts splice junctions from
+  an arbitrary pre-mRNA transcript sequence, enabling precise prediction of noncoding
+  genetic variants that cause cryptic splicing.
 developer:
-  name: 'illumina'
-  organization: 'illumina'
-  email: 'support@cravat.us'
-  website: 'https://sites.google.com/site/jpopgen/dbNSFP'
-  citation: 'Jaganathan, Kishore, et al. "Predicting splicing from primary sequence with deep learning." Cell 176.3 (2019): 535-548.'
-
+  name: illumina
+  organization: illumina
+  email: support@opencravat.org
+  website: https://sites.google.com/site/jpopgen/dbNSFP
+  citation: 'Jaganathan, Kishore, et al. "Predicting splicing from primary sequence
+    with deep learning." Cell 176.3 (2019): 535-548.'
 level: variant
-
 output_columns:
 - name: ds_ag
   title: Acceptor Gain Score
   type: float
   width: 80
   hidden: false
-  desc: Probability of the variant being splice-altering. Cutoffs for binary prediction are, 0.2 (high recall), 0.5 (recommended), and 0.8 (high precision)
-
+  desc: Probability of the variant being splice-altering. Cutoffs for binary prediction
+    are, 0.2 (high recall), 0.5 (recommended), and 0.8 (high precision)
 - name: ds_al
   title: Acceptor Loss Score
   type: float
   width: 80
   hidden: false
-  desc: Probability of the variant being splice-altering. Cutoffs for binary prediction are, 0.2 (high recall), 0.5 (recommended), and 0.8 (high precision)
-
-
+  desc: Probability of the variant being splice-altering. Cutoffs for binary prediction
+    are, 0.2 (high recall), 0.5 (recommended), and 0.8 (high precision)
 - name: ds_dg
   title: Donor Gain Score
   type: float
   width: 80
   hidden: false
-  desc: Probability of the variant being splice-altering. Cutoffs for binary prediction are, 0.2 (high recall), 0.5 (recommended), and 0.8 (high precision)
-
-
+  desc: Probability of the variant being splice-altering. Cutoffs for binary prediction
+    are, 0.2 (high recall), 0.5 (recommended), and 0.8 (high precision)
 - name: ds_dl
   title: Donor Loss Score
   type: float
   width: 80
   hidden: false
-  desc: Probability of the variant being splice-altering. Cutoffs for binary prediction are, 0.2 (high recall), 0.5 (recommended), and 0.8 (high precision)
-
+  desc: Probability of the variant being splice-altering. Cutoffs for binary prediction
+    are, 0.2 (high recall), 0.5 (recommended), and 0.8 (high precision)
 - name: dp_ag
   title: Acceptor Gain Position
   type: int
   width: 80
   hidden: true
-  desc: Location where splicing changes relative to the variant position (positive values are downstream of the variant, negative values are upstream).
-
+  desc: Location where splicing changes relative to the variant position (positive
+    values are downstream of the variant, negative values are upstream).
 - name: dp_al
   title: Acceptor Loss Position
   type: int
   width: 80
   hidden: true
-  desc: Location where splicing changes relative to the variant position (positive values are downstream of the variant, negative values are upstream).
-
+  desc: Location where splicing changes relative to the variant position (positive
+    values are downstream of the variant, negative values are upstream).
 - name: dp_dg
   title: Donor Gain Position
   type: int
   width: 80
   hidden: true
-  desc: Location where splicing changes relative to the variant position (positive values are downstream of the variant, negative values are upstream).
-
+  desc: Location where splicing changes relative to the variant position (positive
+    values are downstream of the variant, negative values are upstream).
 - name: dp_dl
   title: Donor Loss Posiiton
   type: int
   width: 80
   hidden: true
-  desc: Location where splicing changes relative to the variant position (positive values are downstream of the variant, negative values are upstream).
-
+  desc: Location where splicing changes relative to the variant position (positive
+    values are downstream of the variant, negative values are upstream).
 tags:
 - variant effect prediction
-
-commercial_warning: 'Freely available for non-commercial use.'
-
+commercial_warning: Freely available for non-commercial use.
 title: SpliceAI
 version: 1.0.0
 type: annotator
-

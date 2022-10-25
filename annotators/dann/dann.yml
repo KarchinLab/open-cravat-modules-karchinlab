@@ -1,20 +1,22 @@
 datasource: March 2015
-description: A deep learning approach for annotating the pathogenicity of genetic variants.
+description: A deep learning approach for annotating the pathogenicity of genetic
+  variants.
 developer:
-  name: 'Center for Complex Biological Systems, University of California'
-  organization: 'Center for Complex Biological Systems, University of California'
-  email: 'support@cravat.us'
-  website: 'https://sites.google.com/site/jpopgen/dbNSFP'
-  citation: 'Quang, Daniel, Yifei Chen, and Xiaohui Xie. "DANN: a deep learning approach for annotating the pathogenicity of genetic variants." Bioinformatics 31.5 (2015): 761-763.'
-
+  name: Center for Complex Biological Systems, University of California
+  organization: Center for Complex Biological Systems, University of California
+  email: support@opencravat.org
+  website: https://sites.google.com/site/jpopgen/dbNSFP
+  citation: 'Quang, Daniel, Yifei Chen, and Xiaohui Xie. "DANN: a deep learning approach
+    for annotating the pathogenicity of genetic variants." Bioinformatics 31.5 (2015):
+    761-763.'
 output_columns:
 - name: score
   title: Score
   type: float
-  desc: Scores range from 0 to 1. A larger number indicate a higher probability to be damaging.
+  desc: Scores range from 0 to 1. A larger number indicate a higher probability to
+    be damaging.
   width: 70
-
-tags: 
+tags:
 - variant effect prediction
 pypi_dependency:
 - pytabix
@@ -25,4 +27,3 @@ release_note:
   1.0.1: Bug fix
 type: annotator
 level: variant
-

@@ -1,12 +1,14 @@
 datasource: 2020.04.27
-description: The MITOMAP database of human mitochondrial DNA (mtDNA) information has been an important compilation of mtDNA variation for researchers, clinicians and genetic counselors.
+description: The MITOMAP database of human mitochondrial DNA (mtDNA) information has
+  been an important compilation of mtDNA variation for researchers, clinicians and
+  genetic counselors.
 developer:
   name: ''
-  organization: 'FOSWIKI'
-  email: 'support@cravat.us'
-  website: 'https://mitomap.org/foswiki/bin/view/MITOMAP/WebHome'
-  citation: 'Lott, et al., mtDNA variation and analysis using MITOMAP and MITOMASTER, Current Protocols in Bioinformatics 44:1.23.1-1.23.26 (December 2013).'
-
+  organization: FOSWIKI
+  email: support@opencravat.org
+  website: https://mitomap.org/foswiki/bin/view/MITOMAP/WebHome
+  citation: Lott, et al., mtDNA variation and analysis using MITOMAP and MITOMASTER,
+    Current Protocols in Bioinformatics 44:1.23.1-1.23.26 (December 2013).
 level: variant
 output_columns:
 - name: disease
@@ -19,18 +21,24 @@ output_columns:
   type: float
   width: 75
   hidden: false
-  desc: Scores range from -5.9 to 21.8, with a median score of 12.7. If the score is < 8.44 it is considered Q4, 8.44 - 12.66 = Q3, 12.66 - 16.25 = Q2, and scores > 16.24 = Q1.
+  desc: Scores range from -5.9 to 21.8, with a median score of 12.7. If the score
+    is < 8.44 it is considered Q4, 8.44 - 12.66 = Q3, 12.66 - 16.25 = Q2, and scores
+    > 16.24 = Q1.
 - name: quartile
   title: Quartile
   type: string
   width: 75
-  desc: Quartile level determines pathogenicity. Q4 = Likely Begin, Q3 = Possibly Benign, Q2 = Possibly Pathogenic, Q1 = Likely Pathogenic. 
+  desc: Quartile level determines pathogenicity. Q4 = Likely Begin, Q3 = Possibly
+    Benign, Q2 = Possibly Pathogenic, Q1 = Likely Pathogenic.
   hidden: false
   category: single
 - name: status
   title: Status
   type: string
-  desc: A pathogenic status of “Reported” indicates that a publication has considered the mutation as possibly pathologic. A status of “Cfrm” (confirmed) indicates that several independent laboratories have published strong evidence of the pathogenicity of a specific mutation. 
+  desc: "A pathogenic status of \u201CReported\u201D indicates that a publication\
+    \ has considered the mutation as possibly pathologic. A status of \u201CCfrm\u201D\
+    \ (confirmed) indicates that several independent laboratories have published strong\
+    \ evidence of the pathogenicity of a specific mutation."
   width: 75
   hidden: true
 - name: pubmed
@@ -39,7 +47,6 @@ output_columns:
   width: 75
   link_format: https://www.ncbi.nlm.nih.gov/pubmed/?term=${.*}
   hidden: true
-
 tags:
 - variants
 requires:

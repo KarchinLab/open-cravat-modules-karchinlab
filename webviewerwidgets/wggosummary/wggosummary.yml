@@ -7,10 +7,10 @@ requires:
 - go
 description: Gene Ontology Summary webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: support@cravat.us
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 release_note:
   2.3.0: F or mfo for aspect

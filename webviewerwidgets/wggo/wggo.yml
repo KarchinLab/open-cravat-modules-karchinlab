@@ -3,8 +3,11 @@ version: 1.2.0
 type: webviewerwidget
 description: Gene ontology webviewer widget
 developer:
-  email: rkim@mail.insilico.us.com
-  organization: In Silico Solutions
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
 tags:
 - visualization
 hidden: true

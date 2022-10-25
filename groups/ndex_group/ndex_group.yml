@@ -1,10 +1,11 @@
 datasource: 2020.08
 description: NDEx Annotation Modules
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: https://insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
 level: variant
 tags:
 - variants

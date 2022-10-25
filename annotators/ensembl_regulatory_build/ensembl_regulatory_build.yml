@@ -4,7 +4,7 @@ description: An up-to-date and comprehensive summary of regulatory features acro
 developer:
   name: Ensembl
   organization: Ensembl
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://uswest.ensembl.org/info/genome/funcgen/regulatory_build.html
   citation: 'Zerbino DR, Wilder SP, Johnson N, Juettemann T, Flicek PR. The ensembl
     regulatory build. Genome Biology. 2015 Mar;16:56. DOI: 10.1186/s13059-015-0621-5.'

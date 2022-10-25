@@ -2,12 +2,12 @@ datasource: dbNSFP v4.0b1
 description: Essential Genes provides a database of genetic variation & mutational
   burden in 2472 human orthologs
 developer:
-  citation: 'Georgi, B., Voight, B.F., & Bucan, M. (2013). From Mouse to Human: Evolutionary
-    Genomics Analysis of Human Orthologs of Essential Genes. PLoS genetics 9(5): e1003484.'
-  email: support@cravat.us
   name: "Benjamin Georgi, Benjamin F. Voight, Maja Bu\u0107an"
   organization: Department of Genetics, University of Pennsylvania
+  email: support@opencravat.org
   website: https://doi.org/10.1371/journal.pgen.1003484
+  citation: 'Georgi, B., Voight, B.F., & Bucan, M. (2013). From Mouse to Human: Evolutionary
+    Genomics Analysis of Human Orthologs of Essential Genes. PLoS genetics 9(5): e1003484.'
 level: gene
 output_columns:
 - desc: Essential or non-essential genes

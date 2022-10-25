@@ -1,13 +1,13 @@
 datasource: v2.3
 description: Functional analysis through hidden markov models.
 developer:
+  name: Chris Campbell
+  organization: University of Bristol Integrative Epidemiology Unit
+  email: support@opencravat.org
+  website: http://fathmm.biocompute.org.uk/index.html
   citation: Shihab, H. A., Gough, J., Mort, M., Cooper, D. N., Day, I. N., & Gaunt,
     T. R. (2014). Ranking non-synonymous single nucleotide polymorphisms based on
     disease concepts. Human genomics, 8(1), 11.
-  email: support@cravat.us
-  name: Chris Campbell
-  organization: University of Bristol Integrative Epidemiology Unit
-  website: http://fathmm.biocompute.org.uk/index.html
 input_format: crv
 level: variant
 output_columns:

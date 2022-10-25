@@ -5,10 +5,10 @@ description: Base your reporter on this one
 output_filename_schema:
 - '{run_name}.example.txt'
 developer:
-  name: In Silico Solutions
-  organization: In Silico Solutions
-  email: support@cravat.us
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - reporters

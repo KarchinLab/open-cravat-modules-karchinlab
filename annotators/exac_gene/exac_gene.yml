@@ -2,12 +2,12 @@ datasource: v0.3.1
 description: ExAC Functional Gene Constraint & CNV Scores provides probability of
   LoF tolerance/intolerance
 developer:
-  citation: Lek, M., Karczewski, K. J., Minikel, E. V., et al. (2016). Analysis of
-    protein-coding genetic variation in 60,706 humans. Nature, 536(7616), 285.
-  email: support@cravat.us
   name: ExAC
   organization: Exome Aggregation Consortium
+  email: support@opencravat.org
   website: http://exac.broadinstitute.org/
+  citation: Lek, M., Karczewski, K. J., Minikel, E. V., et al. (2016). Analysis of
+    protein-coding genetic variation in 60,706 humans. Nature, 536(7616), 285.
 level: gene
 output_columns:
 - desc: Probability LoF Intolerance (hom & het)
@@ -19,7 +19,7 @@ output_columns:
 - desc: Probability LoF Intolerance (hom)
   name: exac_prec
   title: pLI (Hom)
-  type: float 
+  type: float
   hidden: true
 - desc: Probability LoF Tolerance (hom & het)
   name: exac_pnull

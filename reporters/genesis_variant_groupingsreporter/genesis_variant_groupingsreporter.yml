@@ -6,10 +6,10 @@ requires_opencravat: '>=2.1.0'
 output_filename_schema:
 - '{run_name}.genesis_variant_groupings.variant.RData'
 developer:
-  name: Rick Kim
-  organization: Oak Bioinformatics LLC
-  email: rkim@oakbioinformatics.com
-  website: http://www.oakbioinformatics.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 hidden: false
 release_note:

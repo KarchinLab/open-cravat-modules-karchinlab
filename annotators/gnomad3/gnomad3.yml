@@ -3,13 +3,13 @@ description: Genome Aggregation Database (gnomAD) is a resource developed by an 
   coalition of investigators, with the goal of aggregating and harmonizing both exome
   and genome sequencing data from a wide variety of large-scale sequencing projects
 developer:
+  name: Broad Institute
+  organization: Broad Institute
+  email: support@opencravat.org
+  website: http://gnomad.broadinstitute.org/
   citation: Karczewski, Konrad J., et al. "The Mutational Constraint Spectrum Quantified
     from Variation in 141,456 Humans." BioRxiv, Apr. 2020, p. 531210. www.biorxiv.org,
     doi:10.1101/531210.
-  email: ''
-  name: Broad Institute
-  organization: Broad Institute
-  website: http://gnomad.broadinstitute.org/
 input_format: crv
 level: variant
 output_columns:

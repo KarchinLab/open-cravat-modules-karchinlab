@@ -4,14 +4,14 @@ type: webviewerwidget
 required_annotator: genehancer
 description: GeneHancer webviewer widget
 developer:
-  name: OpenCRAVAT developers
-  organization: In Silico Solutions
-  email: support@cravat.us
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
 hidden: true
 release_note:
-  1.0.1: returns no data. 
+  1.0.1: returns no data.
 requires_opencravat: '>=1.7.0'

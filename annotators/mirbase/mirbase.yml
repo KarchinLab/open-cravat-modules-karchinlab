@@ -1,12 +1,13 @@
 datasource: v3.0
-description: A microRNA database is a searchable database of published miRNA sequences and annotation.
+description: A microRNA database is a searchable database of published miRNA sequences
+  and annotation.
 developer:
-  name: 'Faculty of Biology, Medicine, and Health, Uninversity of Manchester'
-  organization: 'Faculty of Biology, Medicine, and Health, Uninversity of Manchester'
-  email: 'mirbase@manchester.ac.uk'
-  website: 'http://www.mirbase.org/'
-  citation: 'Kozomara, Ana, and Sam Griffiths-Jones. "miRBase: annotating high confidence microRNAs using deep sequencing data." Nucleic acids research 42.D1 (2014): D68-D73'
-
+  name: Faculty of Biology, Medicine, and Health, Uninversity of Manchester
+  organization: Faculty of Biology, Medicine, and Health, Uninversity of Manchester
+  email: support@opencravat.org
+  website: http://www.mirbase.org/
+  citation: 'Kozomara, Ana, and Sam Griffiths-Jones. "miRBase: annotating high confidence
+    microRNAs using deep sequencing data." Nucleic acids research 42.D1 (2014): D68-D73'
 level: variant
 output_columns:
 - name: transcript
@@ -14,40 +15,34 @@ output_columns:
   type: string
   width: 80
   hidden: true
-  desc: miRNA_primary_transcript are hairpin precursor sequences, and miRNA are mature sequences
+  desc: miRNA_primary_transcript are hairpin precursor sequences, and miRNA are mature
+    sequences
   category: single
-
-- name: id 
+- name: id
   title: Accession ID
   type: string
-  link_format: 'http://www.mirbase.org/cgi-bin/mirna_entry.pl?acc=${.*}'
+  link_format: http://www.mirbase.org/cgi-bin/mirna_entry.pl?acc=${.*}
   width: 95
   hidden: false
-
 - name: name
   title: Name
   type: string
   width: 100
   hidden: true
   desc: Stem-loop sequence name.
-
-- name: derives_from 
+- name: derives_from
   title: Derives From
   type: string
   width: 80
-  link_format: 'http://www.mirbase.org/cgi-bin/mirna_entry.pl?acc=${.*}'
+  link_format: http://www.mirbase.org/cgi-bin/mirna_entry.pl?acc=${.*}
   hidden: true
   desc: The hairpin precursor sequence to which the mature sequence derives from.
-
 tags:
 - non coding
 requires:
 - wgmirbase
-
 release_note:
   1.0.1: added widget
 title: miRBase
 version: 1.0.1
 type: annotator
-
-

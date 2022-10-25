@@ -6,10 +6,10 @@ description: Ensembl Regulatory Build webviewer widget
 hidden: true
 requires_opencravat: '>=1.7.0'
 developer:
-  name: Madison Larsen
-  organization: In Silico Solutions
-  email: mlarsen@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization

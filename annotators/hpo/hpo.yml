@@ -1,24 +1,27 @@
 datasource: April 2021
-description: The Human Phenotype Ontology (HPO) provides a standardized vocabulary of phenotypic abnormalities encountered in human disease. Each term in the HPO describes a phenotypic abnormality.
+description: The Human Phenotype Ontology (HPO) provides a standardized vocabulary
+  of phenotypic abnormalities encountered in human disease. Each term in the HPO describes
+  a phenotypic abnormality.
 developer:
   name: ''
-  organization: 'The Jackson Laboratory'
-  email: 'support@cravat.us.com'
-  website: 'https://hpo.jax.org/app/'
-  citation: 'Köhler, Sebastian et al. “The Human Phenotype Ontology in 2021.” Nucleic acids research vol. 49,D1 (2021): D1207-D1217. doi:10.1093/nar/gkaa1043'
-
+  organization: The Jackson Laboratory
+  email: support@opencravat.org
+  website: https://hpo.jax.org/app/
+  citation: "K\xF6hler, Sebastian et al. \u201CThe Human Phenotype Ontology in 2021.\u201D\
+    \ Nucleic acids research vol. 49,D1 (2021): D1207-D1217. doi:10.1093/nar/gkaa1043"
 level: gene
 output_columns:
 - name: id
   title: HPO ID
   type: string
-  link_format: 'https://hpo.jax.org/app/browse/term/${.*}'
+  link_format: https://hpo.jax.org/app/browse/term/${.*}
   desc: Term Identifier
   width: 80
 - name: term
   title: HPO Term
   type: string
-  desc: Each term in the HPO describes a clinical abnormality. In many cases, there are multiple diseases that are associated with mutations in the same gene.
+  desc: Each term in the HPO describes a clinical abnormality. In many cases, there
+    are multiple diseases that are associated with mutations in the same gene.
   width: 85
 - hidden: true
   name: all
@@ -34,13 +37,11 @@ output_columns:
   - name: term
     title: HPO terms
     type: string
-
 requires_opencravat: '>=2.2.1'
 tags:
 - genes
 requires:
 - wghpo
-
 title: Human Phenotype Ontology
 version: 1.0.0
 type: annotator

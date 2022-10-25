@@ -1,12 +1,14 @@
 datasource: v4.1
-description: A database capable of predicting the effects of coding variants using nucleotide-based HMMs.
+description: A database capable of predicting the effects of coding variants using
+  nucleotide-based HMMs.
 developer:
   name: Chris Campbell
   organization: University of Bristol Integrative Epidemiology Unit
-  email: 'support@cravat.us'
-  website: 'http://fathmm.biocompute.org.uk/fathmmMKL.htm'
-  citation: 'Shihab, Hashem A., et al. "An integrative approach to predicting the functional effects of non-coding and coding sequence variation." Bioinformatics 31.10 (2015): 1536-1543.'
-
+  email: support@opencravat.org
+  website: http://fathmm.biocompute.org.uk/fathmmMKL.htm
+  citation: 'Shihab, Hashem A., et al. "An integrative approach to predicting the
+    functional effects of non-coding and coding sequence variation." Bioinformatics
+    31.10 (2015): 1536-1543.'
 level: variant
 output_columns:
 - name: fathmm_mkl_coding_score
@@ -14,7 +16,8 @@ output_columns:
   type: float
   width: 60
   hidden: true
-  desc: p-values. Scores range from 0 to 1. SNVs with scores >0.5 are predicted to be deleterious, and those <0.5 are predicted to be neutral or benign. 
+  desc: p-values. Scores range from 0 to 1. SNVs with scores >0.5 are predicted to
+    be deleterious, and those <0.5 are predicted to be neutral or benign.
 - name: fathmm_mkl_coding_rankscore
   title: Rank score
   type: float
@@ -25,20 +28,19 @@ output_columns:
   title: Prediction
   type: string
   width: 70
-  hidden: false 
+  hidden: false
   category: single
-  desc: If a score is >0.5 (or rankscore >0.28317) the corresponding nsSNV is predicted as "Damaging"; otherwise it is predicted as "Neutral"
+  desc: If a score is >0.5 (or rankscore >0.28317) the corresponding nsSNV is predicted
+    as "Damaging"; otherwise it is predicted as "Neutral"
 - name: fathmm_mkl_group
   title: Feature Group
   type: string
   width: 60
   hidden: true
   desc: The groups of features (labeled A-J) used to obtained the score.
-
 tags:
 - variant effect prediction
 - non coding
-
 title: FATHMM MKL
 version: 1.0.0
 type: annotator
@@ -48,10 +50,8 @@ smartfilters:
   description: Include variants which have a rank score greater than or equal to 0.90.
   selector:
     type: inputFloat
-    defaultValue: 0.90
+    defaultValue: 0.9
   filter:
     column: fathmm_mkl__fathmm_mkl_coding_rankscore
     test: greaterThanEq
     value: ${value}
-
-

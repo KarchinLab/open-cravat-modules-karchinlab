@@ -13,7 +13,7 @@ live_modules:
 - cgc
 - cgl
 - civic
-- clingen 
+- clingen
 - clinvar
 - clinvar_acmg
 - cosmic
@@ -94,7 +94,7 @@ requires:
 - cgc
 - cgl
 - civic
-- clingen 
+- clingen
 - clinvar
 - clinvar_acmg
 - cosmic
@@ -178,10 +178,10 @@ requires:
 - wgthousandgenomes
 description: OpenCRAVAT Variant Report Webapp
 developer:
-  name: OpenCravat
+  name: OpenCRAVAT Team
   organization: KarchinLab
-  email: support@cravat.us
-  website: 
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 release_note:
   1.1.0: feature requests

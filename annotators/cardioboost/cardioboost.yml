@@ -3,7 +3,7 @@ description: Predicts pathogenicity of missense variants for inherited cardiac c
 developer:
   name: CardioBoost
   organization: CardioBoost
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://www.cardiodb.org/cardioboost/
   citation: Zhang, Xiaolei, et al. "Disease-specific variant pathogenicity prediction
     significantly improves variant interpretation in inherited cardiac conditions."

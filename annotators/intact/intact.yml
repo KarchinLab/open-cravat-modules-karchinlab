@@ -1,13 +1,13 @@
 datasource: 2018.11.30
 description: Molecular interaction data
 developer:
+  name: Orchard S et al.
+  organization: European Bioinformatics Institute (EMBL-EBI)
+  email: support@opencravat.org
+  website: https://www.ebi.ac.uk/intact/
   citation: "Orchard, S., Ammari, M., Aranda, B., et al. (2013). The MIntAct project\xE2\
     \u20AC\u201DIntAct as a common curation platform for 11 molecular interaction\
     \ databases. Nucleic acids research, 42(D1), D358-D363."
-  email: support@cravat.us
-  name: Orchard S et al.
-  organization: European Bioinformatics Institute (EMBL-EBI)
-  website: https://www.ebi.ac.uk/intact/
 level: gene
 output_columns:
 - hidden: true

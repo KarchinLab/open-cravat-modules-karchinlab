@@ -3,10 +3,10 @@ version: 2.1.5
 type: converter
 description: Converter for VCF format input
 developer:
-  name: 'Kyle Moad, Rick Kim'
-  organization: 'In Silico Solutions'
-  email: 'support@cravat.us'
-  website: 'http://www.insilico.us.com'
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 requires_opencravat: '>=2.2.6'
 release_note:
@@ -46,14 +46,16 @@ release_note:
   1.2.9: vcf extra info handles dot in column name.
   1.2.8: reads number type . correctly.
   1.2.7: bugfixes to previous release
-  1.2.6: extra vcf info int to float to handle common discrepancy between header and data
+  1.2.6: extra vcf info int to float to handle common discrepancy between header and
+    data
   1.2.5: fixed extra_info filename.
   1.2.4: extra_vcf_info file is not made if there is no extra col defined in header.
   1.2.3: comment lines return IGNORE.
   1.2.2: extra info file is made in -d folder.
   1.2.1: works with -i option.
   1.2.0: no-data line returns False
-  1.1.6: does not error when format is forced. 0 DP results in None AF instead of error. Excludes refbase of * (VCF 4.2)
+  1.1.6: does not error when format is forced. 0 DP results in None AF instead of
+    error. Excludes refbase of * (VCF 4.2)
   1.1.5: . in most fields becomes empty value
   1.1.4: handles CHROM POS ID REF ALT only rows.
   1.1.3: fixed None in value

@@ -1,19 +1,20 @@
 datasource: July 2017
-description: DIDA is a novel database that provides for the first time detailed information on genes 
-              and associated genetic variants involved in digenic diseases, the simplest form of oligogenic inheritance.
+description: DIDA is a novel database that provides for the first time detailed information
+  on genes and associated genetic variants involved in digenic diseases, the simplest
+  form of oligogenic inheritance.
 developer:
   name: ''
-  organization: 'Interuniversity Institute of Bioinformatics in Brussels'
-  email: 'suppot@cravat.us'
-  website: 'http://dida.ibsquare.be/'
-  citation: 'Gazzo, Andrea, et al. "Understanding mutational effects in digenic diseases." Nucleic acids research 45.15 (2017): e140-e140.'
-
+  organization: Interuniversity Institute of Bioinformatics in Brussels
+  email: support@opencravat.org
+  website: http://dida.ibsquare.be/
+  citation: 'Gazzo, Andrea, et al. "Understanding mutational effects in digenic diseases."
+    Nucleic acids research 45.15 (2017): e140-e140.'
 level: variant
 output_columns:
 - name: id
   title: ID
   type: string
-  link_format: 'http://dida.ibsquare.be/detail/?dc=${.*}'
+  link_format: http://dida.ibsquare.be/detail/?dc=${.*}
   width: 65
   desc: The digenic combination identifier in DIDA.
   hidden: true
@@ -27,37 +28,40 @@ output_columns:
   type: string
   width: 85
   category: single
-  desc: True Digenic indicates mutations at both loci are required for disease, mutations at one of the two loci result in no phenotype. Composite
-          indicates a variant in one gene is enough to develop the disease but carrying a second one on another gene impacts the disease 
-          phenotype or affects the severity or age of onset.
-  category: single
+  desc: True Digenic indicates mutations at both loci are required for disease, mutations
+    at one of the two loci result in no phenotype. Composite indicates a variant in
+    one gene is enough to develop the disease but carrying a second one on another
+    gene impacts the disease phenotype or affects the severity or age of onset.
 - name: relation
   title: Gene Relationship
   type: string
   width: 120
   hidden: true
-  desc: Digenic diseases are caused by mutations in two genes which often have a physical or functional relationship. 
-          For each digenic combination in DIDA we determined the relationship between the two genes carring the mutations.
+  desc: Digenic diseases are caused by mutations in two genes which often have a physical
+    or functional relationship. For each digenic combination in DIDA we determined
+    the relationship between the two genes carring the mutations.
 - name: fam
   title: Familial Evidence
   type: string
   width: 75
   category: single
   hidden: true
-  desc: YES when a family study provided evidence for digenicity or NO when there was no family study conducted or the study was inconclusive.
+  desc: YES when a family study provided evidence for digenicity or NO when there
+    was no family study conducted or the study was inconclusive.
 - name: funct
   title: Functional Evidence
   type: string
   width: 75
   category: single
   hidden: true
-  desc: YES when a functional study provided evidence for digenicity or NO when there was no functional study conducted or the study was inconclusive.
+  desc: YES when a functional study provided evidence for digenicity or NO when there
+    was no functional study conducted or the study was inconclusive.
 - name: dist
   title: Biological Distance
   type: float
   width: 75
   hidden: true
-  desc: Distance between gene A and gene B. 
+  desc: Distance between gene A and gene B.
 - name: pub
   title: PubMed
   type: string
@@ -97,18 +101,14 @@ output_columns:
   - name: pub
     title: PubMed
     type: string
-
 requires:
 - wgdida
 requires_opencravat: '>=2.2.1'
 tags:
-  - variants
-commercial_warning: 'Freely available for non-commercial use'
+- variants
+commercial_warning: Freely available for non-commercial use
 title: 'DIDA: Digenic Diseases Database'
 version: 1.0.0
 input_format: crx
 type: annotator
 private: true
-
-
-

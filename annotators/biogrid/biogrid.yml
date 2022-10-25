@@ -1,12 +1,12 @@
 datasource: v4.4.197
 description: Comprehensive interaction repository
 developer:
-  citation: 'Oughtred R, Stark C, Breitkreutz BJ, et al. (2018). The BioGRID interaction
-    database: 2019 update. Nucleic Acids Res. 47(D1):D529-D541.'
-  email: support@cravat.us
   name: BioGRID
   organization: BioGRID
+  email: support@opencravat.org
   website: https://thebiogrid.org/
+  citation: 'Oughtred R, Stark C, Breitkreutz BJ, et al. (2018). The BioGRID interaction
+    database: 2019 update. Nucleic Acids Res. 47(D1):D529-D541.'
 level: gene
 output_columns:
 - desc: Interaction partners
@@ -32,7 +32,7 @@ output_columns:
   table: true
   table_headers:
   - name: acts
-    title:  Interaction partners
+    title: Interaction partners
     type: string
   - name: id
     title: ID

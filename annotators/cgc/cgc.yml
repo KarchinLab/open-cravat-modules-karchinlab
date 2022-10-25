@@ -1,13 +1,13 @@
 datasource: '2019-03-23'
 description: Cancer Gene Census annotation
 developer:
+  name: Sanger Institute
+  organization: Sanger Institute
+  email: support@opencravat.org
+  website: https://cancer.sanger.ac.uk/census
   citation: Futreal, P.A., Coin, L.J., Marshall, M., Down, T., Hubbard, T.L., Wooster,
     R., Rahman, N., & Stratton, M.R. (2004). A census of human cancer genes. Nature
     Reviews Cancer, 4, 177-183.
-  email: support@cravat.us
-  name: Sanger Institute
-  organization: Sanger Institute
-  website: https://cancer.sanger.ac.uk/census
 level: gene
 output_columns:
 - name: class

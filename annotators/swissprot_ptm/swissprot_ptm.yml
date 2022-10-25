@@ -1,94 +1,87 @@
 datasource: 2018.04.10
-description: A high quality manually annotated protein sequence database, specifying in post-translational modifications (PTMs).
+description: A high quality manually annotated protein sequence database, specifying
+  in post-translational modifications (PTMs).
 developer:
   name: The UniProt Consortium
   organization: The UniProt Consortium
-  email: support@cravat.us
-  website:  https://www.uniprot.org/help/ptm_processing_section
-  citation: 'Khoury, George A., Richard C. Baliban, and Christodoulos A. Floudas. "Proteome-wide post-translational modification statistics: frequency analysis and curation of the swiss-prot database." Scientific reports 1 (2011): 90.' 
-
+  email: support@opencravat.org
+  website: https://www.uniprot.org/help/ptm_processing_section
+  citation: 'Khoury, George A., Richard C. Baliban, and Christodoulos A. Floudas.
+    "Proteome-wide post-translational modification statistics: frequency analysis
+    and curation of the swiss-prot database." Scientific reports 1 (2011): 90.'
 level: variant
 output_columns:
-
 - name: uniprotkb
   title: UniProtKB Accession Number
   type: string
-  link_format: 'https://www.uniprot.org/uniprot/${[^;]+}'
+  link_format: https://www.uniprot.org/uniprot/${[^;]+}
   width: 80
   hidden: false
-
 - name: crosslnk
   title: Crosslink Modification
   type: string
   desc: Interchain and intrachain cross-links resulting in a post-translational modification.
   width: 90
   hidden: true
-
 - name: disulfid
   title: Disulfid Bond Modification
   type: string
-  desc: Cysteine residues participating in disulfide bonds resulting in a post-translational modification.
+  desc: Cysteine residues participating in disulfide bonds resulting in a post-translational
+    modification.
   width: 90
   hidden: true
-
 - name: carbohyd
   title: Glycosylation Modification
   type: string
   desc: Covalently attached glycan group resulting in a post-translational modification.
   width: 90
   hidden: true
-
 - name: init
   title: Initiator Methionine Modification
   type: string
   desc: Cleavage of the initiator methionine resulting in a post-translational modification.
   width: 90
   hidden: true
-
 - name: lipid
   title: Lipidation Modification
-  type: string 
-  desc: The covalent binding of a lipid group to a peptide chain, also known as lipidation, resulting in a post-translational modification.
+  type: string
+  desc: The covalent binding of a lipid group to a peptide chain, also known as lipidation,
+    resulting in a post-translational modification.
   width: 90
   hidden: true
-
 - name: mod
   title: Modified Residue Modification
   type: string
   desc: Modified residue resulting in a post-translational modification.
   width: 90
   hidden: true
-
-
 - name: propep
   title: Polypeptide Modification
   type: string
-  desc: Propeptide cleaved during maturation or activation resulting in a post-tranlational modification.
+  desc: Propeptide cleaved during maturation or activation resulting in a post-tranlational
+    modification.
   width: 90
   hidden: true
-
 - name: signal
   title: Signal Sequence Modification
   type: string
-  desc: The presence of an N-terminal signal peptide resulting in a post-translational modification.
+  desc: The presence of an N-terminal signal peptide resulting in a post-translational
+    modification.
   width: 90
   hidden: true
-
 - name: transit
   title: Transit Peptides Modifcation
   type: string
   desc: Transit peptides resulting in a post-translational modification.
   width: 90
   hidden: true
-
 - name: pubmed
   title: Pubmed
   type: string
-  link_format: 'https://pubmed.ncbi.nlm.nih.gov/?term=(${[^;]+}[pmid])+OR+(25878360[pmid])'
+  link_format: https://pubmed.ncbi.nlm.nih.gov/?term=(${[^;]+}[pmid])+OR+(25878360[pmid])
   width: 75
   hidden: true
   desc: Link to literature.
-
 - hidden: true
   name: all
   title: All Annotations
@@ -114,7 +107,7 @@ output_columns:
     type: string
   - name: mod
     title: mod
-    type: string 
+    type: string
   - name: propep
     title: propep
     type: string
@@ -123,14 +116,12 @@ output_columns:
     type: string
   - name: transit
     title: transit
-    type: string 
+    type: string
   - name: pubmed
     title: pubmed
     type: int
-
 tags:
 - functional studies
-
 input_format: crx
 title: Swiss-Prot PTM
 version: 1.1.0

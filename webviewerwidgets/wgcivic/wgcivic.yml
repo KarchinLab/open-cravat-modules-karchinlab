@@ -4,10 +4,10 @@ type: webviewerwidget
 required_annotator: civic
 description: CIViC webviewer widget
 developer:
-  name: Kyle Moad
-  organization: In Silico Solutions
-  email: kmoad@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization

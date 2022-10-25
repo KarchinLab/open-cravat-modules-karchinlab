@@ -2,12 +2,12 @@ datasource: dbNSFP v4.0b1
 description: A binary classifier for predicting pathogenic variants in coding and
   non-coding regions.
 developer:
-  citation: 'Capriotti, E., & Fariselli, P. (2017). PhD-SNPg: a webserver and lightweight
-    tool for scoring single nucleotide variants. Nucleic acids research, 45(W1), W247-W252.'
-  email: emidio.capriotti@unibo.it
   name: Emidio Capriotti
   organization: University of Bologna
+  email: support@opencravat.org
   website: http://snps.biofold.org/phd-snpg/index.html
+  citation: 'Capriotti, E., & Fariselli, P. (2017). PhD-SNPg: a webserver and lightweight
+    tool for scoring single nucleotide variants. Nucleic acids research, 45(W1), W247-W252.'
 level: variant
 output_columns:
 - name: prediction

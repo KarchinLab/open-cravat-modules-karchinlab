@@ -1,13 +1,14 @@
 datasource: 2021.06.10
-description: ClinVarGene provides counts of missense and loss of function (LOF) variants in each gene, that have a Pathogenic significance in ClinVar.
+description: ClinVarGene provides counts of missense and loss of function (LOF) variants
+  in each gene, that have a Pathogenic significance in ClinVar.
 developer:
+  name: NCBI
+  organization: NCBI
+  email: support@opencravat.org
+  website: https://www.ncbi.nlm.nih.gov/clinvar/
   citation: 'Landrum, M.J., Lee, J.M., Benson, M., et al. (2016). ClinVar: public
     archive of interpretations of clinically relevant variants. Nucleic Acids Research,
     44(D1):D862-8.'
-  email: support@cravat.us
-  name: NCBI
-  organization: NCBI
-  website: https://www.ncbi.nlm.nih.gov/clinvar/
 output_columns:
 - name: missense_count
   title: Missense Variant Count

@@ -1,46 +1,39 @@
 datasource: v1.0
-description: A web application developed to classify human non-frameshifting indels as pathogenic or benign. In addition, it predicts their impact on over 50 different protein properties and, thus, enables the inference of molecular mechanisms of pathogenicity.
+description: A web application developed to classify human non-frameshifting indels
+  as pathogenic or benign. In addition, it predicts their impact on over 50 different
+  protein properties and, thus, enables the inference of molecular mechanisms of pathogenicity.
 developer:
-  name: 'Kymberleigh Pagel'
-  organization: 'Indiana University'
-  email: 'support@cravat.us'
-  website: 'http://mutpredindel.cs.indiana.edu/index.html'
-  citation: 'Pagel, Kymberleigh A., et al. "Pathogenicity and functional impact of non-frameshifting insertion/deletion variation in the human genome." PLoS computational biology 15.6 (2019): e1007112.'
-
-
+  name: Kymberleigh Pagel
+  organization: Indiana University
+  email: support@opencravat.org
+  website: http://mutpredindel.cs.indiana.edu/index.html
+  citation: 'Pagel, Kymberleigh A., et al. "Pathogenicity and functional impact of
+    non-frameshifting insertion/deletion variation in the human genome." PLoS computational
+    biology 15.6 (2019): e1007112.'
 input_format: crx
 level: variant
-
 output_columns:
 - name: score
   title: Score
   type: float
   desc: Score > 0.5 suggests pathogenicity.
   hidden: true
-
 - name: rankscore
   title: Rank score
   type: float
   desc: The ratio of the rank of the score over the total number of scores in MutPred-Indel.
   width: 65
   hidden: false
-
 - name: property
   title: Property
   type: string
   desc: Property scores that reflect the impact of a variant on different properties.
   width: 75
   hiden: false
-
-
 tags:
 - variant effect prediction
-
 title: MutPred-Indel
 version: 1.1.0
 type: annotator
 release_note:
   1.1.0: Updated data to include insertions
-
-
-

@@ -3,13 +3,13 @@ datasource: v5.2.4
 description: Provides links to variant position and annotations in 3D MuPIT structure
   viewer.
 developer:
+  name: Johns Hopkins - Karchin Lab
+  organization: Johns Hopkins - Karchin Lab
+  email: support@opencravat.org
+  website: http://mupit.icm.jhu.edu/MuPIT_Interactive/
   citation: 'Niknafs, N., Kim, D., Kim, R., et al. (2013). MuPIT interactive: webserver
     for mapping variant positions to annotated, interactive 3D structures. Human genetics,
     132(11), 1235-1243.'
-  email: ''
-  name: Johns Hopkins - Karchin Lab
-  organization: Johns Hopkins - Karchin Lab
-  website: http://mupit.icm.jhu.edu/MuPIT_Interactive/
 gene_summary_output_columns:
 - name: link
   title: Link

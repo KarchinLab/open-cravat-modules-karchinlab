@@ -1,12 +1,13 @@
 datasource: v4.1a
-description: A tool to predict the functional effect of amino acid substitutions and indels.
+description: A tool to predict the functional effect of amino acid substitutions and
+  indels.
 developer:
   name: Yongwook Choi, Agnes Chan
   organization: J. Craig Venter Institute (JCVI)
-  email: support@cravat.us
+  email: support@opencravat.org
   website: http://provean.jcvi.org/index.php
-  citation: 'Choi Y, Chan AP (2015) PROVEAN web server: a tool to predict the functional effect of amino acid substitutions and indels. Bioinformatics 31(16): 2745-2747.'
-
+  citation: 'Choi Y, Chan AP (2015) PROVEAN web server: a tool to predict the functional
+    effect of amino acid substitutions and indels. Bioinformatics 31(16): 2745-2747.'
 level: variant
 output_columns:
 - name: transcript
@@ -23,7 +24,8 @@ output_columns:
 - name: score
   title: Score
   type: float
-  desc: Scores range from -14 to 14. The smaller the score the more likely the SNP has damaging effect.
+  desc: Scores range from -14 to 14. The smaller the score the more likely the SNP
+    has damaging effect.
   hidden: true
   width: 60
 - name: rankscore
@@ -35,7 +37,8 @@ output_columns:
 - name: prediction
   title: Prediction
   type: string
-  desc: If score <= -2.5 (rankscore>=0.54382) the corresponding nsSNV is predicted as "D(amaging)"; otherwise it is predicted as "N(eutral)". 
+  desc: If score <= -2.5 (rankscore>=0.54382) the corresponding nsSNV is predicted
+    as "D(amaging)"; otherwise it is predicted as "N(eutral)".
   hidden: false
   width: 65
   category: multi
@@ -62,7 +65,6 @@ output_columns:
   - name: prediction
     title: Prediction
     type: string
-
 requires_opencravat: '>=2.2.1'
 smartfilters:
 - name: rankscore
@@ -70,7 +72,7 @@ smartfilters:
   description: Include variants which have a rank score greater than or equal to 0.90.
   selector:
     type: inputFloat
-    defaultValue: 0.90
+    defaultValue: 0.9
   filter:
     column: provean__rankscore
     test: greaterThanEq
@@ -79,9 +81,6 @@ requires:
 - wgprovean
 tags:
 - variant effect prediction
-
-title: "PROVEAN: Protein Variant Effect Analyzer"
+title: 'PROVEAN: Protein Variant Effect Analyzer'
 type: annotator
 version: 1.0.0
-
-

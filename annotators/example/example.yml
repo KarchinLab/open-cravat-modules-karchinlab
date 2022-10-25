@@ -1,16 +1,6 @@
-# The display name of the module
 title: Example (SIFT BRCA1)
-
-# The type of module described by this yml file
 type: annotator
-
-# Level is variant or gene. Changing level will change the type of
-# data that is passed to the annotator
 level: variant
-
-# The columns that will be included in the output file. Columns are 
-# defined in a list. Each column has three required keys: # name, title, and type.
-# Type can be float, int, or string. A short description is optional.
 output_columns:
 - name: prediction
   title: Prediction
@@ -27,26 +17,14 @@ output_columns:
   desc: Number of sequences scored by SIFT at this position
   width: 60
   hidden: true
-
-# Version of the annotator. It is mostly used when publishing a module, 
-# but is required for all modules.
 version: 1.0.0
-
-# A short description of what the annotator does. Try to limit it
-# to around 80 characters.
 description: Example annotator. BRCA1 scores from SIFT, a variant effect predictor.
-
-# The version of the data source. Often different from the version of the annotator
 datasource: SIFT4G 2016-02-22
-
-# Original author of the data source this annotator is using
-# If you are not the original author, you can include yourself as well
 developer:
   name: Pauline Ng
   organization: Bioinformatics Institute, Agency for Science, Technology and Research,
     Singapore
-  email: ngpc4@gis.a-star.edu.sg
+  email: support@opencravat.org
   website: sift.bii.a-star.edu.sg
-  citation: 'Vaser R, Adusumalli S, Leng SN, Sikic M, Ng PC (2016) SIFT missense 
-    predictions for genomes. Nat Protocols 11: 1-9.'
-
+  citation: 'Vaser R, Adusumalli S, Leng SN, Sikic M, Ng PC (2016) SIFT missense predictions
+    for genomes. Nat Protocols 11: 1-9.'

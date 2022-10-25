@@ -5,10 +5,10 @@ required_annotator: base
 requires_opencravat: '>=1.8.1'
 description: Variant annotation webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 columnwidth:
 - base__uid: 100

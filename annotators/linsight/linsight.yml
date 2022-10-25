@@ -1,13 +1,13 @@
 datasource: 2018.10.19
 description: LINSIGHT
 developer:
+  name: Adam Siepel
+  organization: Cold Spring Harbor Laboratory
+  email: support@opencravat.org
+  website: http://github.com/CshlSiepelLab/LINSIGHT/blob/master/README.md
   citation: Huang, Y. F., Gulko, B., & Siepel, A. (2017). Fast, scalable prediction
     of deleterious noncoding variants from functional and population genomic data.
     Nature genetics, 49(4), 618.
-  email: asiepel@cshl.edu
-  name: Adam Siepel
-  organization: Cold Spring Harbor Laboratory
-  website: http://github.com/CshlSiepelLab/LINSIGHT/blob/master/README.md
 input_format: crv
 level: variant
 output_columns:

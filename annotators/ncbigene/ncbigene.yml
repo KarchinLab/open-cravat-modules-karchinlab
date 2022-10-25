@@ -1,12 +1,12 @@
 description: Gene description from NIH's NCBI Gene Info
 developer:
+  name: NIH
+  organization: NIH
+  email: support@opencravat.org
+  website: https://www.ncbi.nlm.nih.gov/gene
   citation: Wheeler, D. L., Barrett, T., Benson, D. A., Bryant, S. H., et al. (2006).
     Database resources of the national center for biotechnology information. Nucleic
     acids research, 35(suppl_1), D5-D12.
-  email: ''
-  name: NIH
-  organization: NIH
-  website: https://www.ncbi.nlm.nih.gov/gene
 level: gene
 output_columns:
 - name: ncbi_desc

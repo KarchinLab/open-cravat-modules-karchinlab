@@ -1,13 +1,13 @@
 datasource: v3.0.1
 description: Tumor Alterations Relevant for GEnomics-driven Therapy
 developer:
+  name: Broad Institute
+  organization: Broad Institute
+  email: support@opencravat.org
+  website: https://software.broadinstitute.org/cancer/cga/target
   citation: Van Allen, E. M., Wagle, N., Stojanov, P., et al. (2014). Whole-exome
     sequencing and clinical interpretation of formalin-fixed, paraffin-embedded tumor
     samples to guide precision cancer medicine. Nature medicine, 20(6), 682.
-  email: support@cravat.us
-  name: Broad Institute
-  organization: Broad Institute
-  website: https://software.broadinstitute.org/cancer/cga/target
 input_format: crg
 level: gene
 output_columns:

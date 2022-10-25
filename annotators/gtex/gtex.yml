@@ -1,11 +1,11 @@
 datasource: v7
 description: Genotype-tissue expression
 developer:
-  citation: https://gtexportal.org/home/faq#citePortal
-  email: support@cravat.us
   name: GTEx Consortium
   organization: The Broad Institute of MIT and Harvard
+  email: support@opencravat.org
   website: https://gtexportal.org/home/
+  citation: https://gtexportal.org/home/faq#citePortal
 input_format: crv
 level: variant
 output_columns:

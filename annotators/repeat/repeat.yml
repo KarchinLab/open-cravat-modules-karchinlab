@@ -4,12 +4,12 @@ description: Repeating elements from RepeatMasker and Simple Repeat tracks of UC
   Low complexity, SINE, LINE, LTR, Simple Repeat, and Satellite data and they were
   combined.
 developer:
-  citation: 'Haeussler, M., Zweig, A. S., Tyner, C., et al. (2018). The UCSC Genome
-    Browser database: 2019 update. Nucleic acids research, 47(D1), D853-D858.'
-  email: ''
   name: null
   organization: UCSC
+  email: support@opencravat.org
   website: http://genome.ucsc.edu
+  citation: 'Haeussler, M., Zweig, A. S., Tyner, C., et al. (2018). The UCSC Genome
+    Browser database: 2019 update. Nucleic acids research, 47(D1), D853-D858.'
 level: variant
 output_columns:
 - name: repeatclass

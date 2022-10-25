@@ -2,12 +2,12 @@ add_to_variant_level: true
 datasource: v2
 description: Network Data Exchange Congenital Heart Disease Pathways
 developer:
-  citation: Pratt, D., Chen, J., Welker, D., et al. (2015). NDEx, the network data
-    exchange. Cell systems, 1(4), 302-305.
-  email: ''
   name: The Cytoscape Consortium
   organization: The Cytoscape Consortium
+  email: support@opencravat.org
   website: http://home.ndexbio.org/index/
+  citation: Pratt, D., Chen, J., Welker, D., et al. (2015). NDEx, the network data
+    exchange. Cell systems, 1(4), 302-305.
 input_format: crg
 level: gene
 output_columns:
@@ -41,7 +41,8 @@ requires:
 - wgndex_chd
 - ndex_group
 - wgndex_chdsummary
-commercial_warning: 'For commercial users, contact the source databases and purchase an appropriate license if necessary. Screen reader support enabled.'
+commercial_warning: For commercial users, contact the source databases and purchase
+  an appropriate license if necessary. Screen reader support enabled.
 groups:
 - ndex_group
 release_note:

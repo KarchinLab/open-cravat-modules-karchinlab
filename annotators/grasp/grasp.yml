@@ -1,13 +1,13 @@
 datasource: v2.0.0.0
 description: Genome-Wide Repository of Associations Between SNPs and Phenotypes
 developer:
+  name: NIH
+  organization: NIH
+  email: support@opencravat.org
+  website: https://grasp.nhlbi.nih.gov/Overview.aspx
   citation: "Leslie R, O\u2019Donnell CJ, Johnson AD (2014) GRASP: analysis of genotype-phenotype\
     \ results from 1,390 genome-wide association studies and corresponding open access\
     \ database. Bioinformatics 30(12), i185-94"
-  email: support@cravat.us
-  name: NIH
-  organization: NIH
-  website: https://grasp.nhlbi.nih.gov/Overview.aspx
 input_format: crv
 level: variant
 output_columns:

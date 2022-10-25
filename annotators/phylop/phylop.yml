@@ -1,13 +1,13 @@
 datasource: dbNSFP v4.0b1
 description: A database providing conservation scoring by phylogenetic p-values
 developer:
+  name: UCSC
+  organization: University of California Santa Cruz Genomics Institute
+  email: support@opencravat.org
+  website: https://sites.google.com/site/jpopgen/dbNSFP
   citation: Pollard, K. S., Hubisz, M. J., Rosenbloom, K. R., & Siepel, A. (2010).
     Detection of nonneutral substitution rates on mammalian phylogenies. Genome research,
     20(1), 110-121.
-  email: support@cravat.us
-  name: UCSC
-  organization: University of California Santa Cruz Genomics Institute
-  website: https://sites.google.com/site/jpopgen/dbNSFP
 input_format: crv
 level: variant
 output_columns:

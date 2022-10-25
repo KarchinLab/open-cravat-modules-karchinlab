@@ -4,10 +4,10 @@ type: webviewerwidget
 required_annotator: phdsnpg
 description: PhDSNPg
 developer:
-  name: Kyle Moad
-  organization: In Silico Solutions
-  email: support@cravat.us
-  website: ''
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization

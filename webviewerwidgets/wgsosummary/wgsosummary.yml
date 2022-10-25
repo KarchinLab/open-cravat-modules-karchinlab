@@ -4,9 +4,14 @@ required_annotator: base
 requires_opencravat: '>=1.8.1'
 type: webviewerwidget
 description: Sequence Ontology Summary result viewer widget
-developer: {name: Rick Kim, organization: In Silico Solutions, email: rkim@insilico.us.com,
-  website: 'http://www.insilico.us.com', citation: ''}
-tags: [visualization]
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
+tags:
+- visualization
 release_note:
   1.5.0: New color scheme
   1.4.0: greyed out variants grouped to other

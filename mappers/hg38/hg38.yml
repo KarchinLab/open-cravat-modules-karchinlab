@@ -4,10 +4,10 @@ version: 1.10.3
 type: mapper
 description: Gene mapper using UCSC Gencode
 developer:
-  name: 'OpenCRAVAT'
-  organization: 'KarchinLab'
-  email: 'support@cravat.us'
-  website: 
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 report_substitution:
   so:
@@ -206,7 +206,7 @@ report_substitution:
     EXL: exon_loss_variant
     TAB: transcript_ablation
   coding:
-    Y: "Yes"
+    Y: 'Yes'
 can_summarize_by_gene: true
 gene_summary_output_columns:
 - name: num_coding_variants
@@ -244,7 +244,8 @@ release_note:
   1.7.2: removed incomplete transcripts.
   1.7.1: mRNA sequence update
   1.7.0: hg38 handles noncoding transcripts.
-  1.6.1: updated data with fix on - strand gene cds starting or ending at mrna start or end.
+  1.6.1: updated data with fix on - strand gene cds starting or ending at mrna start
+    or end.
   1.6.0: added c. and p. notation. uses wgs.
   1.5.6: does not use wgs.
   1.5.2: added test.
@@ -254,5 +255,4 @@ release_note:
   0.0.6: py version works with 3.6 diskdb and 3.7 memory db
   0.0.4: binaries for platforms
   0.0.2: works with python and cython
-
 private: true

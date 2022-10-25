@@ -1,12 +1,12 @@
 datasource: v0.0.30
 description: Exome Sequencing Project 6500
 developer:
-  citation: Exome Variant Server, NHLBI GO Exome Sequencing Project (ESP), Seattle,
-    WA
-  email: evsserver@uw.edu
   name: University of Washington
   organization: University of Washington
+  email: support@opencravat.org
   website: http://evs.gs.washington.edu/EVS/
+  citation: Exome Variant Server, NHLBI GO Exome Sequencing Project (ESP), Seattle,
+    WA
 input_format: crv
 level: variant
 output_columns:

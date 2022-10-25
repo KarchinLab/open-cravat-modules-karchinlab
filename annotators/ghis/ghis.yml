@@ -1,12 +1,12 @@
 datasource: dbNSFP v4.0b1
 description: Gene haploinsufficiency scoring
 developer:
-  citation: Steinberg, J., Honti, F., Meader, S., & Webber, C. (2015). Haploinsufficiency
-    predictions without study bias. Nucleic acids research, 43(15), e101-e101.
-  email: support@cravat.us
   name: Julia Steinberg, Frantisek Honti, Stephen Meader, Caleb Webber
   organization: 1MRC Functional Genomics Unit, University of Oxford
+  email: support@opencravat.org
   website: https://doi.org/10.1093/nar/gkv474
+  citation: Steinberg, J., Honti, F., Meader, S., & Webber, C. (2015). Haploinsufficiency
+    predictions without study bias. Nucleic acids research, 43(15), e101-e101.
 level: gene
 output_columns:
 - name: ghis
@@ -16,7 +16,7 @@ output_columns:
 requires_opencravat: '>=2.0.0'
 tags:
 - genes
-title: GHIS 
+title: GHIS
 type: annotator
 version: 3.6.0
 requires:

@@ -1,22 +1,19 @@
-description: Directly link to the Molecular Tumor Board report page, based on variant. 
+description: Directly link to the Molecular Tumor Board report page, based on variant.
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
-
 level: variant
 output_columns:
 - name: link
   title: Link
   type: string
-  desc: Link to the Molecular Tumor Board report page. 
+  desc: Link to the Molecular Tumor Board report page.
   width: 80
-
 tags:
 - cancer
-
 title: Molecular Tumor Board Report
 version: 1.0.0
 type: annotator

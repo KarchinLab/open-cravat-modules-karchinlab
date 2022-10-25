@@ -5,15 +5,16 @@ required_annotator: base
 type: webviewerwidget
 description: Protein diagram webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
 release_note:
-  2.2.0: improved transcript mapping among UniProt, TCGA, and OpenCRAVAT and indel positioning.
+  2.2.0: improved transcript mapping among UniProt, TCGA, and OpenCRAVAT and indel
+    positioning.
   2.1.0: update with gencode v33
   2.0.2: aiosqlite instead of aiosqlite3
   1.3.0: works with oc 1.8.1 and hg38.

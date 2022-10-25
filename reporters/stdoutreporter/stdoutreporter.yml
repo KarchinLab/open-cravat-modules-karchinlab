@@ -4,10 +4,10 @@ type: reporter
 description: STDOUT reporter
 requires_opencravat: '>=2.1.3'
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 hidden: true
 release_note:

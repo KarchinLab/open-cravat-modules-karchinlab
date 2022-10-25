@@ -2,35 +2,39 @@ datasource: 2022.10.05
 description: Gene Ontology (GO) project provides a comprehensive computable knowledge
   regarding the functions of genes and gene products.
 developer:
-  citation: 'Ashburner, M., Ball, C. A., Blake, J. A., et al. (2000). Gene Ontology:
-    tool for the unification of biology. Nature genetics, 25(1), 25.'
-  email: support@cravat.us
   name: Gene Ontology Consortium
   organization: Gene Ontology Consortium
+  email: support@opencravat.org
   website: http://geneontology.org/
+  citation: 'Ashburner, M., Ball, C. A., Blake, J. A., et al. (2000). Gene Ontology:
+    tool for the unification of biology. Nature genetics, 25(1), 25.'
 level: gene
 output_columns:
 - name: bpo_name
   title: Biological Process
   type: string
   width: 90
-  desc: The larger processes, or ‘biological programs’ accomplished by multiple molecular activities. 
+  desc: "The larger processes, or \u2018biological programs\u2019 accomplished by\
+    \ multiple molecular activities."
 - name: bpo_id
   title: Biological Process GO ID
   type: string
   width: 100
-  desc: The larger processes, or ‘biological programs’ accomplished by multiple molecular activities. 
+  desc: "The larger processes, or \u2018biological programs\u2019 accomplished by\
+    \ multiple molecular activities."
   hidden: true
 - name: cco_name
   title: Cellular Component
   type: string
   width: 90
-  desc: The locations relative to cellular structures in which a gene product performs a function.
+  desc: The locations relative to cellular structures in which a gene product performs
+    a function.
 - name: cco_id
   title: Cellular Component GO ID
   type: string
   width: 90
-  desc: The locations relative to cellular structures in which a gene product performs a function
+  desc: The locations relative to cellular structures in which a gene product performs
+    a function
   hidden: true
 - name: mfo_name
   title: Molecular Function
@@ -43,7 +47,6 @@ output_columns:
   width: 100
   desc: Molecular-level activities performed by gene products.
   hidden: true
-
 tags:
 - genes
 title: Gene Ontology

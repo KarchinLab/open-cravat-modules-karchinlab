@@ -2,12 +2,12 @@ datasource: Release 3
 description: Mutation Assessor is a database providing prediction of the functional
   impact of amino-acid substitutions in proteins
 developer:
-  citation: Reva, B., Antipin, Y., & Sander, C. (2007). Determinants of protein function
-    revealed by combinatorial entropy optimization. Genome biology, 8(11), R232.
-  email: support@cravat.us
   name: Chris Sander
   organization: Memorial Sloan-Kettering Cancer Center
+  email: support@opencravat.org
   website: http://mutationassessor.org/r3/about.php
+  citation: Reva, B., Antipin, Y., & Sander, C. (2007). Determinants of protein function
+    revealed by combinatorial entropy optimization. Genome biology, 8(11), R232.
 input_format: crx
 level: variant
 output_columns:
@@ -54,13 +54,12 @@ output_columns:
   - name: rankscore
     title: rankscore
     type: float
-
 tags:
 - variant effect prediction
 title: Mutation Assessor
 type: annotator
 version: 3.1.0
 release_note:
-  3.1.0: query now uses gene and protein level annotation.  
+  3.1.0: query now uses gene and protein level annotation.
 requires:
 - wgmutation_assessor

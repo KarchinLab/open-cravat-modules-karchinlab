@@ -2,13 +2,13 @@ datasource: v154
 description: Comprehensive database of both single base nucleotide subsitutions and
   short deletion and insertion polymorphisms
 developer:
+  name: NCBI
+  organization: NCBI
+  email: support@opencravat.org
+  website: https://www.ncbi.nlm.nih.gov/projects/SNP/
   citation: 'Sherry, S.T., Ward, M., Kholodov, M., Baker, J., Phan, L., Smigielski,
     E.M., & Sirotkin, K. (2001). dbSNP: the NCBI database of genetic variation. Nucleic
     acids research, 29 1, 308-11 .'
-  email: support@cravat.us
-  name: NCBI
-  organization: NCBI
-  website: https://www.ncbi.nlm.nih.gov/projects/SNP/
 input_format: crv
 level: variant
 output_columns:

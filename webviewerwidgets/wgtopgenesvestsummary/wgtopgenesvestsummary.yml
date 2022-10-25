@@ -5,10 +5,10 @@ requires_opencravat: '>=1.7.0'
 required_annotator: vest
 description: Top Genes VEST Summary webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 hidden: true
 release_note:

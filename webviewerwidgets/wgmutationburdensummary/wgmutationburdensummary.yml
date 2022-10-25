@@ -7,9 +7,9 @@ requires_opencravat: '>=2.0.2'
 required_annotator: base
 description: Mutation Burden per Sample webviewer widget
 developer:
-  name: Madison Larsen
-  organization: In Silico Solutions
-  email: mlarsen@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 private: true

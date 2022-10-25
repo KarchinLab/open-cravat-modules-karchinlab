@@ -13,10 +13,10 @@ output_columns:
 description: Input coordinates are mapped to hg19 through liftOver.
 requires_opencravat: '>=1.6.1'
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: https://github.com/KarchinLab/open-cravat-modules-karchinlab
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 release_note:
   1.0.2: fixed test key.

@@ -1,34 +1,30 @@
 datasource: v1.1
-description: A comprehensive database of all potential human SNVs within splicing consensus regions and their functional annotations.
+description: A comprehensive database of all potential human SNVs within splicing
+  consensus regions and their functional annotations.
 developer:
-  name: 'Xiaoming Liu'
-  organization: 'University of South Florida'
-  email: 'support@cravat.us'
-  website: 'http://www.liulab.science/dbscsnv.html'
-  citation: 'Jian, Xueqiu, Eric Boerwinkle, and Xiaoming Liu. "In silico prediction of splice-altering single nucleotide variants in the human genome." Nucleic acids research 42.22 (2014): 13534-13544.'
-
+  name: Xiaoming Liu
+  organization: University of South Florida
+  email: support@opencravat.org
+  website: http://www.liulab.science/dbscsnv.html
+  citation: 'Jian, Xueqiu, Eric Boerwinkle, and Xiaoming Liu. "In silico prediction
+    of splice-altering single nucleotide variants in the human genome." Nucleic acids
+    research 42.22 (2014): 13534-13544.'
 level: variant
 output_columns:
 - name: ada_score
   title: AdaBoost Score
   type: float
   width: 70
-  desc: If the score >0.6, it predicts that the splicing will be changed, otherwise it predicts the splicing will not be changed.
+  desc: If the score >0.6, it predicts that the splicing will be changed, otherwise
+    it predicts the splicing will not be changed.
 - name: rf_score
   title: Random Forest Score
   type: float
   width: 75
-  desc: If the score >0.6, it predicts that the splicing will be changed, otherwise it predicts the splicing will not be changed
-
+  desc: If the score >0.6, it predicts that the splicing will be changed, otherwise
+    it predicts the splicing will not be changed
 tags:
 - variant effect prediction
-
 title: dbscSNV
 version: 1.0.0
 type: annotator
-
-
-
-
-
-

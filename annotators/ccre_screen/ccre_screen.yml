@@ -1,14 +1,17 @@
-datasource: 2019.10
-description: SCREEN allows the user to explore Candidate cis-Regulatory Elements (cCREs) and investigate how these elements relate to other Encyclopedia annotations and raw ENCODE data.
+datasource: 2019.1
+description: SCREEN allows the user to explore Candidate cis-Regulatory Elements (cCREs)
+  and investigate how these elements relate to other Encyclopedia annotations and
+  raw ENCODE data.
 developer:
-  name: 'Weng Lab'
-  organization: 'UMass Med, ENCODE Data Analysis Center'
-  email: 'support@cravat.us'
-  website: 'https://screen.wenglab.org/'
-  citation: 'ENCODE Project Consortium, Jill E. Moore, Michael J. Purcaro, Henry E. Pratt, Charles B. Epstein, Noam Shoresh, Jessika Adrian, et al. 2020. “Expanded Encyclopaedias of DNA Elements in the Human and Mouse Genomes.” Nature 583 (7818): 699–710.'
-
+  name: Weng Lab
+  organization: UMass Med, ENCODE Data Analysis Center
+  email: support@opencravat.org
+  website: https://screen.wenglab.org/
+  citation: "ENCODE Project Consortium, Jill E. Moore, Michael J. Purcaro, Henry E.\
+    \ Pratt, Charles B. Epstein, Noam Shoresh, Jessika Adrian, et al. 2020. \u201C\
+    Expanded Encyclopaedias of DNA Elements in the Human and Mouse Genomes.\u201D\
+    \ Nature 583 (7818): 699\u2013710."
 level: variant
-
 output_columns:
 - name: acc_d
   title: ENCODE Accession ID
@@ -20,7 +23,7 @@ output_columns:
   type: string
   hidden: false
   width: 100
-  link_format: 'https://screen.encodeproject.org/search/?q=${.*}&assembly=GRCh38'
+  link_format: https://screen.encodeproject.org/search/?q=${.*}&assembly=GRCh38
 - name: _group
   title: Classification
   type: string
@@ -33,24 +36,22 @@ output_columns:
   - PLS
   - CTCF-only
   - DNase-H3K4me3
-  desc: Classification of cCREs is based on the max-Zs as well as its proximity to the nearest annotated transcriptional start site (TSS)
+  desc: Classification of cCREs is based on the max-Zs as well as its proximity to
+    the nearest annotated transcriptional start site (TSS)
 - name: bound
   title: CTCF Bound
   type: string
-  desc: If there is CTCF binding, the insulator protein that demarcates open and closed chromatin.
+  desc: If there is CTCF binding, the insulator protein that demarcates open and closed
+    chromatin.
   hidden: true
   width: 80
   category: single
-
 tags:
 - non coding
 requires:
 - wgccre_screen
-
 title: Candidate cis-Regulatory Elements by ENCODE (SCREEN)
 version: 1.0.1
 release_note:
   1.0.1: added widget
 type: annotator
-
-

@@ -1,11 +1,15 @@
 datasource: v4.1a
-description: ALoFT provides extensive annotations to putative loss-of-function variants (LoF) in protein-coding genes including functional, evolutionary and network features.
+description: ALoFT provides extensive annotations to putative loss-of-function variants
+  (LoF) in protein-coding genes including functional, evolutionary and network features.
 developer:
-  name: 'Gerstein Lab'
-  organization: 'Yale University'
-  email: 'support@cravat.us'
-  website: 'http://aloft.gersteinlab.org/'
-  citation: 'Suganthi Balasubramanian, Yao Fu, Mayur Pawashe, Patrick McGillivray, Mike Jin, Jeremy Liu, Konrad J. Karczewski, Daniel G. MacArthur, and Mark Gerstein. "Using ALoFT to determine the impact of putative loss-of-function variants in protein-coding genes." Nature Communications 8 (2017).'
+  name: Gerstein Lab
+  organization: Yale University
+  email: support@opencravat.org
+  website: http://aloft.gersteinlab.org/
+  citation: Suganthi Balasubramanian, Yao Fu, Mayur Pawashe, Patrick McGillivray,
+    Mike Jin, Jeremy Liu, Konrad J. Karczewski, Daniel G. MacArthur, and Mark Gerstein.
+    "Using ALoFT to determine the impact of putative loss-of-function variants in
+    protein-coding genes." Nature Communications 8 (2017).
 output_columns:
 - name: transcript
   title: Transcript ID
@@ -17,7 +21,8 @@ output_columns:
   title: Transcripts Affected
   type: string
   width: 75
-  desc: the fraction of the transcripts of the gene affected i.e. No. of transcripts affected by the SNP/Total no. of protein_coding transcripts for the gene.
+  desc: the fraction of the transcripts of the gene affected i.e. No. of transcripts
+    affected by the SNP/Total no. of protein_coding transcripts for the gene.
   hidden: true
   category: multi
 - name: tolerant
@@ -42,14 +47,16 @@ output_columns:
   title: Classification
   type: string
   width: 85
-  desc: final classification predicted by ALoFT; values can be Tolerant, Recessive or Dominant
+  desc: final classification predicted by ALoFT; values can be Tolerant, Recessive
+    or Dominant
   category: multi
   hidden: false
 - name: conf
   title: Confidence
   type: string
   width: 75
-  desc: Confidence level of Aloft_pred; values can be "High Confidence" (p < 0.05) or "Low Confidence" (p > 0.05)
+  desc: Confidence level of Aloft_pred; values can be "High Confidence" (p < 0.05)
+    or "Low Confidence" (p > 0.05)
   category: multi
   hidden: true
 - hidden: true
@@ -81,11 +88,9 @@ output_columns:
   - name: conf
     title: Confidence
     type: string
-
 tags:
 - variants
 - variant effect prediction
-
 requires_opencravat: '>=2.2.1'
 requires:
 - wgaloft
@@ -93,6 +98,3 @@ title: ALoFT
 version: 1.0.0
 type: annotator
 level: variant
-
-
-

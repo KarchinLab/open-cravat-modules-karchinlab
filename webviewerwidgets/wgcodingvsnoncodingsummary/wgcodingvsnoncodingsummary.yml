@@ -5,10 +5,10 @@ required_annotator: base
 type: webviewerwidget
 description: Coding vs noncoding summary webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 release_note:
   1.2.0: New color scheme

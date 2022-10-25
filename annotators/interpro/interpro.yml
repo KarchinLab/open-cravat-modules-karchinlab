@@ -2,13 +2,13 @@ name: interpro
 datasource: v71
 description: Protein sequence analysis & classification
 developer:
+  name: Alex L. Mitchell et al.
+  organization: European Bioinformatics Institute (EMBL-EBI)
+  email: support@opencravat.org
+  website: https://www.ebi.ac.uk/interpro/
   citation: 'Mitchell, A. L., Attwood, T. K., Babbitt, P. C., et al. (2018). InterPro
     in 2019: improving coverage, classification and access to protein sequence annotations.
     Nucleic acids research, 47(D1), D351-D360.'
-  email: support@cravat.us
-  name: Alex L. Mitchell et al.
-  organization: European Bioinformatics Institute (EMBL-EBI)
-  website: https://www.ebi.ac.uk/interpro/
 input_format: crv
 level: variant
 can_summarize_by_gene: true
@@ -18,30 +18,32 @@ gene_summary_output_columns:
   type: string
   width: 160
 old_output_columns:
-    71.2.0:
-        output_columns:
-        - desc: Domain or conserved site on which the variant is located. Multiple entries separated by ";"
-          filterable: true
-          name: domain
-          title: Domain
-          type: string
-          width: 62
-        - desc: Associated UniProt accession number. Multiple entries separated by ";"
-          hidden: true
-          name: uniprot_acc
-          title: UniProt Accession Number
-          type: string
-          width: 70
-          filterable: false
-        - desc: Associated Ensembl Transcript ID. Multiple entries separated by ";"
-          filterable: true
-          name: ensembl_transcriptid
-          title: Ensembl Transcript ID
-          type: string
-          width: 80
-          hidden: true
+  71.2.0:
+    output_columns:
+    - desc: Domain or conserved site on which the variant is located. Multiple entries
+        separated by ";"
+      filterable: true
+      name: domain
+      title: Domain
+      type: string
+      width: 62
+    - desc: Associated UniProt accession number. Multiple entries separated by ";"
+      hidden: true
+      name: uniprot_acc
+      title: UniProt Accession Number
+      type: string
+      width: 70
+      filterable: false
+    - desc: Associated Ensembl Transcript ID. Multiple entries separated by ";"
+      filterable: true
+      name: ensembl_transcriptid
+      title: Ensembl Transcript ID
+      type: string
+      width: 80
+      hidden: true
 output_columns:
-- desc: Domain or conserved site on which the variant is located. Multiple entries separated by ";"
+- desc: Domain or conserved site on which the variant is located. Multiple entries
+    separated by ";"
   filterable: true
   name: domain
   title: Domain

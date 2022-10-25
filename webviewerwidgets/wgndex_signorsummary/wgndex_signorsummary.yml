@@ -4,10 +4,10 @@ type: webviewerwidget
 required_annotator: ndex_signor
 description: NDEx Signor pathway enrichment summary webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization

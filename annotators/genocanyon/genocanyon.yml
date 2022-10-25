@@ -1,28 +1,32 @@
 datasource: v4.2
-description: GenoCanyon is a whole-genome functional annotation approach based on unsupervised statistical learning. It integrates genomic conservation measures and biochemical annotation data to predict the functional potential at each nucleotid.
+description: GenoCanyon is a whole-genome functional annotation approach based on
+  unsupervised statistical learning. It integrates genomic conservation measures and
+  biochemical annotation data to predict the functional potential at each nucleotid.
 developer:
   name: ''
-  organization: 'Yale University'
-  email: 'support@cravat.us'
-  website: 'http://zhaocenter.org/GenoCanyon_Index.html'
-  citation: 'Lu, Q., Hu, Y., Sun, J. et al. A Statistical Framework to Predict Functional Non-Coding Regions in the Human Genome Through Integrated Analysis of Annotation Data. Sci Rep 5, 10576 (2015). https://doi.org/10.1038/srep10576'
-
+  organization: Yale University
+  email: support@opencravat.org
+  website: http://zhaocenter.org/GenoCanyon_Index.html
+  citation: Lu, Q., Hu, Y., Sun, J. et al. A Statistical Framework to Predict Functional
+    Non-Coding Regions in the Human Genome Through Integrated Analysis of Annotation
+    Data. Sci Rep 5, 10576 (2015). https://doi.org/10.1038/srep10576
 level: variant
 output_columns:
 - name: score
   title: Score
   type: float
-  desc: A functional prediction score based on conservation and biochemical annotations using an unsupervised statistical learning. Scores >= 0.5 are considered to be functional.
+  desc: A functional prediction score based on conservation and biochemical annotations
+    using an unsupervised statistical learning. Scores >= 0.5 are considered to be
+    functional.
   width: 75
 - name: rankscore
   title: Rank Score
   type: float
-  desc: GenoCanyon scores were ranked among all GenoCanyon scores. The rankscore is the ratio of the rank of the score over the total number of GenoCanyon scores.
+  desc: GenoCanyon scores were ranked among all GenoCanyon scores. The rankscore is
+    the ratio of the rank of the score over the total number of GenoCanyon scores.
   width: 75
-
-
 tags:
-  - non coding
+- non coding
 title: GenoCanyon
 version: 1.0.0
 type: annotator

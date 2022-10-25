@@ -2,13 +2,13 @@ datasource: 2018.04.05
 description: Impact of BRCA1 missense variants on protein function as determined by
   multiplex homology-directed DNA repair assay
 developer:
+  name: Lea Starita
+  organization: Starita Lab
+  email: support@opencravat.org
+  website: http://staritalab.org/
   citation: Findlay, G.M., Daza, R.M., Martin, B., Zhang, M.D., Leith, A.P., Gasperini,
     M.J., Janizek, J.D., Huang, X., Starita, L.M., & Shendure, J. (2018). Accurate
     classification of BRCA1 variants with saturation genome editing. Nature, 1-6.
-  email: support@cravat.us
-  name: Lea Starita
-  organization: Starita Lab
-  website: http://staritalab.org/
 input_format: crv
 level: variant
 output_columns:

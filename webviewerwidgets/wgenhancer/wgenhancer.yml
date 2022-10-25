@@ -5,10 +5,10 @@ requires_opencravat: '>=1.8.1'
 required_annotator: genehancer
 description: Frequently Mutated Enhancers webviewer widget
 developer:
-  name: Madison Larsen
-  organization: In Silico Solutions
-  email: mlarsen@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization

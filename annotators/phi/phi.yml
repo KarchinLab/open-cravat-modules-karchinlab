@@ -1,12 +1,12 @@
 datasource: dbNSFP v4.0b1
 description: Providing probabilities for gene-based haploinsufficiency
 developer:
-  citation: Huang, N., Lee, I., Marcotte, E. M., & Hurles, M. E. (2010). Characterising
-    and predicting haploinsufficiency in the human genome. PLoS genetics, 6(10), e1001154.
-  email: support@cravat.us
   name: Ni Huang, Insuk Lee, Edward M. Marcotte, Matthew E. Hurles
   organization: Wellcome Trust Sanger Institute
+  email: support@opencravat.org
   website: https://doi.org/10.1371/journal.pgen.1001154
+  citation: Huang, N., Lee, I., Marcotte, E. M., & Hurles, M. E. (2010). Characterising
+    and predicting haploinsufficiency in the human genome. PLoS genetics, 6(10), e1001154.
 level: gene
 output_columns:
 - desc: Estimated probability of haploinsufficiency of the gene

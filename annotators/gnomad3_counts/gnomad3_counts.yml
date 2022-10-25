@@ -3,13 +3,13 @@ description: Genome Aggregation Database (gnomAD) is a resource developed by an 
   coalition of investigators, with the goal of aggregating and harmonizing both exome
   and genome sequencing data from a wide variety of large-scale sequencing projects
 developer:
+  name: Broad Institute
+  organization: Broad Institute
+  email: support@opencravat.org
+  website: http://gnomad.broadinstitute.org/
   citation: Karczewski, Konrad J., et al. "The Mutational Constraint Spectrum Quantified
     from Variation in 141,456 Humans." BioRxiv, Apr. 2020, p. 531210. www.biorxiv.org,
     doi:10.1101/531210.
-  email: ''
-  name: Broad Institute
-  organization: Broad Institute
-  website: http://gnomad.broadinstitute.org/
 output_columns:
 - name: nhomalt
   title: Global Homozygous AC
@@ -130,19 +130,22 @@ output_columns:
   title: non-Finnish European Homozygous AC
   type: int
   width: 85
-  desc: non-Finnish European populations include Bulgarian, Estonian, North-western European, Other non-Finnish European, South European, and Swedish.
+  desc: non-Finnish European populations include Bulgarian, Estonian, North-western
+    European, Other non-Finnish European, South European, and Swedish.
 - name: nfe_xx
   title: non-Finnish European Homozygous Female AC
   type: int
   width: 85
   hidden: true
-  desc: non-Finnish European populations include Bulgarian, Estonian, North-western European, Other non-Finnish European, South European, and Swedish.
+  desc: non-Finnish European populations include Bulgarian, Estonian, North-western
+    European, Other non-Finnish European, South European, and Swedish.
 - name: nfe_xy
   title: non-Finnish European Homozygous Male AC
   type: int
   width: 85
   hidden: true
-  desc: non-Finnish European populations include Bulgarian, Estonian, North-western European, Other non-Finnish European, South European, and Swedish.
+  desc: non-Finnish European populations include Bulgarian, Estonian, North-western
+    European, Other non-Finnish European, South European, and Swedish.
 - name: oth
   title: Other Homozygous AC
   type: int
@@ -171,10 +174,8 @@ output_columns:
   type: int
   width: 85
   hidden: true
-
 tags:
 - allele frequency
-
 title: gnomAD3 Counts
 version: 1.0.0
 type: annotator

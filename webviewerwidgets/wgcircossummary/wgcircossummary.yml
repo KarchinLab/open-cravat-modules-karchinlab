@@ -5,10 +5,10 @@ required_annotator: base
 type: webviewerwidget
 description: Circos Summary result viewer widget
 developer:
-  name: OpenCRAVAT
+  name: OpenCRAVAT Team
   organization: KarchinLab
-  email: cravat@support.us
-  website:
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 release_note:
   2.1.1: Updated d3.js package

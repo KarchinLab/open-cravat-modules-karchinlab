@@ -1,24 +1,27 @@
-datasource: v2
-description: ncER has a good performance for the identification of deleterious variants in the non-coding genome. ncER can also identify non-coding regions associated with cell viability, an in vitro surrogate of essentiality9, and with regulation of an essential gene.
+datasource: 2022.09.22
+description: ncER has a good performance for the identification of deleterious variants
+  in the non-coding genome. ncER can also identify non-coding regions associated with
+  cell viability, an in vitro surrogate of essentiality9, and with regulation of an
+  essential gene.
 developer:
   name: ''
-  organization: 'Department of Integrative Structural and Computational Biology, The Scripps Research Institute'
-  email: 'support@cravat.us'
-  website: 'https://github.com/TelentiLab/ncER_datasets'
-  citation: 'Wells, A., Heckerman, D., Torkamani, A. et al. Ranking of non-coding pathogenic variants and putative essential regions of the human genome. Nat Commun 10, 5241 (2019). https://doi.org/10.1038/s41467-019-13212-3'
-
+  organization: Department of Integrative Structural and Computational Biology, The
+    Scripps Research Institute
+  email: support@opencravat.org
+  website: https://github.com/TelentiLab/ncER_datasets
+  citation: Wells, A., Heckerman, D., Torkamani, A. et al. Ranking of non-coding pathogenic
+    variants and putative essential regions of the human genome. Nat Commun 10, 5241
+    (2019). https://doi.org/10.1038/s41467-019-13212-3
 level: variant
 output_columns:
 - name: score
   title: Percentile
   type: float
   width: 85
-  desc: The higher the percentile, the more likely essential (in terms of regulation) the region is.
-
+  desc: The higher the percentile, the more likely essential (in terms of regulation)
+    the region is.
 tags:
 - non coding
-
-title: "ncER: non-coding essential regulation"
+title: 'ncER: non-coding essential regulation'
 version: 2022.09.22
-datasource: 2022.09.22
 type: annotator

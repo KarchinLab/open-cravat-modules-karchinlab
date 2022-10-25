@@ -15,7 +15,7 @@ description: CADD is a tool for scoring the deleteriousness of single nucleotide
 developer:
   name: Martin Kircher
   organization: Shendure Lab, University of Washington
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://cadd.gs.washington.edu/
   citation: 'Rentzsch P, Witten D, Cooper GM, Shendure J, Kircher M. CADD: predicting
     the deleteriousness of variants throughout the human genome. Nucleic Acids Res.

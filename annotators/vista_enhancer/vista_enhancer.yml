@@ -1,13 +1,13 @@
 datasource: hg19
 description: Experimentally validated enhancers from the VISTA Enhancer Browser
 developer:
+  name: Lawrence Berkeley National Laboratory
+  organization: Lawrence Berkeley National Laboratory
+  email: support@opencravat.org
+  website: https://enhancer.lbl.gov/
   citation: "Visel, A., Minovitsky, S., Dubchak, I., & Pennacchio, L. A. (2006). VISTA\
     \ Enhancer Browser\u2014a database of tissue-specific human enhancers. Nucleic\
     \ acids research, 35(suppl_1), D88-D92."
-  email: vtdelapuente@lbl.gov
-  name: Lawrence Berkeley National Laboratory
-  organization: Lawrence Berkeley National Laboratory
-  website: https://enhancer.lbl.gov/
 level: variant
 output_columns:
 - desc: ''

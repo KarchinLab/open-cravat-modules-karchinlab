@@ -1,24 +1,28 @@
 datasource: December 2018
-description: The constrained coding regions model (CCR) uses the Genome Aggregation Database to reveal regions of protein coding genes that are 
-             likely to be under potentially purifiying selection.
+description: The constrained coding regions model (CCR) uses the Genome Aggregation
+  Database to reveal regions of protein coding genes that are likely to be under potentially
+  purifiying selection.
 developer:
-  name: 'James M. Havrilla'
-  organization: 'University of Utah'
-  email: 'support@cravat.us'
-  website: 'https://s3.us-east-2.amazonaws.com/ccrs/ccr.html'
-  citation: 'Havrilla, J.M., Pedersen, B.S., Layer, R.M. & Quinlan, A.R. A map of constrained coding regions in the human genome. 
-             Nature Genetics (2018). doi:10.1038/s41588-018-0294-6'
+  name: James M. Havrilla
+  organization: University of Utah
+  email: support@opencravat.org
+  website: https://s3.us-east-2.amazonaws.com/ccrs/ccr.html
+  citation: Havrilla, J.M., Pedersen, B.S., Layer, R.M. & Quinlan, A.R. A map of constrained
+    coding regions in the human genome. Nature Genetics (2018). doi:10.1038/s41588-018-0294-6
 output_columns:
 - name: pct
   title: Percentile
   type: float
   width: 75
-  desc: Percentile ranges from 90 to 100. 100 represents complete constraint, the highest constrained region in the model.
+  desc: Percentile ranges from 90 to 100. 100 represents complete constraint, the
+    highest constrained region in the model.
 - name: syn_density
   title: Synonymous Variant Density
   type: float
   width: 80
-  desc: A calculation of the synonymous variant density of the CCR region. Used variants that were SNPs and did not change amino acids or stop/start codons. Allowed multiple alleles at same bp.
+  desc: A calculation of the synonymous variant density of the CCR region. Used variants
+    that were SNPs and did not change amino acids or stop/start codons. Allowed multiple
+    alleles at same bp.
   hidden: true
 - name: cpg
   title: CpG
@@ -43,8 +47,7 @@ output_columns:
   width: 75
   desc: Raw residual percentile, not weighted by proportion of exome represented.
   hidden: true
-
-title: "CCR: Constrained Coding Regions"
+title: 'CCR: Constrained Coding Regions'
 version: 1.0.0
 type: annotator
 level: variant

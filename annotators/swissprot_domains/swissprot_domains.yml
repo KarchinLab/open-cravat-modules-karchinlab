@@ -1,79 +1,76 @@
 datasource: 12.02.2020
 description: Provides information on location,topology, and domain(s) of a protein.
 developer:
-  name: 'The UniProt Consortium'
-  organization: 'The UniProt Consortium'
-  email: 'support@cravat.us'
-  website: 'https://www.uniprot.org/help/family_and_domains_section'
-  citation: 'The UniProt Consortium, UniProt: a worldwide hub of protein knowledge, Nucleic Acids Research, Volume 47, Issue D1, 08 January 2019, Pages D506–D515, https://doi.org/10.1093/nar/gky1049'
- 
+  name: The UniProt Consortium
+  organization: The UniProt Consortium
+  email: support@opencravat.org
+  website: https://www.uniprot.org/help/family_and_domains_section
+  citation: "The UniProt Consortium, UniProt: a worldwide hub of protein knowledge,\
+    \ Nucleic Acids Research, Volume 47, Issue D1, 08 January 2019, Pages D506\u2013\
+    D515, https://doi.org/10.1093/nar/gky1049"
 level: variant
 output_columns:
 - name: uniprotkb
   title: UniProtKB Accession Number
   type: string
-  link_format: 'https://www.uniprot.org/uniprot/${[^;]+}'
+  link_format: https://www.uniprot.org/uniprot/${[^;]+}
   width: 80
   hidden: false
-
 - name: domain
   title: Protein Domain
   type: string
-  desc: Describes the position and type of a domain, which is defined as a specific combination of secondary structures organized into a characteristic three-dimensional structure or fold.
+  desc: Describes the position and type of a domain, which is defined as a specific
+    combination of secondary structures organized into a characteristic three-dimensional
+    structure or fold.
   width: 90
   hidden: true
-
 - name: intramem
   title: Intra-membrane
   type: string
   desc: Extent of a region located in a membrane without crossing it.
   width: 90
   hidden: true
-
 - name: motif
   title: Sequence Motif
   type: string
-  desc: Describes a short (usually not more than 20 amino acids) conserved sequence motif of biological significance.
+  desc: Describes a short (usually not more than 20 amino acids) conserved sequence
+    motif of biological significance.
   width: 90
   hidden: true
-
 - name: peptide
   title: Active Peptide
   type: string
   desc: Describes the position and length of an active peptide in the mature protein.
   width: 90
   hidden: true
-
 - name: repeat
   title: Repeat
   type: string
-  desc: Indicates the positions and types of repeated sequence motifs or repeated domains within the protein.
+  desc: Indicates the positions and types of repeated sequence motifs or repeated
+    domains within the protein.
   width: 80
   hidden: true
-
 - name: topo
   title: Topological Domains
   type: string
-  desc: Subcellular compartment where each non-membrane region of a membrane-spanning protein is found.
+  desc: Subcellular compartment where each non-membrane region of a membrane-spanning
+    protein is found.
   width: 90
   hidden: true
-
 - name: transmem
   title: Transmembrane Regions
   type: string
-  desc: It denotes the presence of both alpha-helical transmembrane regions and the membrane spanning regions of beta-barrel transmembrane proteins.
+  desc: It denotes the presence of both alpha-helical transmembrane regions and the
+    membrane spanning regions of beta-barrel transmembrane proteins.
   width: 100
   hidden: true
-
 - name: pubmed
   title: Pubmed
   type: string
-  link_format: 'https://pubmed.ncbi.nlm.nih.gov/${[^;]+}'
+  link_format: https://pubmed.ncbi.nlm.nih.gov/${[^;]+}
   width: 75
   hidden: true
   desc: Link to literature.
-
-
 - hidden: true
   name: all
   title: All Annotations
@@ -99,7 +96,7 @@ output_columns:
     type: string
   - name: repeat
     title: repeat
-    type: string 
+    type: string
   - name: topo
     title: topo
     type: string
@@ -109,7 +106,6 @@ output_columns:
   - name: pubmed
     title: pubmed
     type: int
-
 tags:
 - functional studies
 requires_opencravat: '>=2.2.1'
@@ -118,5 +114,3 @@ requires:
 title: Swiss-Prot Domains
 version: 1.0.0
 type: annotator
-
-

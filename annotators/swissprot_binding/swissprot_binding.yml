@@ -1,77 +1,70 @@
 datasource: 12.02.2020
 description: Provides any useful information about the protein, mostly binding sites.
 developer:
-  name: 'The UniProt Consortium'
-  organization: 'The UniProt Consortium'
-  email: 'support@cravat.us'
-  website: 'https://www.uniprot.org/help/function_section'
-  citation: 'The UniProt Consortium, UniProt: a hub for protein information, Nucleic Acids Research, Volume 43, Issue D1, 28 January 2015, Pages D204–D212, https://doi.org/10.1093/nar/gku989'
+  name: The UniProt Consortium
+  organization: The UniProt Consortium
+  email: support@opencravat.org
+  website: https://www.uniprot.org/help/function_section
+  citation: "The UniProt Consortium, UniProt: a hub for protein information, Nucleic\
+    \ Acids Research, Volume 43, Issue D1, 28 January 2015, Pages D204\u2013D212,\
+    \ https://doi.org/10.1093/nar/gku989"
 level: variant
 output_columns:
 - name: uniprotkb
   title: UniProtKB Accession Number
   type: string
-  link_format: 'https://www.uniprot.org/uniprot/${[^;]+}'
+  link_format: https://www.uniprot.org/uniprot/${[^;]+}
   width: 80
   hidden: false
-
 - name: act
   title: Active Binding Site
   type: string
   desc: Amino acid(s) directly involved in the activity of an enzyme
   width: 90
   hidden: true
-
 - name: binding
   title: Binding Site
   type: string
   desc: Binding site for any chemical group (co-enzyme, prosthetic group, etc.).
   width: 90
   hidden: true
-
 - name: ca
   title: Calcium Binding Site
   type: string
   desc: Position(s) of calcium binding region(s) within the protein.
   width: 90
   hidden: true
-
 - name: dna
   title: DNA Binding Site
   type: string
   desc: Position and type of a DNA-binding domain.
   width: 90
   hidden: true
-
-- name: metal 
+- name: metal
   title: Metal Ion Binding Site
   type: string
   desc: Binding site for a metal ion.
   width: 90
   hidden: true
-
 - name: np
   title: Nucleotide Phosphate Binding Site
   type: string
   desc: Describes a region in the protein which binds nucleotide phosphates.
   width: 90
   hidden: true
-
 - name: zn
   title: Zinc Finger
   type: string
   desc: Position(s) and type(s) of zinc fingers within the protein.
   width: 90
   hidden: true
-
 - name: pubmed
   title: Pubmed
   type: string
-  link_format: 'https://pubmed.ncbi.nlm.nih.gov/${[^;]+}'
+  link_format: https://pubmed.ncbi.nlm.nih.gov/${[^;]+}
   width: 75
   hidden: true
   desc: Link to literature.
-
 - hidden: true
   name: all
   title: All Annotations
@@ -97,7 +90,7 @@ output_columns:
     type: string
   - name: metal
     title: metal
-    type: string 
+    type: string
   - name: np
     title: np
     type: string
@@ -107,7 +100,6 @@ output_columns:
   - name: pubmed
     title: pubmed
     type: int
-
 tags:
 - functional studies
 requires_opencravat: '>=2.2.1'

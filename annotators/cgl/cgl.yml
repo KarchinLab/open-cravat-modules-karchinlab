@@ -1,12 +1,12 @@
 datasource: v2013.03.29
 description: Oncogenes and tumor supressor genes from Vogelstein et al. 2013
 developer:
-  citation: Vogelstein, B., Papadopoulos, N., Velculescu, V.E., Zhou, S., Diaz, L.A.,
-    & Kinzler, K.W. (2013). Cancer genome landscapes. Science, 339 6127, 1546-58.
-  email: support@cravat.us
   name: Bert Vogelstein
   organization: Johns Hopkins University
+  email: support@opencravat.org
   website: http://science.sciencemag.org/content/339/6127/1546
+  citation: Vogelstein, B., Papadopoulos, N., Velculescu, V.E., Zhou, S., Diaz, L.A.,
+    & Kinzler, K.W. (2013). Cancer genome landscapes. Science, 339 6127, 1546-58.
 level: gene
 output_columns:
 - name: class

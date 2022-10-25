@@ -2,11 +2,11 @@ columnwidth:
 - note__text: 100
 description: Note-taking widget
 developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
-  email: rkim@insilico.us.com
-  name: Rick Kim
-  organization: In Silico Solutions
-  website: http://www.insilico.us.com
 required_annotator: base
 tags:
 - visualization

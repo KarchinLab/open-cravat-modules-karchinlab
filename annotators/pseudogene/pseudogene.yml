@@ -1,13 +1,13 @@
 datasource: hg38
 description: Pseudogenes from UCSC hg38 wgEncodeGencodePseudoGeneV27
 developer:
+  name: UCSC
+  organization: UCSC
+  email: support@opencravat.org
+  website: https://www.gencodegenes.org/
   citation: 'Harrow, J., Frankish, A., Gonzalez, J. M., Tapanari, E., Diekhans, M.,
     Kokocinski, F., ... & Barnes, I. (2012). GENCODE: the reference human genome annotation
     for The ENCODE Project. Genome research, 22(9), 1760-1774.'
-  email: ''
-  name: UCSC
-  organization: UCSC
-  website: https://www.gencodegenes.org/
 input_format: crv
 level: variant
 output_columns:

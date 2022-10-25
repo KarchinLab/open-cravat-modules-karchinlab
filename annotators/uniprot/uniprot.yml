@@ -13,7 +13,7 @@ description: Comprehensive resource for protein sequence and functional informat
 developer:
   name: The UniProt Consortium
   organization: The UniProt Consortium
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://www.uniprot.org/
   citation: 'UniProt Consortium. (2018). UniProt: the universal protein knowledgebase.
     Nucleic acids research, 46(5), 2699.'
@@ -23,4 +23,3 @@ release-note:
   1.1.0: updated gene names according to https://www.genenames.org/download/custom/
 tags:
 - literature
-

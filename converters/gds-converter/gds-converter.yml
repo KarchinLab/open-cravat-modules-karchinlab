@@ -5,8 +5,8 @@ description: Converter for GDS format input
 developer:
   name: Jacob Lopez
   organization: Johns Hopkins University
-  email: jacoblopez757@gmail.com
+  email: support@opencravat.org
   website: ''
   citation: ''
 requires_opencravat: '>2.2.7'
-release_note:
+release_note: null

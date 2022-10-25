@@ -1,13 +1,13 @@
 datasource: dbNSFP v4.0b1
 description: Providing probabilities for LoF alleles
 developer:
+  name: Daniel G. MacArthur
+  organization: Wellcome Trust Sanger Institute
+  email: support@opencravat.org
+  website: https://doi.org/10.1126/science.1215040
   citation: MacArthur, D. G., Balasubramanian, S., Frankish, A., et al. (2012). A
     systematic survey of loss-of-function variants in human protein-coding genes.
     Science, 335(6070), 823-828.
-  email: support@cravat.us
-  name: Daniel G. MacArthur
-  organization: Wellcome Trust Sanger Institute
-  website: https://doi.org/10.1126/science.1215040
 level: gene
 output_columns:
 - desc: Estimated probability that gene is a recessive disease gene

@@ -1,13 +1,13 @@
 datasource: v4.1a
 description: Rare Exome Variant Ensemble Learner
 developer:
+  name: Joe Rothstein
+  organization: Icahn School of Medicine at Mount Sinai
+  email: support@opencravat.org
+  website: https://sites.google.com/site/revelgenomics/
   citation: 'Ioannidis, N. M., Rothstein, J. H., Pejaver, V., et al. (2016). REVEL:
     an ensemble method for predicting the pathogenicity of rare missense variants.
     The American Journal of Human Genetics, 99(4), 877-885.'
-  email: joseph.rothstein@mssm.edu
-  name: Joe Rothstein
-  organization: Icahn School of Medicine at Mount Sinai
-  website: https://sites.google.com/site/revelgenomics/
 input_format: crv
 level: variant
 output_columns:
@@ -21,13 +21,14 @@ output_columns:
   name: score
   title: Score
   type: float
-  desc: Max pathogenicity score across all transcripts. 
+  desc: Max pathogenicity score across all transcripts.
   hidden: true
 - name: rankscore
   title: Rank Score
   type: float
   hidden: false
-  desc: Max rank score across all transcripts. The ratio of the rank of the score over the total number of REVEL scores.
+  desc: Max rank score across all transcripts. The ratio of the rank of the score
+    over the total number of REVEL scores.
 - hidden: true
   name: all
   title: All Annotations
@@ -45,7 +46,6 @@ output_columns:
   - name: rankscore
     title: rankscore
     type: float
-
 requires_opencravat: '>=2.2.1'
 tags:
 - variant effect prediction
@@ -60,7 +60,7 @@ smartfilters:
   description: Include variants which have a rank score greater than or equal to 0.90.
   selector:
     type: inputFloat
-    defaultValue: 0.90
+    defaultValue: 0.9
   filter:
     column: revel__rankscore
     test: greaterThanEq

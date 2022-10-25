@@ -1,11 +1,18 @@
-datasource:  2020.02.29
-description: The goal of the ALFA project is to make frequency data from over 1M dbGaP subjects open-access in future releases to facilitate discoveries and interpretations of common and rare variants with biological impacts or causing diseases.
+datasource: 2020.02.29
+description: The goal of the ALFA project is to make frequency data from over 1M dbGaP
+  subjects open-access in future releases to facilitate discoveries and interpretations
+  of common and rare variants with biological impacts or causing diseases.
 developer:
-  name: 'NCBI'
-  organization: 'NCBI'
-  email: 'support@cravat.us'
-  website: 'https://www.ncbi.nlm.nih.gov/snp/docs/gsr/alfa/#background'
-  citation: 'L. Phan, Y. Jin, H. Zhang, W. Qiang, E. Shekhtman, D. Shao, D. Revoe, R. Villamarin, E. Ivanchenko, M. Kimura, Z. Y. Wang, L. Hao, N. Sharopova, M. Bihan, A. Sturcke, M. Lee, N. Popova, W. Wu, C. Bastiani, M. Ward, J. B. Holmes, V. Lyoshin, K. Kaur, E. Moyer, M. Feolo, and B. L. Kattman. "ALFA: Allele Frequency Aggregator." National Center for Biotechnology Information, U.S. National Library of Medicine, 10 Mar. 2020, www.ncbi.nlm.nih.gov/snp/docs/gsr/alfa/.'
+  name: NCBI
+  organization: NCBI
+  email: support@opencravat.org
+  website: https://www.ncbi.nlm.nih.gov/snp/docs/gsr/alfa/#background
+  citation: 'L. Phan, Y. Jin, H. Zhang, W. Qiang, E. Shekhtman, D. Shao, D. Revoe,
+    R. Villamarin, E. Ivanchenko, M. Kimura, Z. Y. Wang, L. Hao, N. Sharopova, M.
+    Bihan, A. Sturcke, M. Lee, N. Popova, W. Wu, C. Bastiani, M. Ward, J. B. Holmes,
+    V. Lyoshin, K. Kaur, E. Moyer, M. Feolo, and B. L. Kattman. "ALFA: Allele Frequency
+    Aggregator." National Center for Biotechnology Information, U.S. National Library
+    of Medicine, 10 Mar. 2020, www.ncbi.nlm.nih.gov/snp/docs/gsr/alfa/.'
 output_columns:
 - name: total_alt
   title: Global AC
@@ -16,19 +23,17 @@ output_columns:
 - name: total_freq
   title: Global AF
   type: float
-  desc: The ratio of the allele count for each ALT allele for the population over the total allele count for the population, including REF
+  desc: The ratio of the allele count for each ALT allele for the population over
+    the total allele count for the population, including REF
   width: 80
   hidden: false
-
 tags:
 - allele frequency
 requires:
 - alfa_group
 groups:
 - alfa_group
-
 title: 'ALFA: Allele Frequency Aggregator'
 version: 1.0.0
 type: annotator
 level: variant
-

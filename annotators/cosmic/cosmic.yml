@@ -3,12 +3,12 @@ description: Catalogue Of Somatic Mutations In Cancer, is the world's largest an
   most comprehensive resource for exploring the impact of somatic mutations in human
   cancer.
 developer:
-  citation: 'Forbes, S.A., Beare, D., Boutselakis, H., et al. (2017). COSMIC: somatic
-    cancer genetics at high-resolution. Nucleic Acids Research, 45(D1):D777-D783.'
-  email: support@cravat.us
   name: Sanger Institute
   organization: Sanger Institute
+  email: support@opencravat.org
   website: https://cancer.sanger.ac.uk/cosmic
+  citation: 'Forbes, S.A., Beare, D., Boutselakis, H., et al. (2017). COSMIC: somatic
+    cancer genetics at high-resolution. Nucleic Acids Research, 45(D1):D777-D783.'
 input_format: crx
 level: variant
 output_columns:
@@ -56,7 +56,8 @@ output_columns:
   title: Match
   type: string
   hidden: true
-  desc: 'Whether the variant is an exact match (matching: chrom, pos, ref, alt), macthes the protein change, or just the genomic location (chrom, pos).'
+  desc: 'Whether the variant is an exact match (matching: chrom, pos, ref, alt), macthes
+    the protein change, or just the genomic location (chrom, pos).'
   category: single
   width: 100
 tags:

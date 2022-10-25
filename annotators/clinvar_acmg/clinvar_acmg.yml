@@ -3,14 +3,13 @@ description: ACMG PS1 and PM5 pathogenicity prediction based on ClinVar
 version: 2021.10.01
 datasource: 2021.10.01
 developer:
+  name: NCBI
+  organization: NCBI
+  email: support@opencravat.org
+  website: https://www.ncbi.nlm.nih.gov/clinvar/
   citation: 'Landrum, M.J., Lee, J.M., Benson, M., et al. (2016). ClinVar: public
     archive of interpretations of clinically relevant variants. Nucleic Acids Research,
     44(D1):D862-8.'
-  email: support@cravat.us
-  name: NCBI
-  organization: NCBI
-  website: https://www.ncbi.nlm.nih.gov/clinvar/
-
 level: variant
 input_format: crx
 output_columns:
@@ -19,18 +18,20 @@ output_columns:
   type: string
   width: 55
   link_format: https://www.ncbi.nlm.nih.gov/clinvar/variation/${.*}/
-  desc: Severe pathogenicity. Same amino acid change as a previously established pathogenic variant regardless of nucleotide change
+  desc: Severe pathogenicity. Same amino acid change as a previously established pathogenic
+    variant regardless of nucleotide change
 - name: pm5_id
   title: PM5 ID
   type: string
   width: 55
   link_format: https://www.ncbi.nlm.nih.gov/clinvar/variation/${.*}/
-  desc: Moderate pathogenicity. Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before
-
+  desc: Moderate pathogenicity. Novel missense change at an amino acid residue where
+    a different missense change determined to be pathogenic has been seen before
 smartfilters:
 - name: ps1
   title: ClinVar ACMG PS1
-  description: Same amino acid change as a previously established pathogenic variant regardless of nucleotide change
+  description: Same amino acid change as a previously established pathogenic variant
+    regardless of nucleotide change
   selector:
     type: empty
   filter:
@@ -38,13 +39,13 @@ smartfilters:
     test: hasData
 - name: pm5
   title: ClinVar ACMG PM5
-  description: Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before
+  description: Novel missense change at an amino acid residue where a different missense
+    change determined to be pathogenic has been seen before
   selector:
     type: empty
   filter:
     column: clinvar_acmg__pm5_id
     test: hasData
-
 type: annotator
 requires_opencravat: '>=1.4.0'
 tags:

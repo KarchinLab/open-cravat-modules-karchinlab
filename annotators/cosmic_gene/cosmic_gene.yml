@@ -3,13 +3,13 @@ description: Catalogue Of Somatic Mutations In Cancer, is the world's largest an
   most comprehensive resource for exploring the impact of somatic mutations in human
   cancer.
 developer:
+  name: Sanger Institute
+  organization: Sanger Institute
+  email: support@opencravat.org
+  website: https://cancer.sanger.ac.uk/cosmic
   citation: "Simon A. Forbes et al; COSMIC: somatic cancer genetics at high-resolution,\
     \ Nucleic Acids Research, Volume 45, Issue D1, 4 January 2017, Pages D777\u2013\
     D783, https://doi.org/10.1093/nar/gkw1121"
-  email: support@cravat.us
-  name: Sanger Institute
-  organization: Sanger Institute
-  website: https://cancer.sanger.ac.uk/cosmic
 level: gene
 output_columns:
 - name: occurrences

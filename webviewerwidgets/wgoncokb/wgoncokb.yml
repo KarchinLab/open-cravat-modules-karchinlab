@@ -5,10 +5,10 @@ required_annotator: oncokb
 description: OncoKB webviewer widget
 hidden: true
 developer:
-  name: OpenCravat
+  name: OpenCRAVAT Team
   organization: KarchinLab
-  email: support@cravat.us
-  website: ''
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization

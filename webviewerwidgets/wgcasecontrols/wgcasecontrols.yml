@@ -5,10 +5,10 @@ required_annotator: casecontrol
 description: Case-Control - Most significant p-values webviewer widget
 requires_opencravat: '>=1.7.0'
 developer:
-  name: Madison Larsen
-  organization: In Silico Solutions
-  email: mlarsen@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
@@ -16,4 +16,3 @@ hidden: true
 release_note:
   1.0.0: Initial release
   1.0.1: Change required annotator to hide casecontrols widget when not in use
-  

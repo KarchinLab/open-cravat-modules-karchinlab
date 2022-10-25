@@ -1,13 +1,13 @@
 title: dbSNP Converter
 version: 1.2.0
-datasource: 'v154'
+datasource: v154
 type: converter
 description: Input converter for dbSNP rsid input
 developer:
-  name: Kyle Moad
-  organization: In Silico Solutions
-  email: support@cravat.us
-  website: https://www.ncbi.nlm.nih.gov/snp
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: 'Database of Single Nucleotide Polymorphisms (dbSNP). Bethesda (MD): National
     Center for Biotechnology Information, National Library of Medicine. (dbSNP Build
     ID: 151).'

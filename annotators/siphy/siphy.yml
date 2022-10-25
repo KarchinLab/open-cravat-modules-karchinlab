@@ -1,12 +1,12 @@
 datasource: dbNSFP v4.0b1
 description: A database of conservation scores based on 29 mammal genomes
 developer:
-  citation: Lindblad-Toh, K., Garber, M., Zuk, et al. (2011). A high-resolution map
-    of human evolutionary constraint using 29 mammals. Nature, 478(7370), 476.
-  email: support@cravat.us
   name: ''
   organization: Broad Institute
+  email: support@opencravat.org
   website: https://www.broadinstitute.org/mammals-models/29-mammals-project
+  citation: Lindblad-Toh, K., Garber, M., Zuk, et al. (2011). A high-resolution map
+    of human evolutionary constraint using 29 mammals. Nature, 478(7370), 476.
 input_format: crv
 level: variant
 output_columns:
