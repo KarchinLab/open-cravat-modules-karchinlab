@@ -193,4 +193,3 @@ tags:
 - visualization
 hidden: false
 requires_opencravat: '>=2.1.3'
-private: true
