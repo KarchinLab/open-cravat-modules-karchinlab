@@ -22,4 +22,3 @@ release_note:
   1.1.1: prevents an error with one histogram bar for a SO class.
 tags:
 - visualization
-private: true
