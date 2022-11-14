@@ -1,4 +1,4 @@
-datasource: Jan 2019
+datasource: Latest Available
 description: Provides descriptions and linkouts to CIViC
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
@@ -49,11 +49,12 @@ tags:
 - literature
 title: CIViC
 type: annotator
-version: 1.0.16
+version: 1.0.17
 requires_opencravat: '>=1.4.0'
 requires:
 - wgcivic
 release_note:
+  1.0.17: YML change for datasource tag
   1.0.16: Fix for parsing error. Actionability changed to Evidence in title
   1.0.15: Add smartfilter
   1.0.14: Fail more gracefully when data can't be loaded

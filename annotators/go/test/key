@@ -1,5 +1,5 @@
 #CRAVAT Report
-#Created at Wednesday 10/05/2022 09:52:44
+#Created at Monday 11/14/2022 12:14:01
 #Report level: variant
 #
 Variant Annotation																Gene Ontology						Original Input			
@@ -14,7 +14,7 @@ UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontolo
 8	chr2	112482345	A	T		Yes	TTL	ENST00000233336.7	start_lost	c.1A>T	p.Met1?	ENST00000233336.7:TTL:Q8NG68:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000485537.1:TTL::processed_transcript::	0		TTL	microtubule cytoskeleton organization;regulation of axon extension;post-translational protein modification;positive regulation of mitotic cell cycle;regulation of metaphase plate congression	GO:0000226;GO:0030516;GO:0043687;GO:0045931;GO:0090235	spindle microtubule	GO:0005876	tubulin-tyrosine ligase activity;ATP binding	GO:0004835;GO:0005524	chr2	112482345	A	T
 9	chrY	13479665	T	A		Yes	UTY	ENST00000545955.5	start_lost	c.1A>T	p.Met1?	ENST00000329134.9:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000331397.8:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000362096.8:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000382893.2:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000382896.8:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000474365.1:UTY::2kb_upstream_variant,processed_transcript::; ENST00000478900.5:UTY::2kb_upstream_variant,processed_transcript::; ENST00000479713.1:UTY::processed_transcript::; ENST00000537580.5:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000538878.5:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000540140.5:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000545955.5:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000612274.4:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000617789.4:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000618474.4:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000624098.3:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T	0		UTY	chromatin organization;heart development;regulation of gene expression;histone H3-K27 demethylation	GO:0006325;GO:0007507;GO:0010468;GO:0071557	nucleoplasm;MLL3/4 complex	GO:0005654;GO:0044666	RNA polymerase II cis-regulatory region sequence-specific DNA binding;chromatin DNA binding;histone demethylase activity;metal ion binding;histone H3K27me2/H3K27me3 demethylase activity	GO:0000978;GO:0031490;GO:0032452;GO:0046872;GO:0071558	chrY	13479665	T	A
 #CRAVAT Report
-#Created at Wednesday 10/05/2022 09:52:44
+#Created at Monday 11/14/2022 12:14:01
 #Report level: gene
 #
 Variant Annotation						Gene Ontology					
@@ -29,7 +29,7 @@ TRIP11		1	0	start_lost	missense_variant(0),start_lost(0),processed_transcript(0)
 TTL		1	0	start_lost	missense_variant(0),start_lost(0),processed_transcript(0)	microtubule cytoskeleton organization;regulation of axon extension;post-translational protein modification;positive regulation of mitotic cell cycle;regulation of metaphase plate congression	GO:0000226;GO:0030516;GO:0043687;GO:0045931;GO:0090235	spindle microtubule	GO:0005876	tubulin-tyrosine ligase activity;ATP binding	GO:0004835;GO:0005524
 UTY		1	0	start_lost	missense_variant(0),start_lost(0),processed_transcript(0)	chromatin organization;heart development;regulation of gene expression;histone H3-K27 demethylation	GO:0006325;GO:0007507;GO:0010468;GO:0071557	nucleoplasm;MLL3/4 complex	GO:0005654;GO:0044666	RNA polymerase II cis-regulatory region sequence-specific DNA binding;chromatin DNA binding;histone demethylase activity;metal ion binding;histone H3K27me2/H3K27me3 demethylase activity	GO:0000978;GO:0031490;GO:0032452;GO:0046872;GO:0071558
 #CRAVAT Report
-#Created at Wednesday 10/05/2022 09:52:44
+#Created at Monday 11/14/2022 12:14:01
 #Report level: sample
 #
 Variant Annotation	
@@ -44,7 +44,7 @@ UID	Sample
 8	
 9	
 #CRAVAT Report
-#Created at Wednesday 10/05/2022 09:52:44
+#Created at Monday 11/14/2022 12:14:01
 #Report level: mapping
 #
 Variant Annotation			

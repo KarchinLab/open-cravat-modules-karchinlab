@@ -1,15 +1,15 @@
 #CRAVAT Report
-#Created at Wednesday 01/13/2021 22:16:29
+#Created at Monday 11/14/2022 12:30:27
 #Report level: variant
 #
-Variant Annotation																ClinVar ACMG	
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	PS1 ID	PM5 ID
-1	chr7	140753351	A	G		Yes	BRAF	ENST00000644969.1	missense_variant	c.1904T>C	p.Phe635Ser	ENST00000288602.11:BRAF::missense_variant:p.Phe635Ser:c.1904T>C; ENST00000496384.7:BRAF::missense_variant:p.Phe595Ser:c.1784T>C; ENST00000497784.2:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*1234T>C; ENST00000642228.1:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*862T>C; ENST00000644120.1:BRAF::processed_transcript::; ENST00000644969.1:BRAF::missense_variant:p.Phe635Ser:c.1904T>C; ENST00000646730.1:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*360T>C; ENST00000646891.1:BRAF:P15056:missense_variant:p.Phe595Ser:c.1784T>C	1	s0			177672
-2	chr12	25245372	T	C		Yes	KRAS	ENST00000256078.9	missense_variant	c.13A>G	p.Lys5Glu	ENST00000256078.9:KRAS:P01116:missense_variant:p.Lys5Glu:c.13A>G; ENST00000311936.8:KRAS:P01116:missense_variant:p.Lys5Glu:c.13A>G; ENST00000556131.1:KRAS::missense_variant:p.Lys5Glu:c.13A>G; ENST00000557334.5:KRAS::missense_variant:p.Lys5Glu:c.13A>G	1	s1			12594
-3	chrX	134377618	A	T		Yes	PHF6	ENST00000370803.7	start_lost	c.1A>T	p.Met1?	ENST00000332070.7:PHF6:Q8IWS0:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000370799.5:PHF6::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000370800.4:PHF6:Q8IWS0:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000370803.7:PHF6:Q8IWS0:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000625464.2:PHF6::missense_variant,start_lost:p.Met1?:c.1A>T	1	s2		11068	
-4	chr17	43047643	C	T		Yes	BRCA1	ENST00000357654.9	missense_variant	c.5467G>A	p.Ala1823Thr	ENST00000352993.7:BRCA1:P38398:missense_variant:p.Ala681Thr:c.2041G>A; ENST00000357654.9:BRCA1:P38398:missense_variant:p.Ala1823Thr:c.5467G>A; ENST00000461221.5:BRCA1:P38398:NMD_transcript_variant,3_prime_UTR_variant::c.*5250G>A; ENST00000468300.5:BRCA1:P38398:missense_variant:p.Cys694Tyr:c.2081G>A; ENST00000471181.7:BRCA1:P38398:missense_variant:p.Ala1844Thr:c.5530G>A; ENST00000491747.6:BRCA1:P38398:missense_variant:p.Ala719Thr:c.2155G>A; ENST00000493795.5:BRCA1:P38398:missense_variant:p.Ala1776Thr:c.5326G>A; ENST00000586385.5:BRCA1::missense_variant:p.Ala133Thr:c.397G>A; ENST00000591534.5:BRCA1::missense_variant:p.Ala314Thr:c.940G>A; ENST00000591849.5:BRCA1::missense_variant:p.Ala56Thr:c.166G>A	1	s0		55588	
+Variant Annotation																ClinVar ACMG		Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	PS1 ID	PM5 ID	Chrom	Pos	Reference allele	Alternate allele
+1	chr7	140753351	A	G		Yes	BRAF	ENST00000644969.1	missense_variant	c.1904T>C	p.Phe635Ser	ENST00000288602.11:BRAF::missense_variant:p.Phe635Ser:c.1904T>C; ENST00000496384.7:BRAF::missense_variant:p.Phe595Ser:c.1784T>C; ENST00000497784.2:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*1234T>C; ENST00000642228.1:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*862T>C; ENST00000644120.1:BRAF::processed_transcript::; ENST00000644969.1:BRAF::missense_variant:p.Phe635Ser:c.1904T>C; ENST00000646730.1:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*360T>C; ENST00000646891.1:BRAF:P15056:missense_variant:p.Phe595Ser:c.1784T>C	1	s0			177672	chr7	140753351	A	G
+2	chr12	25245372	T	C		Yes	KRAS	ENST00000256078.9	missense_variant	c.13A>G	p.Lys5Glu	ENST00000256078.9:KRAS:P01116:missense_variant:p.Lys5Glu:c.13A>G; ENST00000311936.8:KRAS:P01116:missense_variant:p.Lys5Glu:c.13A>G; ENST00000556131.1:KRAS::missense_variant:p.Lys5Glu:c.13A>G; ENST00000557334.5:KRAS::missense_variant:p.Lys5Glu:c.13A>G	1	s1			12594	chr12	25245372	T	C
+3	chrX	134377618	A	T		Yes	PHF6	ENST00000370803.7	start_lost	c.1A>T	p.Met1?	ENST00000332070.7:PHF6:Q8IWS0:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000370799.5:PHF6::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000370800.4:PHF6:Q8IWS0:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000370803.7:PHF6:Q8IWS0:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000625464.2:PHF6::missense_variant,start_lost:p.Met1?:c.1A>T	1	s2		11068		chrX	134377618	A	T
+4	chr17	43047643	C	T		Yes	BRCA1	ENST00000357654.9	missense_variant	c.5467G>A	p.Ala1823Thr	ENST00000352993.7:BRCA1:P38398:missense_variant:p.Ala681Thr:c.2041G>A; ENST00000357654.9:BRCA1:P38398:missense_variant:p.Ala1823Thr:c.5467G>A; ENST00000461221.5:BRCA1:P38398:NMD_transcript_variant,3_prime_UTR_variant::c.*5250G>A; ENST00000468300.5:BRCA1:P38398:missense_variant:p.Cys694Tyr:c.2081G>A; ENST00000471181.7:BRCA1:P38398:missense_variant:p.Ala1844Thr:c.5530G>A; ENST00000491747.6:BRCA1:P38398:missense_variant:p.Ala719Thr:c.2155G>A; ENST00000493795.5:BRCA1:P38398:missense_variant:p.Ala1776Thr:c.5326G>A; ENST00000586385.5:BRCA1::missense_variant:p.Ala133Thr:c.397G>A; ENST00000591534.5:BRCA1::missense_variant:p.Ala314Thr:c.940G>A; ENST00000591849.5:BRCA1::missense_variant:p.Ala56Thr:c.166G>A	1	s0		55588		chr17	43047643	C	T
 #CRAVAT Report
-#Created at Wednesday 01/13/2021 22:16:29
+#Created at Monday 11/14/2022 12:30:27
 #Report level: gene
 #
 Variant Annotation					
@@ -19,7 +19,7 @@ KRAS		1	0	missense_variant	missense_variant(1)
 PHF6		1	0	start_lost	missense_variant(1),start_lost(1)
 BRCA1		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),3_prime_UTR_variant(1)
 #CRAVAT Report
-#Created at Wednesday 01/13/2021 22:16:29
+#Created at Monday 11/14/2022 12:30:27
 #Report level: sample
 #
 Variant Annotation	
@@ -29,7 +29,7 @@ UID	Sample
 3	s2
 4	s0
 #CRAVAT Report
-#Created at Wednesday 01/13/2021 22:16:29
+#Created at Monday 11/14/2022 12:30:27
 #Report level: mapping
 #
 Variant Annotation			
