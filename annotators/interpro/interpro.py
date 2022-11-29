@@ -12,20 +12,31 @@ class CravatAnnotator(BaseAnnotator):
     
     def annotate(self, input_data, secondary_data=None):
         out = {}
-        stmt = 'SELECT uniprot_acc, ensembl_transcriptid, interpro_domain FROM {chr} WHERE pos = {pos} AND alt = "{alt}"'.format(chr=input_data["chrom"], pos=int(input_data["pos"]), alt = input_data["alt_base"])
+        stmt = 'SELECT uniprot_acc, ensembl_transcriptid, interpro_domain, count FROM {chr} WHERE pos = {pos} AND alt = "{alt}"'.format(chr=input_data["chrom"], pos=int(input_data["pos"]), alt = input_data["alt_base"])
         self.cursor.execute(stmt)
         rows = self.cursor.fetchall()
         if rows is not None:
             all_results = []
+            domain_set = set()
             for row in rows:
                 accs = str(row[0]).split(';')
                 trs = str(row[1]).split(';')
                 domain = str(row[2]).split(';')
+                count = str(row[3]).split(';')
                 for i in range(len(domain)):
-                    hits = [domain[i], accs[i], trs[i]]
-                    all_results.append(hits)
+                    if '|' in domain[i]:
+                        multdomains = domain[i].split('|')
+                        multcounts = count[i].split('|')
+                        for j in range(len(multdomains)):
+                            domain_set.add(multdomains[j])
+                            hits = [multdomains[j], accs[i], trs[i], multcounts[j]]
+                            all_results.append(hits)
+                    else:
+                        domain_set.add(domain[i])
+                        hits = [domain[i], accs[i], trs[i], count[i]]
+                        all_results.append(hits)
             if all_results:
-                out['domain'] = domain
+                out['domain'] = ';'.join(domain_set)
                 out['all'] = all_results
         return out
     

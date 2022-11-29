@@ -1,5 +1,5 @@
 title: InterPro
-version: 71.1.3
+version: 71.1.4
 type: webviewerwidget
 required_annotator: interpro
 description: InterPro webviewer widget
@@ -14,7 +14,10 @@ tags:
 hidden: true
 requires_opencravat: '>=2.2.2'
 release_note:
+  71.1.4: works with interpro v71.4.0
   71.1.2: returns no data.
   71.1.1: works with table data
   71.1.0: works with interpro 71.1.0
   1.1.0: works with single variant page in oc 1.7.0.
+private: true
+

@@ -1,24 +1,24 @@
 #CRAVAT Report
-#Created at Monday 01/11/2021 05:27:16
+#Created at Tuesday 11/29/2022 09:37:26
 #Report level: variant
 #
-Variant Annotation																InterPro	
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Domain	All annotations
-1	chr16	55510	A	C		Yes	SNRNP25	ENST00000293861.8	missense_variant	c.94A>C	p.Met32Leu	ENST00000293860.6:POLR3K:Q9Y2Y1:2kb_upstream_variant::c.-1924T>G; ENST00000293861.8:SNRNP25::missense_variant:p.Met32Leu:c.94A>C; ENST00000383018.7:SNRNP25:Q9BV90:missense_variant:p.Met41Leu:c.121A>C; ENST00000397876.6:SNRNP25::missense_variant,NMD_transcript_variant:p.Met32Leu:c.94A>C; ENST00000493672.1:SNRNP25::processed_transcript::	0			['Ubiquitin domain', 'Ubiquitin domain']	[["Ubiquitin domain", "Q4TT61", "ENST00000293861"], ["Ubiquitin domain", "Q9BV90", "ENST00000383018"]]
-2	chr16	153973	C	G		Yes	HBZ	ENST00000252951.3	missense_variant	c.177C>G	p.His59Gln	ENST00000252951.3:HBZ:P02008:missense_variant:p.His59Gln:c.177C>G; ENST00000472539.5:HBM::processed_transcript::	0			['Globin|Globin']	[["Globin|Globin", "P02008", "ENST00000252951"]]
-3	chr16	254564	G	A		Yes	FAM234A	ENST00000399932.8	missense_variant	c.151G>A	p.Ala51Thr	ENST00000301678.7:FAM234A:Q9H0X4:missense_variant:p.Ala51Thr:c.151G>A; ENST00000301679.7:FAM234A:Q9H0X4:missense_variant:p.Ala51Thr:c.151G>A; ENST00000399932.8:FAM234A:Q9H0X4:missense_variant:p.Ala51Thr:c.151G>A; ENST00000600536.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A; ENST00000653392.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A; ENST00000654053.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A; ENST00000659283.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A; ENST00000666018.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A	0		no_result		
-4	chr16	53990	A	C			SNRNP25	ENST00000293861.8	5_prime_UTR_variant	c.-27A>C		ENST00000293860.6:POLR3K:Q9Y2Y1:2kb_upstream_variant::c.-404T>G; ENST00000293861.8:SNRNP25::5_prime_UTR_variant::c.-27A>C; ENST00000383018.7:SNRNP25:Q9BV90:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000397876.6:SNRNP25::NMD_transcript_variant,5_prime_UTR_variant::c.-27A>C; ENST00000493672.1:SNRNP25::processed_transcript::	0		no_result		
+Variant Annotation																InterPro		Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Domain	All annotations	Chrom	Pos	Reference allele	Alternate allele
+1	chr16	55510	A	C		Yes	SNRNP25	ENST00000293861.8	missense_variant	c.94A>C	p.Met32Leu	ENST00000293860.6:POLR3K:Q9Y2Y1:2kb_upstream_variant::c.-1924T>G; ENST00000293861.8:SNRNP25::missense_variant:p.Met32Leu:c.94A>C; ENST00000383018.7:SNRNP25:Q9BV90:missense_variant:p.Met41Leu:c.121A>C; ENST00000397876.6:SNRNP25::missense_variant,NMD_transcript_variant:p.Met32Leu:c.94A>C; ENST00000493672.1:SNRNP25::processed_transcript::	0			Ubiquitin domain	[["Ubiquitin domain", "Q4TT61", "ENST00000293861", "1"], ["Ubiquitin domain", "Q9BV90", "ENST00000383018", "1"]]	chr16	55510	A	C
+2	chr16	153973	C	G		Yes	HBZ	ENST00000252951.3	missense_variant	c.177C>G	p.His59Gln	ENST00000252951.3:HBZ:P02008:missense_variant:p.His59Gln:c.177C>G; ENST00000472539.5:HBM::processed_transcript::	0			Globin	[["Globin", "P02008", "ENST00000252951", "2"]]	chr16	153973	C	G
+3	chr16	254564	G	A		Yes	FAM234A	ENST00000399932.8	missense_variant	c.151G>A	p.Ala51Thr	ENST00000301678.7:FAM234A:Q9H0X4:missense_variant:p.Ala51Thr:c.151G>A; ENST00000301679.7:FAM234A:Q9H0X4:missense_variant:p.Ala51Thr:c.151G>A; ENST00000399932.8:FAM234A:Q9H0X4:missense_variant:p.Ala51Thr:c.151G>A; ENST00000600536.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A; ENST00000653392.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A; ENST00000654053.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A; ENST00000659283.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A; ENST00000666018.1:FAM234A::missense_variant,NMD_transcript_variant:p.Ala51Thr:c.151G>A	0		no_result			chr16	254564	G	A
+4	chr16	53990	A	C			SNRNP25	ENST00000293861.8	5_prime_UTR_variant	c.-27A>C		ENST00000293860.6:POLR3K:Q9Y2Y1:2kb_upstream_variant::c.-404T>G; ENST00000293861.8:SNRNP25::5_prime_UTR_variant::c.-27A>C; ENST00000383018.7:SNRNP25:Q9BV90:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000397876.6:SNRNP25::NMD_transcript_variant,5_prime_UTR_variant::c.-27A>C; ENST00000493672.1:SNRNP25::processed_transcript::	0		no_result			chr16	53990	A	C
 #CRAVAT Report
-#Created at Monday 01/11/2021 05:27:16
+#Created at Tuesday 11/29/2022 09:37:26
 #Report level: gene
 #
 Variant Annotation						InterPro
 Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies	Domain
-SNRNP25		1	1	missense_variant	missense_variant(0),start_lost(0),NMD_transcript_variant(0),processed_transcript(0),5_prime_UTR_variant(0)	['Ubiquitin domain', 'Ubiquitin domain']
-HBZ		1	0	missense_variant	missense_variant(0)	['Globin;Globin']
+SNRNP25		1	1	missense_variant	missense_variant(0),start_lost(0),NMD_transcript_variant(0),processed_transcript(0),5_prime_UTR_variant(0)	Ubiquitin domain
+HBZ		1	0	missense_variant	missense_variant(0)	Globin
 FAM234A		1	0	missense_variant	missense_variant(0),NMD_transcript_variant(0)	
 #CRAVAT Report
-#Created at Monday 01/11/2021 05:27:16
+#Created at Tuesday 11/29/2022 09:37:26
 #Report level: sample
 #
 Variant Annotation	
@@ -28,7 +28,7 @@ UID	Sample
 3	
 4	
 #CRAVAT Report
-#Created at Monday 01/11/2021 05:27:16
+#Created at Tuesday 11/29/2022 09:37:26
 #Report level: mapping
 #
 Variant Annotation			

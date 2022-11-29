@@ -1,5 +1,5 @@
 name: interpro
-datasource: v71
+datasource: dbNSFP v4.3a
 description: Protein sequence analysis & classification
 developer:
   citation: 'Mitchell, A. L., Attwood, T. K., Babbitt, P. C., et al. (2018). InterPro
@@ -17,36 +17,13 @@ gene_summary_output_columns:
   title: Domain
   type: string
   width: 160
-old_output_columns:
-    71.2.0:
-        output_columns:
-        - desc: Domain or conserved site on which the variant is located. Multiple entries separated by ";"
-          filterable: true
-          name: domain
-          title: Domain
-          type: string
-          width: 62
-        - desc: Associated UniProt accession number. Multiple entries separated by ";"
-          hidden: true
-          name: uniprot_acc
-          title: UniProt Accession Number
-          type: string
-          width: 70
-          filterable: false
-        - desc: Associated Ensembl Transcript ID. Multiple entries separated by ";"
-          filterable: true
-          name: ensembl_transcriptid
-          title: Ensembl Transcript ID
-          type: string
-          width: 80
-          hidden: true
 output_columns:
-- desc: Domain or conserved site on which the variant is located. Multiple entries separated by ";"
+- desc: Domain or conserved site on which the variant is located.
   filterable: true
   name: domain
   title: Domain
   type: string
-  width: 62
+  width: 175
 - name: all
   title: All annotations
   type: string
@@ -69,7 +46,7 @@ tags:
 requires_opencravat: '>=2.2.1'
 title: InterPro
 type: annotator
-version: 71.3.0
+version: 71.4.0
 requires:
 - wginterpro
 release_note:
@@ -77,3 +54,5 @@ release_note:
   71.1.0: ensembl transcript ids added
   71.2.0: return None if no annotation
   71.3.0: table data enabled
+  71.4.0: rebuild to include number of sources
+private: true

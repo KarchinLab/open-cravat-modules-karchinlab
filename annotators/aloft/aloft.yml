@@ -1,4 +1,4 @@
-datasource: v4.1a
+datasource: v4.3a
 description: ALoFT provides extensive annotations to putative loss-of-function variants (LoF) in protein-coding genes including functional, evolutionary and network features.
 developer:
   name: 'Gerstein Lab'
@@ -17,7 +17,7 @@ output_columns:
   title: Transcripts Affected
   type: string
   width: 75
-  desc: the fraction of the transcripts of the gene affected i.e. No. of transcripts affected by the SNP/Total no. of protein_coding transcripts for the gene.
+  desc: The fraction of the transcripts of the gene affected i.e. No. of transcripts affected by the SNP/Total no. of protein_coding transcripts for the gene.
   hidden: true
   category: multi
 - name: tolerant
@@ -90,9 +90,12 @@ requires_opencravat: '>=2.2.1'
 requires:
 - wgaloft
 title: ALoFT
-version: 1.0.0
+version: 1.1.0
+release-note:
+  1.1.0: data update
 type: annotator
 level: variant
+private: true
 
 
 

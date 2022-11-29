@@ -1,4 +1,4 @@
-datasource: v4.1a
+datasource: v4.3a
 description: Rare Exome Variant Ensemble Learner
 developer:
   citation: 'Ioannidis, N. M., Rothstein, J. H., Pejaver, V., et al. (2016). REVEL:
@@ -21,7 +21,7 @@ output_columns:
   name: score
   title: Score
   type: float
-  desc: Max pathogenicity score across all transcripts. 
+  desc: Max pathogenicity score across all transcripts. The larger the score the more likely the SNP has damaging effect.
   hidden: true
 - name: rankscore
   title: Rank Score
@@ -51,8 +51,9 @@ tags:
 - variant effect prediction
 title: REVEL
 type: annotator
-version: 2020.12.02
+version: 2022.11.29
 release_note:
+  2022.11.29: data update 
   2020.12.02: data update
 smartfilters:
 - name: rankscore
@@ -68,3 +69,4 @@ smartfilters:
 requires:
 - wgrevel
 commercial_warning: For commercial use, contact xmliu.uth@gmail.com
+private: true

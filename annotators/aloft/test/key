@@ -1,18 +1,18 @@
 #CRAVAT Report
-#Created at Tuesday 01/19/2021 12:15:09
+#Created at Tuesday 11/29/2022 09:18:55
 #Report level: variant
 #
-Variant Annotation																ALoFT							
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Transcript ID	Transcripts Affected	Tolerant Probability	Recessive Probability	Dominant Probability	Classification	Confidence	All Annotations
-1	chr1	99646321	G	T		Yes	PALMD	ENST00000263174.9	stop_gained	c.4G>T	p.Glu2Ter	ENST00000263174.9:PALMD:Q9NP74:stop_gained:p.Glu2Ter:c.4G>T; ENST00000605497.5:PALMD::stop_gained:p.Glu2Ter:c.4G>T; ENST00000615664.1:PALMD:Q9NP74:2kb_upstream_variant::c.-143G>T	2	s4;s5		ENST00000263174	all	0.01645	0.8532	0.13035	Recessive	High Confidence	[["ENST00000263174", "all", "0.01645", "0.8532", "0.13035", "Recessive", "High Confidence"], ["ENST00000605497", "all", "0.1802", "0.69585", "0.12395", "Recessive", "High Confidence"]]
-2	chr6	135455775	G	A		Yes	AHI1	ENST00000265602.11	stop_gained	c.1303C>T	p.Arg435Ter	ENST00000265602.11:AHI1:Q8N157:stop_gained:p.Arg435Ter:c.1303C>T; ENST00000327035.10:AHI1:Q8N157:stop_gained:p.Arg435Ter:c.1303C>T; ENST00000367800.8:AHI1:Q8N157:stop_gained:p.Arg435Ter:c.1303C>T; ENST00000457866.6:AHI1:Q8N157:stop_gained:p.Arg435Ter:c.1303C>T; ENST00000531788.5:AHI1:Q8N157:NMD_transcript_variant,stop_gained:p.Arg435Ter:c.1303C>T	1	s0		ENST00000457866	some	0.0112	0.91945	0.06935	Recessive	High Confidence	[["ENST00000367800", "some", "0.009", "0.9234", "0.0676", "Recessive", "High Confidence"], ["ENST00000457866", "some", "0.0112", "0.91945", "0.06935", "Recessive", "High Confidence"]]
-3	chr22	36284226	G	A		Yes	MYH9	ENST00000216181.10	stop_gained	c.5632C>T	p.Gln1878Ter	ENST00000216181.10:MYH9:P35579:stop_gained:p.Gln1878Ter:c.5632C>T; ENST00000475726.5:MYH9::processed_transcript::	1	s0		ENST00000216181	some	0.0244	0.3064	0.6692	Dominant	High Confidence	[["ENST00000216181", "some", "0.0244", "0.3064", "0.6692", "Dominant", "High Confidence"]]
-4	chr22	36301557	C	A		Yes	MYH9	ENST00000216181.10	stop_gained	c.2608G>T	p.Glu870Ter	ENST00000216181.10:MYH9:P35579:stop_gained:p.Glu870Ter:c.2608G>T; ENST00000495928.1:MYH9::processed_transcript::	1	s3		ENST00000216181	some	0.0181	0.3223	0.6596	Dominant	High Confidence	[["ENST00000216181", "some", "0.0181", "0.3223", "0.6596", "Dominant", "High Confidence"]]
-5	chr22	36309321	G	A		Yes	MYH9	ENST00000216181.10	stop_gained	c.1804C>T	p.Gln602Ter	ENST00000216181.10:MYH9:P35579:stop_gained:p.Gln602Ter:c.1804C>T	1	s4		ENST00000216181	some	0.0161	0.33735	0.64655	Dominant	High Confidence	[["ENST00000216181", "some", "0.0161", "0.33735", "0.64655", "Dominant", "High Confidence"]]
-6	chr1	99646351	C	T		Yes	PALMD	ENST00000263174.9	stop_gained	c.34C>T	p.Gln12Ter	ENST00000263174.9:PALMD:Q9NP74:stop_gained:p.Gln12Ter:c.34C>T; ENST00000605497.5:PALMD::stop_gained:p.Gln12Ter:c.34C>T; ENST00000615664.1:PALMD:Q9NP74:5_prime_UTR_variant::c.-113C>T	1	s6		ENST00000263174	all	0.01645	0.8532	0.13035	Recessive	High Confidence	[["ENST00000263174", "all", "0.01645", "0.8532", "0.13035", "Recessive", "High Confidence"], ["ENST00000605497", "all", "0.1802", "0.69585", "0.12395", "Recessive", "High Confidence"]]
-7	chr1	99662361	A	T		Yes	PALMD	ENST00000263174.9	stop_gained	c.88A>T	p.Lys30Ter	ENST00000263174.9:PALMD:Q9NP74:stop_gained:p.Lys30Ter:c.88A>T; ENST00000605497.5:PALMD::stop_gained:p.Lys30Ter:c.88A>T; ENST00000615664.1:PALMD:Q9NP74:5_prime_UTR_variant::c.-59A>T	1	s7		ENST00000263174	all	0.01625	0.8527	0.13105	Recessive	High Confidence	[["ENST00000263174", "all", "0.01625", "0.8527", "0.13105", "Recessive", "High Confidence"], ["ENST00000605497", "all", "0.1801", "0.69745", "0.12245", "Recessive", "High Confidence"]]
+Variant Annotation																ALoFT								Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Transcript ID	Transcripts Affected	Tolerant Probability	Recessive Probability	Dominant Probability	Classification	Confidence	All Annotations	Chrom	Pos	Reference allele	Alternate allele
+1	chr1	99646321	G	T		Yes	PALMD	ENST00000263174.9	stop_gained	c.4G>T	p.Glu2Ter	ENST00000263174.9:PALMD:Q9NP74:stop_gained:p.Glu2Ter:c.4G>T; ENST00000605497.5:PALMD::stop_gained:p.Glu2Ter:c.4G>T; ENST00000615664.1:PALMD:Q9NP74:2kb_upstream_variant::c.-143G>T	2	s4;s5		ENST00000263174	2/2	0.01645	0.8532	0.13035	Recessive	High	[["ENST00000263174", "2/2", "0.01645", "0.8532", "0.13035", "Recessive", "High"], ["ENST00000605497", "2/2", "0.1802", "0.69585", "0.12395", "Recessive", "High"]]	chr1	99646321	G	T
+2	chr6	135455775	G	A		Yes	AHI1	ENST00000265602.11	stop_gained	c.1303C>T	p.Arg435Ter	ENST00000265602.11:AHI1:Q8N157:stop_gained:p.Arg435Ter:c.1303C>T; ENST00000327035.10:AHI1:Q8N157:stop_gained:p.Arg435Ter:c.1303C>T; ENST00000367800.8:AHI1:Q8N157:stop_gained:p.Arg435Ter:c.1303C>T; ENST00000457866.6:AHI1:Q8N157:stop_gained:p.Arg435Ter:c.1303C>T; ENST00000531788.5:AHI1:Q8N157:NMD_transcript_variant,stop_gained:p.Arg435Ter:c.1303C>T	1	s0		ENST00000457866	4/9	0.0112	0.91945	0.06935	Recessive	High	[["ENST00000367800", "4/9", "0.009", "0.9234", "0.0676", "Recessive", "High"], ["ENST00000457866", "4/9", "0.0112", "0.91945", "0.06935", "Recessive", "High"]]	chr6	135455775	G	A
+3	chr22	36284226	G	A		Yes	MYH9	ENST00000216181.10	stop_gained	c.5632C>T	p.Gln1878Ter	ENST00000216181.10:MYH9:P35579:stop_gained:p.Gln1878Ter:c.5632C>T; ENST00000475726.5:MYH9::processed_transcript::	1	s0		ENST00000216181	1/2	0.0244	0.3064	0.6692	Dominant	High	[["ENST00000216181", "1/2", "0.0244", "0.3064", "0.6692", "Dominant", "High"]]	chr22	36284226	G	A
+4	chr22	36301557	C	A		Yes	MYH9	ENST00000216181.10	stop_gained	c.2608G>T	p.Glu870Ter	ENST00000216181.10:MYH9:P35579:stop_gained:p.Glu870Ter:c.2608G>T; ENST00000495928.1:MYH9::processed_transcript::	1	s3		ENST00000216181	1/2	0.0181	0.3223	0.6596	Dominant	High	[["ENST00000216181", "1/2", "0.0181", "0.3223", "0.6596", "Dominant", "High"]]	chr22	36301557	C	A
+5	chr22	36309321	G	A		Yes	MYH9	ENST00000216181.10	stop_gained	c.1804C>T	p.Gln602Ter	ENST00000216181.10:MYH9:P35579:stop_gained:p.Gln602Ter:c.1804C>T	1	s4		ENST00000216181	1/2	0.0161	0.33735	0.64655	Dominant	High	[["ENST00000216181", "1/2", "0.0161", "0.33735", "0.64655", "Dominant", "High"]]	chr22	36309321	G	A
+6	chr1	99646351	C	T		Yes	PALMD	ENST00000263174.9	stop_gained	c.34C>T	p.Gln12Ter	ENST00000263174.9:PALMD:Q9NP74:stop_gained:p.Gln12Ter:c.34C>T; ENST00000605497.5:PALMD::stop_gained:p.Gln12Ter:c.34C>T; ENST00000615664.1:PALMD:Q9NP74:5_prime_UTR_variant::c.-113C>T	1	s6		ENST00000263174	2/2	0.01645	0.8532	0.13035	Recessive	High	[["ENST00000263174", "2/2", "0.01645", "0.8532", "0.13035", "Recessive", "High"], ["ENST00000605497", "2/2", "0.1802", "0.69585", "0.12395", "Recessive", "High"]]	chr1	99646351	C	T
+7	chr1	99662361	A	T		Yes	PALMD	ENST00000263174.9	stop_gained	c.88A>T	p.Lys30Ter	ENST00000263174.9:PALMD:Q9NP74:stop_gained:p.Lys30Ter:c.88A>T; ENST00000605497.5:PALMD::stop_gained:p.Lys30Ter:c.88A>T; ENST00000615664.1:PALMD:Q9NP74:5_prime_UTR_variant::c.-59A>T	1	s7		ENST00000263174	2/2	0.01625	0.8527	0.13105	Recessive	High	[["ENST00000263174", "2/2", "0.01625", "0.8527", "0.13105", "Recessive", "High"], ["ENST00000605497", "2/2", "0.1801", "0.69745", "0.12245", "Recessive", "High"]]	chr1	99662361	A	T
 #CRAVAT Report
-#Created at Tuesday 01/19/2021 12:15:09
+#Created at Tuesday 11/29/2022 09:18:55
 #Report level: gene
 #
 Variant Annotation					
@@ -21,7 +21,7 @@ PALMD		3	0	stop_gained	stop_gained(4),5_prime_UTR_variant(2)
 AHI1		1	0	stop_gained	NMD_transcript_variant(1),stop_gained(1)
 MYH9		3	0	stop_gained	processed_transcript(2),stop_gained(3)
 #CRAVAT Report
-#Created at Tuesday 01/19/2021 12:15:09
+#Created at Tuesday 11/29/2022 09:18:55
 #Report level: sample
 #
 Variant Annotation	
@@ -35,7 +35,7 @@ UID	Sample
 6	s6
 7	s7
 #CRAVAT Report
-#Created at Tuesday 01/19/2021 12:15:09
+#Created at Tuesday 11/29/2022 09:18:55
 #Report level: mapping
 #
 Variant Annotation			

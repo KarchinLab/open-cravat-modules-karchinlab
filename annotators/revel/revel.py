@@ -27,11 +27,12 @@ class CravatAnnotator(BaseAnnotator):
                 transcript = str(row[0])
                 if transcript == None:
                     continue
-                score = row[1]
+                scores = [float(v) for v in str(row[1]).split(';')]
                 rankscore = row[2]
                 new = transcript.strip().split(';')
                 for i in range(len(new)):
                     transc = new[i]
+                    score = scores[i]
                     transc_revel_result = [transc, score, rankscore]
                     precomp_data.append({'transcript':transc, 'score': score, 'rankscore': rankscore, 'full_result' : transc_revel_result})
             if precomp_data:

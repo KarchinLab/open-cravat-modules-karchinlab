@@ -1,5 +1,5 @@
 title: REVEL
-version: 1.2.1
+version: 1.2.2
 type: webviewerwidget
 required_annotator: revel
 description: REVEL webviewer widget
@@ -11,9 +11,10 @@ developer:
   citation: ''
 tags:
 - visualization
-hidden: true
 requires_opencravat: '>=2.2.1'
 release_note:
+  1.2.2: widget no longer hidden
   1.2.1: returns no data
   1.2.0: works with table data in oc 2.2.1.
   1.1.0: works with single variant page in oc 1.7.0.
+private: true

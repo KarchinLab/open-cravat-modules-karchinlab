@@ -13,7 +13,7 @@ widgetGenerators['aloft'] = {
 			if (allMappings != undefined && allMappings != null) {
                 var results = JSON.parse(allMappings);
 				var table = getWidgetTableFrame();
-				var thead = getWidgetTableHead(['Transcript', 'Transcripts Affected', 'Tolerated Probability', 'Recessive Probability', 'Dominant Probability', 'Classification', 'Confidence']);
+				var thead = getWidgetTableHead(['Transcript', 'Transcripts Affected', 'Tolerated Probability', 'Recessive Probability', 'Dominant Probability', 'Classification', 'Confidence'], ["16%"]);
 				addEl(table, thead);
 				var tbody = getEl('tbody');
                 for (var i = 0; i < results.length; i++) {

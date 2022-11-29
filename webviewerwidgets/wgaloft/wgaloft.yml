@@ -1,5 +1,5 @@
 title: ALoFT
-version: 1.0.0
+version: 1.0.1
 type: webviewerwidget
 required_annotator: aloft
 description: Aloft webviewer widget
@@ -9,6 +9,9 @@ developer:
   email: mlarsen@insilico.us.com
   website: http://www.insilico.us.com
   citation: ''
+release-note:
+  1.0.1: Width change in widget.
 tags:
 - visualization
 requires_opencravat: '>=2.2.1'
+private: true
