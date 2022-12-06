@@ -67,30 +67,36 @@ def base_to_basenum(c):
 def _compare_mapping(m2, m1):
     m1sos = m1[MAPPING_SO_I]
     m2sos = m2[MAPPING_SO_I]
-    m1so = max(m1sos)
-    m2so = max(m2sos)
+    # Prefer protein coding genes
     minm1so = min(m1sos)
     minm2so = min(m2sos)
-    m1ms = m1[MAPPING_MANESELECT_I]
-    m2ms = m2[MAPPING_MANESELECT_I]
-    if m1ms == True and m2ms == False:
-        return -1
-    elif m2ms == True and m1ms == False:
-        return 1
     if minm2so < 0 and minm1so > 0:
         return -1
     elif minm1so < 0 and minm2so > 0:
         return 1
-    m1aalen = m1[MAPPING_AALEN_I]
-    m2aalen = m2[MAPPING_AALEN_I]
-    higher_so = m1so > m2so
-    same_so = m1so == m2so
-    longer_aa = m1aalen > m2aalen
-    self_is_better = higher_so or (same_so and longer_aa)
-    if self_is_better:
+    # Prefer more severe sequence ontology
+    m1so = max(m1sos)
+    m2so = max(m2sos)
+    if m1so > m2so:
         return -1
-    else:
+    elif m1so < m2so:
         return 1
+    else: # m1so == m2so
+        # Prefer MANE select transcripts
+        m1mane = m1[MAPPING_MANESELECT_I]
+        m2mane = m2[MAPPING_MANESELECT_I]
+        if m1mane and not m2mane:
+            return -1
+        if m2mane and not m1mane:
+            return 1
+        # Prefer longer genes
+        m1aalen = m1[MAPPING_AALEN_I]
+        m2aalen = m2[MAPPING_AALEN_I]
+        if m1aalen > m2aalen:
+            return -1
+        else:
+            return 1
+
 
 def convert_codon_to_codonnum(codon):
     codonnum = 0

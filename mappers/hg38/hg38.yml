@@ -1,6 +1,6 @@
 name: hg38
 title: UCSC hg38 Gene Mapper
-version: 1.10.3
+version: 1.10.4
 type: mapper
 description: Gene mapper using UCSC Gencode
 developer:
@@ -234,6 +234,7 @@ requires_opencravat: '>=1.8.1'
 requires:
 - hg38wgs
 release_note:
+  1.10.4: Only prefer MANE if sequence ontology equal
   1.10.3: Change to the selection of primary mapping to preference the MANE transcript.
   1.10.1: Fixed coding decision on intron css.
   1.10.0: Better handles scaffolds.
@@ -254,3 +255,4 @@ release_note:
   0.0.6: py version works with 3.6 diskdb and 3.7 memory db
   0.0.4: binaries for platforms
   0.0.2: works with python and cython
+private: true
