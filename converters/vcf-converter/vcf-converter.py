@@ -258,17 +258,24 @@ class CravatConverter(BaseConverter):
             # tot_reads
             if hasattr(call.data.AD, '__iter__'):
                 tot_reads = sum([0 if x is None else int(x) for x in call.data.AD])
+                try:
+                    alt_reads = int(call.data.AD[gt])
+                except IndexError:
+                    alt_reads = None
             elif call.data.AD is None:
-                tot_reads = 0
+                pass
             else:
                 tot_reads = int(call.data.AD)
-            # alt_reads
-            try:
-                alt_reads = int(call.data.AD[gt])
-            except IndexError: # Wrong length
-                alt_reads = None
-            except TypeError: # Not indexable
-                alt_reads = int(call.data.AD)
+            # # alt_reads
+            # try:
+            #     alt_reads = int(call.data.AD[gt])
+            # except IndexError: # Wrong length
+            #     alt_reads = None
+            # except TypeError: # Not indexable
+            #     if call.data.AD is None:
+            #         alt_reads = None
+            #     else:
+            #         alt_reads = int(call.data.AD)
         # DP is total depth
         if hasattr(call.data,'DP'):
             tot_reads = int(call.data.DP)
@@ -314,17 +321,12 @@ class CravatConverter(BaseConverter):
     def oc_info_val(info_type, val, force_str=False):
         if val is None or val=='.':
             oc_val = None
-        if info_type in ('Integer','Float'):
-            if isnan(val):
-                oc_val = None
-            else:
-                oc_val = val
+        elif info_type in ('Integer','Float') and isnan(val):
+            oc_val = None
         else:
             oc_val = val
-        if force_str and oc_val is None:
-            return '.'
-        elif force_str:
-            return str(oc_val)
+        if force_str:
+            return str(oc_val) if oc_val is not None else '.'
         else:
             return oc_val
 
