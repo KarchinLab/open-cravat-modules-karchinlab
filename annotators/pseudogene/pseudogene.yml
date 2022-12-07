@@ -29,7 +29,7 @@ tags:
 - non coding
 title: Pseudogene
 type: annotator
-version: 28.0.1
+version: 42.0.1
 requires:
 - wgpseudogene
 requires_opencravat: '>=1.4.4'

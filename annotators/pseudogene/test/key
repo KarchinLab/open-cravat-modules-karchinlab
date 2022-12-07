@@ -1,22 +1,24 @@
 #CRAVAT Report
-#Created at Monday 05/13/2019 11:08:26
+#Created at Tuesday 12/06/2022 18:35:31
 #Report level: variant
 #
-Variant Annotation												Tag Sampler			Pseudogene	
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Hugo	Transcript	Sequence Ontology	Protein Change	All Mappings	Sample Count	Samples	Tags	Hugo	Transcript
-1	chr1	12000	A	T								1	nosample	pg	DDX11L1	ENST00000456328.2
-2	chr12	9261271	A	G								1	s07	r00004	A2MP1	ENST00000544183.1
-3	chr11	113789394	G	A								1	s29	r00686	RP11-667M19.5;ATF4P4	ENST00000544730.1;ENST00000393544.2
-4	chr11	6718320	T	C								1	s12	r03634	GVINP1;GVINP1	ENST00000531871.3;ENST00000526769.3
-5	chr17	18512065	TATT	-								1	s15	r09267	USP32P2	ENST00000412260.5
+Variant Annotation																Original Input				Pseudogene	
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	Hugo	Transcript
+1	chr1	12000	A	T									1	nosample	pg	chr1	12000	A	T		
+2	chr12	9261271	A	G			AC010175.1	ENST00000647751.1	lnc_RNA			ENST00000647751.1:AC010175.1::2kb_downstream_variant,lnc_RNA::	1	s07	r00004	chr12	9261271	A	G		
+3	chr11	113789394	G	A									1	s29	r00686	chr11	113789394	G	A	ATF4P4;ENSG00000255870	ENST00000393544.2;ENST00000544730.1
+4	chr11	6718320	T	C									1	s12	r03634	chr11	6718320	T	C	GVINP1	ENST00000531871.3
+5	chr17	18512065	TATT	-			FAM106A	ENST00000581595.5	lnc_RNA			ENST00000425211.5:FAM106A::lnc_RNA::; ENST00000581595.5:FAM106A::2kb_downstream_variant,lnc_RNA::	1	s15	r09267	chr17	18512065	TATT	-		
 #CRAVAT Report
-#Created at Monday 05/13/2019 11:08:26
+#Created at Tuesday 12/06/2022 18:35:31
 #Report level: gene
 #
-Variant Annotation				
-Hugo	Variants in Gene	Sequence Ontology	All Sequence Ontologies	Note
+Variant Annotation					
+Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+AC010175.1		0	1	lnc_RNA	lnc_RNA(1)
+FAM106A		0	1	lnc_RNA	lnc_RNA(1)
 #CRAVAT Report
-#Created at Monday 05/13/2019 11:08:26
+#Created at Tuesday 12/06/2022 18:35:31
 #Report level: sample
 #
 Variant Annotation	
@@ -27,13 +29,13 @@ UID	Sample
 4	s12
 5	s15
 #CRAVAT Report
-#Created at Monday 05/13/2019 11:08:26
+#Created at Tuesday 12/06/2022 18:35:31
 #Report level: mapping
 #
-Variant Annotation		
-Original Line	User Tags	UID
-2	pg	1
-3	r00004	2
-4	r00686	3
-5	r03634	4
-6	r09267	5
+Variant Annotation			
+Original Line	User Tags	UID	Input File Number
+2	pg	1	0
+3	r00004	2	0
+4	r00686	3	0
+5	r03634	4	0
+6	r09267	5	0
