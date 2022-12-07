@@ -267,7 +267,11 @@ class CravatConverter(BaseConverter):
                 tot_reads = int(call.data.AD)
         # DP is total depth
         if hasattr(call.data,'DP'):
-            tot_reads = int(call.data.DP)
+            # DP is list if DP not defined in header FORMAT field
+            if hasattr(call.data.DP,'__iter__'):
+                tot_reads = int(call.data.DP[0])
+            elif call.data.DP is not None:
+                tot_reads = int(call.data.DP)
         if tot_reads is not None and alt_reads is not None:
             try:
                 alt_freq = alt_reads/tot_reads
