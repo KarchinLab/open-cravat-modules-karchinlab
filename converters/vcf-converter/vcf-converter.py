@@ -255,7 +255,6 @@ class CravatConverter(BaseConverter):
         alt_reads = None
         # AD is depth for each allele
         if hasattr(call.data,'AD'):
-            # tot_reads
             if hasattr(call.data.AD, '__iter__'):
                 tot_reads = sum([0 if x is None else int(x) for x in call.data.AD])
                 try:
@@ -266,16 +265,6 @@ class CravatConverter(BaseConverter):
                 pass
             else:
                 tot_reads = int(call.data.AD)
-            # # alt_reads
-            # try:
-            #     alt_reads = int(call.data.AD[gt])
-            # except IndexError: # Wrong length
-            #     alt_reads = None
-            # except TypeError: # Not indexable
-            #     if call.data.AD is None:
-            #         alt_reads = None
-            #     else:
-            #         alt_reads = int(call.data.AD)
         # DP is total depth
         if hasattr(call.data,'DP'):
             tot_reads = int(call.data.DP)
