@@ -1,0 +1,80 @@
+title: Cohort Compare
+version: 1.2.0
+type: postaggregator
+level: variant
+output_columns:
+- name: multiallelic
+  title: Multi-allelic
+  type: string
+  width: 55
+  desc: True if location has multiple alternate alleles across all samples
+  category: single
+  categories:
+  - 'Y'
+- name: dom_pvalue
+  title: Dominant p-value
+  type: float
+  desc: Dominant model p-value
+  width: 70
+- name: rec_pvalue
+  title: Recessive p-value
+  type: float
+  desc: Reccesive model p-value
+  width: 70
+- name: all_pvalue
+  title: Allelic p-value
+  type: float
+  desc: Allelic model p-value
+  width: 70
+- name: hom_case
+  title: Hom case
+  type: int
+  desc: Case samples with homozygous alternate allele
+  width: 60
+  hidden: true
+- name: het_case
+  title: Het case
+  type: int
+  desc: Case samples with both reference and alternate allele
+  width: 60
+  hidden: true
+- name: ref_case
+  title: Ref case
+  type: int
+  desc: Case samples with the homozygous reference allele
+  width: 60
+  hidden: true
+- name: hom_cont
+  title: Hom control
+  type: int
+  desc: Control samples with homozygous alternate allele
+  width: 60
+  hidden: true
+- name: het_cont
+  title: Het control
+  type: int
+  desc: Control samples with both reference and alternate allele
+  width: 60
+  hidden: true
+- name: ref_cont
+  title: Ref control
+  type: int
+  desc: Control samples with the homozygous reference allele
+  width: 60
+  hidden: true
+
+description: Performs case-control analysis on cohorts
+developer:
+  name: 'Kyle Moad'
+  organization: 'In Silico Solutions'
+  email: 'support@cravat.us'
+  website: 'http://www.insilico.us.com'
+  citation: ''
+release_note:
+  1.0.0: initial release
+  1.1.0: added new widgets to requires
+  1.2.0: add multiallelic flag
+requires_opencravat: '>=2.2.0'
+requires:
+- wgcasecontrolsummary
+- wgcasecontrols

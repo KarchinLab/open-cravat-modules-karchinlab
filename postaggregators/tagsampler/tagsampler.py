@@ -25,6 +25,7 @@ class CravatPostAggregator (BasePostAggregator):
         self.cursor.execute('pragma journal_mode=WAL;')
     
     def cleanup (self):
+        return
         self.cursor.execute('pragma synchronous=2;')
         self.cursor.execute('pragma journal_mode=delete;')
         
