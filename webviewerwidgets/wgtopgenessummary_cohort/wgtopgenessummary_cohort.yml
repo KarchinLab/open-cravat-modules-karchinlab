@@ -1,0 +1,17 @@
+title: Recurrently Mutated Genes Cohort
+version: 1.0.0
+type: webviewerwidget
+requires_opencravat: '>=2.0.2'
+required_annotator: base
+description: Top Genes Summary Cohort webviewer widget
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
+release_note:
+  1.0.0: initial release
+tags:
+- visualization
+private: true
