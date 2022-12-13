@@ -1,4 +1,4 @@
-datasource: v4.4.198
+datasource: v4.4.216
 description: Comprehensive interaction repository
 developer:
   citation: 'Oughtred R, Stark C, Breitkreutz BJ, et al. (2018). The BioGRID interaction
@@ -45,6 +45,7 @@ version: 3.8.0
 requires:
 - wgbiogrid
 release-note:
+  3.9.0: updated with v.4.4.216 Biogrid data
   3.8.0: updated with v.4.4.198 Biogrid data
   3.7.0: data no longer from dbnsfp, updated data for widget
   3.6.0: updated gene names according to https://www.genenames.org/download/custom/
