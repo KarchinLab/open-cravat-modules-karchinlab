@@ -24,5 +24,7 @@ tags:
 - functional studies
 title: Promoter IR
 type: annotator
-version: 2019.05.20
+version: '2022.12.12'
+release_note:
+  2012.12.12: sort values consistently
 requires_opencravat: '>=1.4.4'

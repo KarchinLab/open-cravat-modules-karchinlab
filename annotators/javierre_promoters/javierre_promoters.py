@@ -21,6 +21,7 @@ class CravatAnnotator (BaseAnnotator):
             regions = [iv.data for iv in it[pos]]
         else:
             regions = []
+        regions.sort()
         if regions:
             out['regions'] = ';'.join(regions)
             return out

@@ -23,6 +23,10 @@ class CravatAnnotator(BaseAnnotator):
             for iv in ivs:
                 classes.append(iv.data[1])
                 names.append(iv.data[2])
+            data = list(zip(classes, names))
+            data.sort()
+            classes = [_[0] for _ in data]
+            names = [_[1] for _ in data]
             if classes and names:
                 out = {
                     'ncrnaclass': ','.join(classes),

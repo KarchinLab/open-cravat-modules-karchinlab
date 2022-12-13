@@ -1,25 +1,26 @@
 #CRAVAT Report
-#Created at Monday 05/20/2019 12:00:13
+#Created at Monday 12/12/2022 13:41:11
 #Report level: variant
 #
-Variant Annotation												Tag Sampler			Promoter IR
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Hugo	Transcript	Sequence Ontology	Protein Change	All Mappings	Sample Count	Samples	Tags	Regions
-1	chr1	850622	G	T								1	sfake		RP11-54O7.16;RP11-54O7.1
-2	chr11	6718320	T	C								1	s4		ILK;RRP8;ILK;RP11-732A19.2;TAF10;ARFIP2;TIMM10B;APBB1;SMPD1
-3	chr1	235255683	GTTA	-		Yes	ARID4B	ENST00000366603.6	frameshift deletion	_83_	ENST00000264183.7:ARID4B:Q4LE39:frameshift deletion:_83_:TAAC248-; ENST00000349213.7:ARID4B:(na):frameshift deletion:_83_:TAAC248-; ENST00000366603.6:ARID4B:Q4LE39:frameshift deletion:_83_:TAAC248-	1	s4		IRF2BP2;RP4-781K5.2;U8
-4	chr17	39707007	A	T		Yes	ERBB2	ENST00000269571.9	missense	M31L	ENST00000269571.9:ERBB2:X5DNK3:missense:M31L:A91T; ENST00000406381.6:ERBB2:(na):missense:M1L:A1T; ENST00000445658.6:ERBB2:B4DTR1:intron:(na):(na); ENST00000541774.5:ERBB2:(na):missense:M16L:A46T; ENST00000578199.5:ERBB2:F5H1T4:missense:M1L:A1T; ENST00000584450.5:ERBB2:J3QLU9:missense:M31L:A91T; ENST00000584601.5:ERBB2:(na):missense:M1L:A1T	1	s4		AC004231.2
-5	chr7	27199497	C	G		Yes	HOXA13	ENST00000222753.5	missense	C194S	ENST00000222753.5:HOXA13:P31271:missense:C194S:G581C	1	s1		AC004540.4
+Variant Annotation																Original Input				Promoter IR
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	Regions
+1	chr1	850622	G	T			LINC01128	ENST00000416570.5	lnc_RNA			ENST00000416570.5:LINC01128::intron_variant,lnc_RNA::; ENST00000445118.7:LINC01128::intron_variant,lnc_RNA::; ENST00000448975.6:LINC01128::intron_variant,lnc_RNA::; ENST00000449005.6:LINC01128::intron_variant,lnc_RNA::; ENST00000608189.5:LINC01128::intron_variant,lnc_RNA::; ENST00000609009.6:LINC01128::intron_variant,lnc_RNA::; ENST00000609139.6:LINC01128::intron_variant,lnc_RNA::; ENST00000610067.6:LINC01128::2kb_downstream_variant,lnc_RNA::; ENST00000622921.1:LINC01128::intron_variant,lnc_RNA::; ENST00000623070.4:LINC01128::intron_variant,lnc_RNA::; ENST00000623808.3:LINC01128::intron_variant,lnc_RNA::; ENST00000624927.3:LINC01128::2kb_downstream_variant,lnc_RNA::; ENST00000657175.1:LINC01128::intron_variant,lnc_RNA::; ENST00000657837.1:LINC01128::intron_variant,lnc_RNA::; ENST00000658846.1:LINC01128::intron_variant,lnc_RNA::; ENST00000659124.1:LINC01128::intron_variant,lnc_RNA::; ENST00000661237.1:LINC01128::intron_variant,lnc_RNA::; ENST00000666741.1:LINC01128::intron_variant,lnc_RNA::; ENST00000667414.1:LINC01128::2kb_downstream_variant,lnc_RNA::; ENST00000670780.1:LINC01128::intron_variant,lnc_RNA::	1	sfake		chr1	850622	G	T	RP11-54O7.16;RP11-54O7.1
+2	chr11	6718320	T	C									1	s4		chr11	6718320	T	C	APBB1;SMPD1;ARFIP2;TIMM10B;ILK;RP11-732A19.2;TAF10;ILK;RRP8
+3	chr1	235255683	GTTA	-		Yes	ARID4B	ENST00000264183.9	frameshift_truncation	c.248_251del	p.Leu83GlnfsTer8	ENST00000264183.9:ARID4B:Q4LE39:frameshift_truncation:p.Leu83GlnfsTer8:c.248_251del; ENST00000349213.7:ARID4B:Q4LE39:frameshift_truncation:p.Leu83GlnfsTer8:c.248_251del; ENST00000366603.6:ARID4B:Q4LE39:frameshift_truncation:p.Leu83GlnfsTer8:c.248_251del; ENST00000421364.5:ARID4B:Q4LE39:frameshift_truncation,NMD_transcript_variant:p.Leu83GlnfsTer8:c.248_251del	1	s4		chr1	235255683	GTTA	-	IRF2BP2;RP4-781K5.2;U8
+4	chr17	39707007	A	T		Yes	ERBB2	ENST00000406381.6	start_lost	c.1A>T	p.Met1?	ENST00000269571.9:ERBB2:P04626:missense_variant:p.Met31Leu:c.91A>T; ENST00000406381.6:ERBB2:P04626:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000445658.6:ERBB2::intron_variant::c.74-4921A>T; ENST00000541774.5:ERBB2:P04626:missense_variant:p.Met16Leu:c.46A>T; ENST00000578199.5:ERBB2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000578373.5:ERBB2::missense_variant,NMD_transcript_variant:p.Met31Leu:c.91A>T; ENST00000582648.5:ERBB2::missense_variant,NMD_transcript_variant:p.Met31Leu:c.91A>T; ENST00000584099.1:ERBB2::processed_transcript::; ENST00000584450.5:ERBB2::missense_variant:p.Met31Leu:c.91A>T; ENST00000584601.5:ERBB2:P04626:missense_variant,start_lost:p.Met1?:c.1A>T	1	s4		chr17	39707007	A	T	AC004231.2
+5	chr7	27199497	C	G		Yes	HOXA13	ENST00000649031.1	missense_variant	c.581G>C	p.Cys194Ser	ENST00000421733.1:HOTTIP::intron_variant,lnc_RNA::; ENST00000472494.1:HOTTIP::2kb_upstream_variant,lnc_RNA::; ENST00000605136.6:HOTTIP::intron_variant,lnc_RNA::; ENST00000620415.1:AC004080.9::2kb_upstream_variant,misc_RNA::; ENST00000649031.1:HOXA13:P31271:missense_variant:p.Cys194Ser:c.581G>C	1	s1		chr7	27199497	C	G	AC004540.4
 #CRAVAT Report
-#Created at Monday 05/20/2019 12:00:13
+#Created at Monday 12/12/2022 13:41:11
 #Report level: gene
 #
-Variant Annotation				
-Hugo	Variants in Gene	Sequence Ontology	All Sequence Ontologies	Note
-ARID4B	1	frameshift deletion	frameshift deletion(1)	
-ERBB2	1	missense	missense(1)	
-HOXA13	1	missense	missense(1)	
+Variant Annotation					
+Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+LINC01128		0	1	lnc_RNA	intron_variant(1),lnc_RNA(1)
+ARID4B		1	0	frameshift_truncation	frameshift_truncation(1),NMD_transcript_variant(1)
+ERBB2		1	0	start_lost	intron_variant(1),missense_variant(1),start_lost(1),NMD_transcript_variant(1),processed_transcript(1)
+HOXA13		1	0	missense_variant	missense_variant(1)
 #CRAVAT Report
-#Created at Monday 05/20/2019 12:00:13
+#Created at Monday 12/12/2022 13:41:11
 #Report level: sample
 #
 Variant Annotation	
@@ -30,13 +31,13 @@ UID	Sample
 4	s4
 5	s1
 #CRAVAT Report
-#Created at Monday 05/20/2019 12:00:13
+#Created at Monday 12/12/2022 13:41:11
 #Report level: mapping
 #
-Variant Annotation		
-Original Line	User Tags	UID
-1		1
-2		2
-3		3
-4		4
-5		5
+Variant Annotation			
+Original Line	User Tags	UID	Input File Number
+1		1	0
+2		2	0
+3		3	0
+4		4	0
+5		5	0

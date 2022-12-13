@@ -1,28 +1,31 @@
 #CRAVAT Report
-#Created at Monday 08/19/2019 23:37:00
+#Created at Monday 12/12/2022 13:49:45
 #Report level: variant
 #
-Variant Annotation															ncRNA	
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Hugo	Transcript	Sequence Ontology	Protein Change	All Mappings	Sample Count	Samples	Tags	Class	Name
-1	chr1	157790	A	T								0		snrna_NA	snRNA	U6
-2	chr15	45433048	T	A			C15orf48	ENST00000344300.3	3-prime utr		ENST00000344300.3:C15orf48:Q9C002:3-prime utr:(na):(na); ENST00000396650.6:C15orf48:Q9C002:3-prime utr:(na):(na)	0		not_mirna2_2beforeFirst		
-3	chr15	45433049	C	T			C15orf48	ENST00000344300.3	3-prime utr		ENST00000344300.3:C15orf48:Q9C002:3-prime utr:(na):(na); ENST00000396650.6:C15orf48:Q9C002:3-prime utr:(na):(na)	0		not_mirna1_1before		
-4	chr15	45433050	T	C			C15orf48	ENST00000344300.3	3-prime utr		ENST00000344300.3:C15orf48:Q9C002:3-prime utr:(na):(na); ENST00000396650.6:C15orf48:Q9C002:3-prime utr:(na):(na)	0		mirna_first	miRNA	hsa-mir-147b
-5	chr15	45433061	C	G			C15orf48	ENST00000344300.3	3-prime utr		ENST00000344300.3:C15orf48:Q9C002:3-prime utr:(na):(na); ENST00000396650.6:C15orf48:Q9C002:3-prime utr:(na):(na)	0		mirna_middle	miRNA	hsa-mir-147b
-6	chr15	45201222	A	C			SHF	ENST00000290894.12	2kb upstream		ENST00000290894.12:SHF:Q7M4L6:2kb upstream:(na):(na)	0		trna_last	tRNA	His
-7	chr15	45201223	T	C			SHF	ENST00000290894.12	2kb upstream		ENST00000290894.12:SHF:Q7M4L6:2kb upstream:(na):(na)	0		not_trna_after		
-8	chr9	62802322	C	T								0		rrna_middle	rRNA	5S
-9	chr2	132147927	C	T			ANKRD30BL	ENST00000409867.5	3-prime utr		ENST00000409867.5:ANKRD30BL:A7E2S9:3-prime utr:(na):(na)	0		lincrna_middle	lincRNA,lincRNA,lincRNA	TCONS_l2_00014914:1,TCONS_l2_00015978:1,TCONS_l2_00014916:1
+Variant Annotation																Original Input				ncRNA	
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	Class	Name
+1	chr1	157790	A	T			AL627309.5	ENST00000466557.6	lnc_RNA			ENST00000410691.1:RNU6-1100P::snRNA::; ENST00000466557.6:AL627309.5::intron_variant,lnc_RNA::	0		snrna_NA	chr1	157790	A	T	snRNA	U6
+2	chr15	45433048	T	A			C15orf48	ENST00000344300.3	3_prime_UTR_variant	c.*32T>A		ENST00000344300.3:C15orf48:Q9C002:3_prime_UTR_variant::c.*32T>A; ENST00000390185.1:MIR147B::2kb_upstream_variant,miRNA::; ENST00000396650.6:C15orf48:Q9C002:3_prime_UTR_variant::c.*32T>A; ENST00000559553.1:AC025580.1::intron_variant,lnc_RNA::	0		not_mirna2_2beforeFirst	chr15	45433048	T	A		
+3	chr15	45433049	C	T			C15orf48	ENST00000344300.3	3_prime_UTR_variant	c.*33C>T		ENST00000344300.3:C15orf48:Q9C002:3_prime_UTR_variant::c.*33C>T; ENST00000390185.1:MIR147B::2kb_upstream_variant,miRNA::; ENST00000396650.6:C15orf48:Q9C002:3_prime_UTR_variant::c.*33C>T; ENST00000559553.1:AC025580.1::intron_variant,lnc_RNA::	0		not_mirna1_1before	chr15	45433049	C	T		
+4	chr15	45433050	T	C			C15orf48	ENST00000344300.3	3_prime_UTR_variant	c.*34T>C		ENST00000344300.3:C15orf48:Q9C002:3_prime_UTR_variant::c.*34T>C; ENST00000390185.1:MIR147B::miRNA::; ENST00000396650.6:C15orf48:Q9C002:3_prime_UTR_variant::c.*34T>C; ENST00000559553.1:AC025580.1::intron_variant,lnc_RNA::	0		mirna_first	chr15	45433050	T	C	miRNA	hsa-mir-147b
+5	chr15	45433061	C	G			C15orf48	ENST00000344300.3	3_prime_UTR_variant	c.*45C>G		ENST00000344300.3:C15orf48:Q9C002:3_prime_UTR_variant::c.*45C>G; ENST00000390185.1:MIR147B::miRNA::; ENST00000396650.6:C15orf48:Q9C002:3_prime_UTR_variant::c.*45C>G; ENST00000559553.1:AC025580.1::intron_variant,lnc_RNA::	0		mirna_middle	chr15	45433061	C	G	miRNA	hsa-mir-147b
+6	chr15	45201222	A	C			SHF	ENST00000290894.12	2kb_upstream_variant	c.-542T>G		ENST00000290894.12:SHF:Q7M4L6:2kb_upstream_variant::c.-542T>G; ENST00000560034.1:AC051619.3::2kb_downstream_variant,lnc_RNA::; ENST00000563103.1:AC051619.7::2kb_upstream_variant,lnc_RNA::	0		trna_last	chr15	45201222	A	C	tRNA	His
+7	chr15	45201223	T	C			SHF	ENST00000290894.12	2kb_upstream_variant	c.-543A>G		ENST00000290894.12:SHF:Q7M4L6:2kb_upstream_variant::c.-543A>G; ENST00000560034.1:AC051619.3::2kb_downstream_variant,lnc_RNA::; ENST00000563103.1:AC051619.7::2kb_upstream_variant,lnc_RNA::	0		not_trna_after	chr15	45201223	T	C		
+8	chr9	62802322	C	T			LINC01410	ENST00000424345.5	lnc_RNA			ENST00000424345.5:LINC01410::intron_variant,lnc_RNA::; ENST00000427509.5:LINC01410::intron_variant,lnc_RNA::; ENST00000452184.2:LINC01410::intron_variant,lnc_RNA::; ENST00000659835.1:LINC01410::2kb_upstream_variant,lnc_RNA::; ENST00000660304.1:LINC01410::2kb_upstream_variant,lnc_RNA::; ENST00000663670.1:LINC01410::2kb_upstream_variant,lnc_RNA::; ENST00000664868.1:LINC01410::2kb_upstream_variant,lnc_RNA::; ENST00000665642.1:AL512625.3::intron_variant,lnc_RNA::; ENST00000667536.1:LINC01410::intron_variant,lnc_RNA::	0		rrna_middle	chr9	62802322	C	T	rRNA	5S
+9	chr2	132147927	C	T			ANKRD30BL	ENST00000409867.5	3_prime_UTR_variant	c.*204G>A		ENST00000295181.6:ANKRD30BL:A7E2S9:NMD_transcript_variant,3_prime_UTR_variant::c.*388G>A; ENST00000409867.5:ANKRD30BL:A7E2S9:3_prime_UTR_variant::c.*204G>A; ENST00000465868.5:ANKRD30BL::processed_transcript::; ENST00000470729.5:ANKRD30BL::processed_transcript::	0		lincrna_middle	chr2	132147927	C	T	lincRNA,lincRNA,lincRNA	TCONS_l2_00014914:1,TCONS_l2_00014916:1,TCONS_l2_00015978:1
 #CRAVAT Report
-#Created at Monday 08/19/2019 23:37:00
+#Created at Monday 12/12/2022 13:49:45
 #Report level: gene
 #
 Variant Annotation					
-Hugo	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
-C15orf48		0	4	3-prime utr	3-prime utr(0)
-ANKRD30BL		0	1	3-prime utr	3-prime utr(0)
+Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+AL627309.5		0	1	lnc_RNA	intron_variant(0),lnc_RNA(0)
+C15orf48		0	4	3_prime_UTR_variant	3_prime_UTR_variant(0)
+SHF		0	2	2kb_upstream_variant	
+LINC01410		0	1	lnc_RNA	intron_variant(0),lnc_RNA(0)
+ANKRD30BL		0	1	3_prime_UTR_variant	NMD_transcript_variant(0),processed_transcript(0),3_prime_UTR_variant(0)
 #CRAVAT Report
-#Created at Monday 08/19/2019 23:37:00
+#Created at Monday 12/12/2022 13:49:45
 #Report level: sample
 #
 Variant Annotation	
@@ -37,7 +40,7 @@ UID	Sample
 8	
 9	
 #CRAVAT Report
-#Created at Monday 08/19/2019 23:37:00
+#Created at Monday 12/12/2022 13:49:45
 #Report level: mapping
 #
 Variant Annotation			
