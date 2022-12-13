@@ -46,7 +46,7 @@ async def get_data (queries):
 
     genesampleperc = {}
     for hugo in extracted_hugos:
-        q = 'select count(distinct(sample.base__sample_id)) from sample, variant where variant.base__uid=sample.base__uid and variant.base__hugo="' + hugo + '"'
+        q = 'select count(distinct(sample.base__sample_id)) from sample, variant, variant_filtered where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and variant.base__hugo="' + hugo + '"'
         await cursor.execute(q)
         num_sample = (await cursor.fetchone())[0]
         if num_sample == 0:
