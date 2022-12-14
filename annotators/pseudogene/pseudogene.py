@@ -18,7 +18,7 @@ class CravatAnnotator (BaseAnnotator):
             ivs = self.data.tids[chrom][pos]
             ensts = []
             hugos = []
-            for iv in ivs:
+            for iv in sorted(ivs):
                 tid = iv.data
                 enst, hugo = self.data.tinfo.get(tid,(None,None))
                 if enst and hugo:
