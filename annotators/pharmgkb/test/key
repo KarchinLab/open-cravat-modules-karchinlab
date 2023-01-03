@@ -1,5 +1,5 @@
 #CRAVAT Report
-#Created at Monday 11/14/2022 12:51:42
+#Created at Tuesday 01/03/2023 17:41:47
 #Report level: variant
 #
 Variant Annotation																Original Input				PharmGKB			
@@ -12,7 +12,7 @@ UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontolo
 6	chr6_GL000251v2_alt	4385247	C	T			BRD2	ENST00000442863.5	intron_variant	c.29+111C>T		ENST00000383108.6:BRD2:P25440:intron_variant::c.29+111C>T; ENST00000438194.6:BRD2:P25440:intron_variant::c.29+111C>T; ENST00000442863.5:BRD2:P25440:intron_variant::c.29+111C>T; ENST00000466744.1:BRD2::2kb_downstream_variant,processed_transcript::; ENST00000492172.5:BRD2::intron_variant,NMD_transcript_variant::c.29+111C>T; ENST00000493063.5:BRD2::intron_variant,NMD_transcript_variant::c.29+111C>T	1	s0		chr6_GL000251v2_alt	4385247	C	T				
 7	chr9	9687487	C	G			PTPRD	ENST00000381196.8	intron_variant	c.-287+47046G>C		ENST00000381196.8:PTPRD:P23468:intron_variant::c.-287+47046G>C; ENST00000463477.5:PTPRD::intron_variant::c.-359+47046G>C	1	s0		chr9	9687487	C	G	PA166157776	trandolapril verapamil	Efficacy	[[[["trandolapril", "https://www.pharmgkb.org/chemical/PA451737"], ["verapamil", "https://www.pharmgkb.org/chemical/PA451868"]], "Allele T is associated with resistance to trandolapril and verapamil in people with Hypertension as compared to allele C.", "Efficacy", "yes", "26425837", "This was associated with resistant hypertension in whites and Hispanics in the international verapamil SR trandolapril study (meta-analysis P=3.2\u00d710-5)."]]
 #CRAVAT Report
-#Created at Monday 11/14/2022 12:51:42
+#Created at Tuesday 01/03/2023 17:41:47
 #Report level: gene
 #
 Variant Annotation					
@@ -24,7 +24,7 @@ TCF7L2		0	1	intron_variant	intron_variant(1)
 BRD2		0	1	intron_variant	intron_variant(1),NMD_transcript_variant(1),processed_transcript(1)
 PTPRD		0	1	intron_variant	intron_variant(1)
 #CRAVAT Report
-#Created at Monday 11/14/2022 12:51:42
+#Created at Tuesday 01/03/2023 17:41:47
 #Report level: sample
 #
 Variant Annotation	
@@ -37,7 +37,7 @@ UID	Sample
 6	s0
 7	s0
 #CRAVAT Report
-#Created at Monday 11/14/2022 12:51:42
+#Created at Tuesday 01/03/2023 17:41:47
 #Report level: mapping
 #
 Variant Annotation			

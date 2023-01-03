@@ -1,5 +1,5 @@
 #CRAVAT Report
-#Created at Tuesday 12/06/2022 14:43:43
+#Created at Tuesday 01/03/2023 17:13:06
 #Report level: variant
 #
 Variant Annotation																ClinVar						Original Input			
@@ -13,7 +13,7 @@ UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontolo
 7	chr10	87894027	-	CG		Yes	PTEN	ENST00000371953.8	frameshift_elongation	c.81_82insCG	p.Ile28ArgfsTer27	ENST00000371953.8:PTEN:P60484:frameshift_elongation:p.Ile28ArgfsTer27:c.81_82insCG	1	no-sample	no_result							chr10	87894027	-	CG
 8	chr17	7674904	T	-		Yes	TP53	ENST00000269305.8	frameshift_truncation	c.629del	p.Asn210ThrfsTer37	ENST00000269305.8:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000359597.8:TP53::frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000413465.6:TP53::frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000420246.6:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000445888.6:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000455263.6:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000504290.5:TP53:P04637:frameshift_truncation:p.Asn78ThrfsTer37:c.233del; ENST00000504937.5:TP53:P04637:frameshift_truncation:p.Asn78ThrfsTer37:c.233del; ENST00000510385.5:TP53:P04637:frameshift_truncation:p.Asn78ThrfsTer37:c.233del; ENST00000574684.1:TP53::intron_variant,processed_transcript::; ENST00000610292.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000610538.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000610623.4:TP53::frameshift_truncation:p.Asn51ThrfsTer37:c.152del; ENST00000615910.4:TP53::frameshift_truncation:p.Asn199ThrfsTer37:c.596del; ENST00000617185.4:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000618944.4:TP53::frameshift_truncation:p.Asn51ThrfsTer37:c.152del; ENST00000619186.4:TP53::frameshift_truncation:p.Asn51ThrfsTer37:c.152del; ENST00000619485.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000620739.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000622645.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000635293.1:TP53::frameshift_truncation,NMD_transcript_variant:p.Asn171ThrfsTer37:c.512del	1	no-sample	fuzzy_del_TP53							chr17	7674904	T	-
 #CRAVAT Report
-#Created at Tuesday 12/06/2022 14:43:43
+#Created at Tuesday 01/03/2023 17:13:06
 #Report level: gene
 #
 Variant Annotation					
@@ -25,7 +25,7 @@ PARK7		1	0	missense_variant	missense_variant(1),processed_transcript(1)
 CEP152		1	0	stop_gained	stop_gained(1)
 TP53		2	0	frameshift_truncation	frameshift_truncation(2),intron_variant(2),NMD_transcript_variant(2),processed_transcript(2)
 #CRAVAT Report
-#Created at Tuesday 12/06/2022 14:43:43
+#Created at Tuesday 01/03/2023 17:13:06
 #Report level: sample
 #
 Variant Annotation	
@@ -39,7 +39,7 @@ UID	Sample
 7	no-sample
 8	no-sample
 #CRAVAT Report
-#Created at Tuesday 12/06/2022 14:43:43
+#Created at Tuesday 01/03/2023 17:13:06
 #Report level: mapping
 #
 Variant Annotation			
