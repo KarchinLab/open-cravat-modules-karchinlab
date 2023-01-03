@@ -24,10 +24,12 @@ class CravatPostAggregator (BasePostAggregator):
         self.cursor.execute('select sample, cohort from cohorts;')
         for r in self.cursor:
             self.cohorts[r[1]].add(r[0])
-        self.case_samples = self.all_samples & self.cohorts['case']
-        self.cont_samples = self.all_samples & self.cohorts['control']
-        notfound_case = len(self.cohorts['case'] - self.all_samples)
-        notfound_cont = len(self.cohorts['control'] - self.all_samples)
+        case_cohort = self.confs['case_cohort']
+        cont_cohort = self.confs['cont_cohort']
+        self.case_samples = self.all_samples & self.cohorts[case_cohort]
+        self.cont_samples = self.all_samples & self.cohorts[cont_cohort]
+        notfound_case = len(self.cohorts[case_cohort] - self.all_samples)
+        notfound_cont = len(self.cohorts[cont_cohort] - self.all_samples)
         if (notfound_case + notfound_cont) > 0:
             msg = f'WARNING: Some {self.conf["title"]} samples were not found in the job. {notfound_case} case and {notfound_cont} control'
             self.logger.warn(msg)
