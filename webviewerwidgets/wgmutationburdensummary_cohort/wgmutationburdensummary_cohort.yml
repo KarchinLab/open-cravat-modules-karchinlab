@@ -1,15 +1,15 @@
-title: Recurrently Mutated Genes Cohort
-version: 1.1.0
+title: Mutation Load Cohort
+version: 1.0.0
 type: webviewerwidget
+tags:
+- visualization
 requires_opencravat: '>=2.0.2'
 required_annotator: base
-description: Top Genes Summary webviewer widget
+description: Mutation Burden per Sample webviewer widget
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab
   email: support@cravat.us
   website: https://opencravat.org/
   citation: ''
-tags:
-- visualization
 private: true
