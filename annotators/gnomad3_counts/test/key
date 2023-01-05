@@ -1,21 +1,21 @@
 #CRAVAT Report
-#Created at Monday 06/21/2021 11:17:22
+#Created at Wednesday 12/28/2022 14:11:40
 #Report level: variant
 #
 Variant Annotation																Original Input				gnomAD3 Counts																																
 UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	Global Homozygous AC	Global Homozygous Female AC	Global Homozygous Male AC	African Homozygous AC	African Homozygous Female AC	African Homozygous Male AC	Amish Homozygous AC	Amish Homozygous Female AC	Amish Homozygous Male AC	Latino/Admixed American Homozygous AC	Latino/Admixed American Homozygous Female AC	Latino/Admixed American Homozygous Male AC	Ashkenazi Jewish Homozygous AC	Ashkenazi Jewish Homozygous Female AC	Ashkenazi Jewish Homozygous Male AC	East Asian Homozygous AC	East Asian Homozygous Female AC	East Asian Homozygous Male AC	Finnish Homozygous AC	Finnish Homozygous Female AC	Finnish Homozygous Male AC	Middle Eastern Homozygous AC	Middle Eastern Homozygous Female AC	Middle Eastern Homozygous Male AC	non-Finnish European Homozygous AC	non-Finnish European Homozygous Female AC	non-Finnish European Homozygous Male AC	Other Homozygous AC	Other Homozygous Female AC	Other Homozygous Male AC	South Asian Homozygous AC	South Asian Homozygous Female AC	South Asian Homozygous Male AC
-1	chr13	18171311	A	G									0			chr13	18171311	A	G	58	19	39	34	18	16				1	0	1													3	1	2				1	0	1
-2	chr19	60652	G	C									0			chr19	60652	G	C	2	1	1	1	1	0																											
-3	chr7	11231	G	-			AC215522.3	ENST00000635602.1	lnc_RNA			ENST00000635602.1:AC215522.3::2kb_upstream_variant,lnc_RNA::	0			chr7	11231	G	-	2	1	1																						1	1	0						
+1	chr13	18171311	A	G									0			chr13	18171311	A	G	39	19	20	34	18	16				1	0	1													3	1	2				1	0	1
+2	chr19	60652	G	C									0			chr19	60652	G	C	1	1	0	1	1	0																											
+3	chr7	11231	G	-			AC215522.3	ENST00000635602.1	lnc_RNA			ENST00000635602.1:AC215522.3::2kb_upstream_variant,lnc_RNA::	0			chr7	11231	G	-	1	1	0																						1	1	0						
 #CRAVAT Report
-#Created at Monday 06/21/2021 11:17:22
+#Created at Wednesday 12/28/2022 14:11:40
 #Report level: gene
 #
 Variant Annotation					
 Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
 AC215522.3		0	1	lnc_RNA	lnc_RNA(0)
 #CRAVAT Report
-#Created at Monday 06/21/2021 11:17:22
+#Created at Wednesday 12/28/2022 14:11:40
 #Report level: sample
 #
 Variant Annotation	
@@ -24,7 +24,7 @@ UID	Sample
 2	
 3	
 #CRAVAT Report
-#Created at Monday 06/21/2021 11:17:22
+#Created at Wednesday 12/28/2022 14:11:40
 #Report level: mapping
 #
 Variant Annotation			

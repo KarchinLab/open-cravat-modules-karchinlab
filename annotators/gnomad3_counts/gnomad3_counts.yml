@@ -176,6 +176,9 @@ tags:
 - allele frequency
 
 title: gnomAD3 Counts
-version: 1.0.0
+version: 1.1.0
+release-note:
+  1.1.0: Database bug fix
 type: annotator
 level: variant
+private: true
