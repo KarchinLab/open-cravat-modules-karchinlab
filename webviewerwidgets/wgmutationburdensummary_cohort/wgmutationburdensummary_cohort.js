@@ -1,21 +1,13 @@
-widgetGenerators['topgenessummary_cohort'] = {
+widgetGenerators['mutationburdensummary_cohort'] = {
     'cohort': {
-        'name': 'Most Frequently Mutated Genes (normalized by gene length and sorted by % samples mutated)',
-        'width': 780,
-        'height': 780,
+        'width': 720,
+        'height': 670,
         'callserver': true,
-        'default_hidden': false,
         'variables': {},
         'init': function(data) {
             this['variables']['data'] = data;
         },
-        'shoulddraw': function() {
-            if (this['variables']['data'].length == 0 || this['variables']['data'] == null || infomgr.datas.variant.length > 3000) {
-                return false;
-            } else {
-                return true;
-            }
-        },
+
         'function': function(div, dummy) {
             if (div != null) {
                 emptyElement(div);
@@ -27,12 +19,12 @@ widgetGenerators['topgenessummary_cohort'] = {
                 } else {
                     for (var i = 0; i < range.length; i++) {
                         var button = document.createElement('button');
-                        button.id = range[i] + "_topgene";
+                        button.id = range[i] + "_burden";
                         button.innerHTML = "Group" + range[i];
                         button.classList.add("butn");
                         button.style.position = "relative"
                         button.style.bottom = "25px"
-                        document.getElementById("widgetcontentdiv_topgenessummary_cohort_info").appendChild(button);
+                        document.getElementById("widgetcontentdiv_mutationburdensummary_cohort_info").appendChild(button);
                     }
                 }
             }
@@ -45,7 +37,7 @@ widgetGenerators['topgenessummary_cohort'] = {
                 for (var i = 0; i < range.length; i++) {
                     var newdata = []
                     for (var j in data) {
-                        if (data[j].group.toString() + "_topgene" == id) {
+                        if (data[j].group.toString() + "_burden" == id) {
                             newdata.push(data[j])
                         } else if (id == "start") {
                             if (data[j].group.toString() == "1") {
@@ -57,26 +49,26 @@ widgetGenerators['topgenessummary_cohort'] = {
                     chartdata.datasets = newdata
                     forecast_chart.update();
                 }
-                var elem = document.getElementById('widgetcontentdiv_topgenessummary_cohort_info').getElementsByTagName("button")
+                var elem = document.getElementById('widgetcontentdiv_mutationburdensummary_cohort_info').getElementsByTagName("button")
                 for (var i = 0; i < elem.length; i++) {
                     elem[i].onclick = function() {
                         plotData(range, this.id)
                     };
                 }
             }
-            var colorPalette = {
-                '10': '#2166AC',
-                '9': '#4393C3',
-                '8': '#92C5DE',
-                '7': '#D1E5F0',
-                '6': '#1B7837',
-                '4': '#FDDBC7',
-                '3': '#F4A582',
-                '5': '#5AAE61',
-                '2': '#D6604D',
-                '1': '#B2182B',
-            }
 
+            var colorPalette = {
+                '1': '#2166AC',
+                '2': '#4393C3',
+                '3': '#92C5DE',
+                '4': '#D1E5F0',
+                '5': '#1B7837',
+                '6': '#FDDBC7',
+                '7': '#F4A582',
+                '8': '#5AAE61',
+                '9': '#D6604D',
+                '10': '#B2182B',
+            }
             div.style.width = 'calc(100% - 37px)';
             var chartDiv = getEl('canvas');
             chartDiv.style.width = 'calc(100% - 20px)';
@@ -94,7 +86,7 @@ widgetGenerators['topgenessummary_cohort'] = {
                     var initDatasetCounts = [];
                     index = index + 1
                     for (var i in row[cohort]) {
-                        initDatasetCounts.push(row[cohort][i][1].toFixed(2));
+                        initDatasetCounts.push(row[cohort][i][1]);
                         if (!(row[cohort][i][0] in initSamples)) {
                             initSamples.push(row[cohort][i][0])
                         } else {
@@ -110,6 +102,7 @@ widgetGenerators['topgenessummary_cohort'] = {
                     });
                 }
             }
+
             createButton(numGroups)
             var chart = {
                 type: 'horizontalBar',
@@ -128,7 +121,7 @@ widgetGenerators['topgenessummary_cohort'] = {
                         xAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Percentage of Samples',
+                                labelString: 'Number of Variants',
                             },
                             ticks: {
                                 beginAtZero: true,
@@ -140,4 +133,4 @@ widgetGenerators['topgenessummary_cohort'] = {
             plotData(numGroups, 'start')
         }
     }
-}
+};

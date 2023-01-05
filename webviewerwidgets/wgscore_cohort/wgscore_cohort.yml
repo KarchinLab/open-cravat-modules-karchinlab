@@ -1,9 +1,9 @@
-title: Recurrently Mutated Genes Cohort
-version: 1.1.0
+title: Rank Score Cohort
+version: 1.0.0
 type: webviewerwidget
-requires_opencravat: '>=2.0.2'
 required_annotator: base
-description: Top Genes Summary webviewer widget
+description: Rank Score Comparison webviewer widget
+requires_opencravat: '>=2.2.1'
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab
