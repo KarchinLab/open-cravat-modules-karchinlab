@@ -21,13 +21,13 @@ widgetGenerators['score_cohort'] = {
                         button.innerHTML = "Group" + range[i];
                         button.classList.add("butn");
                         button.style.position = "relative"
-                        document.getElementById("widgetcontentdiv_score_cohort_info").appendChild(button);
+                        document.getElementById("widgetcontentdiv_score_cohort_cohort").appendChild(button);
                     }
                 }
             }
 
             function plotData(modules, id) {
-                var chartDiv = document.getElementById("widgetcontentdiv_score_cohort_info");
+                var chartDiv = document.getElementById("widgetcontentdiv_score_cohort_cohort");
                 var containerDiv = getEl('div')
                 containerDiv.setAttribute("id", "plot")
                 containerDiv.style.display = "Flex";
@@ -55,7 +55,7 @@ widgetGenerators['score_cohort'] = {
                     var newDiv = document.createElement('div');
                     newDiv.id = module
                     toAdd.appendChild(newDiv);
-                    document.getElementById('widgetcontentdiv_score_cohort_info').appendChild(toAdd);
+                    document.getElementById('widgetcontentdiv_score_cohort_cohort').appendChild(toAdd);
 
                     for (var j in initDatasets) {
                         var adiv = document.getElementById(module)
@@ -81,7 +81,7 @@ widgetGenerators['score_cohort'] = {
                     addEl(chartDiv, containerDiv)
                     addEl(containerDiv, adiv)
                 }
-                var elem = document.getElementById('widgetcontentdiv_score_cohort_info').getElementsByTagName("button")
+                var elem = document.getElementById('widgetcontentdiv_score_cohort_cohort').getElementsByTagName("button")
                 for (var i = 0; i < elem.length; i++) {
                     elem[i].onclick = function() {
                         $("#plot").remove();

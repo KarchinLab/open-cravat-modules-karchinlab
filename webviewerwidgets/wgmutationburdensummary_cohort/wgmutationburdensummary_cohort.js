@@ -24,7 +24,7 @@ widgetGenerators['mutationburdensummary_cohort'] = {
                         button.classList.add("butn");
                         button.style.position = "relative"
                         button.style.bottom = "25px"
-                        document.getElementById("widgetcontentdiv_mutationburdensummary_cohort_info").appendChild(button);
+                        document.getElementById("widgetcontentdiv_mutationburdensummary_cohort_cohort").appendChild(button);
                     }
                 }
             }
@@ -49,7 +49,7 @@ widgetGenerators['mutationburdensummary_cohort'] = {
                     chartdata.datasets = newdata
                     forecast_chart.update();
                 }
-                var elem = document.getElementById('widgetcontentdiv_mutationburdensummary_cohort_info').getElementsByTagName("button")
+                var elem = document.getElementById('widgetcontentdiv_mutationburdensummary_cohort_cohort').getElementsByTagName("button")
                 for (var i = 0; i < elem.length; i++) {
                     elem[i].onclick = function() {
                         plotData(range, this.id)
