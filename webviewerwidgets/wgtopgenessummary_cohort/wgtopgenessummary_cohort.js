@@ -16,54 +16,7 @@ widgetGenerators['topgenessummary_cohort'] = {
                 return true;
             }
         },
-        'function': function(div, dummy) {
-            if (div != null) {
-                emptyElement(div);
-            }
-
-            function createButton(range) {
-                if (range.length < 2) {
-                    return null;
-                } else {
-                    for (var i = 0; i < range.length; i++) {
-                        var button = document.createElement('button');
-                        button.id = range[i] + "_topgene";
-                        button.innerHTML = "Group" + range[i];
-                        button.classList.add("butn");
-                        button.style.position = "relative"
-                        button.style.bottom = "25px"
-                        document.getElementById("widgetcontentdiv_topgenessummary_cohort_cohort").appendChild(button);
-                    }
-                }
-            }
-
-            function plotData(range, id) {
-                var forecast_chart = new Chart(chartDiv, chart);
-                forecast_chart.width = "700px"
-                var chartdata = forecast_chart.chart.data;
-                var data = initDatasets
-                for (var i = 0; i < range.length; i++) {
-                    var newdata = []
-                    for (var j in data) {
-                        if (data[j].group.toString() + "_topgene" == id) {
-                            newdata.push(data[j])
-                        } else if (id == "start") {
-                            if (data[j].group.toString() == "1") {
-                                newdata.push(data[j])
-                            }
-                        }
-
-                    }
-                    chartdata.datasets = newdata
-                    forecast_chart.update();
-                }
-                var elem = document.getElementById('widgetcontentdiv_topgenessummary_cohort_cohort').getElementsByTagName("button")
-                for (var i = 0; i < elem.length; i++) {
-                    elem[i].onclick = function() {
-                        plotData(range, this.id)
-                    };
-                }
-            }
+        'function': function(div, data) {
             var colorPalette = {
                 '10': '#2166AC',
                 '9': '#4393C3',
@@ -76,7 +29,6 @@ widgetGenerators['topgenessummary_cohort'] = {
                 '2': '#D6604D',
                 '1': '#B2182B',
             }
-
             div.style.width = 'calc(100% - 37px)';
             var chartDiv = getEl('canvas');
             chartDiv.style.width = 'calc(100% - 20px)';
@@ -85,33 +37,32 @@ widgetGenerators['topgenessummary_cohort'] = {
             var initDatasets = [];
             var data = this['variables']['data'];
             let index = 0;
-            var numGroups = []
+            var selectedCohorts = getSelectedCohorts()
             for (var set in data) {
-                numGroups.push(Number(set))
                 var row = data[set][0];
-                for (var cohort in row) {
-                    var initSamples = [];
-                    var initDatasetCounts = [];
-                    index = index + 1
-                    for (var i in row[cohort]) {
-                        initDatasetCounts.push(row[cohort][i][1].toFixed(2));
-                        if (!(row[cohort][i][0] in initSamples)) {
-                            initSamples.push(row[cohort][i][0])
-                        } else {
-                            continue
+                if (Object.keys(row).sort().join(',') === selectedCohorts.sort().join(',')) {
+                    for (var cohort in row) {
+                        var initSamples = [];
+                        var initDatasetCounts = [];
+                        index = index + 1
+                        for (var i in row[cohort]) {
+                            initDatasetCounts.push(row[cohort][i][1].toFixed(2));
+                            if (!(row[cohort][i][0] in initSamples)) {
+                                initSamples.push(row[cohort][i][0])
+                            } else {
+                                continue
+                            }
                         }
+                        var backgroundColor = colorPalette[index];
+                        initDatasets.push({
+                            'label': cohort,
+                            'backgroundColor': backgroundColor,
+                            'data': initDatasetCounts,
+                        });
                     }
-                    var backgroundColor = colorPalette[index];
-                    initDatasets.push({
-                        'label': cohort,
-                        'backgroundColor': backgroundColor,
-                        'data': initDatasetCounts,
-                        'group': set
-                    });
                 }
             }
-            createButton(numGroups)
-            var chart = {
+            var chart = new Chart(chartDiv, {
                 type: 'horizontalBar',
                 data: {
                     labels: initSamples,
@@ -136,8 +87,7 @@ widgetGenerators['topgenessummary_cohort'] = {
                         }],
                     },
                 }
-            };
-            plotData(numGroups, 'start')
+            });
         }
     }
 }

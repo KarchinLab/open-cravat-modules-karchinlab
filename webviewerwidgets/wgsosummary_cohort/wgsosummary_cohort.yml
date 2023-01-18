@@ -1,0 +1,16 @@
+title: Sequence Ontology Summary by Cohort
+version: 2.1.0
+type: webviewerwidget
+requires_opencravat: '>=2.0.2'
+required_annotator: base
+description: Sequence Ontology Summary by Cohort webviewer widget
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@cravat.us
+  website: https://opencravat.org/
+  citation: ''
+tags:
+- visualization
+private: true
+

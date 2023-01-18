@@ -6,6 +6,7 @@ async def get_data (queries):
     conn = await aiosqlite.connect(dbpath)
     cursor = await conn.cursor()
 
+    # Select what top 10 genes to extract
     gene_var_perc = {}
     q = 'select variant.base__hugo, count(*) from variant, variant_filtered where variant.base__coding=="Y" and variant.base__uid=variant_filtered.base__uid and variant.base__hugo is not null group by variant.base__hugo'
     await cursor.execute(q)
@@ -18,45 +19,38 @@ async def get_data (queries):
     num_gene_to_extract = 10
     sorted_hugos = sorted(gene_var_perc, key=gene_var_perc.get, reverse=True)
     extracted_hugos = sorted_hugos[:num_gene_to_extract]
-    
-    cohorts = {}
-    q = "select count(sample), cohort, sample from cohorts group by cohort;"
+
+    #select cohorts
+    sets = {}
+    num_total_samples = {}
+    q = "select cohort, count(sample) from cohorts group by cohort;"
+    await cursor.execute(q)
+    sets['default'] = []
+    for row in await cursor.fetchall():
+        sets['default'].append(row[0])
+        num_total_samples[row[0]] = row[1]
+    q = "select set_name, cohorts from cohort_set;"
     await cursor.execute(q)
     rows = (await cursor.fetchall())
-    max_rows = 0
-    num_total_samples = {}
     for row in rows:
-        num_total_samples[row[1]] = row[0]
-        max_rows = max_rows + row[0]
-        sample = row[2]
-        q = f'select count(sample) from cohorts where sample = "{sample}"'
-        await cursor.execute(q)
-        num_cohorts = (await cursor.fetchone())[0]
-        for cohort in range(1, num_cohorts + 1):
-            cohorts[cohort] = set()
-            nrows = tuple([i for i in range(cohort,max_rows + 1, num_cohorts)])
-            qq = f'SELECT ROW_NUMBER() OVER (ORDER BY (SELECT "1")) AS RowID, cohort FROM cohorts where RowID in {nrows}'
-            await cursor.execute(qq)
-            rowsd = (await cursor.fetchall())
-            for rowd in rowsd:
-                cohorts[cohort].add(rowd[1])
-
-    responses = {}
-    for cohort in cohorts:
-        respd = {}
-        responses[cohort] = []
-        for c in cohorts[cohort]:
-            respd[c] = []
+        sets[row[0]] = row[1].split(";")
+    
+    #retrieve data within each cohort
+    response = {}
+    for _set in sets:
+        data = {}
+        response[_set] = []
+        for cohort in sets[_set]:
+            data[cohort] = []
             genesampleperc = {}
             for hugo in extracted_hugos:
-                q = f'select count(distinct(sample.base__sample_id)) from sample, variant, variant_filtered, cohorts where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{c}" and variant.base__hugo="' + hugo + '"'
+                q = f'select count(distinct(sample.base__sample_id)) from sample, variant, variant_filtered, cohorts where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}" and variant.base__hugo="' + hugo + '"'
                 await cursor.execute(q)
                 num_sample = (await cursor.fetchone())[0]
-                genesampleperc[hugo] = (num_sample / num_total_samples[c]) * 100
+                genesampleperc[hugo] = (num_sample / num_total_samples[cohort]) * 100
             for hugo in genesampleperc:
-                respd[c].append([hugo, genesampleperc[hugo]])
-        responses[cohort].append(respd)
+                data[cohort].append([hugo, genesampleperc[hugo]])
+        response[_set].append(data)
     await cursor.close()
     await conn.close()
-    response = {"data": responses}
-    return response
+    return {"data": response}
