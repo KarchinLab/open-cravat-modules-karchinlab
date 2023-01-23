@@ -8,6 +8,7 @@ requires:
 - gnomad3
 - go
 - ncbigene
+- tsvreporter
 run:
   annotators:
   - dbsnp

@@ -9,6 +9,7 @@ requires:
 - denovo
 - gwas_catalog
 - clingen
+- tsvreporter
 run:
   annotators:
   - clinvar
