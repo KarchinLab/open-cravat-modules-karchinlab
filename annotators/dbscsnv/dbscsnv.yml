@@ -1,5 +1,9 @@
-datasource: v1.1
+type: annotator
+title: dbscSNV
 description: A comprehensive database of all potential human SNVs within splicing consensus regions and their functional annotations.
+version: 1.1.0
+
+datasource: v1.1
 developer:
   name: 'Xiaoming Liu'
   organization: 'University of South Florida'
@@ -23,12 +27,6 @@ output_columns:
 tags:
 - variant effect prediction
 
-title: dbscSNV
-version: 1.0.0
-type: annotator
-
-
-
-
-
+release_note:
+  1.1.0: Fixed position to be in hg38
 

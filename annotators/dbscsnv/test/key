@@ -1,39 +1,38 @@
 #CRAVAT Report
-#Created at Thursday 09/10/2020 15:52:06
+#Created at Tuesday 01/24/2023 11:32:15
 #Report level: variant
 #
-Variant Annotation																dbscSNV	
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	AdaBoost Score	Random Forest Score
-1	chr10	121593817	T	A		Yes	FGFR2	ENST00000457416.6	start_lost	c.1A>T	p.Met1?	ENST00000346997.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000351936.10:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000356226.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000357555.9:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000358487.9:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000359354.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000360144.7:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369056.5:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369059.5:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369060.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369061.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000457416.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000490349.5:FGFR2::processed_transcript::; ENST00000491111.1:FGFR2::processed_transcript::; ENST00000604236.5:FGFR2::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000611527.1:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000613048.4:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000636922.1:FGFR2::NSD_transcript::	1	s0			
-2	chr1	860326	A	C			LINC01128	ENST00000666741.1	lnc_RNA			ENST00000445118.7:LINC01128::2kb_downstream_variant,lnc_RNA::; ENST00000659124.1:LINC01128::2kb_downstream_variant,lnc_RNA::; ENST00000661463.1:AL669831.7::lnc_RNA::; ENST00000666741.1:LINC01128::2kb_downstream_variant,lnc_RNA::; ENST00000670780.1:LINC01128::2kb_downstream_variant,lnc_RNA::; ENST00000671208.1:AL669831.7::lnc_RNA::	1	s1		0.00764482882370293	0.03
-3	chr12	17600	A	T									1	s2			
-4	chr20	68406	A	C									1	s3		8.344730102206379e-05	0.0
-5	chr18	158712	C	A		Yes	USP14	ENST00000261601.8	missense_variant	c.14C>A	p.Ser5Tyr	ENST00000261601.8:USP14:P54578:missense_variant:p.Ser5Tyr:c.14C>A; ENST00000383589.6:USP14::missense_variant:p.Ser5Tyr:c.14C>A; ENST00000400266.7:USP14:P54578:missense_variant:p.Ser5Tyr:c.14C>A; ENST00000582707.5:USP14:P54578:missense_variant:p.Ser5Tyr:c.14C>A	1	s4		0.0343118039520877	0.2
-6	chr2	41626	T	A		Yes	FAM110C	ENST00000327669.5	synonymous_variant	c.948A>T	p.Gly316=	ENST00000327669.5:FAM110C:Q1W6H9:synonymous_variant:p.Gly316=:c.948A>T; ENST00000460464.1:FAM110C::processed_transcript::; ENST00000461026.1:FAM110C::processed_transcript::	1	s5		1.7943266884785397e-05	0.004
+Variant Annotation																Original Input				dbscSNV	
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	AdaBoost Score	Random Forest Score
+1	chr10	119834305	T	A			MCMBP	ENST00000369077.3	intron_variant	c.1707+1235A>T		ENST00000360003.7:MCMBP:Q9BTE3:intron_variant::c.1713+1235A>T; ENST00000369077.3:MCMBP:Q9BTE3:intron_variant::c.1707+1235A>T; ENST00000466047.5:MCMBP::intron_variant,processed_transcript::	1	s0		chr10	119834305	T	A		
+2	chr1	924946	A	C			SAMD11	ENST00000622503.4	2kb_upstream_variant	c.-875A>C		ENST00000342066.8:SAMD11:Q96NU1:2kb_upstream_variant::c.-875A>C; ENST00000616016.4:SAMD11::2kb_upstream_variant::c.-875A>C; ENST00000616125.4:SAMD11::2kb_upstream_variant::c.-875A>C; ENST00000617307.4:SAMD11::2kb_upstream_variant::c.-875A>C; ENST00000618181.4:SAMD11::2kb_upstream_variant::c.-875A>C; ENST00000618323.4:SAMD11::2kb_upstream_variant::c.-875A>C; ENST00000618779.4:SAMD11::2kb_upstream_variant::c.-875A>C; ENST00000620200.4:SAMD11::2kb_upstream_variant::c.-875A>C; ENST00000622503.4:SAMD11::2kb_upstream_variant::c.-875A>C	1	s1		chr1	924946	A	C	0.0076448288237029	0.03
+3	chr20	87765	A	C		Yes	DEFB125	ENST00000382410.3	missense_variant	c.56A>C	p.Lys19Thr	ENST00000382410.3:DEFB125:Q8N687:missense_variant:p.Lys19Thr:c.56A>C; ENST00000608838.1:DEFB125::intron_variant,processed_transcript::	1	s3		chr20	87765	A	C	8.34473010220638e-05	0.0
+4	chr18	158712	C	A		Yes	USP14	ENST00000261601.8	missense_variant	c.14C>A	p.Ser5Tyr	ENST00000261601.8:USP14:P54578:missense_variant:p.Ser5Tyr:c.14C>A; ENST00000383589.6:USP14::missense_variant:p.Ser5Tyr:c.14C>A; ENST00000400266.7:USP14:P54578:missense_variant:p.Ser5Tyr:c.14C>A; ENST00000582707.5:USP14:P54578:missense_variant:p.Ser5Tyr:c.14C>A	1	s4		chr18	158712	C	A	0.0343118039520877	0.2
+5	chr2	41626	T	A		Yes	FAM110C	ENST00000327669.5	synonymous_variant	c.948A>T	p.Gly316=	ENST00000327669.5:FAM110C:Q1W6H9:synonymous_variant:p.Gly316=:c.948A>T; ENST00000460464.1:FAM110C::processed_transcript::; ENST00000461026.1:FAM110C::processed_transcript::	1	s5		chr2	41626	T	A	1.79432668847854e-05	0.004
 #CRAVAT Report
-#Created at Thursday 09/10/2020 15:52:06
+#Created at Tuesday 01/24/2023 11:32:15
 #Report level: gene
 #
 Variant Annotation					
 Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
-FGFR2		1	0	start_lost	missense_variant(1),start_lost(1),NMD_transcript_variant(1),NSD_transcript(1),processed_transcript(1)
-LINC01128		0	1	lnc_RNA	lnc_RNA(1)
+MCMBP		0	1	intron_variant	intron_variant(1),processed_transcript(1)
+SAMD11		0	1	2kb_upstream_variant	
+DEFB125		1	0	missense_variant	intron_variant(1),missense_variant(1),processed_transcript(1)
 USP14		1	0	missense_variant	missense_variant(1)
 FAM110C		1	0	synonymous_variant	processed_transcript(1),synonymous_variant(1)
 #CRAVAT Report
-#Created at Thursday 09/10/2020 15:52:06
+#Created at Tuesday 01/24/2023 11:32:15
 #Report level: sample
 #
 Variant Annotation	
 UID	Sample
 1	s0
 2	s1
-3	s2
-4	s3
-5	s4
-6	s5
+3	s3
+4	s4
+5	s5
 #CRAVAT Report
-#Created at Thursday 09/10/2020 15:52:06
+#Created at Tuesday 01/24/2023 11:32:15
 #Report level: mapping
 #
 Variant Annotation			
@@ -43,4 +42,3 @@ Original Line	User Tags	UID	Input File Number
 3		3	0
 4		4	0
 5		5	0
-6		6	0
