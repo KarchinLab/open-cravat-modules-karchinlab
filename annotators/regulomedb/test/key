@@ -1,0 +1,43 @@
+#CRAVAT Report
+#Created at Monday 03/22/2021 09:16:18
+#Report level: variant
+#
+Variant Annotation																RegulomeDB							
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Rank	TF Binding	DNase Peak	Motif	DNase Footprint	eQTL	Matched TF Motif	Matched DNase Footprint
+1	chr1	11011	G	A									0			6	False	False	True	True	False	False	False
+2	chr1	11842952	C	T			CLCN6	ENST00000346436.11	3_prime_UTR_variant	c.*2729C>T		ENST00000312413.10:CLCN6:P51797:3_prime_UTR_variant::c.*2729C>T; ENST00000346436.11:CLCN6:P51797:3_prime_UTR_variant::c.*2729C>T; ENST00000400892.3:CLCN6::intron_variant,NMD_transcript_variant::c.*1402-782C>T; ENST00000622391.1:AL021155.3::2kb_upstream_variant,misc_RNA::	0			1a	True	True	True	True	True	True	True
+3	chr9	121122996	T	G			CNTRL	ENST00000238341.9	intron_variant	c.1651-935T>G		ENST00000238341.9:CNTRL:Q7Z7A1:intron_variant::c.1651-935T>G; ENST00000373847.5:CNTRL::intron_variant::c.-6-935T>G; ENST00000373850.5:CNTRL:Q7Z7A1:intron_variant::c.-6-935T>G; ENST00000373855.5:CNTRL:Q7Z7A1:intron_variant::c.1651-935T>G	0			2b	True	True	True	True	False	False	False
+4	chr16	70502932	A	C			COG4	ENST00000323786.10	intron_variant	c.1062-1841T>G		ENST00000323786.10:COG4::intron_variant::c.1062-1841T>G; ENST00000393612.8:COG4::intron_variant::c.1062-1841T>G; ENST00000482252.5:COG4:Q9H9E3:intron_variant,NMD_transcript_variant::c.*195-1841T>G; ENST00000564415.5:COG4::intron_variant,NMD_transcript_variant::c.*842-1841T>G	0			1f	False	True	False	False	True	False	False
+5	chr18	13283879	C	A			LDLRAD4	ENST00000359446.9	intron_variant	c.-383+5691C>A		ENST00000359446.9:LDLRAD4:O15165:intron_variant::c.-383+5691C>A; ENST00000399848.7:LDLRAD4:O15165:intron_variant::c.-383+5691C>A; ENST00000590371.5:LDLRAD4::intron_variant,processed_transcript::	0			4	True	True	False	False	False	False	False
+#CRAVAT Report
+#Created at Monday 03/22/2021 09:16:18
+#Report level: gene
+#
+Variant Annotation					
+Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+CLCN6		0	1	3_prime_UTR_variant	intron_variant(0),NMD_transcript_variant(0),3_prime_UTR_variant(0)
+CNTRL		0	1	intron_variant	intron_variant(0)
+COG4		0	1	intron_variant	intron_variant(0),NMD_transcript_variant(0)
+LDLRAD4		0	1	intron_variant	intron_variant(0),processed_transcript(0)
+#CRAVAT Report
+#Created at Monday 03/22/2021 09:16:18
+#Report level: sample
+#
+Variant Annotation	
+UID	Sample
+1	
+2	
+3	
+4	
+5	
+#CRAVAT Report
+#Created at Monday 03/22/2021 09:16:18
+#Report level: mapping
+#
+Variant Annotation			
+Original Line	User Tags	UID	Input File Number
+1		1	0
+2		2	0
+3		3	0
+4		4	0
+5		5	0

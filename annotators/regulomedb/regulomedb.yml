@@ -1,0 +1,78 @@
+datasource: v2.0
+description: Identifies DNA features and regulatory elements in non-coding regions of the human genome.
+developer:
+  name: ''
+  organization: 'Stanford University'
+  email: 'support@cravat.us'
+  website: 'https://www.regulomedb.org/'
+  citation: 'Boyle AP, Hong EL, Hariharan M, Cheng Y, Schaub MA, Kasowski M, Karczewski KJ, Park J, Hitz BC, Weng S, Cherry JM, Snyder M. Annotation of functional variation in personal genomes usingRegulomeDB. Genome Research 2012, 22(9):1790-1797. PMID: 22955989.'
+
+output_columns:
+- name: ra
+  title: Rank
+  type: string
+  desc: Lower scores indicate increasing evidence for a variant to be located in a functional region.
+        Category 1 variants are likely to affect binding and linked to expression of a gene target.
+        Category 2 variants are likely to affect binding. Category 3 are less likely to affect binding.
+        Categories > 3 variants have minimal binding evidence.
+  width: 80
+- name: tf_binding
+  title: TF Binding
+  type: string
+  desc: TF binding is predicted from DNase footprints, results indicate a specific DNA-protein interaction and event, and increases the confidence that the variant is functional.
+  width: 75
+  hidden: true
+  category: single
+- name: dnase_peak
+  title: DNase Peak
+  type: string
+  desc: Whether this SNV falls into the region of DNase-seq peaks.
+  width: 75
+  category: single
+  hidden: true
+- name: motif
+  title: Motif
+  type: string
+  desc: Matches any motif.
+  width: 75
+  category: single
+  hidden: true
+- name: dnase_footprint
+  title: DNase Footprint
+  type: string
+  desc: If there is a DNase footprint found from the DNase-seq data.
+  width: 75
+  category: single
+  hidden: true
+- name: eqtl
+  title: eQTL
+  type: string
+  desc: Expression Quantitative Trait Loci. The presence of eQTL data is necessary for the SNV to be ranked category 1.
+  width: 75
+  category: single
+  hidden: true
+- name: matched_tf_motif
+  title: Matched TF Motif
+  type: string
+  desc: A motif matched to the transcription factor. 
+  width: 75
+  category: single
+  hidden: true
+- name: matched_dnase_footprint
+  title: Matched DNase Footprint
+  type: string
+  desc: There was a match of the PWM to the DNase footprint.
+  width: 75
+  category: single
+  hidden: true
+
+tags:
+- non coding
+title: RegulomeDB
+version: 1.0.1
+type: annotator
+level: variant
+release_note:
+  1.0.1: change in name to not interfere with wgrankscore
+
+
