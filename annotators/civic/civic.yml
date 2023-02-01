@@ -19,7 +19,7 @@ output_columns:
 - hidden: true
   name: clinical_a_score
   title: Variant Evidence Score
-  type: string
+  type: float
   filterable: false
   desc: Represents the accumulation of evidence
 - name: diseases
@@ -49,11 +49,12 @@ tags:
 - literature
 title: CIViC
 type: annotator
-version: 1.0.17
+version: 1.0.18
 requires_opencravat: '>=1.4.0'
 requires:
 - wgcivic
 release_note:
+  1.0.18: YML change for clinical_a_score data type
   1.0.17: YML change for datasource tag
   1.0.16: Fix for parsing error. Actionability changed to Evidence in title
   1.0.15: Add smartfilter
