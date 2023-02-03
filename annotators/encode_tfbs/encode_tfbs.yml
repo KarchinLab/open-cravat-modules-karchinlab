@@ -4,8 +4,6 @@ description: Human transcription factor binding sites based on ChIP-seq experime
 version: 1.0.2
 datasource: 2012-03
 type: annotator
-requires:
-- hg19
 level: variant
 secondary_inputs:
   hg19: {}
@@ -52,4 +50,5 @@ tags:
 - non coding
 requires:
 - wgencode_tfbs
+- hg19
 requires_opencravat: '>=2.2.1'
