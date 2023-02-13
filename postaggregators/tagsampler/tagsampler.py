@@ -22,12 +22,6 @@ class CravatPostAggregator (BasePostAggregator):
             self.cursor.execute(q)
             self.dbconn.commit()
         self.cursor.execute('pragma synchronous=0;')
-        self.cursor.execute('pragma journal_mode=WAL;')
-    
-    def cleanup (self):
-        return
-        self.cursor.execute('pragma synchronous=2;')
-        self.cursor.execute('pragma journal_mode=delete;')
         
     def annotate (self, input_data):
         uid = str(input_data['base__uid'])
