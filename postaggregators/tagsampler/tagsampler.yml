@@ -1,6 +1,6 @@
 title: Tag Sampler
 version: 1.1.6
-requires_opencravat: '>=1.8.1'
+requires_opencravat: '>=2.3.0'
 type: postaggregator
 name: tagsampler
 level: variant
