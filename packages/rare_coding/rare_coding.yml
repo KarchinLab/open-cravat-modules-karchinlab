@@ -1,8 +1,8 @@
 type: package
 description: Package rare_coding created from user job with --saveaspackage
 title: rare_coding
-version: '1.0'
-private: true
+version: '1.0.0'
+requires_opencravat: '>=2.3.0'
 requires:
 - dbsnp
 - gnomad3

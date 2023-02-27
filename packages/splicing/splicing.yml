@@ -1,8 +1,8 @@
 type: package
 description: Package splicing created from user job with --saveaspackage
 title: splicing
-version: '1.0'
-private: true
+version: '1.0.0'
+requires_opencravat: '>=2.3.0'
 requires:
 - dbscsnv
 - spliceai

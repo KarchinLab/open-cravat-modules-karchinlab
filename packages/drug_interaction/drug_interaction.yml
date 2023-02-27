@@ -1,8 +1,8 @@
 type: package
 description: Package that identifies variants with potential impact on drug responce.
 title: Drug Interaction Package
-version: '1.0'
-private: true
+version: '1.0.0'
+requires_opencravat: '>=2.3.0'
 requires:
 - clinvar
 - pharmgkb
