@@ -3,6 +3,12 @@ description: Package that identifies variants with potential impact on drug resp
 title: Drug Interaction Package
 version: '1.0.0'
 requires_opencravat: '>=2.3.0'
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
 requires:
 - clinvar
 - pharmgkb

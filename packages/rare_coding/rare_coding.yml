@@ -3,6 +3,12 @@ description: Package rare_coding created from user job with --saveaspackage
 title: rare_coding
 version: '1.0.0'
 requires_opencravat: '>=2.3.0'
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
 requires:
 - dbsnp
 - gnomad3

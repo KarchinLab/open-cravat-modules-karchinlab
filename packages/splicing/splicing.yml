@@ -3,6 +3,12 @@ description: Package splicing created from user job with --saveaspackage
 title: splicing
 version: '1.0.0'
 requires_opencravat: '>=2.3.0'
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
 requires:
 - dbscsnv
 - spliceai
