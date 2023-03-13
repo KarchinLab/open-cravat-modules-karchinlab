@@ -1,5 +1,5 @@
 type: package
-description: Package that identifies variants disease related variants.
+description: Package that identifies disease related variants.
 title: Pathogenic Variant Package
 version: '1.0.0'
 requires_opencravat: '>=2.3.0'

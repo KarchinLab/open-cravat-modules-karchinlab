@@ -1,6 +1,6 @@
 type: package
-description: Package splicing created from user job with --saveaspackage
-title: splicing
+description: Package that identifies variants related to splicing.
+title: Splicing Package
 version: '1.0.0'
 requires_opencravat: '>=2.3.0'
 developer:

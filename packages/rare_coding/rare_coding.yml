@@ -1,6 +1,6 @@
 type: package
-description: Package rare_coding created from user job with --saveaspackage
-title: rare_coding
+description: Package that identifies rare coding variants
+title: Rare Coding Package
 version: '1.0.0'
 requires_opencravat: '>=2.3.0'
 developer:
