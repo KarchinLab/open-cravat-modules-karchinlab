@@ -117,6 +117,8 @@ class CravatConverter(BaseConverter):
                             'type': 'string',
                             'hidden': True,
                         })
+        for col in info_cols:
+            col['name'] = col['name'].replace('-','_')
         if self.include_info:
             self.include_info.update([c['name'] for c in info_cols[:3]])
             temp = info_cols
