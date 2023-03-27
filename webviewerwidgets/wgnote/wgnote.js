@@ -13,7 +13,7 @@ widgetGenerators['note'] = {
                 $(div).empty();
             }
             v['noterow'] = row[0];
-            var colNo = infomgr.getColumnNo(tabName, 'base__note');
+            var colNo = infomgr.getColumnNo(tabName, 'base__note_variant');
             var note = row[colNo];
             var textbox = getEl('textarea');
             textbox.style.width = '100%';
@@ -29,7 +29,8 @@ widgetGenerators['note'] = {
                 $grids[tabName].pqGrid('refresh');
                 $.ajax({
                     url: '/result/runwidget/note',
-                    data: {'job_id': jobId, 
+                    data: {'job_id': jobId,
+                           'dbpath': dbPath, 
                            'tab': tabName, 
                            'rowkey': row[0],
                            'note': note,
@@ -55,7 +56,7 @@ widgetGenerators['note'] = {
                 $(div).empty();
             }
             v['noterow'] = row[0];
-            var colNo = infomgr.getColumnNo(tabName, 'base__note');
+            var colNo = infomgr.getColumnNo(tabName, 'base__note_gene');
             var note = row[colNo];
             var textbox = getEl('textarea');
             textbox.style.width = '100%';
@@ -72,6 +73,7 @@ widgetGenerators['note'] = {
                 $.ajax({
                     url: '/result/runwidget/note',
                     data: {'job_id': jobId,
+                           'dbpath': dbPath,
                            'tab': tabName, 
                            'rowkey': row[0],
                            'note': note,

@@ -6,17 +6,17 @@ async def get_data (queries):
         dbpath = queries['dbpath']
         tab = queries['tab']
         rowkey = queries['rowkey']
-        note = queries['note'].replace('"', "'")
+        note = queries['note']
+        if len(note) == 0:
+            note = None
         conn = await aiosqlite.connect(dbpath)
         c = await conn.cursor()
         if tab == 'variant':
-            q = 'update {} set base__note="{}" where base__uid={}'.format(
-                tab, note, rowkey)
-            await c.execute(q)
+            q = f'update {tab} set base__note_variant=? where base__uid=?'
+            await c.execute(q, (note, rowkey))
         elif tab == 'gene':
-            q = 'update {} set base__note="{}" where base__hugo="{}"'.format(
-                tab, note, rowkey)
-            await c.execute(q)
+            q = f'update {tab} set base__note_gene=? where base__hugo=?'
+            await c.execute(q, (note, rowkey))
         await conn.commit()
         ret['status'] = 'success'
     except:
