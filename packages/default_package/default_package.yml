@@ -1,0 +1,35 @@
+type: package
+description: A starter set of annotators
+title: Default Package
+version: '1.0.0'
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
+requires:
+- clinvar
+- cosmic
+- gnomad3
+- go
+- polyphen2
+- sift
+- vest
+- chasmplus
+- revel
+- cadd_exome
+- dann_coding
+run:
+  annotators:
+  - clinvar
+  - cosmic
+  - gnomad3
+  - go
+  - polyphen2
+  - sift
+  - vest
+  - chasmplus
+  - revel
+  - cadd_exome
+  - dann_coding
