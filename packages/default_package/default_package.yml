@@ -10,12 +10,10 @@ developer:
   citation: ''
 requires:
 - clinvar
-- cosmic
 - gnomad3
 - go
 - polyphen2
 - sift
-- vest
 - chasmplus
 - revel
 - cadd_exome
@@ -23,12 +21,10 @@ requires:
 run:
   annotators:
   - clinvar
-  - cosmic
   - gnomad3
   - go
   - polyphen2
   - sift
-  - vest
   - chasmplus
   - revel
   - cadd_exome
