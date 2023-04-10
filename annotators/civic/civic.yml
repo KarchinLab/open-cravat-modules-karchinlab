@@ -1,4 +1,4 @@
-datasource: Latest Available
+datasource: 2023.04.01
 description: Provides descriptions and linkouts to CIViC
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
@@ -17,7 +17,7 @@ output_columns:
   type: string
   filterable: false
 - hidden: true
-  name: clinical_a_score
+  name: molecular_profile_score
   title: Variant Evidence Score
   type: float
   filterable: false
@@ -49,11 +49,12 @@ tags:
 - literature
 title: CIViC
 type: annotator
-version: 1.0.18
+version: 2023.04.01
 requires_opencravat: '>=1.4.0'
 requires:
 - wgcivic
 release_note:
+  2023.04.01: Update CIViC annotator to use new GraphQL API. The annotator will now be updated monthly based on the monthly variant snapshot and supplemental data from the GraphQL API. The version number going forward will be the date when the data was gathered.
   1.0.18: YML change for clinical_a_score data type
   1.0.17: YML change for datasource tag
   1.0.16: Fix for parsing error. Actionability changed to Evidence in title
