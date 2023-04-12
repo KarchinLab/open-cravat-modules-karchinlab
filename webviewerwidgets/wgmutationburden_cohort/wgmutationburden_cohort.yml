@@ -1,9 +1,9 @@
-title: Recurrently Mutated Genes
-version: 1.1.0
+title: Non-Silent Mutation Counts
+version: 1.0.0
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
 required_annotator: base
-description: Top Genes Summary webviewer widget
+description: Mutation Burden Cohort webviewer widget
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab

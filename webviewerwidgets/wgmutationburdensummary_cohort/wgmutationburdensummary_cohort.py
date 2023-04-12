@@ -34,24 +34,36 @@ async def get_data (queries):
     for row in rows:
         sets[row[0]] = row[1].split(";")
 
+    hugo_perc = {}
+    for hugo in extracted_hugos:
+        q = f'select sum(tagsampler__numsample) from variant where variant.base__hugo ="{hugo}"'
+        await cursor.execute(q)
+        rows = await cursor.fetchall()
+        for row in rows:
+            num = row[0]
+            hugo_perc[hugo] = num
     #retrieve data within each cohort
     response = {}
+    hugos = set()
+    tuple_extracted_hugo = tuple(extracted_hugos)
     for _set in sets:
         data = {}
         response[_set] = []
         for cohort in sets[_set]:
             data[cohort] = []
             genesampleperc = {}
-            for hugo in extracted_hugos:
-                q = f'select count(variant.base__uid), cohort from variant, variant_filtered, sample, cohorts where variant_filtered.base__uid = variant.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}" and variant.base__hugo ="' + hugo + '"'
-                counts = {}
-                await cursor.execute(q)
-                rows = await cursor.fetchall()
-                if rows:
-                    for row in rows:
-                        counts[hugo] = row[0]
-                    data[cohort].append([hugo, counts[hugo]])
+            # for hugo in extracted_hugos:
+            q = f'select variant.base__hugo, count(variant.base__uid) from variant, variant_filtered, sample, cohorts where variant_filtered.base__uid = variant.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}" and variant.base__hugo in {tuple_extracted_hugo} group by variant.base__hugo'
+            counts = []
+            await cursor.execute(q)
+            rows = await cursor.fetchall()
+            if rows:
+                for row in rows:
+                    hugos.add(row[0])
+                    counts.append(row[1])
+                data[cohort].append(counts)
         response[_set].append(data)
     await cursor.close()
     await conn.close()
-    return {"data": response}
+    extracted_hugos.sort()
+    return {"data": {'counts': response, 'hugos': extracted_hugos}}

@@ -1,9 +1,9 @@
-title: Recurrently Mutated Genes
-version: 1.1.0
+title: Clinvar Significance Summary
+version: 1.0.0
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
-required_annotator: base
-description: Top Genes Summary webviewer widget
+required_annotator: clinvar
+description: Clinvar by Cohort webviewer widget
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab

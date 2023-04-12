@@ -1,7 +1,7 @@
 widgetGenerators['mutationburdensummary_cohort'] = {
     'cohort': {
-        'width': 720,
-        'height': 670,
+        'width': 580,
+        'height': 580,
         'callserver': true,
         'variables': {},
         'init': function(data) {
@@ -27,7 +27,8 @@ widgetGenerators['mutationburdensummary_cohort'] = {
             chartDiv.style.height = 'calc(100% - 20px)';
             addEl(div, chartDiv);
             var initDatasets = [];
-            var data = this['variables']['data'];
+            var data = this['variables']['data']['counts'];
+            var hugos = this['variables']['data']['hugos']
             let index = 0;
             var selectedCohorts = getSelectedCohorts()
             for (var set in data) {
@@ -38,13 +39,11 @@ widgetGenerators['mutationburdensummary_cohort'] = {
                         var initDatasetCounts = [];
                         index = index + 1
                         for (var i in row[cohort]) {
-                            initDatasetCounts.push(row[cohort][i][1]);
-                            if (!(row[cohort][i][0] in initSamples)) {
-                                initSamples.push(row[cohort][i][0])
-                            } else {
-                                continue
+                            for (var val in row[cohort][i]){
+                            initDatasetCounts.push(row[cohort][i][val]);
                             }
                         }
+                        console.log(initDatasetCounts)
                         var backgroundColor = colorPalette[index];
                         initDatasets.push({
                             'label': cohort,
@@ -54,11 +53,10 @@ widgetGenerators['mutationburdensummary_cohort'] = {
                     }
                 }
             }
-
             var chart = new Chart(chartDiv, {
                 type: 'horizontalBar',
                 data: {
-                    labels: initSamples,
+                    labels: hugos,
                     datasets: initDatasets
                 },
                 options: {

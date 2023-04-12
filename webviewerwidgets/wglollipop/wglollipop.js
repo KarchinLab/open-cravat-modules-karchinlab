@@ -189,7 +189,7 @@ widgetGenerators['lollipop'] = {
 			}
 
             function drawMain () {
-                var data = v['data'];
+				var data = v['data'];
                 var widgetContentDiv = document.getElementById('widgetcontentdiv_' + widgetName + '_' + self.variables.tabName);
                 var spinner = widgetContentDiv.getElementsByClassName('widgetspinner')[0];
                 $(spinner).remove();
