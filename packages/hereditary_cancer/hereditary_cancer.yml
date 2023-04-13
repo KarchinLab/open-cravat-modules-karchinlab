@@ -1,6 +1,6 @@
 type: package
 description: Reports on variants in a gene list implicated in nine hereditary cancer types by the Cancer Gene Census
-title: Heriditary Cancer
+title: Hereditary Cancer
 version: '1.0.0'
 developer:
   name: OpenCRAVAT Team
