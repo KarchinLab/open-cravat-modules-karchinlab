@@ -1,5 +1,6 @@
-datasource: Jan 2019
+datasource: 2023.04.01
 description: Provides descriptions and linkouts to CIViC
+private: true
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
     knowledgebase for expert crowdsourcing the clinical interpretation of variants
@@ -11,22 +12,30 @@ developer:
   website: https://civicdb.org
 level: gene
 output_columns:
-- hidden: true
-  name: description
-  title: Description
-  type: string
 - name: id
   title: ID
   type: string
   filterable: false
   link_format: https://civicdb.org/links/gene/${.*}
+- hidden: true
+  name: description
+  title: Description
+  type: string
+  width: 75
+- name: aliases
+  title: Gene Aliases
+  type: string
+  width: 75
+  hidden: true
 tags:
 - genes
 - clinical relevance
 - cancer
 title: CIViC Gene
 type: annotator
-version: 1.0.10
+version: 2023.04.01
+release_note:
+  2023.04.01: Update CIViC Gene annotator to use the new monthly snapshots and GraphQL API. Add Gene Aliases column to the annotation. Add gene alias matching for annotation. The version number going forward will be the date when the data was gathered.
 requires_opencravat: '>=1.4.0'
 requires:
 - wgcivic_gene

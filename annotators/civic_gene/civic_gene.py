@@ -1,35 +1,43 @@
 import sys
 from cravat import BaseAnnotator
-from cravat import constants, InvalidData
-import sqlite3
-import requests
-import json
-import os
 
 class CravatAnnotator(BaseAnnotator):
-
-    def setup(self):
-        self.civicdata = {}
-        page_url = 'https://civicdb.org/api/genes?count=500&page=1'
-        while page_url is not None:
-            r = requests.get(page_url, timeout=5)
-            d = json.loads(r.text)
-            records = d['records']
-            self.civicdata.update({x['name']:x for x in records})
-            page_url = d['_meta']['links']['next']
-                
-    def annotate(self, input_data, secondary_data=None):
-        out = {}     
-        hugo = input_data['hugo']
-        match = self.civicdata.get(hugo)
-        if match is not None and match['description']:
-            out['description'] = match['description'].replace('\n', '').replace('"', "'")
-            out['id'] = match['id']
+    def format_data(self, data_row):
+        out = {
+            'id': data_row[0],
+            'name': data_row[1],
+            'description': data_row[2],
+            'aliases': data_row[3]
+        }
         return out
-    
-    def cleanup(self):
-        pass
-        
+
+    def annotate(self, input_data, secondary_data=None):
+        hugo = input_data['hugo']
+        name_query = 'SELECT id, name, description, aliases FROM civic_gene WHERE name == ?'
+        name_params = (hugo,)
+        self.cursor.execute(name_query, name_params)
+        data = self.cursor.fetchone()
+        if data is not None:
+            return self.format_data(data_row=data)
+
+        # try to query the aliases if no direct name match
+        alias_query = 'SELECT id, name, description, aliases FROM civic_gene WHERE aliases LIKE ? OR aliases LIKE ? OR aliases LIKE ? OR aliases LIKE ?'
+        # Check if the gene name provided is in the alias list as a whole word, either by itself, starting the list,
+        # ending the list, or in the middle of the list. Do not allow it to be in the middle of a bigger word
+        alias_params = (
+            hugo,
+            f'{hugo},%',
+            f'%,{hugo},%',
+            f'%,{hugo}',
+        )
+        self.cursor.execute(alias_query, alias_params)
+        data = self.cursor.fetchone()
+        if data is not None:
+            return self.format_data(data_row=data)
+
+        return None
+
+
 if __name__ == '__main__':
     annotator = CravatAnnotator(sys.argv)
     annotator.run()
