@@ -12,17 +12,6 @@ developer:
   website: https://civicdb.org
 level: variant
 output_columns:
-- hidden: true
-  name: description
-  title: Description
-  type: string
-  filterable: false
-- hidden: true
-  name: molecular_profile_score
-  title: Variant Evidence Score
-  type: float
-  filterable: false
-  desc: Represents the accumulation of evidence
 - name: diseases
   title: Diseases
   type: string
@@ -33,7 +22,18 @@ output_columns:
   type: string
   filterable: false
   link_format: https://civicdb.org/links/variant/${.*}
-  hidden: true
+- hidden: true
+  name: molecular_profile_score
+  title: Variant Evidence Score
+  width: 60
+  type: float
+  filterable: false
+  desc: Represents the accumulation of evidence
+- hidden: true
+  name: description
+  title: Description
+  type: string
+  filterable: false
 smartfilters:
 - name: hasdata
   title: CIVIC
