@@ -6,6 +6,13 @@ import sqlite3
 
 class CravatAnnotator(BaseAnnotator):
 
+    def setup(self):
+        self.cursor.execute('select name from sqlite_master where type="table"')
+        if hasattr(self, 'supported_chroms'):
+            self.supported_chroms |= {r[0] for r in self.cursor}
+        else:
+            self.supported_chroms = {r[0] for r in self.cursor}
+
     def annotate(self, input_data):
         chrom = input_data['chrom']
         self.cursor.execute(

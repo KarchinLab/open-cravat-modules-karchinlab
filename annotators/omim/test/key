@@ -1,16 +1,17 @@
 #CRAVAT Report
-#Created at Tuesday 07/28/2020 13:49:45
+#Created at Thursday 04/27/2023 13:34:42
 #Report level: variant
 #
-Variant Annotation																OMIM
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Entry ID
-1	chr6	1610512	C	T		Yes	FOXC1	ENST00000645831.2	stop_gained	c.67C>T	p.Gln23Ter	ENST00000645831.2:FOXC1:Q12948:stop_gained:p.Gln23Ter:c.67C>T	1	s0		602482
-2	chr6	5369046	A	C		Yes	FARS2	ENST00000324331.10	missense_variant	c.476A>C	p.His159Pro	ENST00000274680.8:FARS2:O95363:missense_variant:p.His159Pro:c.476A>C; ENST00000324331.10:FARS2:O95363:missense_variant:p.His159Pro:c.476A>C; ENST00000648580.1:FARS2::missense_variant,NMD_transcript_variant:p.His159Pro:c.476A>C	1	s1		614946; 617046
-3	chr2	70960986	T	G		Yes	ATP6V1B1	ENST00000234396.10	missense_variant	c.651T>G	p.His217Gln	ENST00000234396.10:ATP6V1B1:P15313:missense_variant:p.His217Gln:c.651T>G; ENST00000412314.5:ATP6V1B1::missense_variant:p.His217Gln:c.651T>G; ENST00000606025.5:AC007040.2::intron_variant::c.476-18553A>C	1	s3		267300
-4	chr16	70252755	A	G		Yes	AARS1	ENST00000261772.12	missense_variant	c.2873T>C	p.Phe958Ser	ENST00000261772.12:AARS1:P49588:missense_variant:p.Phe958Ser:c.2873T>C; ENST00000435634.3:EXOSC6:Q5RKV6:2kb_upstream_variant::c.-855T>C	1	s4		616339
-5	chr16	70255828	C	T		Yes	AARS1	ENST00000261772.12	missense_variant	c.2186G>A	p.Arg729Gln	ENST00000261772.12:AARS1:P49588:missense_variant:p.Arg729Gln:c.2186G>A; ENST00000564359.5:AARS1::processed_transcript::	1	s5		613287; 616339
+Variant Annotation																OMIM	Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Entry ID	Chrom	Pos	Reference allele	Alternate allele
+1	chr6	1610512	C	T		Yes	FOXC1	ENST00000645831.2	stop_gained	c.67C>T	p.Gln23Ter	ENST00000645831.2:FOXC1:Q12948:stop_gained:p.Gln23Ter:c.67C>T	1	s0		602482	chr6	1610512	C	T
+2	chr6	5369046	A	C		Yes	FARS2	ENST00000274680.8	missense_variant	c.476A>C	p.His159Pro	ENST00000274680.8:FARS2:O95363:missense_variant:p.His159Pro:c.476A>C; ENST00000324331.10:FARS2:O95363:missense_variant:p.His159Pro:c.476A>C; ENST00000648580.1:FARS2::missense_variant,NMD_transcript_variant:p.His159Pro:c.476A>C	1	s1		614946; 617046	chr6	5369046	A	C
+3	chr2	70960986	T	G		Yes	ATP6V1B1	ENST00000234396.10	missense_variant	c.651T>G	p.His217Gln	ENST00000234396.10:ATP6V1B1:P15313:missense_variant:p.His217Gln:c.651T>G; ENST00000412314.5:ATP6V1B1::missense_variant:p.His217Gln:c.651T>G; ENST00000606025.5:AC007040.2::intron_variant::c.476-18553A>C	1	s3		267300	chr2	70960986	T	G
+4	chr16	70252755	A	G		Yes	AARS1	ENST00000261772.12	missense_variant	c.2873T>C	p.Phe958Ser	ENST00000261772.12:AARS1:P49588:missense_variant:p.Phe958Ser:c.2873T>C; ENST00000435634.3:EXOSC6:Q5RKV6:2kb_upstream_variant::c.-855T>C	1	s4		616339	chr16	70252755	A	G
+5	chr16	70255828	C	T		Yes	AARS1	ENST00000261772.12	missense_variant	c.2186G>A	p.Arg729Gln	ENST00000261772.12:AARS1:P49588:missense_variant:p.Arg729Gln:c.2186G>A; ENST00000564359.5:AARS1::processed_transcript::	1	s5		613287; 616339	chr16	70255828	C	T
+6	chrM	3308	T	C			MT-TI	ENST00000387365.1	Mt_tRNA			ENST00000386347.1:MT-TL1::2kb_downstream_variant,Mt_tRNA::; ENST00000387342.1:MT-TV::2kb_downstream_variant,Mt_tRNA::; ENST00000387347.2:MT-RNR2::2kb_downstream_variant,Mt_rRNA::; ENST00000387365.1:MT-TI::2kb_upstream_variant,Mt_tRNA::; ENST00000387372.1:MT-TQ::2kb_downstream_variant,Mt_tRNA::; ENST00000387377.1:MT-TM::2kb_upstream_variant,Mt_tRNA::; ENST00000389680.2:MT-RNR1::2kb_downstream_variant,Mt_rRNA::	1	s0	chrM	272120; 114500; 256000	chrM	3308	T	C
 #CRAVAT Report
-#Created at Tuesday 07/28/2020 13:49:45
+#Created at Thursday 04/27/2023 13:34:42
 #Report level: gene
 #
 Variant Annotation					
@@ -19,8 +20,9 @@ FOXC1		1	0	stop_gained	stop_gained(1)
 FARS2		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1)
 ATP6V1B1		1	0	missense_variant	missense_variant(1)
 AARS1		2	0	missense_variant	missense_variant(2),processed_transcript(1)
+MT-TI		0	1	Mt_tRNA	Mt_tRNA(1)
 #CRAVAT Report
-#Created at Tuesday 07/28/2020 13:49:45
+#Created at Thursday 04/27/2023 13:34:42
 #Report level: sample
 #
 Variant Annotation	
@@ -30,8 +32,9 @@ UID	Sample
 3	s3
 4	s4
 5	s5
+6	s0
 #CRAVAT Report
-#Created at Tuesday 07/28/2020 13:49:45
+#Created at Thursday 04/27/2023 13:34:42
 #Report level: mapping
 #
 Variant Annotation			
@@ -41,3 +44,4 @@ Original Line	User Tags	UID	Input File Number
 3		3	0
 4		4	0
 5		5	0
+6	chrM	6	0

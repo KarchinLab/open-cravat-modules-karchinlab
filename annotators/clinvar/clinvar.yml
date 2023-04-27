@@ -1,4 +1,4 @@
-datasource: 2023.02.01
+datasource: 2023.02.01.1
 description: ClinVar is an archive of reports of the relationships among human variations
   and phenotypes, with supporting evidence.
 developer:
@@ -53,6 +53,7 @@ output_columns:
   filterable: false
   hidden: true
 release_note:
+  2023.02.01.1: support chrM
   2023.02.01: data updated 
   2023.01.01: data updated
   2022.12.01: data updated

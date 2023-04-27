@@ -1,5 +1,5 @@
 #CRAVAT Report
-#Created at Tuesday 01/03/2023 17:13:06
+#Created at Thursday 04/27/2023 13:34:09
 #Report level: variant
 #
 Variant Annotation																ClinVar						Original Input			
@@ -12,8 +12,9 @@ UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontolo
 6	chr17	7674904	TC	-		Yes	TP53	ENST00000269305.8	frameshift_truncation	c.626_627del	p.Arg209LysfsTer6	ENST00000269305.8:TP53:P04637:frameshift_truncation:p.Arg209LysfsTer6:c.626_627del; ENST00000359597.8:TP53::frameshift_truncation:p.Arg209LysfsTer6:c.626_627del; ENST00000413465.6:TP53::frameshift_truncation:p.Arg209LysfsTer6:c.626_627del; ENST00000420246.6:TP53:P04637:frameshift_truncation:p.Arg209LysfsTer6:c.626_627del; ENST00000445888.6:TP53:P04637:frameshift_truncation:p.Arg209LysfsTer6:c.626_627del; ENST00000455263.6:TP53:P04637:frameshift_truncation:p.Arg209LysfsTer6:c.626_627del; ENST00000504290.5:TP53:P04637:frameshift_truncation:p.Arg77LysfsTer6:c.230_231del; ENST00000504937.5:TP53:P04637:frameshift_truncation:p.Arg77LysfsTer6:c.230_231del; ENST00000510385.5:TP53:P04637:frameshift_truncation:p.Arg77LysfsTer6:c.230_231del; ENST00000574684.1:TP53::intron_variant,processed_transcript::; ENST00000610292.4:TP53:P04637:frameshift_truncation:p.Arg170LysfsTer6:c.509_510del; ENST00000610538.4:TP53:P04637:frameshift_truncation:p.Arg170LysfsTer6:c.509_510del; ENST00000610623.4:TP53::frameshift_truncation:p.Arg50LysfsTer6:c.149_150del; ENST00000615910.4:TP53::frameshift_truncation:p.Arg198LysfsTer6:c.593_594del; ENST00000617185.4:TP53:P04637:frameshift_truncation:p.Arg209LysfsTer6:c.626_627del; ENST00000618944.4:TP53::frameshift_truncation:p.Arg50LysfsTer6:c.149_150del; ENST00000619186.4:TP53::frameshift_truncation:p.Arg50LysfsTer6:c.149_150del; ENST00000619485.4:TP53:P04637:frameshift_truncation:p.Arg170LysfsTer6:c.509_510del; ENST00000620739.4:TP53:P04637:frameshift_truncation:p.Arg170LysfsTer6:c.509_510del; ENST00000622645.4:TP53:P04637:frameshift_truncation:p.Arg170LysfsTer6:c.509_510del; ENST00000635293.1:TP53::frameshift_truncation,NMD_transcript_variant:p.Arg170LysfsTer6:c.509_510del	1	no-sample	minus_del_TP53	Pathogenic	Gene:553989,MONDO:MONDO:0007903,MedGen:C1835398,OMIM:151623|Human Phenotype Ontology:HP:0100615,MONDO:MONDO:0021068,MeSH:D010051,MedGen:C0919267,OMIM:167000,SNOMED CT:123843001|MONDO:MONDO:0015356,MeSH:D009386,MedGen:C0027672,Orphanet:ORPHA140162,SNOMED CT:699346009|MONDO:MONDO:0018875,MedGen:C0085390,OMIM:PS151623,Orphanet:ORPHA524,SNOMED CT:428850001|MedGen:CN517202	Li-Fraumeni syndrome 1|Neoplasm of ovary|Hereditary cancer-predisposing syndrome|Li-Fraumeni syndrome|not provided	criteria provided, multiple submitters, no conflicts	372539		chr17	7674904	TC	-
 7	chr10	87894027	-	CG		Yes	PTEN	ENST00000371953.8	frameshift_elongation	c.81_82insCG	p.Ile28ArgfsTer27	ENST00000371953.8:PTEN:P60484:frameshift_elongation:p.Ile28ArgfsTer27:c.81_82insCG	1	no-sample	no_result							chr10	87894027	-	CG
 8	chr17	7674904	T	-		Yes	TP53	ENST00000269305.8	frameshift_truncation	c.629del	p.Asn210ThrfsTer37	ENST00000269305.8:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000359597.8:TP53::frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000413465.6:TP53::frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000420246.6:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000445888.6:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000455263.6:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000504290.5:TP53:P04637:frameshift_truncation:p.Asn78ThrfsTer37:c.233del; ENST00000504937.5:TP53:P04637:frameshift_truncation:p.Asn78ThrfsTer37:c.233del; ENST00000510385.5:TP53:P04637:frameshift_truncation:p.Asn78ThrfsTer37:c.233del; ENST00000574684.1:TP53::intron_variant,processed_transcript::; ENST00000610292.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000610538.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000610623.4:TP53::frameshift_truncation:p.Asn51ThrfsTer37:c.152del; ENST00000615910.4:TP53::frameshift_truncation:p.Asn199ThrfsTer37:c.596del; ENST00000617185.4:TP53:P04637:frameshift_truncation:p.Asn210ThrfsTer37:c.629del; ENST00000618944.4:TP53::frameshift_truncation:p.Asn51ThrfsTer37:c.152del; ENST00000619186.4:TP53::frameshift_truncation:p.Asn51ThrfsTer37:c.152del; ENST00000619485.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000620739.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000622645.4:TP53:P04637:frameshift_truncation:p.Asn171ThrfsTer37:c.512del; ENST00000635293.1:TP53::frameshift_truncation,NMD_transcript_variant:p.Asn171ThrfsTer37:c.512del	1	no-sample	fuzzy_del_TP53							chr17	7674904	T	-
+9	chrM	235	A	G			MT-TF	ENST00000387314.1	Mt_tRNA			ENST00000387314.1:MT-TF::2kb_upstream_variant,Mt_tRNA::; ENST00000387342.1:MT-TV::2kb_upstream_variant,Mt_tRNA::; ENST00000387347.2:MT-RNR2::2kb_upstream_variant,Mt_rRNA::; ENST00000389680.2:MT-RNR1::2kb_upstream_variant,Mt_rRNA::	1	no-sample	chrM	Uncertain significance	Human Phenotype Ontology:HP:0001427,MedGen:C0887941,Orphanet:ORPHA409933	Mitochondrial inheritance	no assertion criteria provided	1344497		chrM	235	A	G
 #CRAVAT Report
-#Created at Tuesday 01/03/2023 17:13:06
+#Created at Thursday 04/27/2023 13:34:09
 #Report level: gene
 #
 Variant Annotation					
@@ -24,8 +25,9 @@ KCNJ18		1	0	frameshift_truncation	frameshift_truncation(1)
 PARK7		1	0	missense_variant	missense_variant(1),processed_transcript(1)
 CEP152		1	0	stop_gained	stop_gained(1)
 TP53		2	0	frameshift_truncation	frameshift_truncation(2),intron_variant(2),NMD_transcript_variant(2),processed_transcript(2)
+MT-TF		0	1	Mt_tRNA	Mt_tRNA(1)
 #CRAVAT Report
-#Created at Tuesday 01/03/2023 17:13:06
+#Created at Thursday 04/27/2023 13:34:09
 #Report level: sample
 #
 Variant Annotation	
@@ -38,8 +40,9 @@ UID	Sample
 6	no-sample
 7	no-sample
 8	no-sample
+9	no-sample
 #CRAVAT Report
-#Created at Tuesday 01/03/2023 17:13:06
+#Created at Thursday 04/27/2023 13:34:09
 #Report level: mapping
 #
 Variant Annotation			
@@ -52,3 +55,4 @@ Original Line	User Tags	UID	Input File Number
 8	minus_del_TP53	6	0
 9	no_result	7	0
 10	fuzzy_del_TP53	8	0
+11	chrM	9	0
