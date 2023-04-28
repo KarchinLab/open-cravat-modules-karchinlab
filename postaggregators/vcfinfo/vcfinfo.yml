@@ -1,5 +1,5 @@
 title: VCF Info
-version: 1.1.5
+version: 2.0.0
 type: postaggregator
 name: vcfinfo
 level: variant
@@ -9,42 +9,45 @@ output_columns:
   title: Phred
   type: string
   width: 70
-  filterable: true
   desc: Phred quality score
+  filterable: false
 - name: filter
   title: VCF filter
   type: string
   width: 70
   category: multi
-  filterable: true
+  filterable: false
 - name: zygosity
   title: Zygosity
   type: string
   width: 100
   category: multi
-  filterable: true
+  filterable: false
 - name: alt_reads
   title: Alternate reads
   type: string
   width: 60
-  filterable: true
+  filterable: false
 - name: tot_reads
   title: Total reads
   type: string
   width: 70
-  filterable: true
+  filterable: false
 - name: af
   title: Variant AF
   type: string
   width: 90
+  filterable: false
 - name: hap_block
   title: Haplotype block ID
   type: int
   width: 90
+  filterable: false
 - name: hap_strand
   title: Haplotype strand ID
   type: int
   width: 90
+  filterable: false
 description: Writes VCF file information extracted by converter
 developer:
   name: Kyle Moad
@@ -53,6 +56,7 @@ developer:
   website: http://www.insilico.us.com
   citation: ''
 release_note:
+  2.0.0: change output col types if single sample
   1.1.5: check info table to see if runnable
   1.1.1: handles vcf with only first 5 columns.
   1.1.0: Handle copy number information
@@ -61,3 +65,4 @@ release_note:
   1.0.3: zygosity is multi category.
 requires:
 - wgvcfinfo
+requires_opencravat: '>2.3.0'
