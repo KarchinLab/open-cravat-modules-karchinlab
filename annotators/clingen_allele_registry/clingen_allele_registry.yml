@@ -1,0 +1,66 @@
+datasource: Latest Available
+description: The ClinGen Evidence Repository is an expert curated repository for variant interpretation/classification that have been submitted in the context of a specific condition/disease and an interpretation guideline. The reasoning engine is run on all the evidence codes to generate a classification such as Pathogenic, Likely Pathogenic, etc. This module includes a summary of the Variant Pathogenicity curations completed by ClinGen's VCEPs.
+developer:
+  citation: ClinGen The Clinical Genome Resource. Heidi L. Rehm, Ph.D., Jonathan S. Berg, M.D., Ph.D., 
+    Lisa D. Brooks, Ph.D., Carlos D. Bustamante, Ph.D., James P. Evans, M.D., Ph.D., Melissa J. Landrum, Ph.D., 
+    David H. Ledbetter, Ph.D., Donna R. Maglott, Ph.D., Christa Lese Martin, Ph.D., Robert L. Nussbaum, M.D., 
+    Sharon E. Plon, M.D., Ph.D., Erin M. Ramos, Ph.D., Stephen T. Sherry, Ph.D., and Michael S. Watson, Ph.D., 
+    for ClinGen. N Engl J Med 2015; 372:2235-2242 June 4, 2015 DOI. 10.1056/NEJMsr1406261.
+  email: support@cravat.us
+  name: ClinGen - Clinical Genome Resource
+  organization: ClinGen - Clinical Genome Resource
+  website: https://clinicalgenome.org/
+level: variant
+output_columns:
+- hidden: true
+  name: disease
+  title: Disease
+  type: string
+  filterable: false
+- hidden: true
+  name: mode_of_inheritance
+  title: Mode of Inheritance
+  type: string
+  filterable: false
+- name: assertion
+  title: Assertion
+  type: string
+  width: 75
+  hidden: false
+- name: evidence_codes
+  title: Applied Evidence Codes
+  type: string
+  width: 75
+  hidden: false
+- name: summary_of_interpretation
+  title: Summary of Interpretation
+  type: string
+  width: 300
+  hidden: false
+- name: allele_registry_id
+  title: Allele Registry ID
+  type: string
+  filterable: false
+  link_format: https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/by_canonicalid?canonicalid=${.*}
+  hidden: true
+smartfilters:
+- name: hasdata
+  title: ClinGen Allele Registry
+  description: Only include variants with data from the ClinGen Allele Registry
+  selector:
+    type: empty
+  filter:
+    column: clingen_allele_registry__allele_registry_id
+    test: hasData
+tags:
+- variants
+- clinical relevance
+- cancer
+- literature
+title: ClinGen Allele Registry
+type: annotator
+requires_opencravat: '>=1.4.0'
+requires:
+version: 1.0.0
+release_note:
+  1.0.0: New annotator for the ClinGen Allele Registry
