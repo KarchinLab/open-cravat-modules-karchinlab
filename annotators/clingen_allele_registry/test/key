@@ -1,0 +1,36 @@
+#CRAVAT Report																			
+#Created at Monday 03/22/2021 11:12:28																			
+#Report level: variant																			
+#																			
+Variant Annotation																CIViC			
+UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	ID		
+1	chr7	140753336	A	T		Yes	BRAF	ENST00000644969.1	missense_variant	c.1919T>A	p.Val640Glu	"ENST00000288602.11:BRAF::missense_variant:p.Val640Glu:c.1919T>A; ENST00000496384.7:BRAF::missense_variant:p.Val600Glu:c.1799T>A; ENST00000497784.2:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*1249T>A; ENST00000642228.1:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*877T>A; ENST00000644120.1:BRAF::processed_transcript::; ENST00000644969.1:BRAF::missense_variant:p.Val640Glu:c.1919T>A; ENST00000646730.1:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*375T>A; ENST00000646891.1:BRAF:P15056:missense_variant:p.Val600Glu:c.1799T>A"	1	s3	civic001	12
+2	chr10	87957915	C	T		Yes	PTEN	ENST00000371953.8	stop_gained	c.697C>T	p.Arg233Ter	ENST00000371953.8:PTEN:P60484:stop_gained:p.Arg233Ter:c.697C>T	1	s4	civic002	110
+3	chr3	179234297	A	G		Yes	PIK3CA	ENST00000263967.4	missense_variant	c.3140A>G	p.His1047Arg	ENST00000263967.4:PIK3CA:P42336:missense_variant:p.His1047Arg:c.3140A>G; ENST00000643187.1:PIK3CA::3_prime_UTR_variant::c.*220A>G	1	s5	civic003	107
+#CRAVAT Report																			
+#Created at Monday 03/22/2021 11:12:28																			
+#Report level: gene																			
+#																			
+Variant Annotation																			
+Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies														
+BRAF		1	0	missense_variant	"missense_variant(1),NMD_transcript_variant(1),processed_transcript(1),3_prime_UTR_variant(1)"														
+PTEN		1	0	stop_gained	stop_gained(1)														
+PIK3CA		1	0	missense_variant	"missense_variant(1),3_prime_UTR_variant(1)"														
+#CRAVAT Report																			
+#Created at Monday 03/22/2021 11:12:28																			
+#Report level: sample																			
+#																			
+Variant Annotation																			
+UID	Sample																		
+1	s3																		
+2	s4																		
+3	s5																		
+#CRAVAT Report																			
+#Created at Monday 03/22/2021 11:12:28																			
+#Report level: mapping																			
+#																			
+Variant Annotation																			
+Original Line	User Tags	UID	Input File Number																
+1	civic001	1	0																
+2	civic002	2	0																
+3	civic003	3	0																
