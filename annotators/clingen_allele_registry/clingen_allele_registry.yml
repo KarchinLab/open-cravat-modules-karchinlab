@@ -1,4 +1,5 @@
 datasource: Latest Available
+private: true
 description: The ClinGen Evidence Repository is an expert curated repository for variant interpretation/classification that have been submitted in the context of a specific condition/disease and an interpretation guideline. The reasoning engine is run on all the evidence codes to generate a classification such as Pathogenic, Likely Pathogenic, etc. This module includes a summary of the Variant Pathogenicity curations completed by ClinGen's VCEPs.
 developer:
   citation: ClinGen The Clinical Genome Resource. Heidi L. Rehm, Ph.D., Jonathan S. Berg, M.D., Ph.D., 
