@@ -1,5 +1,4 @@
 datasource: Latest Available
-private: true
 description: The ClinGen Evidence Repository is an expert curated repository for variant interpretation/classification that have been submitted in the context of a specific condition/disease and an interpretation guideline. The reasoning engine is run on all the evidence codes to generate a classification such as Pathogenic, Likely Pathogenic, etc. This module includes a summary of the Variant Pathogenicity curations completed by ClinGen's VCEPs.
 developer:
   citation: ClinGen The Clinical Genome Resource. Heidi L. Rehm, Ph.D., Jonathan S. Berg, M.D., Ph.D., 
@@ -13,9 +12,17 @@ developer:
   website: https://clinicalgenome.org/
 level: variant
 output_columns:
-- hidden: true
+- name: allele_registry_id
+  title: Allele Registry ID
+  type: string
+  width: 90
+  filterable: false
+  link_format: https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/by_canonicalid?canonicalid=${.*}
+  hidden: false
+- hidden: false
   name: disease
   title: Disease
+  width: 180
   type: string
   filterable: false
 - hidden: true
@@ -26,23 +33,17 @@ output_columns:
 - name: assertion
   title: Assertion
   type: string
-  width: 75
+  width: 120
   hidden: false
 - name: evidence_codes
   title: Applied Evidence Codes
   type: string
   width: 75
-  hidden: false
+  hidden: true
 - name: summary_of_interpretation
   title: Summary of Interpretation
   type: string
-  width: 300
-  hidden: false
-- name: allele_registry_id
-  title: Allele Registry ID
-  type: string
-  filterable: false
-  link_format: https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/by_canonicalid?canonicalid=${.*}
+  width: 400
   hidden: true
 smartfilters:
 - name: hasdata
