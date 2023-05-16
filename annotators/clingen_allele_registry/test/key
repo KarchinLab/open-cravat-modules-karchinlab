@@ -1,15 +1,15 @@
 #CRAVAT Report
-#Created at Wednesday 05/10/2023 15:16:08
+#Created at Tuesday 05/16/2023 16:48:51
 #Report level: variant
 #
 Variant Annotation																ClinGen Allele Registry						Original Input			
 UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Allele Registry ID	Disease	Mode of Inheritance	Assertion	Applied Evidence Codes	Summary of Interpretation	Chrom	Pos	Reference allele	Alternate allele
 1	chr14	23425970	C	T		Yes	MYH7	ENST00000355349.4	missense_variant	c.2156G>A	p.Arg719Gln	ENST00000355349.4:MYH7:P12883:missense_variant:p.Arg719Gln:c.2156G>A	1	s3	clingen_allele_registry001	CA011785	hypertrophic cardiomyopathy	Autosomal dominant inheritance	Pathogenic	PP3, PM1, PM5, PM2, PP1_Strong, PS4	The c.2156G>A (p.Arg719Gln) variant in MYH7 has been reported in >30 individuals with hypertrophic cardiomyopathy (PS4; PMID:7848441; PMID:16199542; PMID:15358028; PMID:18411228; Partners LMM ClinVar SCV000059421.5; AGCMC Sydney ClinVar SCV000212634.1; SHaRe consortium, PMID: 30297972). This variant segregated with disease in 7 affected individuals (PP1_Strong; PMID:7848441; Partners LMM ClinVar SCV000059421.5). This variant was absent from large population studies (PM2; http://exac.broadinstitute.org). This variant lies in the head region of the protein (aa 181-937) and missense variants in this region are statistically more likely to be disease-associated (PM1; PMID:27532257). Computational prediction tools and conservation analysis suggest that this variant may impact the protein (PP3). A different pathogenic missense variant has been previously identified at this codon which may indicate that this residue is critical to the function of the protein (PM5; c.2155C>T p.Arg719Trp ClinVar Variation ID 14104). In summary, this variant meets criteria to be classified as pathogenic for hypertrophic cardiomyopathy in an autosomal dominant manner. MYH7-specific ACMG/AMP criteria applied (PMID:29300372): PS4; PP1_ Strong; PM1; PM2; PM5; PP3	chr14	23425970	C	T
-2	chr12	102843667	-	A		Yes	PAH	ENST00000553106.6	frameshift_elongation	c.1179dup	p.Asp394Ter	ENST00000307000.7:PAH::frameshift_elongation:p.Asp389Ter:c.1164dup; ENST00000553106.6:PAH:P00439:frameshift_elongation:p.Asp394Ter:c.1179dup	1	s4	clingen_allele_registry002	CA16020958	phenylketonuria	Autosomal recessive inheritance	Likely Pathogenic	PVS1, PM2	The NM_000277.3(PAH):c.1177_1178insT (p.Asn393IlefsTer2) frameshift variant has not been reported in the literature to our knowledge. This  frameshift variant is in exon 11 where it creates a premature stop codon, which is predicted to result in NMD and is absent from population databases. In summary, this variant meets criteria to be classified as likely pathogenic for PAH. PAH-specific ACMG/AMP criteria applied: PVS1 and PM2.	chr12	102843667	-	A
+2	chr12	102843668	-	A		Yes	PAH	ENST00000553106.6	frameshift_elongation	c.1177_1178insT	p.Asn393IlefsTer2	ENST00000307000.7:PAH::frameshift_elongation:p.Asn388IlefsTer2:c.1162_1163insT; ENST00000553106.6:PAH:P00439:frameshift_elongation:p.Asn393IlefsTer2:c.1177_1178insT	1	s4	clingen_allele_registry002	CA16020958	phenylketonuria	Autosomal recessive inheritance	Likely Pathogenic	PVS1, PM2	The NM_000277.3(PAH):c.1177_1178insT (p.Asn393IlefsTer2) frameshift variant has not been reported in the literature to our knowledge. This  frameshift variant is in exon 11 where it creates a premature stop codon, which is predicted to result in NMD and is absent from population databases. In summary, this variant meets criteria to be classified as likely pathogenic for PAH. PAH-specific ACMG/AMP criteria applied: PVS1 and PM2.	chr12	102843668	-	A
 3	chr16	68829756	C	-		Yes	CDH1	ENST00000261769.10	frameshift_truncation	c.2398del	p.Arg800AlafsTer16	ENST00000261769.10:CDH1:P12830:frameshift_truncation:p.Arg800AlafsTer16:c.2398del; ENST00000422392.6:CDH1:P12830:frameshift_truncation:p.Arg739AlafsTer16:c.2215del; ENST00000562836.5:CDH1::processed_transcript::; ENST00000566510.5:CDH1::NMD_transcript_variant,3_prime_UTR_variant::c.*1064del; ENST00000566612.5:CDH1::NMD_transcript_variant,3_prime_UTR_variant::c.*638del; ENST00000611625.4:CDH1::frameshift_truncation:p.Arg821AlafsTer16:c.2461del; ENST00000612417.4:CDH1::intron_variant::c.1853+3202del; ENST00000621016.4:CDH1::intron_variant::c.1866-4447del	1	s5	clingen_allele_registry003	CA281459	hereditary diffuse gastric cancer	Autosomal dominant inheritance	Pathogenic	PM2, PP1, PVS1_Strong, PS4	The c.2398delC (p.Arg800Alafs*16) variant is predicted to result in a premature stop codon that leads to a truncated protein. However, it is located within the nonsense mediated decay resistance region upstream of c.2506G>T (p.Glu836*) (PVS1_Strong). The variant is absent in the gnomAD cohort (PM2; http://gnomad.broadinstitute.org). This variant has been reported in at least 4 families meeting HDGC clinical criteria (PS4; PMID 17545690). This variant was also found to co-segregation with disease in multiple affected family members, with 3 or 4 meioses observed (PP1; PMID: 17545690). In summary, this variant meets criteria to be classified as pathogenic based on the ACMG/AMP criteria applied as specified by the CDH1 Variant Curation Expert Panel: PVS1_Strong, PM2, PS4, PP1.	chr16	68829756	C	-
 4	chr17	44374692	-	G		Yes	ITGA2B	ENST00000262407.6	frameshift_elongation	c.2915dup	p.Leu973AlafsTer63	ENST00000262407.6:ITGA2B:P08514:frameshift_elongation:p.Leu973AlafsTer63:c.2915dup	1	s5	clingen_allele_registry004	CA8602531	Glanzmann's thrombasthenia	Autosomal recessive inheritance	Pathogenic	PVS1_Strong, PP1, PM2_Supporting, PP4_Strong, PM3, PS3	The NM_000419.4:c.2915dup variant in exon 28 causes a frameshift and results in premature termination in exon 30, Leu973AlafsTer63. In-vitro studies show absent integrin expression on the cell surface (PMID: 15748238). At least 5 individuals including a sibling pair with this variant have been reported in the literature. In summary, based on the evidence available at this time, the variant is classified as pathogenic. GT-specific criteria applied: PVS1_Strong, PS3, PM2_supporiting, PM3, PP1, PP4_strong.	chr17	44374692	-	G
 #CRAVAT Report
-#Created at Wednesday 05/10/2023 15:16:08
+#Created at Tuesday 05/16/2023 16:48:51
 #Report level: gene
 #
 Variant Annotation					
@@ -19,7 +19,7 @@ PAH		1	0	frameshift_elongation	frameshift_elongation(1)
 CDH1		1	0	frameshift_truncation	frameshift_truncation(1),intron_variant(1),NMD_transcript_variant(1),processed_transcript(1),3_prime_UTR_variant(1)
 ITGA2B		1	0	frameshift_elongation	frameshift_elongation(1)
 #CRAVAT Report
-#Created at Wednesday 05/10/2023 15:16:08
+#Created at Tuesday 05/16/2023 16:48:51
 #Report level: sample
 #
 Variant Annotation	
@@ -29,7 +29,7 @@ UID	Sample
 3	s5
 4	s5
 #CRAVAT Report
-#Created at Wednesday 05/10/2023 15:16:08
+#Created at Tuesday 05/16/2023 16:48:51
 #Report level: mapping
 #
 Variant Annotation			
