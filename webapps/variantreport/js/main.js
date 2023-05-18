@@ -5105,6 +5105,10 @@ function hideContentDiv() {
     document.querySelector('#detaildiv_variant').style.display = 'none';
 }
 
+function showSearch () {
+    document.querySelector('#inputdiv').style.display = 'block';
+}
+
 function run() {
     mqMaxMatch.addListener(mqMaxMatchHandler);
     mqMinMatch.addListener(mqMinMatchHandler);
