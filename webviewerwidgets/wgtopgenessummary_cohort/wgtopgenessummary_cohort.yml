@@ -1,9 +1,9 @@
 title: Recurrently Mutated Genes
-version: 1.1.0
+version: 1.0.0
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
 required_annotator: base
-description: Top Genes Summary webviewer widget
+description: The percentage and number of samples in each cohort that have at least one mutation in the gene.
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab

@@ -6,17 +6,17 @@ widgetGenerators['topgenessummary_cohort'] = {
         'callserver': true,
         'default_hidden': false,
         'variables': {},
-        'init': function(data) {
+        'init': function (data) {
             this['variables']['data'] = data;
         },
-        'shoulddraw': function() {
+        'shoulddraw': function () {
             if (this['variables']['data'].length == 0 || this['variables']['data'] == null || infomgr.datas.variant.length > 3000) {
                 return false;
             } else {
                 return true;
             }
         },
-        'function': function(div, data) {
+        'function': function (div, data) {
             var colorPalette = {
                 '10': '#2166AC',
                 '9': '#4393C3',
@@ -35,79 +35,61 @@ widgetGenerators['topgenessummary_cohort'] = {
             chartDiv.style.height = 'calc(100% - 20px)';
             addEl(div, chartDiv);
 
-            const titles = {"percent": "Percentage of Samples", "counts": "Number of Samples"}
+            const titles = { "topgene_percent": "Percentage of Samples", "topgene_counts": "Number of Samples" }
 
-            function leaveChange(scale) {
+            function handleToggle(measure) {
                 var newData = []
-                if (document.getElementById("mySelect").value == "0"){
-                    for (var j = 0; j < initDatasets.length; j++) {
-                        if (initDatasets[j]['scale'] == scale){
-                            newData.push(initDatasets[j])
-                        }
-                    }
-                }else{
-                    for (var j = 0; j < nextDatasets.length; j++) {
-                        if (nextDatasets[j]['group'] == document.getElementById("mySelect").value){
-                            if (nextDatasets[j]['scale'] == scale){
-                                newData.push(nextDatasets[j])
-                            }
-                        }
+                for (var j = 0; j < initDatasets.length; j++) {
+                    if (initDatasets[j]['measure'] == measure) {
+                        newData.push(initDatasets[j])
                     }
                 }
-                chart.options.scales.xAxes[0].scaleLabel.labelString = titles[scale]
+                chart.options.scales.xAxes[0].scaleLabel.labelString = titles[measure]
                 chart.data.datasets = newData
                 chart.update()
             }
+            var container = getEl("div")
+            container.className = "cohorts-toggle"
+            container.style.marginRight = "32px"
+            container.style.top = "14px"
+            container.style.position = "sticky"
+            var radioDiv = getEl("div")
+            radioDiv.className = "cohorts-radio"
             var span = getEl("span")
             span.innerHTML = "View data by: "
-            span.style.position = "relative"
-            span.style.bottom = "400px"
-            span.style.left = "430px"
-            var label = document.createElement('label')
-            label.innerHTML = "Percentage"
-            var label2 = document.createElement('label')
-            label2.innerHTML = "Count"
-            var radio = document.createElement('input')
-            radio.id = "percent"
-            radio.type = "radio"
-            radio.value = "percent"
-            radio.checked = true
-            radio.style.position = "relative"
-            radio.style.left = "310px"
-            radio.style.bottom = "378px"
-            label.style.position = "relative"
-            label.style.left = "380px"
-            label.style.bottom = "380px"
-            addEl(label, radio)
-            var radio2 = document.createElement('input')
-            radio2.type = "radio"
-            radio2.value = "counts"
-            radio2.id = "counts"
-            radio2.style.position = "relative"
-            radio2.style.left = "297px"
-            radio2.style.bottom = "358px"
-            label2.style.position = "relative"
-            label2.style.left = "300px"
-            label2.style.bottom = "360px"
-            addEl(label2, radio2)
-            
+            var percLabel = document.createElement('label')
+            percLabel.innerHTML = "Percentage"
+            var countLabel = document.createElement('label')
+            countLabel.innerHTML = "Count"
+            var percRadio = document.createElement('input')
+            percRadio.id = "topgene_percent"
+            percRadio.type = "radio"
+            percRadio.value = "topgene_percent"
+            percRadio.checked = true
+            var countRadio = document.createElement('input')
+            countRadio.type = "radio"
+            countRadio.value = "topgene_counts"
+            countRadio.id = "topgene_counts"
+            addEl(radioDiv, span)
+            addEl(radioDiv, percRadio)
+            addEl(radioDiv, percLabel)
+            addEl(radioDiv, countRadio)
+            addEl(radioDiv, countLabel)
+            addEl(container, radioDiv)
+            addEl(div, container)
 
-            function clicked (){
-                if (this.value == "counts"){
-                    document.getElementById("percent").checked = false
-                }else if (this.value == "percent"){
-                    document.getElementById("counts").checked = false
+
+            function handleClick() {
+                if (this.value == "topgene_counts") {
+                    document.getElementById("topgene_percent").checked = false
+                } else if (this.value == "topgene_percent") {
+                    document.getElementById("topgene_counts").checked = false
                 }
-                    leaveChange(this.value)
+                handleToggle(this.value)
             }
-            document.getElementById("widgetcontentdiv_topgenessummary_cohort_cohort").appendChild(span);
-            document.getElementById("widgetcontentdiv_topgenessummary_cohort_cohort").appendChild(label);
-            document.getElementById("widgetcontentdiv_topgenessummary_cohort_cohort").appendChild(radio);
-            document.getElementById("widgetcontentdiv_topgenessummary_cohort_cohort").appendChild(radio2);
-            document.getElementById("percent").addEventListener("click", clicked);
-            document.getElementById("counts").addEventListener("click", clicked);
-            document.getElementById("widgetcontentdiv_topgenessummary_cohort_cohort").appendChild(label2);
 
+            document.getElementById("topgene_percent").addEventListener("click", handleClick);
+            document.getElementById("topgene_counts").addEventListener("click", handleClick);
 
             var initDatasets = [];
             var data = this['variables']['data']['counts'];
@@ -116,22 +98,19 @@ widgetGenerators['topgenessummary_cohort'] = {
             var labels = [];
             let index = 0;
             var selectedCohorts = getSelectedCohorts()
-            var scales = ['percent', 'counts']
+            var options = ['topgene_percent', 'topgene_counts']
             for (var set in data) {
-                var row = data[set][0];
-                
+                var row = data[set][0]
                 if (Object.keys(row).sort().join(',') === selectedCohorts.sort().join(',')) {
                     for (var cohort in row) {
-                        var initSamples = [];
+                        var counts = row[cohort]
                         index = index + 1
-                        for (var s in scales){
-                            var scale = scales[s]
-                            var initDatasetCounts = [];
-                            var firstDatasetCounts = [];
+                        for (var opt in options) {
+                            var measure = options[opt]
                             var labels = []
-                            var totalData = row[cohort][scale]
-                            for (var values in totalData){
-                               labels.push(this['variables']['data']['hugos'][values])
+                            var totalData = counts[measure]
+                            for (var values in totalData) {
+                                labels.push(this['variables']['data']['hugos'][values])
                             }
                             var backgroundColor = colorPalette[index]
                             initDatasets.push({
@@ -139,36 +118,18 @@ widgetGenerators['topgenessummary_cohort'] = {
                                 'backgroundColor': backgroundColor,
                                 'data': totalData,
                                 'labels': labels,
-                                'scale': scale
+                                'measure': measure
                             })
-                            if (scale == "percent"){
+                            if (measure == "topgene_percent") {
                                 firstDatasets.push({
                                     'label': cohort,
                                     'backgroundColor': backgroundColor,
                                     'data': totalData,
                                     'labels': labels,
-                                    'scale': scale
+                                    'measure': measure
                                 })
-
                             }
                         }
-                        
-                    //     for (var i in row[cohort]) {
-                    //         console.log(row[cohort][i])
-                    //         // initDatasetCounts.push(row[cohort][i][1].toFixed(2));
-                    //         if (!(row[cohort][i][0] in initSamples)) {
-                    //             initSamples.push(row[cohort][i][0])
-                    //         } else {
-                    //             continue
-                    //         }
-                    //     }
-                    // }
-                        // var backgroundColor = colorPalette[index];
-                        // initDatasets.push({
-                        //     'label': cohort,
-                        //     'backgroundColor': backgroundColor,
-                        //     'data': initDatasetCounts,
-                        // });
                     }
                 }
             }

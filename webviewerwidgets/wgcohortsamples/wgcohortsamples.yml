@@ -3,7 +3,7 @@ version: 1.0.0
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
 required_annotator: base
-description: Samples by Cohort webviewer widget
+description: The percentage or number of samples in each cohort, and their zygosity, for the variant selected.
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab

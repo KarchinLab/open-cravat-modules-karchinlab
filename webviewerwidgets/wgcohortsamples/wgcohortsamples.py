@@ -32,8 +32,6 @@ async def get_data (queries):
         data = {}
         response[_set] = []
         for cohort in sets[_set]:
-            # if cohort == "<3" or cohort == ">3":
-            #     continue
             z = {'het': [], 'hom': []}
             data[cohort] = []
             genesampleperc = {}

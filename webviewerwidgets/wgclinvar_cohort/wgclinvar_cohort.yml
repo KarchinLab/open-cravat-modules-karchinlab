@@ -3,7 +3,7 @@ version: 1.0.0
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
 required_annotator: clinvar
-description: Clinvar by Cohort webviewer widget
+description:  The percentage or the number of variants found in at least one sample in clinvar for each cohort, broken down by significance level.
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab

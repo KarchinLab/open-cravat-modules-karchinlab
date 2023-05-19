@@ -21,10 +21,6 @@ async def get_data (queries):
     sorted_hugos = sorted(gene_var_perc, key=gene_var_perc.get, reverse=True)
     extracted_hugos = sorted_hugos[:num_gene_to_extract]
 
-    hugos = {}
-    for hugo in extracted_hugos:
-        hugos[hugo] = []
-
     #select cohorts
     sets = {}
     num_total_samples = {}
@@ -43,17 +39,23 @@ async def get_data (queries):
             # num_total_samples[hugo] = row[1]
     #retrieve data within each cohort
     response = {}
-    
+    all_sorted = {}
+    cohorts = {}
     for _set in sets:
         data = {}
         response[_set] = []
+        all_sorted[_set] = []
+        cohorts[_set] = []
+        hugos = {}
+        for hugo in extracted_hugos:
+            hugos[hugo] = []
         for cohort in sets[_set]:
             data[cohort] = []
+            cohorts[_set].append(cohort)
             genesamplecount = {}
             genesampleperc = {}
             counts_per_gene = num_total_samples[cohort]
             for hugo in extracted_hugos:
-                
                 q = f'select count(distinct(sample.base__sample_id)) from sample, variant, variant_filtered, cohorts where variant.base__coding=="Y" and variant.base__so !="SYN" and variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}"and variant.base__hugo="{hugo}"'
                 await cursor.execute(q)
                 rows = (await cursor.fetchall())
@@ -62,16 +64,18 @@ async def get_data (queries):
                     hugos[hugo].append((num_sample / num_total_samples[cohort]) * 100)
                     genesampleperc[hugo] = round((num_sample / num_total_samples[cohort]) * 100)
                     genesamplecount[hugo] = num_sample
-            
             data[cohort] = {'percent': genesampleperc, 'counts': genesamplecount}
-
+        all_sorted[_set].append(hugos)
         response[_set].append(data)
     
     hugo_perc = {}
-    for key, value in hugos.items():
-        hugo_perc[key] = max(value) - min(value)
-    sorted_hugos = sorted(hugo_perc, key=hugo_perc.get, reverse=True)
-
+    for key, value in all_sorted.items():
+        _hugo_perc = {}
+        hugo_perc[key] = []
+        for k, v in value[0].items():
+            _hugo_perc[k] = max(v) - min(v)
+        sorted_hugos = sorted(_hugo_perc, key=_hugo_perc.get, reverse=True)
+        hugo_perc[key] = sorted_hugos
     await cursor.close()
     await conn.close()
-    return {"data": {'countData': response, 'hugos': sorted_hugos}}
+    return {"data": {'countData': response, 'hugos': hugo_perc, 'cohorts': cohorts}}

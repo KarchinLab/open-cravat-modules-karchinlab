@@ -33,18 +33,16 @@ widgetGenerators['cohortsamples'] = {
             })
 
             
-            var myDiv = document.createElement('div');
+            var wrapperDiv = document.createElement('div');
             
             var chartDiv = document.getElementById("widgetcontentdiv_cohortsamples_variant");
             chartDiv.style.display = "Flex";
-            myDiv.style.display = "Flex";
-            myDiv.style.justifyContent = "center";
+            wrapperDiv.style.display = "Flex";
+            wrapperDiv.style.justifyContent = "center";
             chartDiv.style.alignItems = "center"
             function drawMain(scale){
             var data = v['data']['data']['counts']
-            console.log(v['data']['data']['counts'])
             var selectedCohorts = getSelectedCohorts()
-            console.log(selectedCohorts)
             var num_total_samples = v['data']['data']['sample_count']
             var labels = ["Sample Count"]
             var parents = []
@@ -56,7 +54,6 @@ widgetGenerators['cohortsamples'] = {
                 var row = data[set][0];
                 if (Object.keys(row).sort().join(',') === selectedCohorts.sort().join(',')) {
             for (const [key, value] of Object.entries(row)) {
-                console.log(key, value)
                 var zyg = value[0]
                 var sum = Object.values(zyg).reduce((a, b) => a + b, 0);
                 counts.push(sum)
@@ -88,9 +85,6 @@ widgetGenerators['cohortsamples'] = {
                     parents.push(cohort)
                 }
             }
-            console.log(labels)
-            console.log(parents)
-            console.log(percents)
             if (scale == "sample_percent"){
                 var data = [{
                     type: "sunburst",
@@ -101,7 +95,6 @@ widgetGenerators['cohortsamples'] = {
                     leaf: {"opacity": 0.4},
                     marker: {"line": {"width": 2}},
                     branchvalues: 'total',
-                    // hovertemplate: 'Price: %{y:$.2f}<extra></extra>',
                 }];
             } else if (scale == "sample_counts"){
                 var data = [{
@@ -112,48 +105,48 @@ widgetGenerators['cohortsamples'] = {
                     values: counts,
                     leaf: {"opacity": 0.4},
                     marker: {"line": {"width": 2}},
-                    branchvalues: 'total',
+                    // branchvalues: 'total',
                 }];
             }
               var layout = {
+                sunburstcolorway:['#B2182B','#D6604D','#5AAE61', '#F4A582', '#FDDBC7', '#1B7837', '#D1E5F0', '#92C5DE', '#4393C3', '#2166AC' ],
                 margin: {l: 0, r: 0, b: 0, t: 0},
                 width: 250,
                 height: 250,
-                // hovermode: false,
               };
-              console.log(data)
-              Plotly.newPlot(myDiv, data, layout);
-              addEl(chartDiv, myDiv)
+              Plotly.newPlot(wrapperDiv, data, layout);
+              addEl(chartDiv, wrapperDiv)
         }
 
-        var radioDiv = getEl()
-        var label = document.createElement('label')
+            var container = getEl("div")
+            container.className = "cohorts-toggle"
+            container.style.top = "92px"
+            container.style.left = "331px"
+
+            var radioDiv = getEl("div")
+            radioDiv.className = "cohorts-radio"
+            var span = getEl("span")
+            span.innerHTML = "View data by: "
+            var label = document.createElement('label')
             label.innerHTML = "Percentage"
             var label2 = document.createElement('label')
             label2.innerHTML = "Count"
-            var radio = document.createElement('input')
-            radio.id = "sample_percent"
-            radio.type = "radio"
-            radio.value = "sample_percent"
-            radio.checked = true
-            radio.style.position = "relative"
-            radio.style.left = "96px"
-            radio.style.top = "150px"
-            label.style.position = "relative"
-            label.style.left = "170px"
-            label.style.top = "150px"
-            addEl(label, radio)
-            var radio2 = document.createElement('input')
-            radio2.type = "radio"
-            radio2.value = "sample_counts"
-            radio2.id = "sample_counts"
-            radio2.style.position = "relative"
-            radio2.style.left = "212px"
-            radio2.style.top = "150px"
-            label2.style.position = "relative"
-            label2.style.left = "218px"
-            label2.style.top = "150px"
-            addEl(label2, radio2)
+            var percRadio = document.createElement('input')
+            percRadio.id = "sample_percent"
+            percRadio.type = "radio"
+            percRadio.value = "sample_percent"
+            percRadio.checked = true
+            var countRadio = document.createElement('input')
+            countRadio.type = "radio"
+            countRadio.value = "sample_counts"
+            countRadio.id = "sample_counts"
+            addEl(radioDiv, span)
+            addEl(radioDiv, percRadio)
+            addEl(radioDiv, label)
+            addEl(radioDiv, countRadio)
+            addEl(radioDiv, label2)
+            addEl(container, radioDiv)
+            addEl(div, container)
             
 
             function clicked (){
@@ -164,12 +157,8 @@ widgetGenerators['cohortsamples'] = {
                 }
                   drawMain(this.value)
             }
-            document.getElementById("widgetcontentdiv_cohortsamples_variant").appendChild(label);
-            document.getElementById("widgetcontentdiv_cohortsamples_variant").appendChild(radio);
-            document.getElementById("widgetcontentdiv_cohortsamples_variant").appendChild(radio2);
             document.getElementById("sample_percent").addEventListener("click", clicked);
             document.getElementById("sample_counts").addEventListener("click", clicked);
-            document.getElementById("widgetcontentdiv_cohortsamples_variant").appendChild(label2);
         }
     }
 };

@@ -3,7 +3,7 @@ version: 1.0.0
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
 required_annotator: base
-description: Mutation Burden Cohort webviewer widget
+description: The percentage or the number of non-silent mutations found in at least one sample in each cohort. 
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab

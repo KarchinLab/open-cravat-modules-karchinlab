@@ -5,7 +5,7 @@ tags:
 - visualization
 requires_opencravat: '>=2.0.2'
 required_annotator: base
-description: Mutation Burden per Sample webviewer widget
+description: The total number of variants found in each sample, separated by cohort.
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab

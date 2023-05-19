@@ -10,16 +10,16 @@ widgetGenerators['mutationburdensummary_cohort'] = {
 
         'function': function(div, dummy) {
             var colorPalette = {
-                '1': '#2166AC',
-                '2': '#4393C3',
-                '3': '#92C5DE',
-                '4': '#D1E5F0',
-                '5': '#1B7837',
-                '6': '#FDDBC7',
-                '7': '#F4A582',
-                '8': '#5AAE61',
-                '9': '#D6604D',
-                '10': '#B2182B',
+                '10': '#2166AC',
+                '9': '#4393C3',
+                '8': '#92C5DE',
+                '7': '#D1E5F0',
+                '6': '#1B7837',
+                '4': '#FDDBC7',
+                '3': '#F4A582',
+                '5': '#5AAE61',
+                '2': '#D6604D',
+                '1': '#B2182B',
             }
             div.style.width = 'calc(100% - 37px)';
             var chartDiv = getEl('canvas');
@@ -35,15 +35,14 @@ widgetGenerators['mutationburdensummary_cohort'] = {
                 var row = data[set][0];
                 if (Object.keys(row).sort().join(',') === selectedCohorts.sort().join(',')) {
                     for (var cohort in row) {
-                        var initSamples = [];
+                        var counts = row[cohort]
                         var initDatasetCounts = [];
                         index = index + 1
-                        for (var i in row[cohort]) {
-                            for (var val in row[cohort][i]){
-                            initDatasetCounts.push(row[cohort][i][val]);
+                        for (var i in counts) {
+                            for (var val in counts[i]){
+                            initDatasetCounts.push(counts[i][val]);
                             }
                         }
-                        console.log(initDatasetCounts)
                         var backgroundColor = colorPalette[index];
                         initDatasets.push({
                             'label': cohort,

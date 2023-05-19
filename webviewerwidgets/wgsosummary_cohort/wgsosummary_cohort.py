@@ -94,7 +94,6 @@ async def get_data (queries):
         respd = {}
         responses[_set] = []
         for c in sets[_set]:
-            # print(num_total_samples[c])
             respd[c] = []
             groups = {}
             for group in sos_groups:
@@ -114,7 +113,7 @@ async def get_data (queries):
                 for row in rows:
                     sosample_perc[so_dic[row[0]]] = (row[1] / num_total_samples[c]) * 100
                     sosample_counts[so_dic[row[0]]] = row[1]
-                groups[group] = {'percent': sosample_perc, 'counts': sosample_counts}
+                groups[group] = {'so_percent': sosample_perc, 'so_counts': sosample_counts}
             respd[c].append(groups)
         responses[_set].append(respd)
     for key, value in sos_groups.items():

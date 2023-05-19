@@ -53,7 +53,7 @@ async def get_data (queries):
                 num_sample = row[1]
                 genesampleperc.append((num_sample / num_total_samples[cohort]) * 100)
                 genesamplecount.append(num_sample)
-            data[cohort] = {'percent': genesampleperc, 'counts': genesamplecount}
+            data[cohort] = {'topgene_percent': genesampleperc, 'topgene_counts': genesamplecount}
         response[_set].append(data)
     await cursor.close()
     await conn.close()
