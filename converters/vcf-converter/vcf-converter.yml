@@ -1,5 +1,5 @@
 title: VCF Converter
-version: 2.2.0
+version: 2.2.1
 type: converter
 description: Converter for VCF format input
 developer:
@@ -10,6 +10,7 @@ developer:
   citation: ''
 requires_opencravat: '>=2.2.6'
 release_note:
+  2.2.1: accept info fields with dash in name
   2.2.0: Improve handling of merged vcfs
   2.1.5: Annotate variants if no GT field in sample columns
   2.1.4: --module-option vcf-converter.exclude_info added.

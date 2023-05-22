@@ -67,6 +67,10 @@ class CravatConverter(BaseConverter):
         # A user had AD number=1
         if 'AD' in reader.formats:
             reader.formats['AD']._replace(num = -3)
+    
+    @staticmethod
+    def make_oc_info_name(info_name):
+        return info_name.replace('-','_')
 
     def open_extra_info(self, reader):
         #if not reader.infos:
@@ -118,7 +122,7 @@ class CravatConverter(BaseConverter):
                             'hidden': True,
                         })
         for col in info_cols:
-            col['name'] = col['name'].replace('-','_')
+            col['name'] = self.make_oc_info_name(col['name'])
         if self.include_info:
             self.include_info.update([c['name'] for c in info_cols[:3]])
             temp = info_cols
@@ -332,7 +336,8 @@ class CravatConverter(BaseConverter):
         alt_index = gt-1
         row_data = {'uid':wdict['uid']}
         for info_name, info_val in self.curvar.INFO.items():
-            if info_name not in self.info_cols:
+            oc_info_name = self.make_oc_info_name(info_name)
+            if oc_info_name not in self.info_cols:
                 continue
             info_desc = self._reader.infos[info_name]
             if info_desc.num == 0:
@@ -352,7 +357,7 @@ class CravatConverter(BaseConverter):
             else: # Number>1
                 tmp = lambda val: self.oc_info_val(info_desc.type, val, force_str=True)
                 oc_val = ','.join(map(tmp, info_val))
-            row_data[info_name] = oc_val
+            row_data[oc_info_name] = oc_val
         alt = self.curvar.ALT[gt-1].sequence
         row_data['pos'] = self.curvar.POS
         row_data['ref'] = self.curvar.REF
