@@ -14,6 +14,10 @@ widgetGenerators['note'] = {
             }
             v['noterow'] = row[0];
             var colNo = infomgr.getColumnNo(tabName, 'base__note_variant');
+            if (colNo === undefined) {
+                colNo = infomgr.getColumnNo(tabName, 'base__note');
+            }
+            console.log(colNo)
             var note = row[colNo];
             var textbox = getEl('textarea');
             textbox.style.width = '100%';
@@ -57,6 +61,10 @@ widgetGenerators['note'] = {
             }
             v['noterow'] = row[0];
             var colNo = infomgr.getColumnNo(tabName, 'base__note_gene');
+            if (colNo === undefined) {
+                colNo = infomgr.getColumnNo(tabName, 'base__note');
+            }
+            console.log(colNo)
             var note = row[colNo];
             var textbox = getEl('textarea');
             textbox.style.width = '100%';

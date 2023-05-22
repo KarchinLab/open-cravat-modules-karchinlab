@@ -13,7 +13,8 @@ tags:
 title: Note
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
-version: 2.0.2
+version: 3.0.0
 release_note:
+  3.0.0: uses base__note_variant and base__note_gene, new columns in 2.3.1
   2.0.2: aiosqlite instead of aiosqlite3
 hidden: true
