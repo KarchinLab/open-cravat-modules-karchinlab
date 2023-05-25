@@ -1,46 +1,42 @@
-# 'title' is the name of the module that will be displayed to the user
+type: annotator
+level: variant
 title: VARITY_R
-
-# 'version' is the version of the annotator. It is primarily used when 
-# publishing a module, but is required for all modules.
 version: 1.0.0
 
-# 'type' is the type of module described by this .yml file. In this case it is
-# 'annotator'
-type: annotator
-
-# 'level' is 'variant' or 'gene'
-level: variant
-
-# output_columns has the columns that will be included in the output file.
-# The columns are defined in a list. Each column has three required keys:
-# name, title, and type.
 output_columns:
-- name: p_vid
-  title: P_VID
-  type: string
 - name: varity_r
   title: VARITY_R
   type: float
+  desc: VARITY_R score
+  width: 72
 - name: varity_er
   title: VARITY_ER
   type: float
+  desc: VARITY_ER score
+  width: 72
 - name: varity_r_loo
   title: VARITY_R_LOO
   type: float
+  desc: VARITY_R score when trained using using Leave-One-Variant out
+  width: 72
 - name: varity_er_loo
   title: VARITY_ER_LOO
   type: float
+  desc: VARITY_ER score when trained using using Leave-One-Variant out
+  width: 72
+- name: p_vid
+  title: P_VID
+  type: string
+  desc: Affected uniprot ID
+  width: 75
+  hidden: true
 
-# description is a short description of what the annotator does. Try to limit it
-# to around 80 characters.
-description: Template annotator. If you see this description in production, someone is wrong.
+description: Improved pathogenicity prediction for rare human missense variants
 
-# developer is you!
 developer:
-  name: ''
-  organization: ''
-  email: ''
+  name: 'Yingzhou Wu, et. al.'
+  organization: 'University of Toronto'
+  email: 'support@opencravat.org'
   website: 'http://varity.varianteffect.org/'
-  citation: ''
+  citation: 'https://doi.org/10.1016%2Fj.ajhg.2021.08.012'
 

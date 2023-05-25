@@ -18,7 +18,6 @@ class CravatAnnotator(BaseAnnotator):
             (pos, ref, alt),
         )
         row = self.cursor.fetchone()
-        print(chrom, pos, ref, alt, row)
         if row is not None:
             return {
                 'p_vid': row[0],
