@@ -1,4 +1,10 @@
-chr14	23425970	+	C	T	s3	clingen_allele_registry001
-chr12	102843668	+	-	A	s4	clingen_allele_registry002
-chr16	68829756	+	C	-	s5	clingen_allele_registry003
-chr17	44374692	+	-	G	s5	clingen_allele_registry004
+chr14	23425970	+	C	T	s0	clingen_allele_registry001
+chr12	102843668	+	-	A	s0	clingen_allele_registry002
+chr16	68829756	+	C	-	s0	clingen_allele_registry003
+chr17	44374692	+	-	G	s0	clingen_allele_registry004
+chr12	102917130	+	T	C	s0	clingen_allele_registry005
+chr12	102852851	+	A	-	s0	clingen_allele_registry006
+chr3	12599673	+	GGAGGGCCCCAAG	-	s0	clingen_allele_registry007
+chr15	66484984	+	-	TC	s0	clingen_allele_registry008
+chr10	87960976	+	TATGTGATCAAGAAATC	G	s0	clingen_allele_registry009
+chr12	102894821	+	-	C	s0	clingen_allele_registry010
