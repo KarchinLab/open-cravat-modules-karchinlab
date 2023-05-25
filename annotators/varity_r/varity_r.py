@@ -7,7 +7,7 @@ import os
 class CravatAnnotator(BaseAnnotator):
 
     def setup(self): 
-        print('\n\n\nvarity_r setup')
+        pass
     
     def annotate(self, input_data, secondary_data=None):
         chrom = input_data['chrom']
@@ -28,11 +28,6 @@ class CravatAnnotator(BaseAnnotator):
             }
     
     def cleanup(self):
-        """
-        cleanup is called after every input line has been processed. Use it to
-        close database connections and file handlers. Automatically opened
-        database connections are also automatically closed.
-        """
         pass
         
 if __name__ == '__main__':

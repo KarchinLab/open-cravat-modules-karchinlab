@@ -40,3 +40,6 @@ developer:
   website: 'http://varity.varianteffect.org/'
   citation: 'https://doi.org/10.1016%2Fj.ajhg.2021.08.012'
 
+tags:
+- variants
+- variant effect prediction

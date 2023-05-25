@@ -1,0 +1,40 @@
+#CRAVAT Report
+#Created at Thursday 05/25/2023 15:02:42
+#Report level: variant
+#
+Variant Annotation																Original Input				VARITY_R				
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	VARITY_R	VARITY_ER	VARITY_R_LOO	VARITY_ER_LOO	P_VID
+1	chr1	27612918	G	A		Yes	FGR	ENST00000374005.8	missense_variant	c.1586C>T	p.Thr529Ile	ENST00000374003.7:FGR:P09769:missense_variant:p.Thr529Ile:c.1586C>T; ENST00000374004.5:FGR:P09769:missense_variant:p.Thr529Ile:c.1586C>T; ENST00000374005.8:FGR:P09769:missense_variant:p.Thr529Ile:c.1586C>T; ENST00000399173.5:FGR:P09769:missense_variant:p.Thr529Ile:c.1586C>T	1	s0		chr1	27612918	G	A	0.12679826	0.16708706	0.1267982572317123	0.1670870631933212	P09769
+2	chr8	54626835	A	T		Yes	RP1	ENST00000220676.2	missense_variant	c.2953A>T	p.Asn985Tyr	ENST00000220676.2:RP1:P56715:missense_variant:p.Asn985Tyr:c.2953A>T; ENST00000636932.1:RP1::intron_variant::c.787+4547A>T; ENST00000637698.1:RP1::intron_variant::c.787+4547A>T	1	s0		chr8	54626835	A	T	0.25505802	0.18957901	0.2550580203533173	0.1895790100097656	P56715
+3	chr10	87864470	A	T		Yes	PTEN	ENST00000371953.8	start_lost	c.1A>T	p.Met1?	ENST00000371953.8:PTEN:P60484:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000445946.4:KLLN:B2CW77:2kb_upstream_variant::c.-1983T>A; ENST00000487939.1:PTEN::processed_transcript::; ENST00000618586.1:PTEN::2kb_upstream_variant,processed_transcript::	1	s4		chr10	87864470	A	T	0.6249258000000001	0.3251947	0.6249257922172546	0.3251946866512298	P60484
+4	chr1	70974297	C	A		Yes	PTGER3	ENST00000306666.9	missense_variant	c.1169G>T	p.Arg390Ile	ENST00000306666.9:PTGER3:P43115:missense_variant:p.Arg390Ile:c.1169G>T; ENST00000351052.9:PTGER3:P43115:missense_variant:p.Arg390Met:c.1169G>T; ENST00000356595.8:PTGER3:P43115:intron_variant::c.1078-20508G>T; ENST00000361210.6:PTGER3::intron_variant,NMD_transcript_variant::c.1078-20508G>T; ENST00000370931.7:PTGER3:P43115:missense_variant:p.Arg390Ile:c.1169G>T; ENST00000370932.6:PTGER3::intron_variant::c.1094+37991G>T; ENST00000460330.5:PTGER3:P43115:intron_variant::c.1078-20508G>T; ENST00000479353.5:PTGER3:P43115:intron_variant,NMD_transcript_variant::c.1077+38008G>T; ENST00000497146.5:PTGER3::intron_variant,NMD_transcript_variant::c.1078-20508G>T; ENST00000628037.2:PTGER3:P43115:intron_variant::c.1077+38008G>T	1	s4		chr1	70974297	C	A	0.23464431	0.3161083	0.2346443086862564	0.3161082863807678	P43115
+#CRAVAT Report
+#Created at Thursday 05/25/2023 15:02:42
+#Report level: gene
+#
+Variant Annotation					
+Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+FGR		1	0	missense_variant	missense_variant(1)
+RP1		1	0	missense_variant	intron_variant(1),missense_variant(1)
+PTEN		1	0	start_lost	missense_variant(1),start_lost(1),processed_transcript(1)
+PTGER3		1	0	missense_variant	intron_variant(1),missense_variant(1),NMD_transcript_variant(1)
+#CRAVAT Report
+#Created at Thursday 05/25/2023 15:02:42
+#Report level: sample
+#
+Variant Annotation	
+UID	Sample
+1	s0
+2	s0
+3	s4
+4	s4
+#CRAVAT Report
+#Created at Thursday 05/25/2023 15:02:42
+#Report level: mapping
+#
+Variant Annotation			
+Original Line	User Tags	UID	Input File Number
+1		1	0
+2		2	0
+3		3	0
+4		4	0
