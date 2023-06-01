@@ -62,7 +62,6 @@ tags:
 title: ClinGen Allele Registry
 type: annotator
 requires_opencravat: '>=1.4.0'
-requires:
 version: 1.0.0
 release_note:
   1.0.0: New annotator for the ClinGen Allele Registry
