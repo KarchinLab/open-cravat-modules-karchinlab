@@ -6,13 +6,21 @@ OpenCRAVAT can perform basic comparisons between case and control cohorts in a s
 
 ## Installing
 
+Case/Control uses the python package scipy for statistical tests. On most systems, this can be installed with 
+
+```
+pip3 install scipy
+```
+
+If this does not work, consult the [scipy website](https://www.scipy.org/install.html) for more options.
+
 Install the `casecontrol` module.
 
 ```bash
 oc module install casecontrol
 ```
 
-Case/Control uses the python package scipy for statistical tests. On most systems, this can be installed with `pip3 install scipy`. If this does not work, consult the [scipy website](https://www.scipy.org/install.html) for more options.
+
 
 ## Running
 
@@ -45,28 +53,79 @@ Run casecontrol in the GUI by scrolling to the bottom of the left hand panel in 
 
 There will be nine output columns. The three columns shown by default are p-values of the likelihood that a variant occurs more in case samples under three different inheritance models. Six hidden columns include counts of homozygous, heterozygous and reference variants across the cohorts.
 
-## P-value calculation for inheritance modes
+## P-value calculation for inheritance models
 
-For the Dominant model, we create a 2x2 contingency table to assign a p-value using a Fisher's exact test. The first column includes the number of samples that have any alternate allele, whether heterozygous or homozygous. 
+The three inheritance models create different contingency tables depending on the zygosity of the variant.
 
-| | Alt (Aa and aa) | Ref (A/A) |
-|---|---|---|
-|Cases | N11  | N12 | 
-| Controls | N21 | N22 | 
+The dominant model counts a variant as an alt genotype if the variant is heterozygous or homozygous. The recessive model counts a variant as alt only if it is homozygous. The allelic model counts each chromosome separately, counting homozygous as 2 alt genotypes, reference as 2 ref genotypes, and heterozygous as 1 ref genotype and 1 alt genotype.
 
+For example, consider a single case sample's contribution to the contingency table. The contingency tables would depend on zygosity of the allele as follows.
 
-For the Recessive model, we create a 2x2 contingency table to assign a p-value using a Fisher's exact test. The first column includes the number of samples that are homozygous for the alternate allele. 
+### Heterozygous
 
-| | Alt (aa) | Ref (AA and aa) |
-|---|---|---|
-|Cases | N11  | N12 | 
-| Controls | N21 | N22 | 
+Dominant model
 
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  1  |  0  |
+| Control |  0  |  0  |
 
-For the allelic model, we create a 2x2 contingency table to assign a p-value using a Fisher's exact test. The first column includes the count of non-reference genotypes and the second column includes the count of reference genotypes. 
+Recessive model
 
-| | Alternate genotypes | Reference genotypes |
-|---|---|---|
-|Cases | N11  | N12 | 
-| Controls | N21 | N22 | 
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  0  |  1  |
+| Control |  0  |  0  |
 
+Allelic model
+
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  1  |  1  |
+| Control |  0  |  0  |
+
+### Homozygous
+
+Dominant model
+
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  1  |  0  |
+| Control |  0  |  0  |
+
+Recessive model
+
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  1  |  0  |
+| Control |  0  |  0  |
+
+Allelic model
+
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  2  |  0  |
+| Control |  0  |  0  |
+
+### Reference
+
+Dominant model
+
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  0  |  1  |
+| Control |  0  |  0  |
+
+Recessive model
+
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  0  |  1  |
+| Control |  0  |  0  |
+
+Allelic model
+
+|         | Alt | Ref |
+|---------|-----|-----|
+| Case    |  0  |  2  |
+| Control |  0  |  0  |
