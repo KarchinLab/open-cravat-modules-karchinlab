@@ -1,0 +1,94 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device.width, initial-scale=1.0">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src='js/util.js'></script>
+	<script src='js/widgethelper.js'></script>
+	<script src='js/main.js'></script>
+	<script src='js/graphics.js'></script>
+    <script src='js/raphael.min.js'></script>
+    <script src='js/Chart.js'></script>
+    <script src='js/chartjs-plugin-labels.js'></script>
+    <script src='js/d3.js'></script>
+    <script src='js/d3.min.js'></script>
+    <script src='/store/js/showdown-1.9.1.min.js'></script>
+	<link rel='stylesheet' href='css/widget.css' />
+	<link rel='stylesheet' href='css/variantreport.css' />
+    <title> OpenCRAVAT / CEDAR Variant Report</title>
+</head>
+<body>
+    <div id = 'body'> 
+        <div id='logodiv'>
+            <div style="max-width: 220px; padding-left: 34px;">
+                <div id='inputdiv'>
+                <input id="input_variant" name="inputVariant" style="width: 18vh; height: 2vw; min-height: 30px;">
+                <div style="width: 2.8ex;"></div>
+                <br>
+                <button id="input_submit" class="input_directions" onclick="submitForm();" style="width: 18vh; height: 2vw; cursor: pointer; 
+                    margin-bottom: 3px; min-height: 30px;">
+                    Update annotation</button>
+                <div id = "questionMark"></div>
+                <span id = "directions">Type a variant and enter or click the Update annotation button. The syntax of a 
+                    variant is chromosome, position, reference allele, and alternate allele, 
+                    concatenated with a colon. Strand is assumed to be plus. For example, chr17:39724004:C:G</span>
+                </div>
+            </div>
+              <span id='pagetitle'> OpenCRAVAT / CEDAR Variant Report</span>
+            <div>
+            <img src='menu_book-black-48dp.svg' style='display: flex; justify-content: center; align-items: center; min-width: 40px;
+                width: 3.5vw; cursor: pointer;' 
+                onclick='window.open("variantreportdocumentation.pdf");'/>
+        </div>
+        </div>
+        <div id = 'bottom-div'>
+            <div class="sidenav">
+                <div class="logoHover sidenav-header">
+                    <img id = 'logo' alt= "oc logo" src='OpenCRAVAT_Logo-0-sm.png' width = "170">
+                </div>
+                <a href="#section1"><img src="info.png" class= "logos_short"> Variant Information</a>
+                <a href="#section2"><img src="func.png" class= "logos_tall"> Cancer Associations</a>
+                <a href="#section3"><img src="allele.png" class= "logos_tall"> Allele Frequency</a>
+                <a href="#section4"><img src="clin.png" class= "logos_short"> Clinical Relevance</a>
+                <a href="#section5"><img src="pred.png" class= "logos_short"> Variant Effect Predictions</a>
+                <a href="#section6"><img src="vfun.png" class= "logos_tall"> Variant-Level Functional Annotations</a>
+            </div>
+            <div class="main">
+                <div id='detaildiv_variant' class='detaildiv singlevariantpage'>
+                    <div id='spinnerdiv'>
+                        <img src='/result/images/arrow-spinner.gif'/>
+                    </div>
+                    <div id='screendiv' style='position: absolute; width: 100%; height: 100%; 
+                            background-color: gray; display: none; z-index: 2;'></div>
+                    <div class='container_titlediv' style='margin-bottom: 0vw; background-color: whitesmoke; 
+                            height: 0vw;' >&nbsp;</div>
+                    <div class='container_titlediv hidden'><a name= 'section1'></a><img src="info.png" style= "width: 45px; position: relative; top: 10px;"> Variant Information</div>
+                    <div id='wrapdiv_vinfo' class='detailcontainerwrapdiv' >
+                        <div id='contdiv_vinfo' class='detailcontainerdiv' ></div>
+                    </div>
+                    <div class='container_titlediv hidden'><a name= 'section2'></a><img src="func.png" style= "width: 30px; position: relative; top: 18px;"> Cancer Associations</div>
+                    <div id='wrapdiv_cancerassoc' class='detailcontainerwrapdiv singlevariantpage' >
+                        <div id='contdiv_cancerassoc' class='detailcontainerdiv' ></div>
+                    </div>
+                    <div class='container_titlediv hidden'><a name= 'section3'></a><img src="allele.png" style= "width: 45px; position: relative; top: 22px;"> Allele Frequency</div>
+                    <div id='wrapdiv_afreq' class='detailcontainerwrapdiv singlevariantpage' >
+                        <div id='contdiv_afreq' class='detailcontainerdiv' ></div>
+                    </div>
+                    <div class='container_titlediv hidden'><a name= 'section4'></a><img src="clin.png" style= "width: 45px; position: relative; top: 10px;"> Clinical Relevance</div>
+                    <div id='wrapdiv_clin' class='detailcontainerwrapdiv singlevariantpage' >
+                        <div id='contdiv_clin' class='detailcontainerdiv' ></div>
+                    </div>
+                    <div class='container_titlediv hidden'><a name= 'section5'></a><img src="pred.png" style= "width: 45px; position: relative; top: 10px;"> Variant Effect Predictions</div>
+                    <div id='wrapdiv_prediction' class='detailcontainerwrapdiv singlevariantpage' >
+                        <div id='contdiv_prediction' class='detailcontainerdiv' ></div>
+                    </div>
+                    <div class='container_titlediv hidden'><a name= 'section6'></a><img src="vfun.png" style= "width: 30px; position: relative; top: 10px;"> Variant-Level Functional Annotations </div>
+                    <div id='wrapdiv_functional' class='detailcontainerwrapdiv singlevariantpage' >
+                        <div id='contdiv_functional' class='detailcontainerdiv' ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
