@@ -1,11 +1,15 @@
 datasource: v1.0
-description: The database of Cancer driver InDels (dbCID) is a highly curated database of driver indels (insertions and deletions) that are likely to engage in cancer development, progression, or therapy.
+description: The database of Cancer driver InDels (dbCID) is a highly curated database
+  of driver indels (insertions and deletions) that are likely to engage in cancer
+  development, progression, or therapy.
 developer:
   name: ''
-  organization: 'AnHui University'
-  email: 'support@cravat.us'
-  website: 'http://bioinfo.ahu.edu.cn:8080/dbCID'
-  citation: 'Yue, Zhenyu et al. “dbCID: a manually curated resource for exploring the driver indels in human cancer.” Briefings in bioinformatics vol. 20,5 (2019): 1925-1933. doi:10.1093/bib/bby059'
+  organization: AnHui University
+  email: support@cravat.us
+  website: http://bioinfo.ahu.edu.cn:8080/dbCID
+  citation: 'Yue, Zhenyu et al. “dbCID: a manually curated resource for exploring
+    the driver indels in human cancer.” Briefings in bioinformatics vol. 20,5 (2019):
+    1925-1933. doi:10.1093/bib/bby059'
 
 output_columns:
 - name: evidence
@@ -13,11 +17,15 @@ output_columns:
   type: string
   width: 80
   category: single
-  desc: Whether the indel is regarded as a driver based on evidence from functional experiments in either in vivo or in vitro. As well as a putative driver based on evidence such as a high recurrence frequency in cancer patients, an important location of protein and so on.
+  desc: Whether the indel is regarded as a driver based on evidence from functional
+    experiments in either in vivo or in vitro. As well as a putative driver based
+    on evidence such as a high recurrence frequency in cancer patients, an important
+    location of protein and so on.
 
 tags:
 - cancer
-title: "dbCID: Database of Cancer Driver InDels"
+- variants
+title: 'dbCID: Database of Cancer Driver InDels'
 version: 1.0.1
 release_note:
   1.0.1: Bug fix

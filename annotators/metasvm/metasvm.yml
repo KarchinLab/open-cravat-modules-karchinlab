@@ -33,6 +33,7 @@ output_columns:
     of 0.82257.
 tags:
 - variant effect prediction
+- variants
 title: MetaSVM
 version: 1.0.1
 type: annotator

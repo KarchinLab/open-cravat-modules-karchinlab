@@ -1,11 +1,13 @@
 datasource: 2018.01.17
-description: Flags validated oncogenic alterations and genomic biomarkers of drug response, while predicting cancer drivers among mutations of unknown significance.
+description: Flags validated oncogenic alterations and genomic biomarkers of drug
+  response, while predicting cancer drivers among mutations of unknown significance.
 developer:
-  name: 'Global Alliance for Genomics and Health'
-  organization: 'Global Alliance for Genomics and Health'
-  email: 'support@cravat.us'
-  website: 'https://www.cancergenomeinterpreter.org/biomarkers'
-  citation: 'Tamborero, David, et al. "Cancer Genome Interpreter annotates the biological and clinical relevance of tumor alterations." Genome medicine 10.1 (2018): 25.'
+  name: Global Alliance for Genomics and Health
+  organization: Global Alliance for Genomics and Health
+  email: support@cravat.us
+  website: https://www.cancergenomeinterpreter.org/biomarkers
+  citation: 'Tamborero, David, et al. "Cancer Genome Interpreter annotates the biological
+    and clinical relevance of tumor alterations." Genome medicine 10.1 (2018): 25.'
 
 level: variant
 
@@ -14,19 +16,22 @@ output_columns:
   title: Number of Resistant Effects
   type: int
   width: 80
-  desc: The number of Resistant responses due to how the presence of the biomarker affects the response to the drug.
+  desc: The number of Resistant responses due to how the presence of the biomarker
+    affects the response to the drug.
 
 - name: responsive
   title: Number of Responsive Effects
   type: int
   width: 80
-  desc: The number of Responsive responses due to how the presence of the biomarker affects the response to the drug.
+  desc: The number of Responsive responses due to how the presence of the biomarker
+    affects the response to the drug.
 
 - name: other
   title: Number of Other Effects
   type: int
   width: 100
-  desc: The number of Other responses due to how the presence of the biomarker affects the response to the drug.
+  desc: The number of Other responses due to how the presence of the biomarker affects
+    the response to the drug.
 
 - hidden: true
   name: all
@@ -61,8 +66,9 @@ requires:
 tags:
 - cancer
 - clinical relevance
-
-commercial_warning: 'Freely available for non-commercial use.'
+- genes
+- variant effect prediction
+commercial_warning: Freely available for non-commercial use.
 
 title: Cancer Genome Interpreter
 version: 1.3.0

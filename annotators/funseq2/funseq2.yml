@@ -1,11 +1,13 @@
 datasource: v2.1.6
-description:  A flexible framework to prioritize regulatory mutations from cancer genome sequencing
+description: A flexible framework to prioritize regulatory mutations from cancer genome
+  sequencing
 developer:
-  name: 'Gerstein Lab'
-  organization: 'Yale University'
-  email: 'support@cravat.us'
-  website: 'http://funseq2.gersteinlab.org/'
-  citation: 'Fu, Y., Liu, Z., Lou, S. et al. FunSeq2: a framework for prioritizing noncoding regulatory variants in cancer. Genome Biol 15, 480 (2014). https://doi.org/10.1186/s13059-014-0480-5'
+  name: Gerstein Lab
+  organization: Yale University
+  email: support@cravat.us
+  website: http://funseq2.gersteinlab.org/
+  citation: 'Fu, Y., Liu, Z., Lou, S. et al. FunSeq2: a framework for prioritizing
+    noncoding regulatory variants in cancer. Genome Biol 15, 480 (2014). https://doi.org/10.1186/s13059-014-0480-5'
 
 level: variant
 output_columns:
@@ -13,7 +15,8 @@ output_columns:
   title: HOT Region
   type: string
   width: 70
-  desc: Transcription factor highly occupied region. If a variant occurs in HOT regions, the corresponding cell lines are shown.
+  desc: Transcription factor highly occupied region. If a variant occurs in HOT regions,
+    the corresponding cell lines are shown.
   hidden: true
 - name: motif
   title: Motif Analysis
@@ -26,8 +29,9 @@ output_columns:
   title: Score
   type: float
   width: 75
-  desc: Variants in coding regions are ranked upon a criteria, scores range from 0 - 6. Variants in non-coding regions are weighted scores.
-        A higher coding score and a non-coding score >= 1.5 are considered deleterious. 
+  desc: Variants in coding regions are ranked upon a criteria, scores range from 0
+    - 6. Variants in non-coding regions are weighted scores. A higher coding score
+    and a non-coding score >= 1.5 are considered deleterious.
 - hidden: true
   name: all
   title: All Annotations
@@ -54,8 +58,9 @@ pypi_dependency:
 requires_opencravat: '>=2.2.6'
 tags:
 - cancer
-- variants
 - non coding
+- variant effect prediction
+- variants
 title: FunSeq2
 version: 1.0.1
 type: annotator

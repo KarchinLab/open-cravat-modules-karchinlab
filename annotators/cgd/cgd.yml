@@ -1,11 +1,13 @@
 datasource: 2021.02.09
-description: A manually curated database of conditions with known genetic causes, focusing on medically significant genetic data with available interventions.
+description: A manually curated database of conditions with known genetic causes,
+  focusing on medically significant genetic data with available interventions.
 developer:
-  name: 'NIH'
-  organization: 'NIH'
-  email: 'support@cravat.us'
-  website: 'https://research.nhgri.nih.gov/CGD/'
-  citation: 'Solomon BD, Nguyen AD, Bear KA, Wolfsberg TG. Clinical Genomic Database. Proc Natl Acad Sci U S A. 2013 May 21. [Epub ahead of print] [PubMed].'
+  name: NIH
+  organization: NIH
+  email: support@cravat.us
+  website: https://research.nhgri.nih.gov/CGD/
+  citation: Solomon BD, Nguyen AD, Bear KA, Wolfsberg TG. Clinical Genomic Database.
+    Proc Natl Acad Sci U S A. 2013 May 21. [Epub ahead of print] [PubMed].
 
 level: gene
 output_columns:
@@ -19,8 +21,9 @@ output_columns:
   type: string
   width: 85
   hidden: true
-  desc: AD = Autosomal Dominant, AR = Autosomal Recessive, BG = Blood Group, Digenic = A condition resulting from simultaneous mutations in different genes,
-        Maternal = Refers to maternal mitochondrial inheritance, XL = X-Linked
+  desc: AD = Autosomal Dominant, AR = Autosomal Recessive, BG = Blood Group, Digenic
+    = A condition resulting from simultaneous mutations in different genes, Maternal
+    = Refers to maternal mitochondrial inheritance, XL = X-Linked
 - name: age_group
   title: Age Group
   type: string
@@ -32,7 +35,8 @@ output_columns:
   type: string
   width: 85
   hidden: true
-  desc: Conditions also resulting from mutations in the same gene, but which would otherwise be categorized in the "General" category for intervention categories. 
+  desc: Conditions also resulting from mutations in the same gene, but which would
+    otherwise be categorized in the "General" category for intervention categories.
 - name: manifestation
   title: Manifestation
   type: string
@@ -43,7 +47,7 @@ output_columns:
   title: Intervention
   type: string
   width: 85
-  desc: Organ Systems for which specific additional interventions may be beneficial. 
+  desc: Organ Systems for which specific additional interventions may be beneficial.
   hidden: true
 - name: link
   title: More Information
@@ -80,6 +84,7 @@ output_columns:
     title: More Information
     type: string
 tags:
+- clinical relevance
 - genes
 requires:
 - wgcgd

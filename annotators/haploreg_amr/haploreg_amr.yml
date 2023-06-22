@@ -27,19 +27,23 @@ secondary_inputs:
       primary: uid
       secondary: uid
     use_columns:
-      - rsid
+    - rsid
 requires:
-  - dbsnp
-  - wghaploreg_amr
+- dbsnp
+- wghaploreg_amr
 tags:
 - non coding
+- variants
 developer:
   name: Luke Ward
   organization: MIT Kellis Lab
   email: luke@lukeward.net
   website: https://pubs.broadinstitute.org/mammals/haploreg/haploreg.php
-  citation: 'Lucas D. Ward, Manolis Kellis, HaploReg: a resource for exploring chromatin states, conservation, and regulatory motif alterations within sets of genetically linked variants, Nucleic Acids Research, Volume 40, Issue D1, 1 January 2012, Pages D930–D934, https://doi.org/10.1093/nar/gkr917'
+  citation: 'Lucas D. Ward, Manolis Kellis, HaploReg: a resource for exploring chromatin
+    states, conservation, and regulatory motif alterations within sets of genetically
+    linked variants, Nucleic Acids Research, Volume 40, Issue D1, 1 January 2012,
+    Pages D930–D934, https://doi.org/10.1093/nar/gkr917'
 groups:
-  - haploreg_group
+- haploreg_group
 release_note:
   1.1.0: one annotation column with a table

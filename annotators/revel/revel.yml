@@ -21,13 +21,15 @@ output_columns:
   name: score
   title: Score
   type: float
-  desc: Max pathogenicity score across all transcripts. The larger the score the more likely the SNP has damaging effect.
+  desc: Max pathogenicity score across all transcripts. The larger the score the more
+    likely the SNP has damaging effect.
   hidden: true
 - name: rankscore
   title: Rank Score
   type: float
   hidden: false
-  desc: Max rank score across all transcripts. The ratio of the rank of the score over the total number of REVEL scores.
+  desc: Max rank score across all transcripts. The ratio of the rank of the score
+    over the total number of REVEL scores.
 - hidden: true
   name: all
   title: All Annotations
@@ -49,11 +51,12 @@ output_columns:
 requires_opencravat: '>=2.2.1'
 tags:
 - variant effect prediction
+- variants
 title: REVEL
 type: annotator
 version: 2022.11.29
 release_note:
-  2022.11.29: data update 
+  2022.11.29: data update
   2020.12.02: data update
 smartfilters:
 - name: rankscore

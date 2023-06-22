@@ -33,6 +33,7 @@ output_columns:
     of 0.81101.
 tags:
 - variant effect prediction
+- variants
 title: MetaLR
 version: 1.0.3
 type: annotator

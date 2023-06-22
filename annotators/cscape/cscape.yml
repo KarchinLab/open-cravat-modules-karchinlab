@@ -1,23 +1,29 @@
 datasource: 2017
-description: CScape predicts the oncogenic status (disease-driver or neutral) of somatic point mutations in coding and non coding region of the cancer genome.
+description: CScape predicts the oncogenic status (disease-driver or neutral) of somatic
+  point mutations in coding and non coding region of the cancer genome.
 developer:
   name: ''
-  organization: 'University of Bristol Integrative Epidemiology Unit'
-  email: 'suppor@cravat.us'
-  website: 'http://cscape.biocompute.org.uk/'
-  citation: 'Rogers MF, Shihab H, Gaunt TR, Campbell C (2017). CScape: a tool for predicting oncogenic single-point mutations in the cancer genome. Nature Scientific Reports'
+  organization: University of Bristol Integrative Epidemiology Unit
+  email: suppor@cravat.us
+  website: http://cscape.biocompute.org.uk/
+  citation: 'Rogers MF, Shihab H, Gaunt TR, Campbell C (2017). CScape: a tool for
+    predicting oncogenic single-point mutations in the cancer genome. Nature Scientific
+    Reports'
 level: variant
 output_columns:
 - name: score
   title: Score
   type: float
   width: 75
-  desc: Scores are p-values. Scores above 0.5 are predicted to be deleterious, while those below 0.5 are predicted to be neutral or benign. P-values close to the extremes (0 or 1) are the highest-confidence predictions that yield the highest accuracy.
+  desc: Scores are p-values. Scores above 0.5 are predicted to be deleterious, while
+    those below 0.5 are predicted to be neutral or benign. P-values close to the extremes
+    (0 or 1) are the highest-confidence predictions that yield the highest accuracy.
 
 tags:
-- variant effect prediction
 - cancer
 - non coding
+- variant effect prediction
+- variants
 pypi_dependency:
 - pytabix
 requires_opencravat: '>=2.2.6'

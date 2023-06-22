@@ -10,42 +10,42 @@ output_columns:
   width: 65
   hidden: false
   desc: PolyPhen-2 prediction based on HumDiv, "D" ("probably damaging", HDIV Raw
-        score in [0.957,1] or rankscore in [0.55859,0.91137]), "P" ("possibly damaging",
-        HDIV Raw score in [0.454,0.956] or rankscore in [0.37043,0.55681]) and "B" ("benign",
-        HDIV Raw score in [0,0.452] or rankscore in [0.03061,0.36974]). Score cutoff for
-        binary classification is 0.5 for HDIV score or 0.38028 for rankscore, i.e. the
-        prediction is "neutral" if the HDIV score is smaller than 0.5, and "deleterious"
-        if the HDIV score is larger than 0.5. 
+    score in [0.957,1] or rankscore in [0.55859,0.91137]), "P" ("possibly damaging",
+    HDIV Raw score in [0.454,0.956] or rankscore in [0.37043,0.55681]) and "B" ("benign",
+    HDIV Raw score in [0,0.452] or rankscore in [0.03061,0.36974]). Score cutoff for
+    binary classification is 0.5 for HDIV score or 0.38028 for rankscore, i.e. the
+    prediction is "neutral" if the HDIV score is smaller than 0.5, and "deleterious"
+    if the HDIV score is larger than 0.5.
 - name: hvar_pred
   title: HVAR Prediction
   type: string
   width: 65
   hidden: false
   desc: PolyPhen-2 prediction based on HumVar, "D" ("probably damaging", HVAR Raw
-        score in [0.909,1] or rankscore in [0.65694,0.97581]), "P" ("possibly damaging",
-        HVAR Raw score in [0.447,0.908] or rankscore in [0.47121,0.65622]) and "B" ("benign",
-        HVAR Raw score in [0,0.446] or rankscore in [0.01493,0.47076]). Score cutoff for
-        binary classification is 0.5 for HVAR score or 0.48762 for rankscore, i.e. the
-        prediction is "neutral" if the HVAR score is smaller than 0.5, and "deleterious"
-        if the HVAR score is larger than 0.5. 
+    score in [0.909,1] or rankscore in [0.65694,0.97581]), "P" ("possibly damaging",
+    HVAR Raw score in [0.447,0.908] or rankscore in [0.47121,0.65622]) and "B" ("benign",
+    HVAR Raw score in [0,0.446] or rankscore in [0.01493,0.47076]). Score cutoff for
+    binary classification is 0.5 for HVAR score or 0.48762 for rankscore, i.e. the
+    prediction is "neutral" if the HVAR score is smaller than 0.5, and "deleterious"
+    if the HVAR score is larger than 0.5.
 - name: hdiv_rank
   title: HDIV Rank Score
   type: float
   width: 72
   hidden: false
-  desc: Max rank score across all transcripts. PolyPhen-2 HDIV scores were first ranked among all HDIV scores.
-        The rankscore is the ratio of the rank the score over the total number of the
-        scores. If there are multiple scores, only the most damaging rankscore
-        is presented.
+  desc: Max rank score across all transcripts. PolyPhen-2 HDIV scores were first ranked
+    among all HDIV scores. The rankscore is the ratio of the rank the score over the
+    total number of the scores. If there are multiple scores, only the most damaging
+    rankscore is presented.
 - name: hvar_rank
   title: HVAR Rank Score
   type: float
   width: 72
   hidden: false
-  desc: Max rank score across all transcripts. PolyPhen-2 HVAR scores were first ranked among all HVAR scores.
-        The rankscore is the ratio of the rank the score over the total number of the
-        scores. If there are multiple scores, only the most damaging (largest)
-        rankscore is presented.
+  desc: Max rank score across all transcripts. PolyPhen-2 HVAR scores were first ranked
+    among all HVAR scores. The rankscore is the ratio of the rank the score over the
+    total number of the scores. If there are multiple scores, only the most damaging
+    (largest) rankscore is presented.
 - name: all
   title: All annotations
   type: string
@@ -62,8 +62,8 @@ output_columns:
   - name: hdiv_score
     title: HDIV Raw Score
     type: float
-    desc: PolyPhen-2 score based on HumDiv. The score ranges from 0 to 1. Multiple entries
-      separated by ";", corresponding to Uniprot ID.
+    desc: PolyPhen-2 score based on HumDiv. The score ranges from 0 to 1. Multiple
+      entries separated by ";", corresponding to Uniprot ID.
     width: 72
     hidden: true
   - name: hdiv_rank
@@ -81,18 +81,18 @@ output_columns:
     desc: PolyPhen-2 prediction based on HumDiv, "D" ("probably damaging", HDIV Raw
       score in [0.957,1] or rankscore in [0.55859,0.91137]), "P" ("possibly damaging",
       HDIV Raw score in [0.454,0.956] or rankscore in [0.37043,0.55681]) and "B" ("benign",
-      HDIV Raw score in [0,0.452] or rankscore in [0.03061,0.36974]). Score cutoff for
-      binary classification is 0.5 for HDIV score or 0.38028 for rankscore, i.e. the
-      prediction is "neutral" if the HDIV score is smaller than 0.5, and "deleterious"
-      if the HDIV score is larger than 0.5. Multiple entries are separated by ";", corresponding
-      to Uniprot ID.
+      HDIV Raw score in [0,0.452] or rankscore in [0.03061,0.36974]). Score cutoff
+      for binary classification is 0.5 for HDIV score or 0.38028 for rankscore, i.e.
+      the prediction is "neutral" if the HDIV score is smaller than 0.5, and "deleterious"
+      if the HDIV score is larger than 0.5. Multiple entries are separated by ";",
+      corresponding to Uniprot ID.
     width: 65
     hidden: true
   - name: hvar_score
     title: HVAR Raw Score
     type: float
-    desc: PolyPhen-2 score based on HumVar. The score ranges from 0 to 1. Multiple entries
-      separated by ";", corresponding to Uniprot ID.
+    desc: PolyPhen-2 score based on HumVar. The score ranges from 0 to 1. Multiple
+      entries separated by ";", corresponding to Uniprot ID.
     width: 72
     hidden: true
   - name: hvar_rank
@@ -110,11 +110,11 @@ output_columns:
     desc: PolyPhen-2 prediction based on HumVar, "D" ("probably damaging", HVAR Raw
       score in [0.909,1] or rankscore in [0.65694,0.97581]), "P" ("possibly damaging",
       HVAR Raw score in [0.447,0.908] or rankscore in [0.47121,0.65622]) and "B" ("benign",
-      HVAR Raw score in [0,0.446] or rankscore in [0.01493,0.47076]). Score cutoff for
-      binary classification is 0.5 for HVAR score or 0.48762 for rankscore, i.e. the
-      prediction is "neutral" if the HVAR score is smaller than 0.5, and "deleterious"
-      if the HVAR score is larger than 0.5. Multiple entries are separated by ";", corresponding
-      to Uniprot ID.
+      HVAR Raw score in [0,0.446] or rankscore in [0.01493,0.47076]). Score cutoff
+      for binary classification is 0.5 for HVAR score or 0.48762 for rankscore, i.e.
+      the prediction is "neutral" if the HVAR score is smaller than 0.5, and "deleterious"
+      if the HVAR score is larger than 0.5. Multiple entries are separated by ";",
+      corresponding to Uniprot ID.
     width: 65
     hidden: true
 description: PolyPhen-2 (Polymorphism Phenotyping v2) is a tool which predicts possible
@@ -148,6 +148,7 @@ smartfilters:
     value: ${value}
 tags:
 - variant effect prediction
+- variants
 release-note:
   1.1.0: table data enabled
 requires_opencravat: '>=2.2.1'

@@ -18,9 +18,10 @@ output_columns:
   width: 80
   desc: Probability of negative selection on noncoding sites
 tags:
-- variants
-- non coding
 - evolution
+- non coding
+- variant effect prediction
+- variants
 title: LINSIGHT
 type: annotator
 version: 2021.01.08

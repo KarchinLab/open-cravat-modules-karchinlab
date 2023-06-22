@@ -38,7 +38,8 @@ output_columns:
   title: Rank Score
   type: float
   hidden: false
-  desc: Max rank score across all transcripts. The ratio of the rank of the score over the total number of SIFT scores.
+  desc: Max rank score across all transcripts. The ratio of the rank of the score
+    over the total number of SIFT scores.
 - name: med
   title: Median Info
   type: float
@@ -103,6 +104,7 @@ developer:
 datasource: SIFT4G 2016-02-22
 tags:
 - variant effect prediction
+- variants
 requires:
 - wgsift
 requires_opencravat: '>=2.2.1'
@@ -120,4 +122,5 @@ smartfilters:
     column: sift__prediction
     test: equals
     value: ${value}
-commercial_warning: 'Freely available to the academic community. Commercial licensees should contact Steven Henikoff.'
+commercial_warning: Freely available to the academic community. Commercial licensees
+  should contact Steven Henikoff.

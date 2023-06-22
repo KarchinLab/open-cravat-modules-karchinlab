@@ -29,6 +29,7 @@ output_columns:
   desc: False discovery rate
 tags:
 - variant effect prediction
+- variants
 title: PhD-SNPg
 type: annotator
 version: 0.0.9

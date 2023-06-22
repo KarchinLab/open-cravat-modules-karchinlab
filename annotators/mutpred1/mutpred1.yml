@@ -28,7 +28,7 @@ output_columns:
   title: Variant
   type: string
   filterable: false
-- desc: Max Pathogenicity score across all transcripts. 
+- desc: Max Pathogenicity score across all transcripts.
   title: Score
   filterable: true
   name: mutpred_general_score
@@ -40,7 +40,8 @@ output_columns:
   title: Rank Score
   type: float
   width: 70
-  desc: The max rank score across all transcripts. The ratio of the rank of the score over the total number of MutPred scores.
+  desc: The max rank score across all transcripts. The ratio of the rank of the score
+    over the total number of MutPred scores.
 - hidden: true
   name: mutpred_top5_mechanisms
   title: All Annotations
@@ -64,11 +65,12 @@ output_columns:
   - name: mutpred_general_score
     title: Score
     type: float
-  -  name: mutpred_rankscore
-     title: Rank Score
-     type: float
+  - name: mutpred_rankscore
+    title: Rank Score
+    type: float
 tags:
 - variant effect prediction
+- variants
 release-note:
   1.4.0: table data enabled
   1.3.0: updated to include rank score.
@@ -89,4 +91,3 @@ smartfilters:
     column: mutpred1__mutpred_rankscore
     test: greaterThanEq
     value: ${value}
-requires_opencravat: '>=2.2.1'

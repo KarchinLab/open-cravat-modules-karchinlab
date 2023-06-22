@@ -54,7 +54,7 @@ output_columns:
   hidden: true
 release_note:
   2023.02.01.1: support chrM
-  2023.02.01: data updated 
+  2023.02.01: data updated
   2023.01.01: data updated
   2022.12.01: data updated
   2022.11.14: data updated
@@ -66,7 +66,7 @@ release_note:
   2021.03.03: data updated
   2021.02.04: data updated
   2021.01.12: data updated
-  2020.11.02: data updated 
+  2020.11.02: data updated
   2020.02.11.1: strict ref/alt indels, not fuzzy
   2020.02.11: data update
   2019.03.261: added requires.
@@ -74,9 +74,8 @@ release_note:
   2019.01.022: updated data set, widget overhaul
   2019.01.023: changed id column format for web linking
 tags:
-- variants
 - clinical relevance
-- literature
+- variants
 title: ClinVar
 type: annotator
 version: 2023.02.01

@@ -1,11 +1,16 @@
 datasource: v154
-description: Selection of SNPs with a minor allele frequency of 1% or greater is an attempt to identify variants that appear to be reasonably common in the general population.
+description: Selection of SNPs with a minor allele frequency of 1% or greater is an
+  attempt to identify variants that appear to be reasonably common in the general
+  population.
 developer:
-  name: 'NCBI'
-  organization: 'NCBI'
-  email: 'supprt@cravat.us'
-  website: 'https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=784649537_AtjYqLFz0CTNkRh8qWf8vOHQpNXp&c=chr1&g=snp151Common'
-  citation: 'Sherry ST, Ward MH, Kholodov M, Baker J, Phan L, Smigielski EM, Sirotkin K. dbSNP: the NCBI database of genetic variation. Nucleic Acids Res. 2001 Jan 1;29(1):308-11. PMID: 11125122; PMC: PMC29783'
+  name: NCBI
+  organization: NCBI
+  email: supprt@cravat.us
+  website: 
+    https://genome.ucsc.edu/cgi-bin/hgTrackUi?hgsid=784649537_AtjYqLFz0CTNkRh8qWf8vOHQpNXp&c=chr1&g=snp151Common
+  citation: 'Sherry ST, Ward MH, Kholodov M, Baker J, Phan L, Smigielski EM, Sirotkin
+    K. dbSNP: the NCBI database of genetic variation. Nucleic Acids Res. 2001 Jan
+    1;29(1):308-11. PMID: 11125122; PMC: PMC29783'
 
 level: variant
 
@@ -17,8 +22,8 @@ output_columns:
   link_format: https://www.ncbi.nlm.nih.gov/snp/${.*}
 
 tags:
+- literature
 - variants
-
 title: dbSNP Common
 version: 1.0.1
 release_note:

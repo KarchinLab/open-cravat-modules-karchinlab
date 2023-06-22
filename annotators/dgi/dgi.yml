@@ -1,18 +1,22 @@
 datasource: Jan 2021
-description: The goal of DGIdb is to help you annotate your genes of interest with respect to known drug-gene interactions and potential druggability.
+description: The goal of DGIdb is to help you annotate your genes of interest with
+  respect to known drug-gene interactions and potential druggability.
 developer:
   name: ''
-  organization: 'Washington University School of Medicine'
-  email: 'support@cravat.us'
-  website: 'https://dgidb.org/'
-  citation: 'Freshour, Sharon L., et al. "Integration of the Drug–Gene Interaction Database (DGIdb 4.0) with open crowdsource efforts." Nucleic Acids Research 49.D1 (2021): D1144-D1151.'
+  organization: Washington University School of Medicine
+  email: support@cravat.us
+  website: https://dgidb.org/
+  citation: 'Freshour, Sharon L., et al. "Integration of the Drug–Gene Interaction
+    Database (DGIdb 4.0) with open crowdsource efforts." Nucleic Acids Research 49.D1
+    (2021): D1144-D1151.'
 level: gene
 output_columns:
 - name: category
   title: Gene Category
   type: string
   width: 100
-  desc: Gene categories in DGIdb refers to a set of genes belonging to a group that is deemed to be potentially druggable.
+  desc: Gene categories in DGIdb refers to a set of genes belonging to a group that
+    is deemed to be potentially druggable.
   hidden: true
 - name: interaction
   title: Interaction Type
@@ -20,7 +24,8 @@ output_columns:
   width: 75
   category: single
   hidden: true
-  desc: An interaction type describes the nature of the association between a particular gene and drug.
+  desc: An interaction type describes the nature of the association between a particular
+    gene and drug.
 - name: name
   title: Drug Name
   type: string
@@ -29,22 +34,25 @@ output_columns:
   title: Interaction Score
   type: float
   width: 70
-  desc: A higher score indicates that there is a greater interaction between the drug and the gene. The score depends on numbers of drug and gene partners, as well as number of supporting publications and sources.
+  desc: A higher score indicates that there is a greater interaction between the drug
+    and the gene. The score depends on numbers of drug and gene partners, as well
+    as number of supporting publications and sources.
 - name: chembl
   title: ChEMBL ID
   type: string
-  link_format: 'https://www.ebi.ac.uk/chembl/g/#search_results/compounds/query=${.*}'
+  link_format: https://www.ebi.ac.uk/chembl/g/#search_results/compounds/query=${.*}
   width: 105
-  desc: ChEMBL is a manually curated database of bioactive molecules with drug-like properties.
+  desc: ChEMBL is a manually curated database of bioactive molecules with drug-like
+    properties.
   hidden: true
 - name: pmid
   title: PubMed
   type: string
-  link_format: 'https://pubmed.ncbi.nlm.nih.gov/${[^;]+}'
+  link_format: https://pubmed.ncbi.nlm.nih.gov/${[^;]+}
   width: 70
   desc: Link to Literature
   hidden: true
-  
+
 - hidden: true
   name: all
   title: All Annotations
@@ -73,8 +81,8 @@ output_columns:
     type: int
 
 tags:
-- genes
 - clinical relevance
+- variants
 requires_opencravat: '>=2.2.1'
 requires:
 - wgdgi

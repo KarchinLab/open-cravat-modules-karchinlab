@@ -121,4 +121,5 @@ release-note:
 requires:
 - wggnomad_gene
 tags:
+- allele frequency
 - genes

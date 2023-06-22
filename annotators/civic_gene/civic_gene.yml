@@ -27,15 +27,18 @@ output_columns:
   width: 75
   hidden: true
 tags:
-- genes
-- clinical relevance
 - cancer
+- clinical relevance
+- genes
+- literature
 title: CIViC Gene
 type: annotator
 version: 2023.06.01
 release_note:
   2023.06.01: Monthly data update
-  2023.04.01: Update CIViC Gene annotator to use the new monthly snapshots and GraphQL API. Add Gene Aliases column to the annotation. Add gene alias matching for annotation. The version number going forward will be the date when the data was gathered.
+  2023.04.01: Update CIViC Gene annotator to use the new monthly snapshots and GraphQL
+    API. Add Gene Aliases column to the annotation. Add gene alias matching for annotation.
+    The version number going forward will be the date when the data was gathered.
 requires_opencravat: '>=1.4.0'
 requires:
 - wgcivic_gene

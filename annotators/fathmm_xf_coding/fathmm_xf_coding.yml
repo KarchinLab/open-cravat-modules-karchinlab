@@ -1,18 +1,21 @@
 datasource: v4.1
-description: Enhanced Accuracy in Predicting the Functional Consequences of Coding Single Nucleotide Variants (SNVs).
+description: Enhanced Accuracy in Predicting the Functional Consequences of Coding
+  Single Nucleotide Variants (SNVs).
 developer:
   name: Chris Campbell
   organization: University of Bristol Integrative Epidemiology Unit
-  email: 'support@cravat.us'
-  website: 'http://fathmm.biocompute.org.uk/fathmm-xf/index.html'
-  citation: 'Rogers, Mark F., et al. "Supplementary information for FATHMM-XF: accurate prediction of pathogenic point mutations via extended features." (2015).'
+  email: support@cravat.us
+  website: http://fathmm.biocompute.org.uk/fathmm-xf/index.html
+  citation: 'Rogers, Mark F., et al. "Supplementary information for FATHMM-XF: accurate
+    prediction of pathogenic point mutations via extended features." (2015).'
 
 level: variant
 output_columns:
 - name: fathmm_xf_coding_score
   title: Score
   type: float
-  desc: Scores are p-values and range from 0 to 1. SNVs with scores >0.5 are predicted to be deleterious, and those <0.5 are predicted to be neutral or benign.
+  desc: Scores are p-values and range from 0 to 1. SNVs with scores >0.5 are predicted
+    to be deleterious, and those <0.5 are predicted to be neutral or benign.
   hidden: true
   width: 60
 - name: fathmm_xf_coding_rankscore
@@ -24,16 +27,16 @@ output_columns:
 - name: fathmm_xf_coding_pred
   title: Prediction
   type: string
-  desc: If score is >0.5, the corresponding nsSNV is predicted as "Damaging"; otherwise it is predicted as "Neutral".
+  desc: If score is >0.5, the corresponding nsSNV is predicted as "Damaging"; otherwise
+    it is predicted as "Neutral".
   hidden: false
   width: 65
   category: single
 
 tags:
 - variant effect prediction
-- non coding
-
-title: FATHMM XF Coding 
+- variants
+title: FATHMM XF Coding
 version: 1.0.0
 type: annotator
 smartfilters:

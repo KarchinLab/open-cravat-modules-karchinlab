@@ -1,11 +1,12 @@
 datasource: December 2017
 description: A resource for statistically significant mutations in cancer.
 developer:
-  name: 'Memorial Sloan Kettering Cancer Center'
-  organization: 'Memorial Sloan Kettering Cancer Center'
-  email: 'support@cravat.us'
-  website: 'https://www.cancerhotspots.org/'
-  citation: 'Chang et al., Accelerating discovery of functional mutant alleles in cancer. Cancer Discovery, 10.1158/2159-8290.CD-17-0321 (2017).'
+  name: Memorial Sloan Kettering Cancer Center
+  organization: Memorial Sloan Kettering Cancer Center
+  email: support@cravat.us
+  website: https://www.cancerhotspots.org/
+  citation: Chang et al., Accelerating discovery of functional mutant alleles in cancer.
+    Cancer Discovery, 10.1158/2159-8290.CD-17-0321 (2017).
 
 level: variant
 
@@ -13,7 +14,7 @@ output_columns:
 - name: samples
   title: Cancer Types
   type: string
-  desc: Distinct cancer type and count associated with each variant. 
+  desc: Distinct cancer type and count associated with each variant.
   width: 120
   table: true
   table_headers:
@@ -36,4 +37,5 @@ release_note:
 type: annotator
 tags:
 - cancer
+- variants
 requires_opencravat: '>=2.2.1'

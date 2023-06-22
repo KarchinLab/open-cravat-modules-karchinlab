@@ -39,6 +39,7 @@ output_columns:
 tags:
 - clinical relevance
 - variant effect prediction
+- variants
 title: CardioBoost
 version: 1.0.0
 type: annotator

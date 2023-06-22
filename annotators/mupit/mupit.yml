@@ -37,9 +37,10 @@ release_note:
   4.2.2: data in sync with production MuPIT
 tags:
 - genes
+- variants
 - visualization
 title: MuPIT
 type: annotator
 version: 4.3.3
 requires_opencravat: '>=1.7.0'
-commercial_warning: null
+commercial_warning:

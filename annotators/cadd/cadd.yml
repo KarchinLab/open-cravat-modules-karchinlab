@@ -7,21 +7,30 @@ output_columns:
 - name: score
   title: Score
   type: float
-  desc: If the score is negative it is likely to be observed vs a positive score is likely to be simulated, and therefore more likely to have deleterious effects.
+  desc: If the score is negative it is likely to be observed vs a positive score is
+    likely to be simulated, and therefore more likely to have deleterious effects.
 - name: phred
   title: Phred
   type: float
-  desc: phred-like scores ("scaled C-scores") range from 1 to 99, based on the rank of each variant relative to all possible 8.6 billion substitutions in the human reference genome. A scaled score of 10, for example, refers to the top 10% of all reference genome SNVs.
-description: CADD is a tool for scoring the deleteriousness of single nucleotide variants in the human genome.
+  desc: phred-like scores ("scaled C-scores") range from 1 to 99, based on the rank
+    of each variant relative to all possible 8.6 billion substitutions in the human
+    reference genome. A scaled score of 10, for example, refers to the top 10% of
+    all reference genome SNVs.
+description: CADD is a tool for scoring the deleteriousness of single nucleotide variants
+  in the human genome.
 developer:
   name: Martin Kircher
   organization: Shendure Lab, University of Washington
   email: support@cravat.us
   website: https://cadd.gs.washington.edu/
-  citation: 'Rentzsch P, Witten D, Cooper GM, Shendure J, Kircher M. CADD: predicting the deleteriousness of variants throughout the human genome. Nucleic Acids Res.2018 Oct 29. doi: 10.1093/nar/gky1016. PubMed PMID: 30371827.'
-commercial_warning: CADD scores are freely available for all non-commercial applications.If you are planning on using them in a commercial application, please obtain a license.
+  citation: 'Rentzsch P, Witten D, Cooper GM, Shendure J, Kircher M. CADD: predicting
+    the deleteriousness of variants throughout the human genome. Nucleic Acids Res.2018
+    Oct 29. doi: 10.1093/nar/gky1016. PubMed PMID: 30371827.'
+commercial_warning: CADD scores are freely available for all non-commercial applications.If
+  you are planning on using them in a commercial application, please obtain a license.
 tags:
 - variant effect prediction
+- variants
 pypi_dependency:
 - pytabix
 requires_opencravat: '>=2.2.6'

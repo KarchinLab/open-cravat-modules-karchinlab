@@ -1,11 +1,15 @@
 datasource: v4.1
-description: fitCons predicts the fraction of genomic positions belonging to a specific function class that are under selective pressure.
+description: fitCons predicts the fraction of genomic positions belonging to a specific
+  function class that are under selective pressure.
 developer:
-  name: 'Department of Biological Statistics & Computational Biology, Cornell University'
-  organization: 'Department of Biological Statistics & Computational Biology, Cornell University'
-  email: 'support@cravat.us'
-  website: 'http://compgen.cshl.edu/fitCons/'
-  citation: 'Gulko, Brad, et al. "A method for calculating probabilities of fitness consequences for point mutations across the human genome." Nature genetics 47.3 (2015): 276-283.'
+  name: Department of Biological Statistics & Computational Biology, Cornell University
+  organization: Department of Biological Statistics & Computational Biology, Cornell
+    University
+  email: support@cravat.us
+  website: http://compgen.cshl.edu/fitCons/
+  citation: 'Gulko, Brad, et al. "A method for calculating probabilities of fitness
+    consequences for point mutations across the human genome." Nature genetics 47.3
+    (2015): 276-283.'
 
 level: variant
 
@@ -21,15 +25,18 @@ output_columns:
   type: float
   hidden: false
   width: 70
-  desc: Ratio of the rank of the score over the total number of integrated fitCons scores in dbNSFP.
+  desc: Ratio of the rank of the score over the total number of integrated fitCons
+    scores in dbNSFP.
 - name: fitcons_coding_pred
   title: Confidence
   type: int
   hidden: true
   width: 80
-  desc: 0 - highly significant scores; 2 - significant scores; 2 - informative scores; 3 - other scores.
+  desc: 0 - highly significant scores; 2 - significant scores; 2 - informative scores;
+    3 - other scores.
 tags:
 - variant effect prediction
+- variants
 title: fitCons
 version: 1.0.0
 type: annotator
