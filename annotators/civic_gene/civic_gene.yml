@@ -1,4 +1,4 @@
-datasource: 2023.06.01
+datasource: 2023.07.01
 description: Provides descriptions and linkouts to CIViC
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
@@ -32,8 +32,9 @@ tags:
 - cancer
 title: CIViC Gene
 type: annotator
-version: 2023.06.01
+version: 2023.07.01
 release_note:
+  2023.07.01: Monthly data update
   2023.06.01: Monthly data update
   2023.04.01: Update CIViC Gene annotator to use the new monthly snapshots and GraphQL API. Add Gene Aliases column to the annotation. Add gene alias matching for annotation. The version number going forward will be the date when the data was gathered.
 requires_opencravat: '>=1.4.0'
