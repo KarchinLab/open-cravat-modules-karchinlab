@@ -1144,7 +1144,7 @@ widgetGenerators['cscape'] = {
             wdiv.style.display = 'flex'
             wdiv.style.flexWrap = 'wrap'
             var score = getWidgetData(tabName, 'cscape', row, 'score');
-            var rankscore = getWidgetData(tabName, 'cscape', row, 'rankscore');
+            score = Number(score)
             let prediction;
             if (score > 0.5) {
                 prediction = "Disease-driver"
