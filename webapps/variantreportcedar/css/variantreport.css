@@ -402,7 +402,6 @@ dd {
 .logoHover {
   opacity: 1;
   transition: 0.5s ease-in-out;
-  padding-top: 15px;
 }
 
 .sidenav-header {
@@ -415,8 +414,15 @@ dd {
 #logo {
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 40px;
-  padding-top: 35px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  display: block;
+}
+#cedar-logo {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 24px;
+  padding-top: 12px;
   display: block;
 }
 h3 {
@@ -779,3 +785,8 @@ h3 {
 #contdiv_cancerassoc {
   padding-top: 24px;
 }
+
+.double-table {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px}

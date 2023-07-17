@@ -257,7 +257,6 @@ async def load_live_modules ():
     global modules_to_run_ordered
     confloader = ConfigLoader()
     conf = confloader.get_module_conf('variantreportcedar')
-    print(conf)
     module_names_to_load = conf['live_modules']
     if live_mapper is None:
         cravat_conf = au.get_cravat_conf()

@@ -5,18 +5,18 @@ var mqMinMatch = window.matchMedia('(min-width: 1024px)');
 var localModuleInfo = {}
 var storeLogos = {}
 var storeUrl = null;
-var storeurl = $.get('/store/getstoreurl').done(function(response) {
+var storeurl = $.get('/store/getstoreurl').done(function (response) {
     storeUrl = response;
 });
 
-function emptyElement (elem) {
-	var last = null;
+function emptyElement(elem) {
+    var last = null;
     while (last = elem.lastChild) {
-    	elem.removeChild(last);
+        elem.removeChild(last);
     }
 }
 
-function makeModuleDetailDialog (moduleName, evt) {
+function makeModuleDetailDialog(moduleName, evt) {
     var mInfo = null;
     mInfo = localModuleInfo[moduleName];
     var divId = 'moduledetaildiv'
@@ -103,15 +103,15 @@ function makeModuleDetailDialog (moduleName, evt) {
     mdDiv.style.maxWidth = (wiw * 0.8 * 0.68) + 'px';
     addEl(td, mdDiv);
     addEl(tr, td);
-	$.get('/store/modules/'+moduleName+'/'+'latest'+'/readme').done(function(data){
+    $.get('/store/modules/' + moduleName + '/' + 'latest' + '/readme').done(function (data) {
         var protocol = window.location.protocol;
-        var converter = new showdown.Converter({tables:true,openLinksInNewWindow:true});
+        var converter = new showdown.Converter({ tables: true, openLinksInNewWindow: true });
         var mdhtml = converter.makeHtml(data);
         if (protocol == 'https:') {
             mdhtml = mdhtml.replace(/http:/g, 'https:');
         }
         var $mdhtml = $(mdhtml);
-        var localRoot = window.location.origin + window.location.pathname.split('/').slice(0,-1).join('/');
+        var localRoot = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/');
         for (let img of $mdhtml.children('img')) {
             var storeRoot = `/modules/annotators/${moduleName}`
             img.src = img.src.replace(localRoot, storeRoot);
@@ -178,7 +178,7 @@ function makeModuleDetailDialog (moduleName, evt) {
                 }
             }
         }
-	});
+    });
     // Information div
     td = getEl('td');
     td.style.width = '30%';
@@ -195,8 +195,8 @@ function makeModuleDetailDialog (moduleName, evt) {
         span.style.color = 'red';
         span.style['font-weight'] = 'bold';
     }
-    addEl(d,span);
-    addEl(infodiv,d);
+    addEl(d, span);
+    addEl(infodiv, d);
     var d = getEl('div');
     span = getEl('span');
     span.textContent = mInfo.description;
@@ -316,7 +316,7 @@ function makeModuleDetailDialog (moduleName, evt) {
     return div;
 }
 
-function addClassRecursive (elem, className) {
+function addClassRecursive(elem, className) {
     elem.classList.add(className);
     $(elem).children().each(
         function () {
@@ -326,7 +326,7 @@ function addClassRecursive (elem, className) {
     );
 }
 
-function addLogo (moduleName, sdiv) {
+function addLogo(moduleName, sdiv) {
     if (storeLogos[moduleName] != undefined) {
         var img = storeLogos[moduleName].cloneNode(true);
         addEl(sdiv, img);
@@ -386,7 +386,7 @@ function makeModuleDescUrlTitle(moduleName, text) {
     if (annotators == undefined) {
         annotators = moduleName
     }
-    el.addEventListener('click', function(evt) {
+    el.addEventListener('click', function (evt) {
         fetch("modulesinfo?modules=" + annotators)
             .then(response => {
                 return response.json()
@@ -400,7 +400,7 @@ function makeModuleDescUrlTitle(moduleName, text) {
                         tdiv.id = 'tooltipdiv'
                     }
                     tdiv.innerHTML = ""
-                    moduleInfos.forEach(function(moduleInfo) {
+                    moduleInfos.forEach(function (moduleInfo) {
                         var tsdiv = getEl('div')
                         var tspan = getEl('a')
                         tspan.textContent = moduleInfo.title
@@ -523,7 +523,7 @@ function submitAnnotate(inputChrom, inputPos, inputRef, inputAlt, assembly) {
         type: 'POST',
         url: url,
         data: params,
-        success: function(response) {
+        success: function (response) {
             annotData = response;
             annotData['base'] = annotData['crx'];
             showAnnotation(response);
@@ -610,7 +610,7 @@ function showSectionTitles() {
 }
 
 function showAnnotation(response) {
-    document.querySelectorAll('.detailcontainerdiv').forEach(function(el) {
+    document.querySelectorAll('.detailcontainerdiv').forEach(function (el) {
         $(el).empty();
     });
     hideSpinner();
@@ -619,10 +619,10 @@ function showAnnotation(response) {
     var retDivs = showWidget('basepanel', ['base'], 'variant', parentDiv);
     var parentDiv = document.querySelector('#contdiv_clin');
     showWidget('clinpanel',
-        ['base', 'clinvar', 'clinvar_acmg', 'clingen', 'denovo', 'omim', 'cardioboost', 'cvdkp', 'arrvars', 'pharmgkb', 'dgi'],
+        ['base', 'clinvar', 'clinvar_acmg', 'clingen', 'dgi'],
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_cancerassoc');
-    showWidget('cancerassocpanel', ['base', 'cgc', 'cosmic', 'cancer_genome_interpreter', 'target', 'civic', 'chasmplus', 'cscape_coding', 'clinvar'],
+    showWidget('cancerassocpanel', ['base', 'cgc', 'cosmic', 'cancer_genome_interpreter', 'target', 'civic', 'chasmplus', 'cscape'],
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_afreq');
     showWidget('allelefreqpanel', ['base', 'gnomad3', 'thousandgenomes'],
@@ -636,7 +636,7 @@ function showAnnotation(response) {
 }
 
 function getWidgets(callback, callbackArgs) {
-    $.get('/result/service/widgetlist', {}).done(function(jsonResponseData) {
+    $.get('/result/service/widgetlist', {}).done(function (jsonResponseData) {
         var tmpWidgets = jsonResponseData;
         var widgetLoadCount = 0;
         for (var i = 0; i < tmpWidgets.length; i++) {
@@ -646,7 +646,7 @@ function getWidgets(callback, callbackArgs) {
             widgetInfo[widgetNameNoWg] = tmpWidget;
             $.getScript('/result/widgetfile/' + widgetName + '/' +
                 widgetName + '.js',
-                function() {
+                function () {
                     widgetLoadCount += 1;
                     if (widgetLoadCount == tmpWidgets.length) {
                         if (callback != null) {
@@ -658,7 +658,7 @@ function getWidgets(callback, callbackArgs) {
     });
 }
 
-const getNoAnnotMsgGeneLevel = function() {
+const getNoAnnotMsgGeneLevel = function () {
     return 'No annotation available for ' + annotData['base']['hugo']
 }
 
@@ -700,7 +700,7 @@ function changeAchange3to1(achange) {
     }
     return achange;
 }
-const getCirclePoint = function(centerx, centery, radius, angle) {
+const getCirclePoint = function (centerx, centery, radius, angle) {
     let x = centerx + Math.cos(angle / 180 * Math.PI) * radius
     let y = centery + Math.sin(angle / 180 * Math.PI) * radius
     let xy = {
@@ -709,7 +709,7 @@ const getCirclePoint = function(centerx, centery, radius, angle) {
     }
     return xy
 }
-const drawDialFragment = function(
+const drawDialFragment = function (
     centerx, centery, radius1, radius2, angle0, angle1, fill, stroke) {
     let angleDiff = angle1 - angle0
     sub = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -736,7 +736,7 @@ const drawDialFragment = function(
     sub.setAttributeNS(null, 'd', d)
     return sub
 }
-const drawDialGraph = function(title, value, threshold) {
+const drawDialGraph = function (title, value, threshold) {
     let el = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     el.style.width = '6rem'
     el.style.height = '6rem'
@@ -807,7 +807,7 @@ const drawDialGraph = function(title, value, threshold) {
     }
     return el
 }
-const getDialWidget = function(title, value, threshold) {
+const getDialWidget = function (title, value, threshold) {
     var sdiv = getEl('div');
     sdiv.classList.add('dialdiv')
     var svg = drawDialGraph(title, value, threshold)
@@ -823,7 +823,7 @@ const getDialWidget = function(title, value, threshold) {
     return sdiv
 }
 
-const predWidget = function(title, value) {
+const predWidget = function (title, value) {
     var sdiv = getEl('div');
     sdiv.classList.add('preddiv')
     var ssdiv = getEl('div')
@@ -842,7 +842,7 @@ const predWidget = function(title, value) {
     return sdiv
 }
 
-const baseWidget = function(title, value) {
+const baseWidget = function (title, value) {
     var sdiv = getEl('div');
     sdiv.classList.add('basediv')
     var ssdiv = getEl('div')
@@ -856,7 +856,7 @@ const baseWidget = function(title, value) {
     return sdiv
 }
 
-const baseWidgetlink = function(title, value, link) {
+const baseWidgetlink = function (title, value, link) {
     var sdiv = getEl('div');
     sdiv.classList.add('basediv')
     var ssdiv = getEl('div')
@@ -882,7 +882,7 @@ widgetGenerators['base2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var hugo = getWidgetData(tabName, 'base', row, 'hugo');
             var nref = getWidgetData(tabName, 'base', row, 'ref_base').length;
             var ref_base = getWidgetData(tabName, 'base', row, 'ref_base')
@@ -943,7 +943,7 @@ widgetGenerators['base2'] = {
             var baseChange = baseWidget('Base Change', ref_base + ' > ' + alt_base)
             baseChange.classList.add("basepaneldiv")
             addEl(sdiv, baseChange)
-            
+
             var variant_length = null;
             if (variant_type == 'single nucleotide variant') {
                 variant_length = '1';
@@ -1010,7 +1010,7 @@ widgetGenerators['chasmplus2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var titleEl = makeModuleDescUrlTitle("chasmplus")
             var title = 'Target'
             var dl = getEl('dl')
@@ -1028,11 +1028,11 @@ widgetGenerators['chasmplus2'] = {
             var table = getWidgetTableFrame();
             table.setAttribute("id", "newtable");
             addEl(div, table);
-            var thead = getWidgetTableHead(['P-value', 'Score']);
+            var thead = getWidgetTableHead(['Driver Mutation P-value ', 'Driver Mutation Score']);
             addEl(table, thead);
             var tbody = getEl('tbody');
             addEl(table, tbody);
-            for (var i in all){
+            for (var i in all) {
                 var hits = all[i]
                 var score = hits[1]
                 var pval = hits[2]
@@ -1040,7 +1040,7 @@ widgetGenerators['chasmplus2'] = {
                 addEl(tbody, tr);
                 addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
             }
-            
+
             addDlRow(dl, titleEl, wdiv)
         }
     }
@@ -1055,7 +1055,7 @@ widgetGenerators['civic2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var titleEl = makeModuleDescUrlTitle("civic")
             var dl = getEl('dl')
             addEl(div, dl)
@@ -1106,7 +1106,7 @@ widgetGenerators['civic2'] = {
             wdiv.style.flexWrap = 'wrap'
             var score = getWidgetData(tabName, 'civic', row, 'molecular_profile_score');
             var id = getWidgetData(tabName, 'civic', row, 'id');
-            var webpage = 'https://civicdb.org/variants/' + id+ '/summary'
+            var webpage = 'https://civicdb.org/variants/' + id + '/summary'
             var sdiv = getEl('div')
             sdiv.style.maxWidth = '70rem'
             sdiv.style.minWidth = '30rem'
@@ -1116,7 +1116,7 @@ widgetGenerators['civic2'] = {
             var table = getWidgetTableFrame();
             table.setAttribute("id", "newtable");
             addEl(div, table);
-            var thead = getWidgetTableHead(['Variant Evidence Score', 'ID', 'Webpage']);
+            var thead = getWidgetTableHead(['Variant Evidence Score', 'ID', 'Link']);
             addEl(table, thead);
             var tbody = getEl('tbody');
             addEl(table, tbody);
@@ -1128,23 +1128,29 @@ widgetGenerators['civic2'] = {
     }
 }
 
-widgetInfo['cscape_coding'] = {
+widgetInfo['cscape'] = {
     'title': 'CScape'
 };
-widgetGenerators['cscape_coding'] = {
-    'annotators': 'cscape_coding',
+widgetGenerators['cscape'] = {
+    'annotators': 'cscape',
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
-            var titleEl = makeModuleDescUrlTitle("cscape_coding")
+        'function': function (div, row, tabName) {
+            var titleEl = makeModuleDescUrlTitle("cscape")
             var dl = getEl('dl')
             addEl(div, dl)
             var wdiv = getEl('div')
             wdiv.style.display = 'flex'
             wdiv.style.flexWrap = 'wrap'
-            var score = getWidgetData(tabName, 'cscape_coding', row, 'score');
-            var rankscore = getWidgetData(tabName, 'cscape_coding', row, 'rankscore');
+            var score = getWidgetData(tabName, 'cscape', row, 'score');
+            var rankscore = getWidgetData(tabName, 'cscape', row, 'rankscore');
+            let prediction;
+            if (score > 0.5) {
+                prediction = "Disease-driver"
+            } else {
+                prediction = "Neutral / Benign"
+            }
             var sdiv = getEl('div')
             sdiv.style.maxWidth = '70rem'
             sdiv.style.minWidth = '30rem'
@@ -1154,11 +1160,11 @@ widgetGenerators['cscape_coding'] = {
             var table = getWidgetTableFrame();
             table.setAttribute("id", "newtable");
             addEl(div, table);
-            var thead = getWidgetTableHead(['Score', 'Rank Score']);
+            var thead = getWidgetTableHead(['Oncogenic Status', 'Score']);
             addEl(table, thead);
             var tbody = getEl('tbody');
             addEl(table, tbody);
-            var tr = getWidgetTableTr([prettyVal(score), prettyVal(rankscore)]);
+            var tr = getWidgetTableTr([prediction, prettyVal(score)]);
             addEl(tbody, tr);
             addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
             addDlRow(dl, titleEl, wdiv)
@@ -1174,7 +1180,7 @@ widgetGenerators['clinvar2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var titleEl = makeModuleDescUrlTitle("clinvar", "ClinVar Significance")
             div.parentElement.style.paddingBottom = '0'
             var id = getWidgetData(tabName, 'clinvar', row, 'id');
@@ -1240,7 +1246,7 @@ widgetGenerators['cosmic2'] = {
         'width': undefined,
         'height': undefined,
         'word-break': 'normal',
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var titleEl = makeModuleDescUrlTitle("cosmic")
             var title = 'COSMIC'
             var dl = getEl('dl')
@@ -1251,10 +1257,10 @@ widgetGenerators['cosmic2'] = {
             var cosmic_id = getWidgetData(tabName, 'cosmic', row, 'cosmic_id');
             var tissue = getWidgetData(tabName, 'cosmic', row, 'variant_count_tissue');
             var tissue2 = []
-            for (var i in tissue){
+            for (var i in tissue) {
                 tissue2.push(tissue[i].filter(x => isNaN(x)))
             }
-            
+
             var link = 'https://cancer.sanger.ac.uk/cosmic/search?q=' + cosmic_id
             var sdiv = getEl('div')
             sdiv.style.maxWidth = '70rem'
@@ -1265,11 +1271,11 @@ widgetGenerators['cosmic2'] = {
             var table = getWidgetTableFrame();
             table.setAttribute("id", "newtable");
             addEl(div, table);
-            var thead = getWidgetTableHead(['COSMIC ID', 'Variant Type (Tissue)', 'Link']);
+            var thead = getWidgetTableHead(['COSMIC ID', 'Variant Type (Tissue)']);
             addEl(table, thead);
             var tbody = getEl('tbody');
             addEl(table, tbody);
-            var tr = getWidgetTableTr2([cosmic_id, tissue2, link], [cosmic_id]);
+            var tr = getWidgetTableTr2([link, tissue2], [cosmic_id]);
             addEl(tbody, tr);
             addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
             addDlRow(dl, titleEl, wdiv)
@@ -1286,7 +1292,7 @@ widgetGenerators['cgi2'] = {
     'variant': {
         'width': '100%',
         'height': 'unset',
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var titleEl = makeModuleDescUrlTitle("cancer_genome_interpreter")
             var title = 'Cancer Genome Interpreter'
             var dl = getEl('dl')
@@ -1307,7 +1313,7 @@ widgetGenerators['cgi2'] = {
             var table = getWidgetTableFrame();
             table.setAttribute("id", "newtable");
             addEl(div, table);
-            var thead = getWidgetTableHead(['Number of Resistant Effects', 'Number of Responsive Effects', 'Number of Other Effects']);
+            var thead = getWidgetTableHead(['Number of Drug Resistant Effects', 'Number of Drug Responsive Effects', 'Number of Other Effects']);
             addEl(table, thead);
             var tbody = getEl('tbody');
             addEl(table, tbody);
@@ -1327,21 +1333,21 @@ widgetGenerators['cgi2'] = {
             var table = getWidgetTableFrame();
             table.setAttribute("id", "newtable");
             addEl(div, table);
-            var thead = getWidgetTableHead(['Response', "Drug Name", 'Guidelines', 'PMID', 'Disease', 'Study' ]);
+            var thead = getWidgetTableHead(['Drug Response', "Drug Name", 'Guidelines', 'Reference', 'Disease', 'Study']);
             addEl(table, thead);
             var tbody = getEl('tbody');
             addEl(table, tbody);
-            for (var i in all){
+            for (var i in all) {
                 var annotation = all[i]
                 var response = annotation[0]
                 var study = annotation[1]
                 var drug = annotation[2]
                 var guidelines = annotation[3]
                 var pmid = annotation[4]
-                var disease  = annotation[5]
+                var disease = annotation[5]
                 var tr = getWidgetTableTr2([response, drug, guidelines, pmid, disease, study]);
-                    addEl(tbody, tr);
-                    addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
+                addEl(tbody, tr);
+                addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
             }
             addDlRow(dl, '', wdiv)
         }
@@ -1357,7 +1363,7 @@ widgetGenerators['target2'] = {
         'width': undefined,
         'height': undefined,
         'word-break': 'break-word',
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var titleEl = makeModuleDescUrlTitle("target")
             var title = 'Target'
             var dl = getEl('dl')
@@ -1396,7 +1402,7 @@ widgetGenerators['dann_coding'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1409,7 +1415,7 @@ widgetGenerators['fathmm'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1422,7 +1428,7 @@ widgetGenerators['fathmm_mkl'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1435,7 +1441,7 @@ widgetGenerators['fathmm_xf_coding'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1448,7 +1454,7 @@ widgetGenerators['lrt'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1461,7 +1467,7 @@ widgetGenerators['metalr'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1474,7 +1480,7 @@ widgetGenerators['mutation_assessor'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1487,7 +1493,7 @@ widgetGenerators['metasvm'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1500,7 +1506,7 @@ widgetGenerators['mutationtaster2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1513,7 +1519,7 @@ widgetGenerators['provean'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1526,7 +1532,7 @@ widgetGenerators['revel2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
         }
     }
 }
@@ -1539,7 +1545,7 @@ widgetGenerators['polyphen2hdiv'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {}
+        'function': function (div, row, tabName) { }
     }
 }
 
@@ -1551,7 +1557,7 @@ widgetGenerators['polyphen2hvar'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {}
+        'function': function (div, row, tabName) { }
     }
 }
 
@@ -1563,7 +1569,7 @@ widgetGenerators['provean2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {}
+        'function': function (div, row, tabName) { }
     }
 }
 
@@ -1575,7 +1581,7 @@ widgetGenerators['vest2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {}
+        'function': function (div, row, tabName) { }
     }
 }
 
@@ -1587,7 +1593,7 @@ widgetGenerators['sift2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {}
+        'function': function (div, row, tabName) { }
     }
 }
 
@@ -1601,7 +1607,7 @@ widgetGenerators['clingen2'] = {
         'width': undefined,
         'height': undefined,
         'word-break': 'normal',
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var title = 'ClinGen Gene'
             var dl = getEl('dl')
             addEl(div, dl)
@@ -1654,7 +1660,7 @@ widgetGenerators['dgi2'] = {
     'gene': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var titleEl = makeModuleDescUrlTitle("dgi")
             var title = 'DGIdb: The Drug Interaction Database'
             var dl = getEl('dl')
@@ -1676,7 +1682,7 @@ widgetGenerators['dgi2'] = {
                 addEl(div, table);
                 table.style.tableLayout = 'auto';
                 table.style.width = '100%';
-                var thead = getWidgetTableHead(['Category', 'Interaction', 'Drug Name', 'Score', 'ChEMBL ID', 'Pubmed']);
+                var thead = getWidgetTableHead(['Category', 'Interaction', 'Drug Name', 'Score', 'ChEMBL ID', 'Pubmed'], ["16%", "16%", "16%", "16%", "16%", "16%"]);
                 addEl(table, thead);
                 var tbody = getEl('tbody');
                 for (var i = 0; i < allMappings.length; i++) {
@@ -1711,7 +1717,7 @@ widgetGenerators['cgc2'] = {
     'gene': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var titleEl = makeModuleDescUrlTitle("cgc")
             var title = 'CGC'
             var dl = getEl('dl')
@@ -1725,23 +1731,23 @@ widgetGenerators['cgc2'] = {
             var ttg = getWidgetData(tabName, 'cgc', row, 'ttg');
             var gene_link = getWidgetData(tabName, 'cgc', row, 'link');
             var link = 'https://cancer.sanger.ac.uk/cosmic/gene/analysis?ln=' + gene_link
-                var sdiv = getEl('div')
-                sdiv.style.maxWidth = '70rem'
-                sdiv.style.minWidth = '30rem'
-                sdiv.style.maxHeight = '250px'
-                sdiv.style.overflow = 'auto'
-                sdiv.style.marginRight = '5rem'
-                var table = getWidgetTableFrame();
-                table.setAttribute("id", "newtable");
-                addEl(div, table);
-                var thead = getWidgetTableHead(['Driver Class', 'Inheritence', 'Tumor Types Somatic', 'Tumor Types Germline', 'Link']);
-                addEl(table, thead);
-                var tbody = getEl('tbody');
-                addEl(table, tbody);
-                var tr = getWidgetTableTr2([driver_class, inheritance, tts, ttg, link], [gene_link]);
-                addEl(tbody, tr);
-                addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
-                addDlRow(dl, titleEl, wdiv)
+            var sdiv = getEl('div')
+            sdiv.style.maxWidth = '70rem'
+            sdiv.style.minWidth = '30rem'
+            sdiv.style.maxHeight = '250px'
+            sdiv.style.overflow = 'auto'
+            sdiv.style.marginRight = '5rem'
+            var table = getWidgetTableFrame();
+            table.setAttribute("id", "newtable");
+            addEl(div, table);
+            var thead = getWidgetTableHead(['Driver Class', 'Inheritence', 'Tumor Types Somatic', 'Tumor Types Germline', 'Link']);
+            addEl(table, thead);
+            var tbody = getEl('tbody');
+            addEl(table, tbody);
+            var tr = getWidgetTableTr2([driver_class, inheritance, tts, ttg, link], [gene_link]);
+            addEl(tbody, tr);
+            addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
+            addDlRow(dl, titleEl, wdiv)
         }
     }
 }
@@ -1754,7 +1760,7 @@ widgetGenerators['basepanel'] = {
     'variant': {
         'width': '100%',
         'height': '100%',
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var generator = widgetGenerators['base2']['variant'];
             var divs = showWidget('base2', ['base', 'dbsnp', 'thousandgenomes', 'gnomad', 'uniprot'], 'variant', div, null, null, false);
             div.style.backgroundColor = "white"
@@ -1771,7 +1777,7 @@ widgetGenerators['swissprot_binding2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var dl = getEl('dl')
             addEl(div, dl)
             var titleEl = makeModuleDescUrlTitle("swissprot_binding")
@@ -1820,7 +1826,7 @@ widgetGenerators['swissprot_domains2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var dl = getEl('dl')
             addEl(div, dl)
             var wdiv = getEl('div')
@@ -1860,7 +1866,7 @@ widgetGenerators['swissprot_ptm2'] = {
     'variant': {
         'width': undefined,
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var dl = getEl('dl')
             addEl(div, dl)
             var wdiv = getEl('div')
@@ -1908,14 +1914,14 @@ widgetGenerators['cancerassocpanel'] = {
     'variant': {
         'width': null,
         'height': null,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var divs = showWidget('cgc2', ['cgc'], 'gene', div, null, null, false);
             var divs = showWidget('cosmic2', ['cosmic'], 'variant', div, null, null, false);
             var divs = showWidget('cgi2', ['cancer_genome_interpreter'], 'variant', div, null, null, false);
             var divs = showWidget('target2', ['target'], 'variant', div, null, null, false);
             var divs = showWidget('civic2', ['civic'], 'variant', div, null, null, false);
             var divs = showWidget('chasmplus2', ['chasmplus'], 'variant', div, null, null, false);
-            var divs = showWidget('cscape_coding', ['cscape_coding'], 'variant', div, null, null, false);
+            var divs = showWidget('cscape', ['cscape'], 'variant', div, null, null, false);
         }
     }
 }
@@ -1928,7 +1934,7 @@ widgetGenerators['predictionpanel'] = {
     'variant': {
         'width': '100%',
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var dl = getEl('dl')
             dl.style.width = 'calc(100% - 1rem)'
             addEl(div, dl)
@@ -2345,13 +2351,13 @@ widgetGenerators['predictionpanel'] = {
                     score.classList.add('pred_score');
                 }
                 var td = document.createElement('td');
-                
+
                 if (p != null && p.includes('Damaging') || p == 'Medium' || p == 'Disease Causing') {
                     dam_count = dam_count + 1;
                     pred.classList.add('pred_damaging');
                 } else if (p != null) {
                     tol_count = tol_count + 1;
-                    
+
                     pred.classList.add('pred_tol');
                 }
                 var a = getEl('a')
@@ -2377,7 +2383,7 @@ widgetGenerators['predictionpanel'] = {
             var chartDiv = getEl('canvas');
             var span = getEl('span')
             span.innerHTML = tol_count + "/" + total_count + " Tolerated"
-            
+
             addEl(sdiv, chartDiv);
             addEl(sdiv, span)
             var chart = new Chart(chartDiv, {
@@ -2422,7 +2428,7 @@ widgetGenerators['functionalpanel'] = {
     'variant': {
         'width': '100%',
         'height': undefined,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var dl = getEl('dl')
             dl.style.width = 'calc(100% - 1rem)'
             addEl(div, dl)
@@ -2445,7 +2451,7 @@ widgetGenerators['clinpanel'] = {
     'variant': {
         'width': null,
         'height': null,
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var dl = getEl('dl')
             dl.style.width = 'calc(100% - 1rem)'
             addEl(div, dl)
@@ -2473,7 +2479,7 @@ widgetGenerators['clinpanel'] = {
 
             var button2 = document.createElement('button');
 
-            button2.onclick = function() {
+            button2.onclick = function () {
                 pharm()
             };
             button2.innerHTML = 'Pharmacogenomics';
@@ -2493,7 +2499,7 @@ widgetGenerators['clinpanel'] = {
             ssdiv.style.display = 'none'
             addEl(div, ssdiv)
             var divs = showWidget('dgi2', ['dgi'], 'gene', ssdiv, null, null, false);
-            var pharm = function() {
+            var pharm = function () {
                 img2.classList.remove('triangle-down')
                 var mydiv = document.getElementById('contentss');
                 if (mydiv.style.display === 'none' || mydiv.style.display === '') {
@@ -2507,13 +2513,13 @@ widgetGenerators['clinpanel'] = {
     }
 }
 
-const getHugoAchange = function() {
+const getHugoAchange = function () {
     return annotData['base']['hugo'] + ' ' + changeAchange3to1(annotData['base']['achange'])
 }
-const getNoAnnotMsgVariantLevel = function() {
+const getNoAnnotMsgVariantLevel = function () {
     return 'No annotation available for ' + getHugoAchange()
 }
-const prettyVal = function(val) {
+const prettyVal = function (val) {
     if (val == '') {
         return val
     } else if (val < 0.01 && val > -0.01) {
@@ -2523,7 +2529,7 @@ const prettyVal = function(val) {
     }
 }
 
-const addDlRow = function(dl, title, content) {
+const addDlRow = function (dl, title, content) {
     var ddiv = getEl('div')
     var dt = getEl('dt')
     if (typeof title == 'string') {
@@ -2545,7 +2551,7 @@ const addDlRow = function(dl, title, content) {
     addEl(dl, ddiv)
 }
 
-const makeA = function(text, url) {
+const makeA = function (text, url) {
     var a = getEl('a')
     a.href = url
     a.textContent = text
@@ -2559,7 +2565,7 @@ widgetGenerators['allelefreqpanel'] = {
     'variant': {
         'width': undefined,
         'height': 'unset',
-        'function': function(div, row, tabName) {
+        'function': function (div, row, tabName) {
             var dl = getEl('dl')
             dl.style.width = 'calc(100% - 1rem)'
             addEl(div, dl)
@@ -2620,13 +2626,13 @@ widgetGenerators['allelefreqpanel'] = {
                     },
                     options: {
                         animation: {
-                            onComplete: function() {
+                            onComplete: function () {
                                 var ctx = this.chart.ctx
                                 ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily)
                                 ctx.fillStyle = this.chart.config.options.defaultFontColor
                                 ctx.textAlign = 'center'
                                 ctx.textBaseline = 'bottom'
-                                this.data.datasets.forEach(function(dataset) {
+                                this.data.datasets.forEach(function (dataset) {
                                     for (var i = 0; i < dataset.data.length; i++) {
                                         var model = dataset._meta[
                                             Object.keys(dataset._meta)[0]].data[i]._model;
@@ -2713,13 +2719,13 @@ widgetGenerators['allelefreqpanel'] = {
                     },
                     options: {
                         animation: {
-                            onComplete: function() {
+                            onComplete: function () {
                                 var ctx = this.chart.ctx
                                 ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily)
                                 ctx.fillStyle = this.chart.config.options.defaultFontColor
                                 ctx.textAlign = 'center'
                                 ctx.textBaseline = 'bottom'
-                                this.data.datasets.forEach(function(dataset) {
+                                this.data.datasets.forEach(function (dataset) {
                                     for (var i = 0; i < dataset.data.length; i++) {
                                         var model = dataset._meta[
                                             Object.keys(dataset._meta)[0]].data[i]._model;
@@ -2788,13 +2794,13 @@ function processUrl() {
 }
 
 function setupEvents() {
-    document.querySelector('#input_variant').addEventListener('keyup', function(evt) {
+    document.querySelector('#input_variant').addEventListener('keyup', function (evt) {
         evt.stopPropagation();
         if (evt.keyCode == 13) {
             document.querySelector('#input_submit').click();
         }
     });
-    document.querySelector("body").addEventListener("click", function(evt) {
+    document.querySelector("body").addEventListener("click", function (evt) {
         var tooltipdiv = document.querySelector("#tooltipdiv")
         if (tooltipdiv != null) {
             if (tooltipdiv.classList.contains("show")) {
@@ -2817,7 +2823,7 @@ function hideContentDiv() {
     document.querySelector('#detaildiv_variant').style.display = 'none';
 }
 
-function showSearch () {
+function showSearch() {
     document.querySelector('#inputdiv').style.display = 'flex';
 }
 
@@ -2838,6 +2844,6 @@ function run() {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
     run();
 }
