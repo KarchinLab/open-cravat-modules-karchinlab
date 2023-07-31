@@ -1,18 +1,20 @@
 title: Rank Score Comparison
-version: 1.0.2
+version: 1.1.0
 type: webviewerwidget
 required_annotator: base
 description: Rank Score Comparison webviewer widget
 requires_opencravat: '>=2.2.1'
 developer:
-  name: Madison Larsen
-  organization: In Silico Solutions
-  email: mlarsen@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
 release_note:
+  1.1.0: Bug fix and small revamping
   1.0.2: Bug fix
   1.0.1: width of widget is dynamic
   1.0.0: Initial release
+private: true

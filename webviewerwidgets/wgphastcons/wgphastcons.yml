@@ -1,17 +1,18 @@
 title: Phast Cons
-version: 1.1.0
+version: 1.1.1
 type: webviewerwidget
 required_annotator: phastcons
 description: phastCons web viewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
 hidden: true
 requires_opencravat: '>=1.7.0'
 release_note:
+  1.1.1: shows mamm and primate results.
   1.1.0: works with single variant page in oc 1.7.0.
