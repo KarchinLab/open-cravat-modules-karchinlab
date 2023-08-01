@@ -1,4 +1,4 @@
-datasource: 2023.07.01
+datasource: 2023.08.01
 description: Provides descriptions and linkouts to CIViC
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
@@ -33,8 +33,9 @@ tags:
 - literature
 title: CIViC Gene
 type: annotator
-version: 2023.07.01
+version: 2023.08.01
 release_note:
+  2023.08.01: Monthly data update
   2023.07.01: Monthly data update
   2023.06.01: Monthly data update
   2023.04.01: Update CIViC Gene annotator to use the new monthly snapshots and GraphQL
