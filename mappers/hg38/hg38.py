@@ -32,7 +32,7 @@ MAPPING_AALEN_I = 5
 MAPPING_GENENAME_I = 6
 MAPPING_CODING_I = 7
 MAPPING_MANESELECT_I = 8
-
+MAPPING_EXONNO_I = 9
 
 def basenum_to_base(n):
     if n == ADENINENUM:
@@ -1142,7 +1142,7 @@ class Mapper(cravat.BaseMapper):
                 if transcripttypeno == TRANSCRIPTTYPENO_NMD:
                     so += (SO_NMD,)
                 primarytr = genename in self.primary_transcript and tr.split(".")[0] == self.primary_transcript[genename]
-                mapping = (uniprot, achange, so, tr, cchange, alen, genename, coding, primarytr)
+                mapping = (uniprot, achange, so, tr, cchange, alen, genename, coding, primarytr, exonno)
                 if genename not in all_mappings:
                     all_mappings[genename] = []
                 all_mappings[genename].append(mapping)
@@ -1173,7 +1173,7 @@ class Mapper(cravat.BaseMapper):
                 cchange = ""
                 coding = NONCODING
                 primarytr = genename in self.primary_transcript and tr.split(".")[0] == self.primary_transcript[genename]
-                mapping = (uniprot, achange, so, tr, cchange, alen, genename, coding, primarytr)
+                mapping = (uniprot, achange, so, tr, cchange, alen, genename, coding, primarytr, exonno)
                 if genename not in all_mappings:
                     all_mappings[genename] = []
                 all_mappings[genename].append(mapping)
@@ -1190,6 +1190,20 @@ class Mapper(cravat.BaseMapper):
             crx_data["so"] = sonum_to_so[max(primary_mapping[MAPPING_SO_I])]
         crx_data["achange"] = primary_mapping[MAPPING_ACHANGE_I]
         crx_data["cchange"] = primary_mapping[MAPPING_CCHANGE_I]
+        if type(primary_mapping[MAPPING_EXONNO_I]) == str:
+            crx_data["exonno"] = None
+        elif primary_mapping[MAPPING_EXONNO_I] >= 0:
+            if SO_SPL in primary_mapping[MAPPING_SO_I]:
+                crx_data["exonno"] = primary_mapping[MAPPING_EXONNO_I] + 2
+            elif SO_INT in primary_mapping[MAPPING_SO_I]:
+                crx_data["exonno"] = None
+            else:
+                crx_data["exonno"] = primary_mapping[MAPPING_EXONNO_I] + 1
+        else:
+            crx_data["exonno"] = None
+        crx_data["gposend"] = gposend
+        if var_type == INS:
+            crx_data["gposend"] += lenalt-1
         amd = {}
         for genename in sorted(all_mappings.keys()):
             amd[genename] = []
@@ -5812,7 +5826,7 @@ class Mapper(cravat.BaseMapper):
                         primary_mappings[hugo] = mapping
                     elif _compare_mapping(primary_mappings[hugo], mapping) < 0:
                         primary_mappings[hugo] = mapping
-        primary_mapping = ("", "", (SO_NSO,), "", "", -1, "", "", False)
+        primary_mapping = ("", "", (SO_NSO,), "", "", -1, "", "", False, "", "")
         for hugo, mapping in primary_mappings.items():
             if _compare_mapping(primary_mapping, mapping) < 0:
                 primary_mapping = mapping
