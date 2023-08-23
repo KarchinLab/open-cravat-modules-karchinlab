@@ -5,10 +5,10 @@ required_annotator: base
 required_resource: bam
 description: igv.js integration into Open-CRAVAT
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Developers
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: "James T. Robinson, Helga Thorvaldsd\xF3ttir, Wendy Winckler, Mitchell\
     \ Guttman, Eric S. Lander, Gad Getz, Jill P. Mesirov. Integrative Genomics Viewer.\
     \ Nature Biotechnology 29, 24\u201326 (2011)\nHelga Thorvaldsd\xF3ttir, James\
@@ -18,6 +18,7 @@ developer:
 tags:
 - visualization
 release_note:
+  1.2.0: add some tracks and highlight current variant
   1.1.0: works with single variant page in oc 1.7.0.
   1.0.4: supports hg18 and other genomes
-requires_opencravat: '>=1.7.0'
+requires_opencravat: '>=2.4.1'

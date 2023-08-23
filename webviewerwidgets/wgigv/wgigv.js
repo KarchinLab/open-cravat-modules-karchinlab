@@ -15,6 +15,7 @@ widgetGenerators['igv'] = {
                 var chrom = null;
                 var pos = null;
                 var genome = null;
+                var endpos = null;
                 if (typeof(infomgr) == 'undefined') {
                     genome = 'hg38';
                 } else {
@@ -23,11 +24,23 @@ widgetGenerators['igv'] = {
                 if (genome != 'hg38') {
                     chrom = getWidgetData(tabName, genome, row, 'chrom');
                     pos = getWidgetData(tabName, genome, row, 'pos');
+                    endpos = getWidgetData(tabName, 'base', row, 'gposend');
                 } else {
                     chrom = getWidgetData(tabName, 'base', row, 'chrom');
                     pos = getWidgetData(tabName, 'base', row, 'pos');
+                    endpos = getWidgetData(tabName, 'base', row, 'gposend');
                 }
                 var locus = chrom + ':' + pos;
+                self.variables.browser.clearROIs();
+                self.variables.browser.loadROI([{
+                    name: "Variant",
+                    color: "rgba(3,52,249,0.25)",
+                    features: [{
+                            chr: chrom,
+                            start: pos-1,
+                            end: endpos,
+                    }]
+                }],)
                 self['variables']['browser'].search(locus);
                 return;
             }
@@ -187,6 +200,7 @@ widgetGenerators['igv'] = {
             var chrom = null;
             var pos = null;
             var genome = null;
+            var endpos = null;
             if (typeof(infomgr) == 'undefined') {
                 genome = 'hg38';
             } else {
@@ -195,19 +209,61 @@ widgetGenerators['igv'] = {
             if (genome != 'hg38') {
                 chrom = getWidgetData(tabName, genome, row, 'chrom');
                 pos = getWidgetData(tabName, genome, row, 'pos');
+                endpos = getWidgetData(tabName, 'base', row, 'gposend');
             } else {
                 chrom = getWidgetData(tabName, 'base', row, 'chrom');
                 pos = getWidgetData(tabName, 'base', row, 'pos');
+                endpos = getWidgetData(tabName, 'base', row, 'gposend');
             }
             var locus = chrom + ':' + pos;
-            var options = {locus: locus, genome: genome};
+            console.log(chrom);
+            console.log(pos);
+            console.log(endpos);
+            var options = {
+                locus: locus,
+                reference:{
+                    "id": "hg38",
+                    "name": "Human (GRCh38/hg38)",
+                    "fastaURL": "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg38/hg38.fa",
+                    "indexURL": "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg38/hg38.fa.fai",
+                    "cytobandURL": "https://s3.amazonaws.com/igv.broadinstitute.org/annotations/hg38/cytoBandIdeo.txt",
+                },
+                tracks: [
+                    {
+                        url: 'https://s3.amazonaws.com/igv.org.genomes/hg38/gencode.v40.annotation.gff3.gz',
+                        indexURL: "https://s3.amazonaws.com/igv.org.genomes/hg38/gencode.v40.annotation.gff3.gz.tbi",
+                        name: 'GENCODE',
+                    },
+                    {
+                        url: 'http://hgdownload.soe.ucsc.edu/gbdb/hg38/gdcCancer/gdcCancer.bb',
+                        name: 'TCGA Pan-Can',
+                    },
+                    {
+                        url: 'http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP100way/hg38.phyloP100way.bw',
+                        name: 'PhyloP 100way'
+                    },
+                    {
+                        url: 'http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons100way/hg38.phastCons100way.bw',
+                        name: 'phastCons 100way'
+                    }
+                ],
+                roi: [{
+                        name: "Variant",
+                        color: "rgba(3,52,249,0.25)",
+                        features: [{
+                                chr: chrom,
+                                start: pos-1,
+                                end: endpos,
+                        }]
+                    }],
+            };
             setTimeout(function () {
                 igv.createBrowser(drawDiv, options).then(function (b) {
-                    self['variables']['browser'] = b;
-                    document.getElementById('igv_draw_variant').getElementsByClassName('igv-content-div')[0].style.height = 'auto';
-                });
-                self['variables']['drawn'] = true;
-            }, 1000);
-		}
+                            self['variables']['browser'] = b;
+                            document.getElementById('igv_draw_variant').getElementsByClassName('igv-content-div')[0].style.height = 'auto';
+                        });
+                        self['variables']['drawn'] = true;
+                    }, 1000);
+            }
 	}
 }
