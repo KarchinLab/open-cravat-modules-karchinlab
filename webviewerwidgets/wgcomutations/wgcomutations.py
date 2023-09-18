@@ -5,24 +5,39 @@ from collections import OrderedDict
 
 async def get_data (queries):
     dbpath = queries['dbpath']
+    use_filtered = eval(queries['use_filtered'])
     conn = await aiosqlite.connect(dbpath)
     cursor = await conn.cursor()
-
     hugos = []
-    q = 'select variant.base__hugo, count(*) from variant, variant_filtered where variant.base__coding=="Y" and variant.base__uid=variant_filtered.base__uid and variant.base__hugo is not null group by variant.base__hugo'
-    await cursor.execute(q)
+    query = 'select variant.base__hugo, count(*)'
+    if use_filtered:
+        from_str = ' from variant, variant_filtered '
+        where = 'where variant.base__uid=variant_filtered.base__uid and '
+    else:
+        from_str = ' from variant '
+        where = 'where '
+    where += 'variant.base__coding=="Y" and variant.base__hugo is not null group by variant.base__hugo'
+    query += from_str + where
+    await cursor.execute(query)
     for row in await cursor.fetchall():
         hugo = row[0]
         if hugo == '':
             continue
         hugos.append(hugo)
-
     genesample = {}
     totalsamples = set()
     for hugo in hugos:
         num_sample = set()
-        q = 'select variant.tagsampler__samples from variant, variant_filtered where variant_filtered.base__uid = variant.base__uid and variant.base__hugo ="' + hugo + '"'
-        await cursor.execute(q)
+        query = 'select variant.tagsampler__samples'
+        if use_filtered:
+            from_str = ' from variant, variant_filtered '
+            where = 'where variant.base__uid=variant_filtered.base__uid and '
+        else:
+            from_str = ' from variant '
+            where = 'where '
+        where += 'variant.base__hugo ="' + hugo + '"'
+        query += from_str + where
+        await cursor.execute(query)
         rows = await cursor.fetchall()
         if rows:
             for row in rows:
