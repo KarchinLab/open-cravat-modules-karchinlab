@@ -1,5 +1,5 @@
 title: UCSC Genome Browser
-version: 1.0.0
+version: 1.1.0
 type: annotator
 level: variant
 input_format: crx
@@ -8,7 +8,7 @@ output_columns:
 - name: link
   title: Link
   type: string
-  link_format: http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&position=${.*}
+  link_format: ${.*}
   width: 60
 
 description: Link to UCSC Genome Browser
@@ -20,3 +20,5 @@ developer:
   website: 'https://genome.ucsc.edu/'
   citation: ' UCSC Genome Browser: Kent WJ, Sugnet CW, Furey TS, Roskin KM, Pringle TH, Zahler AM, Haussler D. The human genome browser at UCSC. Genome Res. 2002 Jun;12(6):996-1006.'
 
+release_note:
+  1.1.0: highlight variant
