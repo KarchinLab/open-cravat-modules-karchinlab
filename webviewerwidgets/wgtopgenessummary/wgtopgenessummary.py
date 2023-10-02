@@ -3,6 +3,7 @@ import os
 
 async def get_data (queries):
     # hugo - aalen
+    use_filtered = eval(queries['use_filtered'])
     dbpath = os.path.join(os.path.dirname(__file__), 
                           'data',
                           'wgtopgenessummary.sqlite')
@@ -31,8 +32,16 @@ async def get_data (queries):
         return response
 
     gene_var_perc = {}
-    q = 'select variant.base__hugo, count(*) from variant, variant_filtered where variant.base__coding=="Y" and variant.base__uid=variant_filtered.base__uid and variant.base__hugo is not null group by variant.base__hugo'
-    await cursor.execute(q)
+    query = 'select variant.base__hugo, count(*)'
+    if use_filtered:
+        from_str = ' from variant, variant_filtered '
+        where = 'where variant.base__uid=variant_filtered.base__uid and '
+    else:
+        from_str = ' from variant '
+        where = 'where '
+    where += 'variant.base__coding=="Y" and variant.base__hugo is not null group by variant.base__hugo'
+    query += from_str + where
+    await cursor.execute(query)
     for row in await cursor.fetchall():
         hugo = row[0]
         if hugo == '':
@@ -46,8 +55,17 @@ async def get_data (queries):
 
     genesampleperc = {}
     for hugo in extracted_hugos:
-        q = 'select count(distinct(sample.base__sample_id)) from sample, variant, variant_filtered where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and variant.base__hugo="' + hugo + '"'
-        await cursor.execute(q)
+        query = 'select count(distinct(sample.base__sample_id))'
+        if use_filtered:
+            from_str = ' from sample, variant, variant_filtered '
+            where = 'where variant.base__uid=variant_filtered.base__uid and '
+        else:
+            from_str = ' from sample, variant '
+            where = 'where '
+        where += 'sample.base__uid=variant.base__uid and variant.base__hugo="' + hugo + '"'
+        query += from_str + where
+        # q = 'select count(distinct(sample.base__sample_id)) from sample, variant, variant_filtered where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and variant.base__hugo="' + hugo + '"'
+        await cursor.execute(query)
         num_sample = (await cursor.fetchone())[0]
         if num_sample == 0:
             continue

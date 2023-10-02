@@ -2,7 +2,7 @@ import aiosqlite
 import os
 import math
 
-async def get_data_for_sos (sos, name_prefix, cursor):
+async def get_data_for_sos (sos, name_prefix, cursor, use_filtered):
     hg38_chroms = [
         '1', '2', '3', '4', '5', '6', '7', 
         '8', '9', '10', '11', '12', '13', '14', 
@@ -45,12 +45,7 @@ async def get_data_for_sos (sos, name_prefix, cursor):
         for binno in range(no_bins):
             bins.append({'genes': [], 'count': 0})
         count_data[chrom] = bins
-    table = 'variant'
-    filter_table = 'variant_filtered'
-    query = 'select name from sqlite_master where type="table" and name="' + filter_table + '"'
-    await cursor.execute(query)
-    r = await cursor.fetchone()
-    if r is not None:
+    if use_filtered:
         from_str = ' from variant, variant_filtered '
         where = 'where variant.base__uid=variant_filtered.base__uid and ('
     else:
@@ -98,13 +93,14 @@ async def get_data_for_sos (sos, name_prefix, cursor):
 
 async def get_data (queries):
     response = {}
+    use_filtered = eval(queries['use_filtered'])
     dbpath = queries['dbpath']
     conn = await aiosqlite.connect(dbpath)
     cursor = await conn.cursor()
     data = {}
     sos = ['MIS', 'CSS', 'IIV', 'IDV', 'STL', 'SPL', 'STG', 'FSI', 'FI1', 'FI2', 'FSD', 'FD1', 'FD2']
     prefix = 'Non-silent'
-    data_sos = await get_data_for_sos(sos, prefix, cursor)
+    data_sos = await get_data_for_sos(sos, prefix, cursor, use_filtered)
     '''
     if len(data_sos) == 1:
         data_sos.append({'chr': '22', 'start': '1000000', 'end': '1000001', 'name': '', 'value': '0'})
@@ -112,7 +108,7 @@ async def get_data (queries):
     data[prefix] = data_sos
     sos = ['MIS']
     prefix = 'Missense'
-    data_sos = await get_data_for_sos(sos, prefix, cursor)
+    data_sos = await get_data_for_sos(sos, prefix, cursor, use_filtered)
     '''
     if len(data_sos) == 1:
         data_sos.append({'chr': '22', 'start': '1000000', 'end': '1000001', 'name': '', 'value': '0'})
@@ -120,7 +116,7 @@ async def get_data (queries):
     data[prefix] = data_sos
     sos = ['FSI', 'FI1', 'FI2', 'FSD', 'FD1', 'FD2', 'STG', 'STL', 'SPL']
     prefix = 'Inactivating'
-    data_sos = await get_data_for_sos(sos, prefix, cursor)
+    data_sos = await get_data_for_sos(sos, prefix, cursor, use_filtered)
     '''
     if len(data_sos) == 1:
         data_sos.append({'chr': '22', 'start': '1000000', 'end': '1000001', 'name': '', 'value': '0'})

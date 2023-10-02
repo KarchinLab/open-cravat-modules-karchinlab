@@ -1,5 +1,5 @@
 title: Gene Ontology Summary
-version: 2.3.0
+version: 2.4.0
 type: webviewerwidget
 requires_opencravat: '>=2.0.2'
 required_annotator: base
@@ -7,12 +7,13 @@ requires:
 - go
 description: Gene Ontology Summary webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: support@cravat.us
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT
+  organization: KarchinLab
+  email: cravat@support.us
+  website:
   citation: ''
 release_note:
+  2.4.0: Use variant_filtered table only when available
   2.3.0: F or mfo for aspect
   2.2.0: new color scheme
   2.1.1: bug fix
@@ -23,3 +24,4 @@ release_note:
   1.0.4: auto hide for no coding variant
 tags:
 - visualization
+private: true

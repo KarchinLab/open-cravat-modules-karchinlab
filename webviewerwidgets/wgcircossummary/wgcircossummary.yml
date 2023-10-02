@@ -1,5 +1,5 @@
 title: Circos Summary
-version: 2.1.1
+version: 2.2.0
 requires_opencravat: '>=2.0.2'
 required_annotator: base
 type: webviewerwidget
@@ -11,6 +11,7 @@ developer:
   website:
   citation: ''
 release_note:
+  2.2.0: Use variant_filtered table only when available
   2.1.1: Updated d3.js package
   2.1.0: New color scheme
   2.0.2: aiosqlite instead of aiosqlite3
@@ -22,3 +23,4 @@ release_note:
   1.1.1: prevents an error with one histogram bar for a SO class.
 tags:
 - visualization
+private: true

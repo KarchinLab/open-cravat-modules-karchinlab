@@ -51,7 +51,7 @@ async def get_data (queries):
         'unknown':'Unknown'
     }
     '''
-    
+    use_filtered = eval(queries['use_filtered'])
     dbpath = queries['dbpath']
     conn = await aiosqlite.connect(dbpath)
     cursor = await conn.cursor()
@@ -65,15 +65,21 @@ async def get_data (queries):
         await conn.close()
         return response
     samples.sort()
-    
     q = 'select subdict from variant_reportsub where module="base"'
     await cursor.execute(q)
     r = await cursor.fetchone()
     so_dic = json.loads(r[0])['so']
     so_dic[None] = 'Intergenic'
     so_dic[''] = 'Intergenic'
-    q = 'select distinct variant.base__so from variant, variant_filtered where variant.base__uid=variant_filtered.base__uid'
-    await cursor.execute(q)
+    if use_filtered:
+        from_str = ' from variant, variant_filtered '
+        where = 'where variant.base__uid=variant_filtered.base__uid'
+    else:
+        from_str = 'from variant '
+        where = ''
+    query = 'select distinct variant.base__so '
+    query += from_str + where
+    await cursor.execute(query)
     sos = [so_dic[v[0]] for v in await cursor.fetchall()]
     sos.sort()
     
@@ -85,8 +91,16 @@ async def get_data (queries):
     
     for i in range(len(samples)):
         sample = samples[i]
-        q = 'select variant.base__so, count(*) from variant, variant_filtered, sample where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id="' + sample + '" group by variant.base__so order by variant.base__so'
-        await cursor.execute(q)
+        query = 'select variant.base__so, count(*)'
+        if use_filtered:
+            from_str = ' from variant, variant_filtered, sample '
+            where = 'where variant.base__uid=variant_filtered.base__uid and '
+        else:
+            from_str = 'from variant, sample '
+            where = 'where '
+        where += 'sample.base__uid=variant.base__uid and sample.base__sample_id="' + sample + '" group by variant.base__so order by variant.base__so'
+        query += from_str + where
+        await cursor.execute(query)
         for row in await cursor.fetchall():
             (so, count) = row
             so = so_dic[so]

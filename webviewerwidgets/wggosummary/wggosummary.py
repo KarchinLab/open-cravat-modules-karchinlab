@@ -6,6 +6,7 @@ info = au.get_local_module_info('go')
 path = info.directory
 
 async def get_data (queries):
+    use_filtered = eval(queries['use_filtered'])
     response = {}
     dbpath = queries['dbpath']
     if 'numgo' in queries:
@@ -17,29 +18,17 @@ async def get_data (queries):
     cursor = await conn.cursor()
 
     hugos = []
-
-    table = 'gene_filtered'
-    query = 'select name from sqlite_master where type="table" and ' +\
-        'name="' + table + '"'
-    await cursor.execute(query)
-    r = await cursor.fetchone()
-    if r is not None:
-        query = 'select distinct base__hugo from ' + table
-        await cursor.execute(query)
-        hugos = [v[0] for v in await cursor.fetchall() if len(v[0].strip()) > 0]
+    query = 'select distinct base__hugo'
+    if use_filtered:
+        table = "gene_filtered"
     else:
-        table = 'gene'
-        query = 'select name from sqlite_master where type="table" and ' +\
-            'name="' + table + '"'
-        await cursor.execute(query)
-        r = await cursor.fetchone()
-        if r is not None:
-            query = 'select distinct base__hugo from ' + table
-            await cursor.execute(query)
-            hugos = [v[0] for v in await cursor.fetchall() if len(v[0].strip()) > 0]
+        table = "gene"
+    query = 'select distinct base__hugo from ' + table
+    await cursor.execute(query)
+    hugos = [v[0] for v in await cursor.fetchall() if len(v[0].strip()) > 0]
+    await cursor.execute(query)
     await cursor.close()
     await conn.close()
-
     if hugos == []:
         return response
 
