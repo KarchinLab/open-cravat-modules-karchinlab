@@ -1,7 +1,7 @@
 title: Recurrently Mutated Genes
 version: 2.3.0
 type: webviewerwidget
-requires_opencravat: '>=2.0.2'
+requires_opencravat: '>=2.4.2'
 required_annotator: base
 description: Top Genes Summary webviewer widget
 developer:
@@ -19,4 +19,3 @@ release_note:
   1.2.0: works with oc 1.8.1.
 tags:
 - visualization
-private: true
