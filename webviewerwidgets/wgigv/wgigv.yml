@@ -1,5 +1,5 @@
 title: IGV
-version: 1.1.0
+version: 1.2.0
 type: webviewerwidget
 required_annotator: base
 required_resource: bam
