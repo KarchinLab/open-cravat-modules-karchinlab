@@ -3,7 +3,7 @@ version: 1.0.0
 type: webviewerwidget
 tags:
 - visualization
-requires_opencravat: '>=2.0.2'
+requires_opencravat: '>=2.4.2'
 required_annotator: base
 description: Mutation Burden per Sample webviewer widget
 developer:

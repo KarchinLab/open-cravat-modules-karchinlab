@@ -1,7 +1,7 @@
 title: Sequence Ontology Sample Summary
 version: 2.2.0
 type: webviewerwidget
-requires_opencravat: '>=2.0.2'
+requires_opencravat: '>=2.4.2'
 required_annotator: base
 description: Sequence Ontology Sample Summary webviewer widget
 developer:
@@ -27,4 +27,3 @@ release_note:
   1.1.5: truncates long labels.
 tags:
 - visualization
-private: true
