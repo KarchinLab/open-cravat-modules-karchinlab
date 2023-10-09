@@ -4,6 +4,7 @@ import json
 
 async def get_data (queries):
     dbpath = queries['dbpath']
+    use_filtered = eval(queries['use_filtered'])
     conn = await aiosqlite.connect(dbpath)
     cursor = await conn.cursor()
 
@@ -22,9 +23,16 @@ async def get_data (queries):
     for row in rows:
         sets[row[0]] = row[1].split(";")
 
-
-    q = 'select DISTINCT clinvar__sig from variant, variant_filtered where variant_filtered.base__uid = variant.base__uid and clinvar__sig is not null;'
-    await cursor.execute(q)
+    query = 'select DISTINCT clinvar__sig'
+    if use_filtered:
+        from_str = ' from variant, variant_filtered '
+        where = 'where variant.base__uid=variant_filtered.base__uid and '
+    else:
+        from_str = ' from variant '
+        where = 'where '
+    where += 'clinvar__sig is not null'
+    query += from_str + where
+    await cursor.execute(query)
     counts = {}
     perc = {}
     for row in await cursor.fetchall():
@@ -40,12 +48,21 @@ async def get_data (queries):
             data[cohort] = []
             genesampleperc = {}
             genesamplecount = {}
-            q = f'select clinvar__sig, count(distinct(sample.base__sample_id)) from  variant, variant_filtered, sample, cohorts where clinvar__sig is not null and variant_filtered.base__uid = variant.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}"  group by clinvar__sig;'
+            query = 'select clinvar__sig, count(distinct(sample))'
+            if use_filtered:
+                from_str = ' from variant, variant_filtered, sample, cohorts '
+                where = 'where variant.base__uid=variant_filtered.base__uid and '
+            else:
+                from_str = ' from variant, sample, cohorts '
+                where = 'where '
+            where += f'sample in (select tagsampler__samples from variant) and clinvar__sig is not null  and cohorts.cohort = "{cohort}"  group by clinvar__sig'
+            query += from_str + where
             for count in counts:
                 counts[count] = 0
                 perc[count] = 0
-            await cursor.execute(q)
+            await cursor.execute(query)
             rows = await cursor.fetchall()
+
             if rows:
                 for row in rows:
                     counts[row[0]] = row[1]

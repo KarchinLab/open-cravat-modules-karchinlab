@@ -4,13 +4,24 @@ import datetime
 
 async def get_data (queries):
     dbpath = queries['dbpath']
+    use_filtered = eval(queries['use_filtered'])
     conn = await aiosqlite.connect(dbpath)
     cursor = await conn.cursor()
 
     # Select what top 10 genes to extract
     gene_var_perc = {}
-    q = 'select variant.base__hugo, count(*) from variant, variant_filtered where variant.base__coding=="Y" and variant.base__uid=variant_filtered.base__uid and variant.base__hugo is not null group by variant.base__hugo'
-    await cursor.execute(q)
+    # q = 'select variant.base__hugo, count(*) from variant, variant_filtered where variant.base__coding=="Y" and variant.base__uid=variant_filtered.base__uid and variant.base__hugo is not null group by variant.base__hugo'
+    # await cursor.execute(q)
+    query = 'select variant.base__hugo, count(*)'
+    if use_filtered:
+        from_str = ' from variant, variant_filtered '
+        where = 'where variant.base__uid=variant_filtered.base__uid and '
+    else:
+        from_str = ' from variant '
+        where = 'where '
+    where += 'variant.base__coding=="Y" and variant.base__hugo is not null group by variant.base__hugo;'
+    query += from_str + where
+    await cursor.execute(query)
     for row in await cursor.fetchall():
         hugo = row[0]
         if hugo == '':
@@ -46,8 +57,18 @@ async def get_data (queries):
             data[cohort] = []
             genesampleperc = []
             genesamplecount = []
-            q = f'select variant.base__hugo, count(distinct(sample.base__sample_id)) from sample, variant, variant_filtered, cohorts where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}" and variant.base__hugo in {tuple_extracted_hugo} group by variant.base__hugo;'
-            await cursor.execute(q)
+            query = 'select variant.base__hugo, count(distinct(sample.base__sample_id))'
+            if use_filtered:
+                from_str = ' from variant, variant_filtered, sample, cohorts'
+                where = 'where variant.base__uid=variant_filtered.base__uid and '
+            else:
+                from_str = ' from variant, sample, cohorts '
+                where = 'where '
+            where += f'sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}" and variant.base__hugo in {tuple_extracted_hugo} group by variant.base__hugo;'
+            query += from_str + where
+            await cursor.execute(query)
+            # q = f'select variant.base__hugo, count(distinct(sample.base__sample_id)) from sample, variant, variant_filtered, cohorts where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}" and variant.base__hugo in {tuple_extracted_hugo} group by variant.base__hugo;'
+            # await cursor.execute(q)
             rows = (await cursor.fetchall())
             for row in rows:
                 num_sample = row[1]

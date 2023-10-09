@@ -50,6 +50,7 @@ async def get_data (queries):
     '''
     
     dbpath = queries['dbpath']
+    use_filtered = eval(queries['use_filtered'])
     conn = await aiosqlite.connect(dbpath)
     cursor = await conn.cursor()
  
@@ -60,16 +61,31 @@ async def get_data (queries):
     so_dic = json.loads(r[0])['so']
     so_dic[None] = 'Intergenic'
     so_dic[''] = 'Intergenic'
-    q = 'select distinct variant.base__so from variant, variant_filtered where variant.base__uid=variant_filtered.base__uid'
-    await cursor.execute(q)
+    query = 'select distinct variant.base__so'
+    if use_filtered:
+        from_str = ' from variant, variant_filtered '
+        where = 'where variant.base__uid=variant_filtered.base__uid and '
+    else:
+        from_str = ' from variant '
+        where = ''
+    query += from_str + where
+    await cursor.execute(query)
     sos = [so_dic[v[0]] for v in await cursor.fetchall()]
     sos.sort()
  
     #select cohorts
     sets = {}
     num_total_samples = {}
-    q = 'select cohort, count(sample.base__sample_id) from sample, variant, variant_filtered, cohorts where variant.base__coding = "Y" and variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample group by cohort;'
-    await cursor.execute(q)
+    query = 'select cohort, count(distinct(sample.base__sample_id))'
+    if use_filtered:
+        from_str = ' from variant, variant_filtered, sample, cohorts '
+        where = 'where variant.base__uid=variant_filtered.base__uid and '
+    else:
+        from_str = ' from variant, sample, cohorts '
+        where = 'where '
+    where += 'variant.base__coding=="Y" and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample group by cohort'
+    query += from_str + where
+    await cursor.execute(query)
     sets['default'] = []
     for row in await cursor.fetchall():
         sets['default'].append(row[0])
@@ -88,6 +104,8 @@ async def get_data (queries):
         'indel': ["INI", "IND"]
     }
     #retrieve data within each cohort
+
+    # print(num_total_samples)
     responses = {}
     for _set in sets:
         
@@ -107,12 +125,31 @@ async def get_data (queries):
                     select_group = "('" + so_group[0] + "')"
                 else:
                     select_group = tuple(so_group)
-                q = f'select c, count(*) from (select variant.base__hugo, variant.base__cchange, cohorts.sample, variant.base__so as c from variant, variant_filtered, sample, cohorts where variant.base__uid=variant_filtered.base__uid and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{c}") as t where c in {select_group} group by c;'
-                await cursor.execute(q)
+                query = 'select c, count(*) from (select variant.base__hugo, variant.base__cchange, cohorts.sample, variant.base__so as c'
+                if use_filtered:
+                    from_str = ' from variant, variant_filtered, sample, cohorts '
+                    where = 'where variant.base__uid=variant_filtered.base__uid and '
+                else:
+                    from_str = ' from variant, sample, cohorts '
+                    where = 'where '
+                where += f'sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{c}" group by cohorts.sample, c) as t where c in {select_group} group by c'
+                query += from_str + where
+                await cursor.execute(query)
+
                 rows = (await cursor.fetchall())
                 for row in rows:
                     sosample_perc[so_dic[row[0]]] = (row[1] / num_total_samples[c]) * 100
                     sosample_counts[so_dic[row[0]]] = row[1]
+                query = 'select count(distinct(samp))from (select variant.base__hugo, variant.base__cchange, cohorts.sample as samp, variant.base__so as c'
+                if use_filtered:
+                    from_str = ' from variant, variant_filtered, sample, cohorts '
+                    where = 'where variant.base__uid=variant_filtered.base__uid and '
+                else:
+                    from_str = ' from variant, sample, cohorts '
+                    where = 'where '
+                where += f'sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{c}" and c in {select_group} group by cohorts.sample, c)'
+                query += from_str + where
+                await cursor.execute(query)
                 groups[group] = {'so_percent': sosample_perc, 'so_counts': sosample_counts}
             respd[c].append(groups)
         responses[_set].append(respd)

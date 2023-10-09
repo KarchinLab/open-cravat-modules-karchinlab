@@ -139,7 +139,6 @@ widgetGenerators['mutationburden_cohort'] = {
                     autosize: false
                 }
             };
-
             Plotly.newPlot(wrapperDiv, data, layout);
             addEl(chartDiv, wrapperDiv)
             var container = getEl("div")
