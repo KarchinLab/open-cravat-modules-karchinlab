@@ -3,6 +3,7 @@ from cravat import BaseAnnotator
 from cravat import InvalidData
 import sqlite3
 import os
+import time
 
 class CravatAnnotator(BaseAnnotator):    
     def annotate(self, input_data, secondary_data=None):
@@ -54,10 +55,6 @@ class CravatAnnotator(BaseAnnotator):
                 out = {'transcript': all_transcripts, 'score': max_score, 'rankscore': worst_rankscore,'impact': worst_impact, 'all': all_results_list}
                 return out
     
-    def cleanup(self):
-        self.conn.close()
-        pass
-        
 if __name__ == '__main__':
     annotator = CravatAnnotator(sys.argv)
     annotator.run()

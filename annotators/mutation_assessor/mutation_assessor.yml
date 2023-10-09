@@ -4,7 +4,7 @@ description: Mutation Assessor is a database providing prediction of the functio
 developer:
   citation: Reva, B., Antipin, Y., & Sander, C. (2007). Determinants of protein function
     revealed by combinatorial entropy optimization. Genome biology, 8(11), R232.
-  email: support@cravat.us
+  email: support@opencravat.org
   name: Chris Sander
   organization: Memorial Sloan-Kettering Cancer Center
   website: http://mutationassessor.org/r3/about.php
@@ -60,8 +60,9 @@ tags:
 - variants
 title: Mutation Assessor
 type: annotator
-version: 3.1.0
+version: 3.1.1
 release_note:
   3.1.0: query now uses gene and protein level annotation.
+  3.1.1: fix bug during cleanup method
 requires:
 - wgmutation_assessor
