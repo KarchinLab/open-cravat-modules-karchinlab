@@ -64,7 +64,7 @@ async def get_data (queries):
     query = 'select distinct variant.base__so'
     if use_filtered:
         from_str = ' from variant, variant_filtered '
-        where = 'where variant.base__uid=variant_filtered.base__uid and '
+        where = 'where variant.base__uid=variant_filtered.base__uid '
     else:
         from_str = ' from variant '
         where = ''
@@ -96,7 +96,6 @@ async def get_data (queries):
     for row in rows:
         sets[row[0]] = row[1].split(";")
     
-    # print(num_total_samples)
 
     sos_groups = {
         'lof': ["FSI", "FSD", "STG", "STL", "SPL"],
@@ -105,7 +104,6 @@ async def get_data (queries):
     }
     #retrieve data within each cohort
 
-    # print(num_total_samples)
     responses = {}
     for _set in sets:
         
@@ -149,6 +147,7 @@ async def get_data (queries):
                     where = 'where '
                 where += f'sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{c}" and c in {select_group} group by cohorts.sample, c)'
                 query += from_str + where
+                # print(query)
                 await cursor.execute(query)
                 groups[group] = {'so_percent': sosample_perc, 'so_counts': sosample_counts}
             respd[c].append(groups)

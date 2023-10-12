@@ -48,14 +48,14 @@ async def get_data (queries):
             data[cohort] = []
             genesampleperc = {}
             genesamplecount = {}
-            query = 'select clinvar__sig, count(distinct(sample))'
+            query = 'select clinvar__sig, count(distinct(sample)) '
             if use_filtered:
                 from_str = ' from variant, variant_filtered, sample, cohorts '
                 where = 'where variant.base__uid=variant_filtered.base__uid and '
             else:
                 from_str = ' from variant, sample, cohorts '
                 where = 'where '
-            where += f'sample in (select tagsampler__samples from variant) and clinvar__sig is not null  and cohorts.cohort = "{cohort}"  group by clinvar__sig'
+            where += f'clinvar__sig is not null and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}"  group by clinvar__sig;'
             query += from_str + where
             for count in counts:
                 counts[count] = 0

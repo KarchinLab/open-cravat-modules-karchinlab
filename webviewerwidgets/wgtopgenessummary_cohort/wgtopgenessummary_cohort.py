@@ -59,7 +59,7 @@ async def get_data (queries):
             genesamplecount = []
             query = 'select variant.base__hugo, count(distinct(sample.base__sample_id))'
             if use_filtered:
-                from_str = ' from variant, variant_filtered, sample, cohorts'
+                from_str = ' from variant, variant_filtered, sample, cohorts '
                 where = 'where variant.base__uid=variant_filtered.base__uid and '
             else:
                 from_str = ' from variant, sample, cohorts '
@@ -76,6 +76,7 @@ async def get_data (queries):
                 genesamplecount.append(num_sample)
             data[cohort] = {'topgene_percent': genesampleperc, 'topgene_counts': genesamplecount}
         response[_set].append(data)
+
     await cursor.close()
     await conn.close()
     return {"data":{ 'counts': response,'hugos': extracted_hugos}}
