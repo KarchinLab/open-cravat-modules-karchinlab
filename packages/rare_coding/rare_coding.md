@@ -5,7 +5,7 @@ or deletion results in an alteration of protein amino acid sequence produced by 
 substitutions, indel related sequence loss or gain, stop/start loss, stop/start gain, frame shifts, and splicing related sequence changes.  Synonymous 
 variants that do not alter protein sequence are excluded.
 
-The gnomAD3 annotator is used to determine variant allele frequency.  Only variants occuring in the general population less than 1% of the time are included.
+The gnomAD3 annotator is used to determine variant allele frequency.  Only variants occurring in the general population less than 1% of the time are included.
 Note: A review of population specific allele frequency may be appropriate as a variant could occur at higher rates in specific sub-populations.
 
 NCBI Gene, dbSNP, and GO annotators are included in the package to provide additional context for the variants but are not used for filtering.
@@ -21,7 +21,7 @@ Source Annotators:
 
  
 Filter:  
-- Non-synonymous protein coding varaints
+- Non-synonymous protein coding variants
 AND
 - gnomAD global population allele frequency < 1% 
 

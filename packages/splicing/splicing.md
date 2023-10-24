@@ -1,7 +1,7 @@
 # Splicing: Package that identifies variants that are likely to alter mRNA splicing patterns.
 
 This package combines multiple methods and applies filters to select variants that are likely to disrupt mRNA transcript splicing (cryptic splicing).
-Changes in mRNA splicing will often alter the resulting protein sequenc unless the change is in an untransalted region of the mRNA.  UTR changes may 
+Changes in mRNA splicing will often alter the resulting protein sequence unless the change is in an untranslated region of the mRNA.  UTR changes may 
 still alter gene regulation.  
 
 The SpliceAI annotator is a deep neural network that accurately predicts splice junctions from an arbitrary pre-mRNA transcript sequence, enabling precise 
@@ -14,10 +14,10 @@ The dbscSNV includes all potential human SNVs within splicing consensus regions 
 adaptive boosting and random forests, were used to construct models that take advantage of individual methods. Both models further improved prediction,
  with outputs of directly interpretable prediction scores.
 
-The filtering inclues just those variants with scores >= 0.5 for gain or losss of donors or acceptors from SpliceAI or a score >= 0.6 from either dbsnSNV adaptive 
+The filtering includes just those variants with scores >= 0.5 for gain or loss of donors or acceptors from SpliceAI or a score >= 0.6 from either dbsnSNV adaptive 
 boosting or random forest predictors.
 
-The display in OpenCRAVAT results viewer has been optimized for display of pathogenitic analysis.  The filter criterion may be modified on the filter tab.
+The display in OpenCRAVAT results viewer has been optimized for display of pathogenic analysis.  The filter criterion may be modified on the filter tab.
 
 Source Annotators:
 - SpliceAI

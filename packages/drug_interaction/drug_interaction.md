@@ -1,13 +1,13 @@
-# Drug Interaction: Package that identifies variants with potential impact on drug responce.
+# Drug Interaction: Package that identifies variants with potential impact on drug response.
 
-This package integrates several sources of information on genetic variation and drug responce. Variants with a clinical significance in ClinVar of drug responce
+This package integrates several sources of information on genetic variation and drug response. Variants with a clinical significance in ClinVar of drug response
 or an annotation in PharmGKB are included in the output.  Variants that change the coding sequence of a gene with known drug interactions from DGIdb are also included.
 
-The result viewer layout in the packages has been optimized for review of drug response information and the filter used may be adjused on the Filter tab.
+The result viewer layout in the packages has been optimized for review of drug response information and the filter used may be adjusted on the Filter tab.
 
 Source Annotators:
 - ClinVar - Clinical Variant Annotation
-- PharmGKB - database of genetic variants associated with altered responce to medications
+- PharmGKB - database of genetic variants associated with altered response to medications
 - DGIdb - Drug Interaction database
  
 Filter:  

@@ -1,12 +1,12 @@
 # Pathogenic: Package that identifies variants disease related variants.
 
 This package identifies variants that have been annotated as being associated with disease.  The primary source for this package is ClinVar.  Variants
-designated as pathogentic or a risk factor in ClinVar are selected by this package.  ClinVar ACMG follows established guidelines to select additional 
+designated as pathogenic or a risk factor in ClinVar are selected by this package.  ClinVar ACMG follows established guidelines to select additional 
 variants that have not been identified as pathogenic but alter the same amino acid that has been shown to cause disease.  DenovoDB and the GWAS Catalog
-are also surveyed to identify additional potental disease releted variants.  ClinGen is include to provide additional context for selected variants but 
+are also surveyed to identify additional potential disease related variants.  ClinGen is included to provide additional context for selected variants but 
 is not used in filtering.
 
-The display in OpenCRAVAT results viewer has been optimized for display of pathogenitic analysis.  The filter criterion may be modified on the filter tab.
+The display in OpenCRAVAT results viewer has been optimized for display of pathogenic analysis.  The filter criterion may be modified on the filter tab.
 
 Source Annotators:
 - ClinVar
