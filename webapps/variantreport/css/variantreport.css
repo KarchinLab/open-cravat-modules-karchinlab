@@ -2,6 +2,15 @@
   /*display: none;*/
 }
 
+#variant_input_boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
 .detaildiv.singlevariantpage {
 }
 
@@ -97,7 +106,7 @@
   background-image: url("banner.png");
   background-size: 100% 100%;
   width: 100%;
-  min-height: 90px;
+  min-height: 110px;
 }
 
 #logodiv > div {

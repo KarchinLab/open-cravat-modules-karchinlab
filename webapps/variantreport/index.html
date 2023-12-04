@@ -22,16 +22,17 @@
         <div id='logodiv'>
             <div>
                 <div id='inputdiv'>
-                <input id="input_variant" name="inputVariant" style="width: 18vh; height: 2vw; min-height: 30px;">
+                <div id="variant_input_boxes">
+                    <input id="input_variant_chrom" name="inputVariantChrom" placeholder="Chromosome">
+                    <input id="input_variant_pos" name="inputVariantPos" placeholder="Position">
+                    <input id="input_variant_ref" name="inputVariantRef" placeholder="Reference Allele">
+                    <input id="input_variant_alt" name="inputVariantAlt" placeholder="Alternate Allele">
+                </div>
                 <div style="width: 2.8ex;"></div>
                 <br>
-                <button id="input_submit" class="input_directions" onclick="submitForm();" style="width: 18vh; height: 2vw; cursor: pointer; 
+                <button id="input_submit" class="input_directions" onclick="submitForm();" style="width: 10vh; height: 2vw; cursor: pointer; 
                     margin-bottom: 3px; min-height: 30px;">
-                    Update annotation</button>
-                <div id = "questionMark"></div>
-                <span id = "directions">Type a variant and enter or click the Update annotation button. The syntax of a 
-                    variant is chromosome, position, reference allele, and alternate allele, 
-                    concatenated with a colon. Strand is assumed to be plus. For example, chr17:39724004:C:G</span>
+                    Submit</button>
                 </div>
             </div>
             <div>
