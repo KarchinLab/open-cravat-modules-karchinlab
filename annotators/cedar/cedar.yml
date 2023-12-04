@@ -1,0 +1,23 @@
+title: CEDAR
+version: 1.0.0
+type: annotator
+level: variant
+
+input_format: crx
+
+output_columns:
+- name: epi_id
+  title: IEDB ID
+  type: string
+  width: 55
+  link_format: https://cedar.iedb.org/epitope/${.*}
+
+description: Annotations from the Cancer Epitope Database
+
+developer:
+  name: ''
+  organization: ''
+  email: ''
+  website: ''
+  citation: ''
+
