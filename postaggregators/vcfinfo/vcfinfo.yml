@@ -11,42 +11,66 @@ output_columns:
   width: 70
   desc: Phred quality score
   filterable: false
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__phred
 - name: filter
   title: VCF filter
   type: string
   width: 70
   category: multi
   filterable: false
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__filter
 - name: zygosity
   title: Zygosity
   type: string
   width: 100
   category: multi
   filterable: false
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__zygosity
 - name: alt_reads
   title: Alternate reads
   type: string
   width: 60
   filterable: false
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__alt_reads
 - name: tot_reads
   title: Total reads
   type: string
   width: 70
   filterable: false
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__tot_reads
 - name: af
   title: Variant AF
   type: string
   width: 90
   filterable: false
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__af
 - name: hap_block
   title: Haplotype block ID
   type: int
   width: 90
   filterable: false
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__hap_block
 - name: hap_strand
   title: Haplotype strand ID
   type: int
   width: 90
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__hap_strand
   filterable: false
 description: Writes VCF file information extracted by converter
 developer:
