@@ -235,15 +235,15 @@ widgetGenerators['igv'] = {
                         name: 'GENCODE',
                     },
                     {
-                        url: 'http://hgdownload.soe.ucsc.edu/gbdb/hg38/gdcCancer/gdcCancer.bb',
+                        url: 'https://karchinlab.org/wgigvdata/gdcCancer.bb',
                         name: 'TCGA Pan-Can',
                     },
                     {
-                        url: 'http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP100way/hg38.phyloP100way.bw',
+                        url: 'https://karchinlab.org/wgigvdata/hg38.phyloP100way.bw',
                         name: 'PhyloP 100way'
                     },
                     {
-                        url: 'http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons100way/hg38.phastCons100way.bw',
+                        url: 'https://karchinlab.org/wgigvdata/hg38.phastCons100way.bw',
                         name: 'phastCons 100way'
                     }
                 ],
