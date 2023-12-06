@@ -42,9 +42,9 @@ smartfilters:
     test: hasData
 
 developer:
-  name: ''
-  organization: ''
-  email: ''
-  website: ''
-  citation: ''
+  name: 'CEDAR Team'
+  organization: 'IEDB'
+  email: 'support@opencravat.org'
+  website: 'cedar.iedb.org'
+  citation: 'Koşaloğlu-Yalçın Z, Blazeska N, Vita R, Carter H, Nielsen M, Schoenberger S, Sette A, Peters B. The Cancer Epitope Database and Analysis Resource (CEDAR). Nucleic Acids Res. 2023 Jan 6;51(D1):D845-D852. doi: 10.1093/nar/gkac902. PMID: 36250634; PMCID: PMC9825495'
 
