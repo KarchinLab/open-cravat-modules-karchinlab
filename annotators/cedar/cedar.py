@@ -7,6 +7,7 @@ import csv
 from pathlib import Path
 import json
 import re
+from cravat.util import aa_321
 
 class CravatAnnotator(BaseAnnotator):
 
@@ -32,23 +33,20 @@ class CravatAnnotator(BaseAnnotator):
         mappings = json.loads(input_data['all_mappings'])
         for gene in mappings:
             for mapping in mappings[gene]:
-                print(mapping[1])
-                match = re.match(r'p\.[A-Za-z]{3}(\d+)[A-Za-z]{3}',mapping[1])
+                match = re.match(r'p\.([A-Za-z]{3})(\d+)([A-Za-z]{3})',mapping[1])
                 if match:
-                    print(mapping)
-                    apos = match.group(1)
-                    print(apos)
-                    ensp = self.t2p.get(mapping[3])
+                    aa_ref = aa_321[match.group(1)]
+                    aa_pos = int(match.group(2))
+                    aa_alt = aa_321[match.group(3)]
+                    ensp = self.t2p.get(mapping[3].split('.')[0])
                     if ensp:
-                        q = 'select epi_id from {chrom} where apos={apos} and ensp={ensp}'
-                        self.cursor.execute(q)
+                        q = f'select epi_id from {chrom} where ensp=? and aa_pos=? and aa_ref=? and aa_alt=?'
+                        self.cursor.execute(q, (ensp, aa_pos, aa_ref, aa_alt))
                         r = self.cursor.fetchone()
                         if r:
                             out['epi_id'] = r[0]
                             return out
 
-
-    
     def cleanup(self):
         pass
         
