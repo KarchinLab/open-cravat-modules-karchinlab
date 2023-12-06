@@ -1,5 +1,5 @@
 title: Molecular Tumor Board Variant Report
-version: 1.2.4
+version: 1.2.5
 type: webapp
 live_modules:
 - cancer_genome_interpreter
@@ -60,6 +60,7 @@ developer:
   website: http://www.insilico.us.com
   citation: ''
 release_note:
+  1.2.5: temporarily disable cosmic hallmarks query
   1.2.4: fixed a bug with hg19 coordinate
   1.1.0: design revamp
   1.0.1: can use canonical_transcripts.txt to enforce canonical transcripts.

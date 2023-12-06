@@ -367,16 +367,19 @@ async def get_oncokb_annotation (request):
     return response
 
 async def get_hallmarks (request):
-    queries = request.rel_url.query
-    hugo = queries['hugo']
-    if hugo == '':
-        return web.json_response({})
-    url = 'https://cancer.sanger.ac.uk/cosmic/census-page/' + hugo
-    r = requests.get(url)
-    text = r.text[r.text.index('<p class="census-hallmark-desc">') + 32:]
-    func_summary = text[:text.index('<a href=')].strip()
-    content = {'func_summary': func_summary}
-    return web.json_response(content)
+    return web.HTTPServerError(reason='Temporarily disabled to avoid scraping cosmic',
+        text = 'testtesttest'
+    )
+    # queries = request.rel_url.query
+    # hugo = queries['hugo']
+    # if hugo == '':
+    #     return web.json_response({})
+    # url = 'https://cancer.sanger.ac.uk/cosmic/census-page/' + hugo
+    # r = requests.get(url)
+    # text = r.text[r.text.index('<p class="census-hallmark-desc">') + 32:]
+    # func_summary = text[:text.index('<a href=')].strip()
+    # content = {'func_summary': func_summary}
+    # return web.json_response(content)
 
 async def get_litvar (request):
     queries = request.rel_url.query
