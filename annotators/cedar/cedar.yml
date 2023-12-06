@@ -7,12 +7,39 @@ input_format: crx
 
 output_columns:
 - name: epi_id
-  title: IEDB ID
+  title: CEDAR ID
   type: string
-  width: 55
+  width: 70
   link_format: https://cedar.iedb.org/epitope/${.*}
+- name: pubmed_id
+  title: PubMed ID
+  type: string
+  width: 70
+  link_format: https://pubmed.ncbi.nlm.nih.gov/${.*}
+- name: epi_ref
+  title: Reference Epitope
+  desc: Reference epitope sequence
+  type: string
+  width: 80
+  hidden: true
+- name: epi_alt
+  title: Mutated Epitope
+  desc: Neo-epitope sequence
+  type: string
+  width: 80
+  hidden: true
 
 description: Annotations from the Cancer Epitope Database
+
+smartfilters:
+- name: hasdata
+  title: CEDAR
+  description: Only include variants with anotations from CEDAR
+  selector:
+    type: empty
+  filter:
+    column: cedar__epi_id
+    test: hasData
 
 developer:
   name: ''

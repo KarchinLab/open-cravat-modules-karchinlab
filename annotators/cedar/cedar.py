@@ -24,11 +24,16 @@ class CravatAnnotator(BaseAnnotator):
     def annotate(self, input_data, secondary_data=None):
         out = {}
         chrom = input_data['chrom']
-        q = f'select epi_id from {chrom} where pos=? and ref=? and alt=?'
+        q = f'select epi_id, epi_ref, epi_alt, pubmed_id from {chrom} where pos=? and ref=? and alt=?'
         self.cursor.execute(q, (input_data['pos'], input_data['ref_base'], input_data['alt_base']))
         r = self.cursor.fetchone()
         if r:
-            out['epi_id'] = r[0]
+            out = {
+                'epi_id': r[0],
+                'epi_ref': r[1],
+                'epi_alt': r[2],
+                'pubmed_id': r[3],
+            }
             return out
         mappings = json.loads(input_data['all_mappings'])
         for gene in mappings:
@@ -40,11 +45,16 @@ class CravatAnnotator(BaseAnnotator):
                     aa_alt = aa_321[match.group(3)]
                     ensp = self.t2p.get(mapping[3].split('.')[0])
                     if ensp:
-                        q = f'select epi_id from {chrom} where ensp=? and aa_pos=? and aa_ref=? and aa_alt=?'
+                        q = f'select epi_id, epi_ref, epi_alt, pubmed_id from {chrom} where ensp=? and aa_pos=? and aa_ref=? and aa_alt=?'
                         self.cursor.execute(q, (ensp, aa_pos, aa_ref, aa_alt))
                         r = self.cursor.fetchone()
                         if r:
-                            out['epi_id'] = r[0]
+                            out = {
+                                'epi_id': r[0],
+                                'epi_ref': r[1],
+                                'epi_alt': r[2],
+                                'pubmed_id': r[3],
+                            }
                             return out
 
     def cleanup(self):
