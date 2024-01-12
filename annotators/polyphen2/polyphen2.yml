@@ -1,5 +1,5 @@
 title: PolyPhen-2
-version: 2022.10.13
+version: 2024.01.12
 datasource: 2022.10.13
 type: annotator
 level: variant
@@ -150,5 +150,6 @@ tags:
 - variant effect prediction
 - variants
 release-note:
+  2024.01.12: fix to not annotate small indels with len(alt_base) == 1
   1.1.0: table data enabled
 requires_opencravat: '>=2.2.1'

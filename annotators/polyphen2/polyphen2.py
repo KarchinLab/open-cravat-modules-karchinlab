@@ -13,6 +13,8 @@ class CravatAnnotator(BaseAnnotator):
     
     def annotate(self, input_data, secondary_data=None):
         global pred_order
+        if len(input_data['ref_base']) > 1 and not(input_data['ref_base'] == '-'):
+            return
         q = f'select uniprot, hdiv_score, hdiv_rankscore, hdiv_prediction, hvar_score, hvar_rankscore, hvar_prediction, trans from {input_data["chrom"]} where pos=? and alt=?'
         self.cursor.execute(q, (input_data['pos'], input_data['alt_base']))
         rows = self.cursor.fetchall()
