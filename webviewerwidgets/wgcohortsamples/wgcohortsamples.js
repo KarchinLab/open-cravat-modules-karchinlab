@@ -4,6 +4,7 @@ widgetGenerators['cohortsamples'] = {
         'width': 500,
         'height': 400,
         'variables': {},
+        'default_hidden': true,
         'init': function(data) {
             this['variables']['data'] = data;
         },

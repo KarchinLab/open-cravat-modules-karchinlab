@@ -1,24 +1,45 @@
-$.getScript('/result/widgetfile/wgmutationburden_cohort/plotly-2.16.1.min.js', function () { });
+$.getScript('/result/widgetfile/wgmutationburden_cohort/plotly-2.16.1.min.js', function() {});
 widgetGenerators['mutationburden_cohort'] = {
     'cohort': {
         'name': 'Mutation Burden',
-        'width': 780,
+        'width': 800,
         'height': 480,
         'callserver': true,
-        'default_hidden': false,
+        'default_hidden': true,
         'variables': {},
-        'init': function (data) {
+        'init': function(data) {
             this['variables']['data'] = data;
         },
-        'function': function (div, data) {
+        'function': function(div, data) {
             var selectedCohorts = getSelectedCohorts()
+            var cohortColors = getCohortColors()
             selectedCohorts.sort()
             div.style.overflow = "hidden"
             var wrapperDiv = document.createElement('div');
             var chartDiv = document.getElementById("widgetcontentdiv_mutationburden_cohort_cohort");
-            const titles = { "mutation_percent": "Percentage of Non-Silent Mutations", "mutation_counts": "Count of Non-Silent Mutations" }
+            const titles = {
+                "mutation_percent": "Percentage of Non-Silent Mutations",
+                "mutation_counts": "Count of Non-Silent Mutations"
+            }
+
+            function handleClick() {
+                if (this.value == "mutation_counts") {
+                    document.getElementById("mutation_percent").checked = false
+                } else if (this.value == "mutation_percent") {
+                    document.getElementById("mutation_counts").checked = false
+                }
+                handleToggle(this.value)
+            }
+            var gene_data = this['variables']['data']['countData'];
+            var hugos = this['variables']['data']['hugos'];
+            var all_data = []
+            gene_data.map((elem, index) => {
+                elem.backgroundColor = cohortColors[index]
+                all_data.push(elem.data)
+            })
+
             function handleToggle(measure) {
-                var newData = []
+                var new_data = []
                 var layout = {
                     title: titles[measure],
                     annotations: [],
@@ -33,100 +54,46 @@ widgetGenerators['mutationburden_cohort'] = {
                         ticksuffix: ' ',
                         autosize: true
                     }
-                };
-                for (var j in allData) {
-                    if (allData[j].includes(measure)) {
-                        newData.push(allData[j])
-                    }
                 }
-                if (measure == "mutation_percent") {
-                    var data = [
-                        {
-                            z: newData,
-                            x: hugos,
-                            y: selectedCohorts,
-                            type: 'heatmap',
-                            hoverongaps: false,
-                            text: text,
-                            hoverinfo: 'text',
-                        }
-                    ];
-                } else {
-                    var data = [
-                        {
-                            z: newData,
-                            x: hugos,
-                            y: selectedCohorts,
-                            type: 'heatmap',
-                            hoverongaps: false,
-                        }
-                    ];
-                }
-                var config = { responsive: true }
-                Plotly.newPlot(div, data, layout, config);
-            }
-            function handleClick() {
-                if (this.value == "mutation_counts") {
-                    document.getElementById("mutation_percent").checked = false
-                } else if (this.value == "mutation_percent") {
-                    document.getElementById("mutation_counts").checked = false
-                }
-                handleToggle(this.value)
-            }
-            var data = this['variables']['data']['countData'];
-            var cohorts = this['variables']['data']['cohorts']
-            let hugos;
-            for (const [key, value] of Object.entries(cohorts)) {
-                var selected = value.sort()
-                if (JSON.stringify(selected) === JSON.stringify(selectedCohorts)) {
-                    hugos = this['variables']['data']['hugos'][key]
-                }
-            }
-            var allData = []
-            var firstData = []
-            for (var set in data) {
-                var row = data[set][0];
-                if (Object.keys(row).sort().join(',') === selectedCohorts.sort().join(',')) {
-                    for (var cohort in row) {
-                        for (var i in row[cohort]) {
-                            var measure = "mutation_" + i
-                            var counts = []
-                            for (var hugo in hugos) {
-                                var count = row[cohort][i][hugos[hugo]]
-                                counts.push(count)
-                            }
-                            counts.push(measure)
-                            allData.push(counts);
-                            if (i == "percent") {
-                                firstData.push(counts)
-                            }
-                        }
-                    }
-                }
-            }
-            var text = firstData.map((row, i) => row.map((item, j) => {
-                return `${item + "%"}`
-            }))
-            var data = [
 
-                {
-                    z: firstData,
+                if (measure === "mutation_percent") {
+                    gene_data.map(elem => {
+                        new_data.push(elem.perc_data)
+                    })
+                } else {
+                    gene_data.map(elem => {
+                        new_data.push(elem.count_data)
+                    })
+                }
+                var data = [{
+                    z: new_data,
                     x: hugos,
                     y: selectedCohorts,
                     type: 'heatmap',
-                    measure: "percent",
-                    colorscale: 'RdBu',
+                    hoverongaps: false,
                     text: text,
                     hoverinfo: 'text',
-                    
+                }];
+                Plotly.newPlot(wrapperDiv, data, layout);
+            }
 
-                },
-
-            ];
+            var text = all_data.map((row, i) => row.map((item, j) => {
+                return item
+            }))
+            var data = [{
+                z: all_data,
+                x: hugos,
+                y: selectedCohorts,
+                type: 'heatmap',
+                measure: "percent",
+                colorscale: 'RdBu',
+                text: text,
+                hoverinfo: 'text',
+            }, ];
             var layout = {
                 width: 700,
                 annotations: [],
-                title: "Percentage of Non-Silent Mutations",
+                title: "Number of Non-Silent Mutations",
                 xaxis: {
                     ticks: '',
                     side: 'bottom',
@@ -136,7 +103,8 @@ widgetGenerators['mutationburden_cohort'] = {
                 yaxis: {
                     ticks: '',
                     ticksuffix: ' ',
-                    autosize: false
+                    autosize: false,
+                    automargin: true
                 }
             };
             Plotly.newPlot(wrapperDiv, data, layout);
@@ -158,11 +126,11 @@ widgetGenerators['mutationburden_cohort'] = {
             percRadio.id = "mutation_percent"
             percRadio.type = "radio"
             percRadio.value = "mutation_percent"
-            percRadio.checked = true
             var countRadio = document.createElement('input')
             countRadio.type = "radio"
             countRadio.value = "mutation_counts"
             countRadio.id = "mutation_counts"
+            countRadio.checked = true
             addEl(measureDiv, span)
             addEl(measureDiv, percRadio)
             addEl(measureDiv, label)

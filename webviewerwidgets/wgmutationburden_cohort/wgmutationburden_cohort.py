@@ -6,7 +6,6 @@ async def get_data (queries):
     use_filtered = eval(queries['use_filtered'])
     conn = await aiosqlite.connect(dbpath)
     cursor = await conn.cursor()
-
     # Select what top 10 genes to extract
     gene_var_perc = {}
     query = 'select variant.base__hugo, count(*)'
@@ -30,69 +29,56 @@ async def get_data (queries):
     extracted_hugos = sorted_hugos[:num_gene_to_extract]
 
     #select cohorts
-    sets = {}
     num_total_samples = {}
-    q = "select cohort, count(sample) from cohorts group by cohort;"
-    await cursor.execute(q)
-    sets['default'] = []
+    cohort_list = []
+    base_set = []
+    query = 'select cohort, count(distinct(sample.base__sample_id))'
+    if use_filtered:
+        from_str = ' from variant, variant_filtered, sample, cohorts '
+        where = 'where variant.base__uid=variant_filtered.base__uid and '
+    else:
+        from_str = ' from variant, sample, cohorts '
+        where = 'where '
+    where += 'variant.base__coding=="Y" and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample group by cohort'
+    query += from_str + where
+    await cursor.execute(query)
     for row in await cursor.fetchall():
-        sets['default'].append(row[0])
         num_total_samples[row[0]] = row[1]
-        
-    q = "select set_name, cohorts from cohort_set;"
-    await cursor.execute(q)
-    rows = (await cursor.fetchall())
-    for row in rows:
-        sets[row[0]] = row[1].split(";")
-            
-    # num_total_samples[hugo] = row[1]
-    #retrieve data within each cohort
-    response = {}
-    all_sorted = {}
-    cohorts = {}
-    for _set in sets:
-        data = {}
-        response[_set] = []
-        all_sorted[_set] = []
-        cohorts[_set] = []
-        hugos = {}
-        for hugo in extracted_hugos:
-            hugos[hugo] = []
-        for cohort in sets[_set]:
-            data[cohort] = []
-            cohorts[_set].append(cohort)
-            genesamplecount = {}
-            genesampleperc = {}
-            counts_per_gene = num_total_samples[cohort]
-            for hugo in extracted_hugos:
-                query = 'select count(distinct(sample.base__sample_id))'
-                if use_filtered:
-                    from_str = ' from sample, variant, variant_filtered, cohorts'
-                    where = 'where variant.base__uid=variant_filtered.base__uid and '
-                else:
-                    from_str = ' from sample, variant, cohorts '
-                    where = 'where '
-                where += f'variant.base__coding=="Y" and variant.base__so !="SYN" and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}" and variant.base__hugo="{hugo}"'
-                query += from_str + where
-                await cursor.execute(query)
-                rows = (await cursor.fetchall())
-                for row in rows:
-                    num_sample = row[0]
-                    hugos[hugo].append((num_sample / num_total_samples[cohort]) * 100)
-                    genesampleperc[hugo] = round((num_sample / num_total_samples[cohort]) * 100)
-                    genesamplecount[hugo] = num_sample
-            data[cohort] = {'percent': genesampleperc, 'counts': genesamplecount}
-        all_sorted[_set].append(hugos)
-        response[_set].append(data)
+        cohort_list.append(row[0])
+        cohort_info = {
+            'labels': [],
+            'label' : row[0],
+            'data' : [],
+            'count_data': [],
+            'perc_data': []
+        }
+        base_set.append(cohort_info)
+    if len(extracted_hugos) > 1:
+        tuple_extracted_hugo = tuple(extracted_hugos)
+    else:
+        tuple_extracted_hugo =  "('" + extracted_hugos[0] + "')"
     
-    hugo_perc = {}
-    for key, value in all_sorted.items():
-        _hugo_perc = {}
-        hugo_perc[key] = []
-        for k, v in value[0].items():
-            _hugo_perc[k] = max(v) - min(v)
-        sorted_hugos = sorted(_hugo_perc, key=_hugo_perc.get, reverse=True)
-        hugo_perc[key] = sorted_hugos
+    for record in base_set:
+        cohort = record['label']
+        query = 'select variant.base__hugo, count(distinct(sample.base__sample_id))'
+        if use_filtered:
+            from_str = ' from sample, variant, variant_filtered, cohorts'
+            where = ' where variant.base__uid=variant_filtered.base__uid and '
+        else:
+            from_str = ' from sample, variant, cohorts '
+            where = ' where '
+        where += f'variant.base__coding=="Y" and variant.base__so !="SYN" and sample.base__uid=variant.base__uid and sample.base__sample_id=cohorts.sample and cohorts.cohort = "{cohort}" and variant.base__hugo in {tuple_extracted_hugo} group by variant.base__hugo;'
+        query += from_str + where
+        await cursor.execute(query)
+        rows = (await cursor.fetchall())
+        dictionary = {}
+        for key, val in rows:
+            dictionary.setdefault(key, val)
+        sorted_results = [(key, dictionary[key]) if key in dictionary else (key, 0) for key in extracted_hugos ]
+        for row in sorted_results:
+            record['data'].append(row[1])
+            record['count_data'].append(row[1])
+            record['perc_data'].append((row[1] / num_total_samples[cohort]) * 100)
     await cursor.close()
     await conn.close()
-    return {"data": {'countData': response, 'hugos': hugo_perc, 'cohorts': cohorts}}
+    return {"data": {'countData': base_set, 'hugos': extracted_hugos, 'cohorts': cohort_list}}

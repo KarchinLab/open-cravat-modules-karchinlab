@@ -1,13 +1,16 @@
 widgetGenerators['clinvar_cohort'] = {
     'cohort': {
-        'width': 420,
+        'width': 800,
         'height': 780,
+        'top': 400,
+        'left': 200,
         'callserver': true,
+        'default_hidden': true,
         'variables': {},
-        'init': function (data) {
+        'init': function(data) {
             this['variables']['data'] = data;
         },
-        'shoulddraw': function () {
+        'shoulddraw': function() {
             if (this['variables']['data'].length == 0 || this['variables']['data'] == null || infomgr.datas.variant.length > 3000) {
                 return false;
             } else {
@@ -15,30 +18,18 @@ widgetGenerators['clinvar_cohort'] = {
             }
         },
 
-        'function': function (div, dummy) {
-            var colorPalette = {
-                '0': '#ACD39E',
-                '1': '#5AAE61',
-                '2': '#92C5DE',
-                '3': '#D1E5F0',
-                '4': '#F7F7F7',
-                '5': '#FDDBC7',
-                '6': '#F4A582',
-                // '#D6604D',
-                // '#B2182B',
-                // '#762A83',
-                // '#9970AB',
-                // '#C2A5CF',
-            }
-
-            // Set up for % vs # toggling
+        'function': function(div, dummy) {
             div.style.overflowX = "hidden"
             div.style.overflowY = "auto"
+            div.style.display = "flex"
+            div.style.flexDirection = "column"
+            div.style.alignItems = "center"
             var container = getEl("div")
             container.className = "cohorts-toggle"
-            container.style.marginRight = "32px"
-            container.style.top = "14px"
+            container.style.marginLeft = "474px"
+            container.style.top = "676px"
             container.style.position = "sticky"
+            container.style.height = "35px"
             var radioDiv = getEl("div")
             radioDiv.className = "cohorts-radio"
             var span = getEl("span")
@@ -51,11 +42,11 @@ widgetGenerators['clinvar_cohort'] = {
             percRadio.id = "clinvar_percent"
             percRadio.type = "radio"
             percRadio.value = "clinvar_percent"
-            percRadio.checked = true
             var countRadio = document.createElement('input')
             countRadio.type = "radio"
             countRadio.value = "clinvar_counts"
             countRadio.id = "clinvar_counts"
+            countRadio.checked = true
             addEl(radioDiv, span)
             addEl(radioDiv, percRadio)
             addEl(radioDiv, percLabel)
@@ -67,6 +58,8 @@ widgetGenerators['clinvar_cohort'] = {
             document.getElementById("clinvar_percent").addEventListener("click", handleClick);
             document.getElementById("clinvar_counts").addEventListener("click", handleClick);
 
+            let numberofdeleted = new Set();
+
             function handleClick() {
                 if (this.value == "clinvar_counts") {
                     document.getElementById("clinvar_percent").checked = false
@@ -75,158 +68,122 @@ widgetGenerators['clinvar_cohort'] = {
                 }
                 handleToggle(this.value)
             }
-            // Mapping data
-            var response = this['variables']['data']['response'];
-            var sigs = this['variables']['data']['sig']
-            var selectedCohorts = getSelectedCohorts()
-            var colorIndex = []
-            for (var color in selectedCohorts) {
-                colorIndex.push(colorPalette[color])
+
+            const removeFromArray = function(array1, removed) {
+                var filtered = array1.filter(function(value, index, array) {
+                    return !removed.includes(index);
+                });
+                return filtered;
             }
-            var allDatasets = [];
-            var initDatasets = [];
+
+            const keepFromArray = function(array1, removed) {
+                var filtered = array1.filter(function(value, index, array) {
+                    return removed.includes(index);
+                });
+                return filtered;
+            }
+
+            function handleToggle(measure) {
+                var deletedArray = Array.from(numberofdeleted)
+                var count = 0
+                var newData = []
+                all_filtered_data.map((elem, index) => {
+                    var newElem = {
+                        ...elem
+                    }
+                    delete newElem.data;
+                    newElem.data = removeFromArray(measure === "clinvar_counts" ? newElem.count_data : newElem.perc_data, deletedArray)
+                    newElem.labels = removeFromArray(newElem.labels, deletedArray)
+                    newElem.backgroundColor = removeFromArray(newElem.backgroundColor, deletedArray)
+                    newData.push(newElem)
+                })
+                document.querySelectorAll('canvas').forEach((chartItem, index) => {
+                    var canvasID = Chart.instances[index].canvas.id
+                    if (canvasID.includes("clinvar_cohort")) {
+                        var chart = Chart.instances[index]
+                        chart.data.datasets = [newData[count]]
+                        chart.update()
+                        count = count + 1
+                    }
+                })
+            }
+
+            // Mapping data
+            var data = this['variables']['data'];
+            var selectedCohorts = getSelectedCohorts()
+            var cohortsColors = getCohortColors()
             var legendDiv = getEl("div")
             legendDiv.style.position = "sticky"
             legendDiv.style.top = "60px";
             legendDiv.style.height = "10px"
             addEl(div, legendDiv)
-            let index = 0;
-            var options = ['clinvar_percent', 'clinvar_counts']
-            for (var set in response) {
-                var row = response[set];
-                for (var cohort in row) {
-                    var data = row[cohort]
-                    if (Object.keys(data).sort().join(',') === selectedCohorts.sort().join(',')) {
-                        for (var i = 0; i < sigs.length; i++) {
-                            index = index + 1
-                            div.setAttribute("id", "clinvar_cohort")
-                            var chartDiv = getEl('canvas');
-                            chartDiv.setAttribute("id", "clinvar_cohort_" + i)
-                            addEl(div, chartDiv);
-                            addEl(div, getEl("br"))
-                            var sig = sigs[i]
-                            var initDatasets = [];
-                            var firstDatasets = []
-                            for (opt in options) {
-                                var measure = options[opt]
-                                var dataArray = []
-                                for (var j in data) {
-                                    var sigData = data[j][measure]
-                                    var totalData = sigData[sig]
-                                    dataArray.push(totalData)
-                                }
-                                initDatasets.push({
-                                    'label': sig,
-                                    'backgroundColor': colorIndex,
-                                    'data': dataArray,
-                                    'labels': selectedCohorts,
-                                    'measure': measure
-                                })
-                                if (measure == "clinvar_percent") {
-                                    firstDatasets.push({
-                                        'label': sig,
-                                        'backgroundColor': colorIndex,
-                                        'data': dataArray,
-                                        'labels': selectedCohorts,
-                                        'measure': measure
-                                    })
-                                }
-                            }
-                            allDatasets.push(initDatasets)
-                            // For the significance labels on each chart
-                            Chart.pluginService.register({
-                                beforeDraw: function (chart) {
-                                    var width = chart.chart.width
-                                    height = chart.chart.height
-                                    ctx = chart.chart.ctx
-                                    ctx.restore()
-                                    var fontSize = (height / 150).toFixed(2);
-                                    ctx.font = fontSize + "em sans-serif";
-                                    ctx.textAlign = "left";
-                                    ctx.textBaseline = "middle";
-                                    var text = [];
-                                    const label = chart.config.options.title.text
-                                    text.push(Array.isArray(label) ? label.join('<br>') : label);
-                                    text.push('</li>');
-                                    var text = chart.config.options.title.text
-                                    textX = Math.round((width - ctx.measureText(text).width) / 2),
-                                        textY = height / 2;
-                                    var lines = text.split(' ');
-                                    for (var i = 0; i < lines.length; i++) {
-                                        ctx.fillText(lines[i], 4, 18 + (i * 20));
+            var indexes = []
+            var all_filtered_data = []
+            var all_cohorts = data[0].labels
+            for (var cohort in selectedCohorts) {
+                indexes.push(all_cohorts.indexOf(selectedCohorts[cohort]))
+            }
+            for (var set in data) {
+                const extraDiv = getEl("div")
+                extraDiv.classList = "clinvar-cohort-chart"
+                var measure = document.getElementById("clinvar_percent").checked
+                var filtered_data = {
+                    ...data[set]
+                }
+                filtered_data.backgroundColor = cohortsColors
+                filtered_data.data = keepFromArray(measure ? data[set].perc_data : data[set].count_data, indexes)
+                filtered_data.labels = keepFromArray(data[set].labels, indexes)
+                filtered_data.count_data = keepFromArray(data[set].count_data, indexes)
+                filtered_data.perc_data = keepFromArray(data[set].perc_data, indexes)
+                filtered_data.backgroundColor = keepFromArray(cohortsColors, indexes)
+                all_filtered_data.push(filtered_data)
+                div.setAttribute("id", "clinvar_cohort")
+                var chartDiv = getEl('canvas')
+                chartDiv.setAttribute("id", "clinvar_cohort_" + set)
+                var span = getEl("span")
+                span.innerHTML = filtered_data.label
+                addEl(extraDiv, span)
+                addEl(extraDiv, chartDiv);
+                addEl(div, extraDiv)
+                addEl(div, getEl("br"))
+                var chart = new Chart(chartDiv, {
+                    type: 'doughnut',
+                    data: {
+                        labels: selectedCohorts,
+                        datasets: [filtered_data],
+                    },
+                    options: {
+                        responsive: false,
+                        maintainAspectRatio: false,
+                        legend: {
+                            display: false,
+                        },
+                        title: {
+                            text: filtered_data.label,
+                        },
+                        tooltips: {
+                            mode: 'index',
+                            callbacks: {
+                                label: function(tooltipItem, data) {
+                                    var percent = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
+                                    if (countRadio.checked) {
+                                        return percent
+                                    } else {
+                                        percent = percent.toFixed(2);
+                                        return percent + "%"
                                     }
-                                    ctx.save();
-                                }
-                            });
-
-                            var chart = new Chart(chartDiv, {
-                                type: 'doughnut',
-                                data: {
-                                    labels: selectedCohorts,
-                                    datasets: firstDatasets
-                                },
-                                options: {
-                                    responsive: false,
-                                    maintainAspectRatio: false,
-                                    legend: {
-                                        display: false,
-                                    },
-                                    title: {
-                                        text: "  " + sig
-                                    },
-                                    tooltips: {
-                                        mode: 'index',
-                                        callbacks: {
-                                            label: function (tooltipItem, data) {
-
-                                                var percent = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
-
-                                                if (data.datasets[0]['measure'] == "clinvar_counts") {
-                                                    return percent
-                                                } else {
-                                                    percent = percent.toFixed(2);
-                                                    return percent + "%"
-                                                }
-                                            }
-                                        }
-                                    },
-                                },
-                            });
-                        }
-                    }
-                }
-                const titles = { "clinvar_percent": "Percentage of Samples", "clinvar_counts": "Number of Samples" }
-
-                function handleToggle(measure) {
-                    var count = 0
-                    var newData = {}
-                        for (var j = 0; j < allDatasets.length; j++) {
-                            newData[j] = []
-                            for (var k = 0; k < allDatasets[j].length; k++) {
-                                if (allDatasets[j][k]['measure'] == measure) {
-                                    newData[j].push(allDatasets[j][k])
                                 }
                             }
-                        }
-                        document.querySelectorAll('canvas').forEach((chartItem, index) => {
-                            var canvasID = Chart.instances[index].canvas.id
-                            if (canvasID.includes("clinvar")) {
-                                var newIndex = index - index + count
-                                count = count + 1
-                                var chart = Chart.instances[index]
-                                chart.data.datasets = newData[newIndex]
-                                chart.update()
-                            }
-                        })
-                    }
-                }
+                        },
+                    },
+                });
+            }
 
             // Custom legend
             var ul = getEl("ul")
             ul.innerHTML = chart.generateLegend();
             ul.style.position = "relative"
-            ul.style.left = "220px"
-            ul.style.top = "20px"
+            ul.style.left = "240px"
             addEl(legendDiv, ul)
             var legendDict = {}
             var legendItems = ul.getElementsByTagName('li')
@@ -244,52 +201,43 @@ widgetGenerators['clinvar_cohort'] = {
                 spans.style.border = "1px solid lightgray"
                 spans.style.marginRight = "6px"
             }
+
             function legendClickCallback(legendItemIndex) {
                 var count2 = 0
+                var my_new_data = []
+                if (numberofdeleted.has(legendItemIndex)) {
+                    numberofdeleted.delete(legendItemIndex)
+                } else {
+                    numberofdeleted.add(legendItemIndex)
+                }
+
+                var deletedArray = Array.from(numberofdeleted)
+                all_filtered_data.map(elem => {
+                    var newElem = {
+                        ...elem
+                    }
+                    var measure = document.getElementById("clinvar_percent").checked
+                    newElem.data = removeFromArray(measure ? newElem.perc_data : newElem.count_data, deletedArray)
+                    newElem.perc_data = removeFromArray(newElem.perc_data, deletedArray)
+                    newElem.count_data = removeFromArray(newElem.count_data, deletedArray)
+                    newElem.labels = removeFromArray(newElem.labels, deletedArray)
+                    newElem.backgroundColor = removeFromArray(newElem.backgroundColor, deletedArray)
+                    my_new_data.push(newElem)
+                })
                 if (legendDict[legendItemIndex] === false) {
                     legendDict[legendItemIndex] = true
                     legendItems[legendItemIndex].style.textDecoration = "line-through"
-                }
-                else if (legendDict[legendItemIndex] === true) {
+                } else if (legendDict[legendItemIndex] === true) {
                     legendDict[legendItemIndex] = false
                     legendItems[legendItemIndex].style.textDecoration = "none"
                 }
                 document.querySelectorAll('canvas').forEach((chartItem, index) => {
-                    if (document.getElementById("clinvar_percent").checked === true) {
-                        var measure = "clinvar_percent"
-                    } else {
-                        var measure = "clinvar_counts"
-                    }
                     var canvasID = Chart.instances[index].canvas.id
                     if (canvasID.includes("clinvar_cohort")) {
-                        var newIndex = index - index + count2
-                        count2 = count2 + 1
-                        var newData = []
-                        var newLabels = []
-                        var newBg = []
                         var chart = Chart.instances[index]
-                        for (var i = 0; i < allDatasets[newIndex].length; i++) {
-                            var m = allDatasets[newIndex][i]["measure"]
-                            if (m === measure) {
-                                var dataItem = allDatasets[newIndex][i]['data']
-                            }
-                            else {
-                                continue;
-                            }
-                        }
-                        var bg = colorIndex
-                        for (var j in dataItem) {
-                            if (legendDict[j] !== true) {
-                                newData.push(dataItem[j])
-                                newLabels.push(selectedCohorts[j])
-                                newBg.push(bg[j])
-                            }
-                        }
-                        chart.data.datasets[0].data = newData
-                        chart.data.datasets[0].labels = newLabels
-                        chart.data.datasets[0].backgroundColor = newBg
-                        chart.tooltip._data.labels = newLabels
+                        chart.data.datasets = [my_new_data[count2]]
                         chart.update()
+                        count2 = count2 + 1
                     }
                 })
             }

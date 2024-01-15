@@ -5,7 +5,7 @@ widgetGenerators['score_cohort'] = {
         'width': 600,
         'height': 780,
         'callserver': true,
-        'default_hidden': false,
+        'default_hidden': true,
         'variables': {},
         'init': function(data) {
             this['variables']['data'] = data;
