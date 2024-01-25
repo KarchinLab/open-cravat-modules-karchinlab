@@ -1,0 +1,63 @@
+title: AlphaMissense
+version: 1.0.0
+type: annotator
+level: variant
+
+output_columns:
+- name: am_pathogenicity
+  title: Score
+  type: float
+  desc: 'Pathogenicity score. High scores are predicted to be more pathogenic.'
+  width: 70
+- name: am_class
+  title: Class
+  type: string
+  category: single
+  categories:
+  - likely_benign
+  - likely_pathogenic
+  - ambiguous
+  desc: 'Tool provided pathogenicty call'
+  width: 100
+- name: transcript_id
+  title: Transcript
+  type: string
+  desc: 'Scored transcript'
+  hidden: true
+  width: 125
+- name: uniprot_id
+  title: Protein
+  type: string
+  desc: 'Scored protein'
+  hidden: true
+  width: 60
+- name: protein_variant
+  title: Protein Variant
+  type: string
+  desc: 'Scored protein variant'
+  hidden: true
+  width: 60
+
+smartfilters:
+- name: class
+  title: AlphaMissense Class
+  description: 'Select a pathogenicity class'
+  selector:
+    type: select
+    multiple: true
+    optionsColumn: alphamissense__am_class
+    defaultValue: likely_pathogenic
+  filter:
+    column: alphamissense__am_class
+    test: select
+    value: '${value}'
+
+description: Variant pathogenicity scores from AlphaMissense
+
+developer:
+  name: 'Jun Cheng et al.'
+  organization: 'Google DeepMind'
+  email: 'support@opencravat.org'
+  website: ''
+  citation: 'J. Cheng et al., Science 381, eadg7492 (2023). DOI: 10.1126/science.adg7492'
+

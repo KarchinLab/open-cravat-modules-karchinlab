@@ -1,0 +1,5 @@
+# AlphaMissense
+
+AlphaMissense is a deep learning model that builds on the protein structure prediction tool AlphaFold2. The model is trained on population frequency data and uses sequence and predicted structural context, all of which contribute to its performance.
+
+AlphaMissense leverages advances on multiple fronts: (i) unsupervised protein language modeling to learn amino acid distributions conditioned on sequence context; (ii) incorporating structural context by using an AlphaFold-derived system; and (iii) fine-tuning on weak labels from population frequency data, thereby avoiding bias from human-curated annotations. AlphaMissense achieves state-of-the-art missense pathogenicity predictions in clinical annotation, de novo disease variants, and experimental assay benchmarks without explicitly training on such data.
