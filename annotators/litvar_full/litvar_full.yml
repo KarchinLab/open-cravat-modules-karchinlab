@@ -1,0 +1,38 @@
+title: LitVar Full
+
+version: 2.0.0
+
+type: annotator
+
+level: variant
+
+output_columns:
+- name: rsid
+  title: rsID
+  type: string
+  link_format: 'https://www.ncbi.nlm.nih.gov/research/litvar2/docsum?variant=litvar@${.*}%23%23'
+  width: 80
+  desc: Link to LitVar search
+- name: reference_count
+  title: Reference Count
+  type: int
+  width: 80
+  desc: Number of entries in LitVar
+- name: pmids
+  title: PubMed IDs
+  type: string
+  desc: List of PubMed IDs for papers including this variant
+
+description: LitVar allows the search and retrieval of variant relevant information from biomedical literature.
+
+secondary_inputs:
+  dbsnp: {}
+
+developer:
+  name: 'NCBI'
+  organization: 'NCBI'
+  email: 'support@opencravat.org'
+  website: 'https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/LitVar/#!?query='
+  citation: 'Allot, Alexis, et al. "LitVar: a semantic search engine for linking genomic variant data in PubMed and PMC." Nucleic acids research 46.W1 (2018): W530-W536.'
+
+
