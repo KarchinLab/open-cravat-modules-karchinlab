@@ -1,0 +1,24 @@
+# 'title' is the name of the module that will be displayed to the user
+title: Uniprot Domain
+
+version: 1.0.0
+type: annotator
+
+level: variant
+
+output_columns:
+- name: domain
+  title: Domain
+  type: string
+  width: 80
+
+description: Protein domains from UniProt
+
+# developer is you!
+developer:
+  name: 'UniProt'
+  organization: 'EMBL-EBI'
+  email: 'support@opencravat.org'
+  website: 'https://www.uniprot.org/'
+  citation: 'The UniProt Consortium , UniProt: the Universal Protein Knowledgebase in 2023, Nucleic Acids Research, Volume 51, Issue D1, 6 January 2023, Pages D523–D531, https://doi.org/10.1093/nar/gkac1052'
+
