@@ -12,7 +12,7 @@ output_columns:
 - name: rsid
   title: rsID
   type: string
-  link_format: 'https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/LitVar/#!?query=${.*}'
+  link_format: 'https://www.ncbi.nlm.nih.gov/research/litvar2/docsum?variant=litvar@${.*}%23%23'
   width: 80
 
 secondary_inputs:
@@ -21,10 +21,11 @@ secondary_inputs:
 tags:
 - literature
 title: LitVar
-version: 1.1.0
+version: 1.2.0
 type: annotator
 requires:
 - dbsnp
 
 release-note:
+  1.2.0: update link to use LitVar2
   1.1.0: update dbsnp requirement
