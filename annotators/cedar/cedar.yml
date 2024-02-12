@@ -1,0 +1,50 @@
+title: CEDAR
+version: 1.0.0
+type: annotator
+level: variant
+
+input_format: crx
+
+output_columns:
+- name: epi_id
+  title: CEDAR ID
+  type: string
+  width: 70
+  link_format: https://cedar.iedb.org/epitope/${.*}
+- name: pubmed_id
+  title: PubMed ID
+  type: string
+  width: 70
+  link_format: https://pubmed.ncbi.nlm.nih.gov/${.*}
+- name: epi_ref
+  title: Reference Epitope
+  desc: Reference epitope sequence
+  type: string
+  width: 80
+  hidden: true
+- name: epi_alt
+  title: Mutated Epitope
+  desc: Neo-epitope sequence
+  type: string
+  width: 80
+  hidden: true
+
+description: Annotations from the Cancer Epitope Database
+
+smartfilters:
+- name: hasdata
+  title: CEDAR
+  description: Only include variants with anotations from CEDAR
+  selector:
+    type: empty
+  filter:
+    column: cedar__epi_id
+    test: hasData
+
+developer:
+  name: 'CEDAR Team'
+  organization: 'IEDB'
+  email: 'support@opencravat.org'
+  website: 'cedar.iedb.org'
+  citation: 'Koşaloğlu-Yalçın Z, Blazeska N, Vita R, Carter H, Nielsen M, Schoenberger S, Sette A, Peters B. The Cancer Epitope Database and Analysis Resource (CEDAR). Nucleic Acids Res. 2023 Jan 6;51(D1):D845-D852. doi: 10.1093/nar/gkac902. PMID: 36250634; PMCID: PMC9825495'
+
