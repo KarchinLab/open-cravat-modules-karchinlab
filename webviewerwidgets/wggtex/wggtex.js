@@ -1,7 +1,7 @@
 widgetGenerators['gtex'] = {
 	'variant': {
 		'width': 280, 
-		'height': 80, 
+		'height': 120, 
 		'function': function (div, row, tabName) {
 			var genes = getWidgetData(tabName, 'gtex', row, 'gtex_gene');
 			if (genes == null) {
@@ -23,8 +23,8 @@ widgetGenerators['gtex'] = {
 				var geneitr = genels[i];
 				var tissueitr = tissuels[i];
 				tissueitr = tissueitr.replace("_", " ")
-				var ensLink = 'https://ensembl.org/Homo_sapiens/Gene/Summary?g='+geneitr;
-				var tr = getWidgetTableTr([ensLink, tissueitr],[geneitr]);
+				var gtexLink = 'https://www.gtexportal.org/home/gene/'+geneitr;
+				var tr = getWidgetTableTr([gtexLink, tissueitr],[geneitr]);
 				addEl(tbody, tr);
 			}
 			addEl(div, addEl(table, tbody));

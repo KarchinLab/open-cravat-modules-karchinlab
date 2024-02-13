@@ -1,4 +1,4 @@
-datasource: v7
+datasource: v8
 description: Genotype-tissue expression
 developer:
   citation: https://gtexportal.org/home/faq#citePortal
@@ -14,14 +14,18 @@ output_columns:
   title: Target Gene
   type: string
   filterable: false
+  desc: Target gene of the (significant) eQTL SNP
 - filterable: true
   name: gtex_tissue
   title: Tissue Type
   type: string
+  desc: Tissue type of the expression data with which the eQTL/gene pair is detected
 tags:
 - variants
 title: GTEx eQTLs
 type: annotator
-version: 7.0.4
+version: 8.0.0
 requires:
 - wggtex
+release_note:
+  8.0.0: data update to GTEx v8
