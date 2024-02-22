@@ -1,4 +1,4 @@
-datasource: 2018.04.10
+datasource: 2024.02.01
 description: A high quality manually annotated protein sequence database, specifying in post-translational modifications (PTMs).
 developer:
   name: The UniProt Consortium
@@ -133,8 +133,9 @@ tags:
 
 input_format: crx
 title: Swiss-Prot PTM
-version: 1.1.0
+version: 1.2.0
 release_note:
+  1.2.0: Data update
   1.1.0: Updated Data and table column enabled
 type: annotator
 requires_opencravat: '>=2.1.3'

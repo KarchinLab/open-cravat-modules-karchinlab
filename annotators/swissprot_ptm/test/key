@@ -1,24 +1,24 @@
 #CRAVAT Report
-#Created at Tuesday 12/22/2020 12:37:11
+#Created at Monday 02/19/2024 15:08:59
 #Report level: variant
 #
-Variant Annotation																Swiss-Prot PTM											
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	UniProtKB Accession Number	Crosslink Modification	Disulfid Bond Modification	Glycosylation Modification	Initiator Methionine Modification	Lipidation Modification	Modified Residue Modification	Polypeptide Modification	Signal Sequence Modification	Transit Peptides Modifcation	Pubmed	All Annotations
-1	chr1	1014212	A	T		Yes	ISG15	ENST00000649529.1	synonymous_variant	c.232A>T	p.Cys78=	ENST00000458555.1:AL645608.1::2kb_upstream_variant,lnc_RNA::; ENST00000624697.4:ISG15::synonymous_variant:p.Cys70=:c.208A>T; ENST00000649529.1:ISG15:P05161:synonymous_variant:p.Cys78=:c.232A>T	1	smod		P05161		Interchain (with C-87 in UBE2N)				S-nitrosocysteine					[["P05161", "", "", "", "", "S-nitrosocysteine", "", "", "", "", ""], ["P05161", "", "", "", "", "S-nitrosocysteine", "", "", "", "Interchain (with C-87 in UBE2N)", ""], ["P05161", "", "", "", "", "S-nitrosocysteine", "", "", "", "Interchain (with C-87 in UBE2N)", ""]]
-2	chr1	1341690	A	G		Yes	DVL1	ENST00000378888.10	synonymous_variant	c.582T>C	p.Ser194=	ENST00000378888.10:DVL1:O14640:synonymous_variant:p.Ser194=:c.582T>C; ENST00000378891.9:DVL1:O14640:synonymous_variant:p.Ser194=:c.582T>C; ENST00000610709.2:DVL1::synonymous_variant:p.Ser194=:c.582T>C; ENST00000616525.1:MIR6808::2kb_upstream_variant,miRNA::	1	smod		O14640						Phosphoserine					[["O14640", "", "", "", "", "Phosphoserine", "", "", "", "", ""]]
-3	chr10	124412099	G	C		Yes	OAT	ENST00000368845.6	synonymous_variant	c.73C>G	p.Ala25=	ENST00000368845.6:OAT:P04181:synonymous_variant:p.Ala25=:c.73C>G; ENST00000476917.5:OAT::processed_transcript::; ENST00000490096.5:OAT::processed_transcript::; ENST00000492376.1:OAT::processed_transcript::; ENST00000539214.5:OAT:P04181:intron_variant::c.-215-3134C>G	1	stran		P04181									Mitochondrion		[["P04181", "", "", "", "", "", "", "", "Mitochondrion", "", ""], ["P04181", "", "", "", "", "", "", "", "Mitochondrion", "", ""]]
-4	chr17	5438866	G	C		Yes	C1QBP	ENST00000225698.8	synonymous_variant	c.208C>G	p.Gly70=	ENST00000225698.8:C1QBP:Q07021:synonymous_variant:p.Gly70=:c.208C>G; ENST00000574444.5:C1QBP::2kb_upstream_variant::c.-238C>G	1	stran		Q07021									Mitochondrion	1830244;25944712;8662673	[["Q07021", "", "", "", "", "", "", "", "Mitochondrion", "", "1830244"], ["Q07021", "", "", "", "", "", "", "", "Mitochondrion", "", "25944712"], ["Q07021", "", "", "", "", "", "", "", "Mitochondrion", "", "8662673"]]
-5	chr17	1830094	A	C		Yes	RPA1	ENST00000254719.10	start_lost	c.1A>C	p.Met1?	ENST00000254719.10:RPA1:P27694:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000305513.12:SMYD4:Q8IYR2:2kb_upstream_variant::c.-381T>G; ENST00000576633.1:SMYD4::2kb_upstream_variant,NMD_transcript_variant::c.-381T>G	1	sinit		P27694				Removed		N-acetylmethionine				19413330;22223895	[["P27694", "", "", "Removed", "", "", "", "", "", "", ""], ["P27694", "", "", "Removed", "", "N-acetylmethionine", "", "", "", "", "19413330"], ["P27694", "", "", "Removed", "", "N-acetylmethionine", "", "", "", "", "22223895"]]
-7	chr11	121452416	G	T		Yes	SORL1	ENST00000260197.12	stop_gained	c.85G>T	p.Glu29Ter	ENST00000260197.12:SORL1:Q92673:stop_gained:p.Glu29Ter:c.85G>T; ENST00000501964.1:AP000977.1::intron_variant,lnc_RNA::; ENST00000529160.1:AP000977.1::intron_variant,lnc_RNA::; ENST00000532451.1:SORL1::processed_transcript::	1	spep		Q92673							Removed in mature form			8940146	[["Q92673", "", "", "", "", "", "Removed in mature form", "", "", "", "8940146"]]
-8	chr10	47348485	T	G		Yes	RBP3	ENST00000584701.2	start_lost	c.1T>G	p.Met1?	ENST00000584701.2:RBP3:P10745:missense_variant,start_lost:p.Met1?:c.1T>G	1	ssig		P10745								signal peptide_1-17		3827838	[["P10745", "", "", "", "", "", "", "signal peptide_1-17", "", "", "3827838"]]
-9	chr11	6617032	C	A		Yes	TPP1	ENST00000299427.12	synonymous_variant	c.630G>T	p.Asn210=	ENST00000299427.12:TPP1:O14773:synonymous_variant:p.Asn210=:c.630G>T; ENST00000528571.6:TPP1::2kb_downstream_variant,NMD_transcript_variant::c.*517G>T; ENST00000528657.2:TPP1::2kb_downstream_variant::c.*2160G>T; ENST00000530040.2:TPP1::intron_variant,processed_transcript::; ENST00000531754.2:TPP1::2kb_downstream_variant::c.*1727G>T; ENST00000533371.6:TPP1:O14773:5_prime_UTR_variant::c.-100G>T; ENST00000534644.6:TPP1::processed_transcript::; ENST00000545572.1:AC091564.6::2kb_upstream_variant,lnc_RNA::; ENST00000642892.1:TPP1:O14773:5_prime_UTR_variant::c.-100G>T; ENST00000643439.1:TPP1::NMD_transcript_variant,3_prime_UTR_variant::c.*370G>T; ENST00000644218.1:TPP1::synonymous_variant:p.Asn210=:c.630G>T; ENST00000644683.1:TPP1::NMD_transcript_variant,3_prime_UTR_variant::c.*83G>T; ENST00000644810.1:TPP1::synonymous_variant:p.Asn117=:c.351G>T; ENST00000644933.1:TPP1::NMD_transcript_variant,5_prime_UTR_variant::c.-100G>T; ENST00000645285.1:TPP1::NMD_transcript_variant,5_prime_UTR_variant::c.-100G>T; ENST00000645620.1:TPP1:O14773:5_prime_UTR_variant::c.-100G>T; ENST00000647152.1:TPP1:O14773:5_prime_UTR_variant::c.-100G>T; ENST00000647209.1:TPP1::NMD_transcript_variant,3_prime_UTR_variant::c.*499G>T	1	scarb		O14773			N-linked (GlcNAc...) asparagine							19038966;19038967;19159218	[["O14773", "", "N-linked (GlcNAc...) asparagine", "", "", "", "", "", "", "", "19038966"], ["O14773", "", "N-linked (GlcNAc...) asparagine", "", "", "", "", "", "", "", "19159218"], ["O14773", "", "N-linked (GlcNAc...) asparagine", "", "", "", "", "", "", "", "19038967"]]
-10	chr8	144725683	A	T			ZNF251	ENST00000292562.12	intron_variant	c.278-2301T>A		ENST00000292562.12:ZNF251:Q9BRH9:intron_variant::c.278-2301T>A; ENST00000524394.2:ZNF251::intron_variant,processed_transcript::	1	scros		Q9BRH9	Glycyl lysine isopeptide (Lys-Gly) (interchain with G-Cter in SUMO2)									28112733	[["Q9BRH9", "Glycyl lysine isopeptide (Lys-Gly) (interchain with G-Cter in SUMO2)", "", "", "", "", "", "", "", "", "28112733"]]
+Variant Annotation																		Original Input				Swiss-Prot PTM											
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	UniProtKB Accession Number	Crosslink Modification	Disulfid Bond Modification	Glycosylation Modification	Initiator Methionine Modification	Lipidation Modification	Modified Residue Modification	Polypeptide Modification	Signal Sequence Modification	Transit Peptides Modifcation	Pubmed	All Annotations
+1	chr1	1014212	A	T		Yes	ISG15	ENST00000649529.1	synonymous_variant	2	c.232A>T	p.Cys78=	ENST00000458555.1:AL645608.1::2kb_upstream_variant,lnc_RNA::; ENST00000624697.4:ISG15::synonymous_variant:p.Cys70=:c.208A>T; ENST00000649529.1:ISG15:P05161:synonymous_variant:p.Cys78=:c.232A>T	1014212	1	smod		chr1	1014212	A	T	P05161		Interchain (with C-87 in UBE2N)									[["P05161", "", "", "", "", "", "", "", "", "Interchain (with C-87 in UBE2N)", ""], ["P05161", "", "", "", "", "", "", "", "", "Interchain (with C-87 in UBE2N)", ""]]
+2	chr1	1341690	A	G		Yes	DVL1	ENST00000378888.10	synonymous_variant	5	c.582T>C	p.Ser194=	ENST00000378888.10:DVL1:O14640:synonymous_variant:p.Ser194=:c.582T>C; ENST00000378891.9:DVL1:O14640:synonymous_variant:p.Ser194=:c.582T>C; ENST00000610709.2:DVL1::synonymous_variant:p.Ser194=:c.582T>C; ENST00000616525.1:MIR6808::2kb_upstream_variant,miRNA::	1341690	1	smod		chr1	1341690	A	G												
+3	chr10	124412099	G	C		Yes	OAT	ENST00000368845.6	synonymous_variant	2	c.73C>G	p.Ala25=	ENST00000368845.6:OAT:P04181:synonymous_variant:p.Ala25=:c.73C>G; ENST00000476917.5:OAT::processed_transcript::; ENST00000490096.5:OAT::processed_transcript::; ENST00000492376.1:OAT::processed_transcript::; ENST00000539214.5:OAT:P04181:intron_variant::c.-215-3134C>G	124412099	1	stran		chr10	124412099	G	C	P04181									Mitochondrion		[["P04181", "", "", "", "", "", "", "", "Mitochondrion", "", ""], ["P04181", "", "", "", "", "", "", "", "Mitochondrion", "", ""]]
+4	chr17	5438866	G	C		Yes	C1QBP	ENST00000225698.8	synonymous_variant	1	c.208C>G	p.Gly70=	ENST00000225698.8:C1QBP:Q07021:synonymous_variant:p.Gly70=:c.208C>G; ENST00000574444.5:C1QBP::2kb_upstream_variant::c.-238C>G	5438866	1	stran		chr17	5438866	G	C	Q07021									Mitochondrion	1830244;25944712;8662673	[["Q07021", "", "", "", "", "", "", "", "Mitochondrion", "", "8662673"], ["Q07021", "", "", "", "", "", "", "", "Mitochondrion", "", "1830244"], ["Q07021", "", "", "", "", "", "", "", "Mitochondrion", "", "25944712"]]
+5	chr17	1830094	A	C		Yes	RPA1	ENST00000254719.10	start_lost	1	c.1A>C	p.Met1?	ENST00000254719.10:RPA1:P27694:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000305513.12:SMYD4:Q8IYR2:2kb_upstream_variant::c.-381T>G; ENST00000576633.1:SMYD4::2kb_upstream_variant,NMD_transcript_variant::c.-381T>G	1830094	1	sinit		chr17	1830094	A	C	P27694				Removed							[["P27694", "", "", "Removed", "", "", "", "", "", "", ""]]
+7	chr11	121452416	G	T		Yes	SORL1	ENST00000260197.12	stop_gained	1	c.85G>T	p.Glu29Ter	ENST00000260197.12:SORL1:Q92673:stop_gained:p.Glu29Ter:c.85G>T; ENST00000501964.1:AP000977.1::intron_variant,lnc_RNA::; ENST00000529160.1:AP000977.1::intron_variant,lnc_RNA::; ENST00000532451.1:SORL1::processed_transcript::	121452416	1	spep		chr11	121452416	G	T	Q92673							Removed in mature form			8940146	[["Q92673", "", "", "", "", "", "Removed in mature form", "", "", "", "8940146"]]
+8	chr10	47348485	T	G		Yes	RBP3	ENST00000584701.2	start_lost	1	c.1T>G	p.Met1?	ENST00000584701.2:RBP3:P10745:missense_variant,start_lost:p.Met1?:c.1T>G	47348485	1	ssig		chr10	47348485	T	G	P10745								signal peptide_1-17		3827838	[["P10745", "", "", "", "", "", "", "signal peptide_1-17", "", "", "3827838"]]
+9	chr11	6617032	C	A		Yes	TPP1	ENST00000299427.12	synonymous_variant	6	c.630G>T	p.Asn210=	ENST00000299427.12:TPP1:O14773:synonymous_variant:p.Asn210=:c.630G>T; ENST00000528571.6:TPP1::2kb_downstream_variant,NMD_transcript_variant::c.*517G>T; ENST00000528657.2:TPP1::2kb_downstream_variant::c.*2160G>T; ENST00000530040.2:TPP1::intron_variant,processed_transcript::; ENST00000531754.2:TPP1::2kb_downstream_variant::c.*1727G>T; ENST00000533371.6:TPP1:O14773:5_prime_UTR_variant::c.-100G>T; ENST00000534644.6:TPP1::processed_transcript::; ENST00000545572.1:AC091564.6::2kb_upstream_variant,lnc_RNA::; ENST00000642892.1:TPP1:O14773:5_prime_UTR_variant::c.-100G>T; ENST00000643439.1:TPP1::NMD_transcript_variant,3_prime_UTR_variant::c.*370G>T; ENST00000644218.1:TPP1::synonymous_variant:p.Asn210=:c.630G>T; ENST00000644683.1:TPP1::NMD_transcript_variant,3_prime_UTR_variant::c.*83G>T; ENST00000644810.1:TPP1::synonymous_variant:p.Asn117=:c.351G>T; ENST00000644933.1:TPP1::NMD_transcript_variant,5_prime_UTR_variant::c.-100G>T; ENST00000645285.1:TPP1::NMD_transcript_variant,5_prime_UTR_variant::c.-100G>T; ENST00000645620.1:TPP1:O14773:5_prime_UTR_variant::c.-100G>T; ENST00000647152.1:TPP1:O14773:5_prime_UTR_variant::c.-100G>T; ENST00000647209.1:TPP1::NMD_transcript_variant,3_prime_UTR_variant::c.*499G>T	6617032	1	scarb		chr11	6617032	C	A	O14773			N-linked (GlcNAc...) asparagine							19038966;19038967;19159218	[["O14773", "", "N-linked (GlcNAc...) asparagine", "", "", "", "", "", "", "", "19038966"], ["O14773", "", "N-linked (GlcNAc...) asparagine", "", "", "", "", "", "", "", "19038967"], ["O14773", "", "N-linked (GlcNAc...) asparagine", "", "", "", "", "", "", "", "19159218"]]
+10	chr8	144725683	A	T			ZNF251	ENST00000292562.12	intron_variant		c.278-2301T>A		ENST00000292562.12:ZNF251:Q9BRH9:intron_variant::c.278-2301T>A; ENST00000524394.2:ZNF251::intron_variant,processed_transcript::	144725683	1	scros		chr8	144725683	A	T												
 #CRAVAT Report
-#Created at Tuesday 12/22/2020 12:37:11
+#Created at Monday 02/19/2024 15:08:59
 #Report level: gene
 #
 Variant Annotation					
-Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
 ISG15		1	0	synonymous_variant	synonymous_variant(1)
 DVL1		1	0	synonymous_variant	synonymous_variant(1)
 OAT		1	0	synonymous_variant	intron_variant(1),processed_transcript(1),synonymous_variant(1)
@@ -29,7 +29,7 @@ RBP3		1	0	start_lost	missense_variant(1),start_lost(1)
 TPP1		1	0	synonymous_variant	intron_variant(1),NMD_transcript_variant(1),processed_transcript(1),synonymous_variant(1),3_prime_UTR_variant(1),5_prime_UTR_variant(1)
 ZNF251		0	1	intron_variant	intron_variant(1),processed_transcript(1)
 #CRAVAT Report
-#Created at Tuesday 12/22/2020 12:37:11
+#Created at Monday 02/19/2024 15:08:59
 #Report level: sample
 #
 Variant Annotation	
@@ -39,13 +39,12 @@ UID	Sample
 3	stran
 4	stran
 5	sinit
-6	sinit
 7	spep
 8	ssig
 9	scarb
 10	scros
 #CRAVAT Report
-#Created at Tuesday 12/22/2020 12:37:11
+#Created at Monday 02/19/2024 15:08:59
 #Report level: mapping
 #
 Variant Annotation			
@@ -55,7 +54,6 @@ Original Line	User Tags	UID	Input File Number
 3		3	0
 4		4	0
 5		5	0
-6		6	0
 7		7	0
 8		8	0
 9		9	0

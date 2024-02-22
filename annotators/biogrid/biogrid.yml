@@ -1,4 +1,4 @@
-datasource: v4.4.216
+datasource: v4.4.230
 description: Comprehensive interaction repository
 developer:
   citation: 'Oughtred R, Stark C, Breitkreutz BJ, et al. (2018). The BioGRID interaction
@@ -41,10 +41,11 @@ tags:
 - genes
 title: BioGRID
 type: annotator
-version: 3.8.0
+version: 3.9.1
 requires:
 - wgbiogrid
 release-note:
+  3.9.1: updated with v.4.4.230 Biogrid data
   3.9.0: updated with v.4.4.216 Biogrid data
   3.8.0: updated with v.4.4.198 Biogrid data
   3.7.0: data no longer from dbnsfp, updated data for widget
