@@ -2,6 +2,15 @@
   /*display: none;*/
 }
 
+#variant_input_boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
 .detaildiv.singlevariantpage {
 }
 
@@ -92,18 +101,16 @@
   background-color: white;
   height: 6vw;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 100px 0.5fr 1fr;
   margin: 0;
   background-image: url("banner.png");
   background-size: 100% 100%;
   width: 100%;
-  min-height: 90px;
+  min-height: 110px;
 }
 
 #logodiv > div {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #detaildiv_variant {
@@ -126,7 +133,7 @@
 
 #pagetitle {
   font-size: 4vw;
-  text-align: center;
+  /* text-align: center; */
   margin: 0px;
   color: white;
   font-family: "source-sans-pro-bold";

@@ -21,27 +21,28 @@
     <div id = 'body'> 
         <div id='logodiv'>
             <div>
+            <a href="https://open-cravat.readthedocs.io/en/latest/OpenCRAVAT-Variant-Report.html" target="_blank">
+            <img src='question.png' style='display: flex; justify-content: left; align-items: left;
+                width: 3.5vw; cursor: pointer; margin-left: 25px; margin-right: 25px; margin-top:20px;' 
+            />
+            </a>
+            </div>
+            <div>
                 <div id='inputdiv'>
-                <input id="input_variant" name="inputVariant" style="width: 18vh; height: 2vw; min-height: 30px;">
-                <div style="width: 2.8ex;"></div>
-                <br>
-                <button id="input_submit" class="input_directions" onclick="submitForm();" style="width: 18vh; height: 2vw; cursor: pointer; 
+                    <div id="variant_input_boxes">
+                        <input id="input_variant_chrom" name="inputVariantChrom" placeholder="Chromosome">
+                        <input id="input_variant_pos" name="inputVariantPos" placeholder="Position">
+                        <input id="input_variant_ref" name="inputVariantRef" placeholder="Reference Allele">
+                        <input id="input_variant_alt" name="inputVariantAlt" placeholder="Alternate Allele">
+                    </div>
+                <button id="input_submit" class="input_directions" onclick="submitForm();" style="width: 10vh; height: 2vw; cursor: pointer; 
                     margin-bottom: 3px; min-height: 30px;">
-                    Update annotation</button>
-                <div id = "questionMark"></div>
-                <span id = "directions">Type a variant and enter or click the Update annotation button. The syntax of a 
-                    variant is chromosome, position, reference allele, and alternate allele, 
-                    concatenated with a colon. Strand is assumed to be plus. For example, chr17:39724004:C:G</span>
+                    Submit</button>
                 </div>
             </div>
             <div>
               <span id='pagetitle'>OpenCRAVAT Variant Report</span>
             </div>
-            <div>
-            <img src='menu_book-black-48dp.svg' style='display: flex; justify-content: center; align-items: center;
-                width: 3.5vw; cursor: pointer;' 
-                onclick='window.open("variantreportdocumentation.pdf");'/>
-        </div>
         </div>
         <div id = 'bottom-div'>
             <div class="sidenav">

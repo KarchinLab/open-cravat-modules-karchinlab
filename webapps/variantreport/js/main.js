@@ -484,20 +484,24 @@ function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly) {
 }
 
 function submitForm() {
-    var value = document.querySelector('#input_variant').value;
-    var toks = value.split(':');
-    if (toks.length != 4 && toks.length != 5) {
-        return;
-    }
-    var chrom = toks[0];
-    var pos = toks[1];
-    var ref = toks[2];
-    var alt = toks[3];
+    // var value = document.querySelector('#input_variant').value;
+    var chrom = document.querySelector('#input_variant_chrom').value;
+    var pos = document.querySelector('#input_variant_pos').value;
+    var ref = document.querySelector('#input_variant_ref').value;
+    var alt = document.querySelector('#input_variant_alt').value;
+    // var toks = value.split(':');
+    // if (toks.length != 4 && toks.length != 5) {
+    //     return;
+    // }
+    // var chrom = toks[0];
+    // var pos = toks[1];
+    // var ref = toks[2];
+    // var alt = toks[3];
     var inputData = cleanInputData(chrom, pos, ref, alt);
     var assembly = 'hg38'
-    if (toks.length == 5) {
-        var assembly = toks[4]
-    }
+    // if (toks.length == 5) {
+    //     var assembly = toks[4]
+    // }
     inputData['assembly'] = assembly
     if (inputData != null) {
         showContentDiv();
@@ -5055,7 +5059,11 @@ widgetGenerators['cancer_hotspots2'] = {
 function writeToVariantArea(inputData) {
     var value = inputData['chrom'] + ':' + inputData['pos'] +
         ':' + inputData['ref'] + ':' + inputData['alt'] + ':' + inputData['assembly']
-    document.querySelector('#input_variant').value = value;
+    // document.querySelector('#input_variant').value = value;
+    document.querySelector('#input_variant_chrom').value = inputData['chrom'];
+    document.querySelector('#input_variant_pos').value = inputData['pos'];
+    document.querySelector('#input_variant_ref').value = inputData['ref'];
+    document.querySelector('#input_variant_alt').value = inputData['alt'];
 }
 
 function hideSpinner() {
@@ -5076,12 +5084,12 @@ function processUrl() {
 }
 
 function setupEvents() {
-    document.querySelector('#input_variant').addEventListener('keyup', function(evt) {
-        evt.stopPropagation();
-        if (evt.keyCode == 13) {
-            document.querySelector('#input_submit').click();
-        }
-    });
+    // document.querySelector('#input_variant').addEventListener('keyup', function(evt) {
+    //     evt.stopPropagation();
+    //     if (evt.keyCode == 13) {
+    //         document.querySelector('#input_submit').click();
+    //     }
+    // });
     document.querySelector("body").addEventListener("click", function(evt) {
         var tooltipdiv = document.querySelector("#tooltipdiv")
         if (tooltipdiv != null) {
