@@ -101,7 +101,7 @@
   background-color: white;
   height: 6vw;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 100px 0.5fr 1fr;
   margin: 0;
   background-image: url("banner.png");
   background-size: 100% 100%;
@@ -111,8 +111,6 @@
 
 #logodiv > div {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #detaildiv_variant {
@@ -135,7 +133,7 @@
 
 #pagetitle {
   font-size: 4vw;
-  text-align: center;
+  /* text-align: center; */
   margin: 0px;
   color: white;
   font-family: "source-sans-pro-bold";
