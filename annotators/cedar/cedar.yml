@@ -2,6 +2,9 @@ title: CEDAR
 version: 1.0.0
 type: annotator
 level: variant
+tags:
+  - variants
+  - cancer
 
 input_format: crx
 
