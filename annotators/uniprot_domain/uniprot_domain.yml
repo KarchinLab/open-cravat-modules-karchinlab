@@ -1,5 +1,7 @@
-# 'title' is the name of the module that will be displayed to the user
 title: Uniprot Domain
+tags:
+- literature
+- variants
 
 version: 1.0.0
 type: annotator
@@ -14,7 +16,6 @@ output_columns:
 
 description: Protein domains from UniProt
 
-# developer is you!
 developer:
   name: 'UniProt'
   organization: 'EMBL-EBI'
