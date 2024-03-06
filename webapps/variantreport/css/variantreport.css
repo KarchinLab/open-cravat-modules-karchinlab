@@ -886,3 +886,22 @@ h3 {
   flex: "auto";
   font-size: "12px";
 }
+
+#detaildiv_documentation {
+  width: 50em;
+  margin: 4em;
+  line-height: 1.5;
+}
+#detaildiv_documentation > ul {
+  font-size: 18px;
+}
+
+#detaildiv_documentation > p {
+  margin-block-end: 1.5em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#detaildiv_documentation > h1 {
+  margin-block-end: 1em;
+}

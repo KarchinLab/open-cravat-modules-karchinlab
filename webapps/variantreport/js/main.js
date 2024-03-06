@@ -5107,10 +5107,12 @@ function setupEvents() {
 
 function showContentDiv() {
     document.querySelector('#detaildiv_variant').style.display = 'block';
+    document.querySelector('#detaildiv_documentation').style.display = 'none';
 }
 
 function hideContentDiv() {
     document.querySelector('#detaildiv_variant').style.display = 'none';
+    document.querySelector('#detaildiv_documentation').style.display = 'block';
 }
 
 function showSearch () {
