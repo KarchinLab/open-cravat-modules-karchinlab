@@ -173,7 +173,7 @@ widgetGenerators['lollipop'] = {
                     if (hugo != v.hugo) {
                         $.ajax({
                             url: '/result/runwidget/' + widgetName, 
-                            data: {hugo: hugo},
+                            data: {hugo: hugo, job_id: jobId},
                             success: function (data) {
                                 v['data'] = data;
                                 drawMain();

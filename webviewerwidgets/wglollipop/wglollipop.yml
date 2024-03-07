@@ -1,5 +1,5 @@
 title: Protein diagram
-version: 2.2.1
+version: 2.2.2
 requires_opencravat: '>=2.0.2'
 required_annotator: base
 type: webviewerwidget
@@ -13,6 +13,7 @@ developer:
 tags:
 - visualization
 release_note:
+  2.2.2: bugfix, now provides job_id to server during data request
   2.2.0: improved transcript mapping among UniProt, TCGA, and OpenCRAVAT and indel positioning.
   2.1.0: update with gencode v33
   2.0.2: aiosqlite instead of aiosqlite3
