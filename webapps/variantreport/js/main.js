@@ -484,30 +484,17 @@ function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly) {
 }
 
 function submitForm() {
-    // var value = document.querySelector('#input_variant').value;
     var chrom = document.querySelector('#input_variant_chrom').value;
     var pos = document.querySelector('#input_variant_pos').value;
     var ref = document.querySelector('#input_variant_ref').value;
     var alt = document.querySelector('#input_variant_alt').value;
-    // var toks = value.split(':');
-    // if (toks.length != 4 && toks.length != 5) {
-    //     return;
-    // }
-    // var chrom = toks[0];
-    // var pos = toks[1];
-    // var ref = toks[2];
-    // var alt = toks[3];
     var inputData = cleanInputData(chrom, pos, ref, alt);
     var assembly = 'hg38'
-    // if (toks.length == 5) {
-    //     var assembly = toks[4]
-    // }
     inputData['assembly'] = assembly
     if (inputData != null) {
         showContentDiv();
         submitAnnotate(inputData['chrom'], inputData['pos'], inputData['ref'],
             inputData['alt'], 'hg38')
-        // hideSearch();
     }
 }
 
@@ -5107,10 +5094,12 @@ function setupEvents() {
 
 function showContentDiv() {
     document.querySelector('#detaildiv_variant').style.display = 'block';
+    document.querySelector('#detaildiv_documentation').style.display = 'none';
 }
 
 function hideContentDiv() {
     document.querySelector('#detaildiv_variant').style.display = 'none';
+    document.querySelector('#detaildiv_documentation').style.display = 'block';
 }
 
 function showSearch () {
@@ -5122,6 +5111,7 @@ function run() {
     mqMinMatch.addListener(mqMinMatchHandler);
     var params = new URLSearchParams(window.location.search);
     if (params.get('chrom') != null && params.get('pos') != null && params.get('ref_base') != null && params.get('alt_base') != null) {
+        showContentDiv();
         showSpinner();
         // hideSearch();
         setupEvents();
