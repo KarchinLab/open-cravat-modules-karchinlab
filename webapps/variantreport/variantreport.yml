@@ -1,5 +1,5 @@
 title: OpenCRAVAT Variant Report
-version: 1.2.0
+version: 1.2.1
 type: webapp
 live_modules:
 - aloft
@@ -184,6 +184,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.2.1: show documentation on blank page
   1.2.0: change input to multiple boxes, update documentation link
   1.1.1: fix bug with using searchbar
   1.1.0: feature requests
