@@ -1,0 +1,106 @@
+title: OpenCRAVAT / CEDAR Variant Report
+version: 1.0.0
+type: webapp
+live_modules:
+- cancer_genome_interpreter
+- chasmplus
+- cgc
+- civic
+- clingen 
+- clinvar
+- clinvar_acmg
+- cosmic
+- cscape
+- dann_coding
+- dbsnp
+- dgi
+- fathmm
+- fathmm_mkl
+- fathmm_xf_coding
+- fitcons
+- gnomad
+- gnomad3
+- gnomad_gene
+- go
+- lrt
+- metalr
+- metasvm
+- mutation_assessor
+- mutationtaster
+- mutpred1
+- polyphen2
+- provean
+- revel
+- sift
+- swissprot_binding
+- swissprot_domains
+- swissprot_ptm
+- target
+- thousandgenomes
+- uniprot
+- vest
+requires:
+- hg38
+- cancer_genome_interpreter
+- chasmplus
+- cgc
+- civic
+- clingen 
+- clinvar
+- clinvar_acmg
+- cosmic
+- cscape
+- dann_coding
+- dbsnp
+- dgi
+- fathmm
+- fathmm_mkl
+- fathmm_xf_coding
+- fitcons
+- gnomad
+- gnomad3
+- gnomad_gene
+- go
+- lrt
+- metalr
+- metasvm
+- mutation_assessor
+- mutationtaster
+- mutpred1
+- polyphen2
+- provean
+- revel
+- sift
+- swissprot_binding
+- swissprot_domains
+- swissprot_ptm
+- target
+- thousandgenomes
+- uniprot
+- vest
+- wgbase
+- wgchasmplus
+- wgcgc
+- wgcgl
+- wgcivic
+- wgclinvar
+- wgcosmic
+- wggnomad
+- wgtarget
+- wgdgi
+- wgthousandgenomes
+description: OpenCRAVAT / CEDAR Variant Report Webapp
+developer:
+  name: OpenCravat
+  organization: KarchinLab
+  email: support@cravat.us
+  website: 
+  citation: ''
+release_note:
+  1.0.0: Initial release
+tags:
+- visualization
+hidden: false
+requires_opencravat: '>=2.1.3'
+# Meant to be private 
+private: true 
