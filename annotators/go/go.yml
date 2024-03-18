@@ -14,12 +14,12 @@ output_columns:
   title: Biological Process
   type: string
   width: 90
-  desc: The larger processes, or ‘biological programs’ accomplished by multiple molecular activities. 
+  desc: The larger processes, or 'biological programs' accomplished by multiple molecular activities. 
 - name: bpo_id
   title: Biological Process GO ID
   type: string
   width: 100
-  desc: The larger processes, or ‘biological programs’ accomplished by multiple molecular activities. 
+  desc: The larger processes, or 'biological programs' accomplished by multiple molecular activities. 
   hidden: true
 - name: cco_name
   title: Cellular Component
@@ -50,7 +50,7 @@ title: Gene Ontology
 type: annotator
 version: 2024.02.01
 release_note:
-  2024.02.01: Data update
+  2024.02.01: Data update, fix non-ascii character issue
   2023.02.01: Data update
   2023.01.01: Data update
   2022.12.01: Data update
