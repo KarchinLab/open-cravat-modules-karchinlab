@@ -1,15 +1,8 @@
+## HGVS input format
+# One HGVS string per line
+# Optional tab-separated values for sample and tags, sample MUST come first and tags second.
+# Comment lines must start with a # symbol
+
 NM_004006.2:c.4375C>T   s0  tag
 ENST00000536005.7:c.145C>T  s1  ensembl,bean1
 NM_177402.5:c.1197C>T   s0  more,tags
-
-# NC_000023.10:g.32407761G>A (Feb.2009: h19, GRCh37)
-# NC_000023.11:g.32389644G>A (Dec.2013: hg38, GRCh38)
-# NG_012232.1:g.954966C>T
-# NM_004006.2:c.4375C>T
-# NR_002196.1:n.601G>T
-
-# These three fail
-# CM000678.2:g.66469721C>T
-# ENST00000380152.8:c.-199A>C
-# LRG_199:g.954966C>T
-#chr2	218270044	+	-	G	sample_3	Tag8

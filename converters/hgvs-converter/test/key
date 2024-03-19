@@ -1,5 +1,5 @@
 #CRAVAT Report
-#Created at Tuesday 03/19/2024 15:16:05
+#Created at Tuesday 03/19/2024 15:53:40
 #Report level: variant
 #
 Variant Annotation																		Original Input			
@@ -8,7 +8,7 @@ UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequenc
 2	chr16	66469721	C	T		Yes	BEAN1	ENST00000536005.7	missense_variant	3	c.145C>T	p.Leu49Phe	ENST00000299694.12:BEAN1:Q3B7T3:5_prime_UTR_variant::c.-183C>T; ENST00000536005.7:BEAN1:Q3B7T3:missense_variant:p.Leu49Phe:c.145C>T; ENST00000561796.5:BEAN1:Q3B7T3:5_prime_UTR_variant::c.-183C>T; ENST00000562849.6:BEAN1:Q3B7T3:NMD_transcript_variant,5_prime_UTR_variant::c.-183C>T; ENST00000563075.1:BEAN1::processed_transcript::; ENST00000564618.1:BEAN1-AS1::2kb_downstream_variant,lnc_RNA::; ENST00000564819.5:BEAN1::5_prime_UTR_variant::c.-183C>T; ENST00000567528.5:BEAN1-AS1::2kb_downstream_variant,lnc_RNA::; ENST00000569125.1:BEAN1-AS1::2kb_downstream_variant,lnc_RNA::; ENST00000622872.4:BEAN1:Q3B7T3:5_prime_UTR_variant::c.-183C>T	66469721	1	s1	ensembl,bean1	chr16	66469721	C	T
 3	chr1	202596820	G	A		Yes	SYT2	ENST00000367268.5	synonymous_variant	9	c.1197C>T	p.Ile399=	ENST00000367267.5:SYT2:Q8N9I0:synonymous_variant:p.Ile399=:c.1197C>T; ENST00000367268.5:SYT2:Q8N9I0:synonymous_variant:p.Ile399=:c.1197C>T	202596820	1	s0	more,tags	chr1	202596820	G	A
 #CRAVAT Report
-#Created at Tuesday 03/19/2024 15:16:05
+#Created at Tuesday 03/19/2024 15:53:40
 #Report level: gene
 #
 Variant Annotation					
@@ -17,7 +17,7 @@ DMD		1	0	stop_gained	intron_variant(1),processed_transcript(1),stop_gained(1)
 BEAN1		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),processed_transcript(1),5_prime_UTR_variant(1)
 SYT2		1	0	synonymous_variant	synonymous_variant(1)
 #CRAVAT Report
-#Created at Tuesday 03/19/2024 15:16:05
+#Created at Tuesday 03/19/2024 15:53:40
 #Report level: sample
 #
 Variant Annotation	
@@ -26,11 +26,11 @@ UID	Sample
 2	s1
 3	s0
 #CRAVAT Report
-#Created at Tuesday 03/19/2024 15:16:05
+#Created at Tuesday 03/19/2024 15:53:40
 #Report level: mapping
 #
 Variant Annotation			
 Original Line	User Tags	UID	Input File Number
-1	tag	1	0
-2	ensembl,bean1	2	0
-3	more,tags	3	0
+6	tag	1	0
+7	ensembl,bean1	2	0
+8	more,tags	3	0
