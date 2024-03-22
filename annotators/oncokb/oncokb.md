@@ -10,6 +10,23 @@ Information from https://www.oncokb.org/
 
 **Pre-requisite**
 
-OncoKB API token is required to run this module. See [here](https://api.oncokb.org/oncokb-website/api) on getting an OncoKB API token. Make `token.txt` with the token string as the only content and place in under `data` sub-folder (create it if needed) of this module's folder.
+*OncoKB is only available for local use*. OncoKB API token is required to run this module. See [the OncoKB API documentation](https://api.oncokb.org/oncokb-website/api) on getting an OncoKB API token.
+
+First, you will need to create an account and request API access. Once you have received an API token, you can go to your [account settings](https://www.oncokb.org/account) to copy the API token.
+
+To add your token to your local installation, you will need to create a `token.txt` file with the token string as the only content under the `data` sub-folder (create it if needed) of this module's folder. To do this you can open a terminal and use the following commands:
+
+```bash
+# see where your local modules installation directory is
+oc config md
+# go to your local modules installation directory
+cd `oc config md`
+# go to the oncoKB folder
+cd annotators/oncoKB
+# make a data directory
+mkdir data
+# make the token.txt file
+cat {YOUR_API_TOKEN_STRING} > data/token.txt
+```
 
 ![Screenshot](oncokb_screenshot_1.png)

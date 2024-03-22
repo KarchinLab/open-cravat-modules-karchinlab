@@ -108,11 +108,10 @@ class CravatAnnotator(BaseAnnotator):
                 if count % 100 == 0 and lnum != 0 or lnum == max_lnum:
                     data =  "[ "
                     for b in batch:
-                        data = data + '{"hgvsg":' + '"' + b + '"' + ', "id": "", "referenceGenome": "GRCh38"}, '
+                        data = data + '{ "evidenceTypes": [ "GENE_SUMMARY", "MUTATION_SUMMARY", "TUMOR_TYPE_SUMMARY", "PROGNOSTIC_SUMMARY", "DIAGNOSTIC_SUMMARY", "ONCOGENIC", "MUTATION_EFFECT", "PROGNOSTIC_IMPLICATION", "DIAGNOSTIC_IMPLICATION", "STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY", "STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE"], "hgvsg":' + '"' + b + '"' + ', "id": "", "referenceGenome": "GRCh38"}, '
                     data = data[:-2]
                     data = data + "]" 
                     response = requests.post('https://www.oncokb.org/api/v1/annotate/mutations/byHGVSg', headers=headers, data=data)
-                    
                     datas = response.json()
                     batch = []
                 if len(datas) > 0:
@@ -153,15 +152,14 @@ class CravatAnnotator(BaseAnnotator):
                             drugs = tt["drugs"]
                             code = [x['ncitCode'] for x in drugs]
                             drugname = [x['drugName'] for x in drugs]
-                            levelAssociatedCancerType_level = tt['level'].replace("LEVEL_","")
+                            approved_indications = tt['approvedIndications']
                             treatment_pmids = tuple(tt['pmids'])
                             levelAssociatedCancerType = tt["levelAssociatedCancerType"]
+                            levelAssociatedCancerType_level = levelAssociatedCancerType["level"]
                             cancer_name = levelAssociatedCancerType["name"]
-                            if cancer_name == "":
-                                cancer_name = levelAssociatedCancerType["mainType"]["name"]
                             cancer_tissue = levelAssociatedCancerType["tissue"]
                             cancer_tumor = levelAssociatedCancerType["tumorForm"]
-                            treatment_data = [code, drugname, treatment_pmids, levelAssociatedCancerType_level, cancer_name, cancer_tissue, cancer_tumor]
+                            treatment_data = [code, drugname, approved_indications, treatment_pmids, levelAssociatedCancerType_level, cancer_name, cancer_tissue, cancer_tumor]
                             precomp_data.append([{"treatment_data":treatment_data}])
                         prognosticImplications = x["prognosticImplications"]
                         for p in range(len(prognosticImplications)):
