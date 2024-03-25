@@ -824,23 +824,15 @@ const getDialWidget = function (title, value, threshold) {
     return sdiv
 }
 
-const predWidget = function (title, value) {
-    var sdiv = getEl('div');
-    sdiv.classList.add('preddiv')
-    var ssdiv = getEl('div')
-    var sssdiv = getEl('div')
-    sssdiv.textContent = title
-    addEl(ssdiv, sssdiv)
-    sssdiv = getEl('div')
-    sssdiv.textContent = value
+const predWidget = function (value) {
+    var div = getEl('div');
+    div.classList.add('preddiv')
     if (isNaN(value) == false && value != null) {
-        sssdiv.textContent = prettyVal(value)
+        div.textContent = prettyVal(value)
     } else {
-        sssdiv.textContent = value
+        div.textContent = value
     }
-    addEl(ssdiv, sssdiv)
-    addEl(sdiv, ssdiv)
-    return sdiv
+    return div
 }
 
 const baseWidget = function (title, value) {
@@ -1947,36 +1939,20 @@ widgetGenerators['predictionpanel'] = {
             var wdiv = getEl('div')
             wdiv.style.display = 'flex'
             wdiv.style.flexWrap = 'wrap'
-            var divHeight = '100%';
             var scores = [];
             var rankscores = [];
-            var preds = [];
             var predictions = [];
             var names = ['dann_coding', 'fathmm', 'fathmm_mkl', 'fathmm_xf_coding', 'lrt', 'metalr', 'metasvm', 'mutation_assessor', 'mutpred1', 'mutationtaster2', 'polyphen2hdiv', 'polyphen2hvar', 'provean2', 'revel2', 'sift2', 'vest2'];
+            
+            // Dann Coding
+            // no prediction for Dann Coding
+            predictions.push(predWidget(null));
             var dann_score = getWidgetData(tabName, 'dann_coding', row, 'dann_coding_score');
-            if (dann_score != undefined || dann_score != null) {
-                var dann = predWidget('coding score', dann_score);
-                scores.push(dann);
-                predictions.push(null);
-                var pred = predWidget(null, null);
-                preds.push(pred);
-            } else {
-                var dann = predWidget(null, null);
-                scores.push(dann);
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
             var dann_rankscore = getWidgetData(tabName, 'dann_coding', row, 'dann_rankscore');
-            if (dann_rankscore != undefined || dann_rankscore != null) {
-                var dann = getDialWidget('coding rankscore', dann_rankscore, 0.80);
-                rankscores.push(dann);
-            } else {
-                var dann = predWidget(null, null);
-                rankscores.push(dann);
-            }
+            scores.push(predWidget(dann_score));
+            rankscores.push(predWidget(dann_rankscore));
+
+            // Fathmm
             var fathmm_score = getWidgetData(tabName, 'fathmm', row, 'fathmm_score');
             if (fathmm_score != undefined || fathmm_score != null) {
                 let scoreArray = fathmm_score.split(";").map(Number);
@@ -1986,292 +1962,136 @@ widgetGenerators['predictionpanel'] = {
                 } else {
                     maxIndex = scoreArray.indexOf(Math.max(...scoreArray));
                 }
-                scores.push(predWidget('score', scoreArray[maxIndex]));
+                scores.push(predWidget(scoreArray[maxIndex]));
                 var fathmm_pred = getWidgetData(tabName, 'fathmm', row, 'fathmm_pred');
                 var predArray = fathmm_pred.split(";");
-                predictions.push(predArray[maxIndex]);
-                preds.push(predWidget('prediction', predArray[maxIndex]));
+                let prediction;
+                if (predArray[maxIndex] === "T") {
+                    prediction = "Tolerated"
+                } else if (predArray[maxIndex] === "D") {
+                    prediction = "Damaging"
+                }
+                predictions.push(predWidget(prediction));
             } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
+                scores.push(predWidget(null));
+                predictions.push(predWidget(null));
             }
             var fathmm_rankscore = getWidgetData(tabName, 'fathmm', row, 'fathmm_rscore');
             if (fathmm_rankscore != undefined || fathmm_rankscore != null) {
-                rankscores.push(getDialWidget('rankscore', fathmm_rankscore, 0.80));
+                rankscores.push(predWidget(fathmm_rankscore));
             } else {
-                rankscores.push(predWidget(null, null));
+                rankscores.push(predWidget(null));
             }
 
+            // Fathmm Mkl
+            var mkl_pred = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_pred');
+            predictions.push(predWidget(mkl_pred))
             var mkl_score = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_score');
-            if (mkl_score != undefined || mkl_score != null) {
-                var mkl = predWidget('coding score', mkl_score);
-                scores.push(mkl);
-                var mkl_pred = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_pred');
-                predictions.push(mkl_pred);
-                var pred = predWidget('prediction', mkl_pred);
-                preds.push(pred);
-            } else {
-                var mkl = predWidget(null, null);
-                scores.push(mkl);
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(mkl_score));
             var mkl_rankscore = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_rankscore');
-            if (mkl_rankscore != undefined || mkl_rankscore != null) {
-                var mkl = getDialWidget('coding rankscore', mkl_rankscore, 0.28317);
-                rankscores.push(mkl);
-            } else {
-                var mkl = predWidget(null, null);
-                rankscores.push(mkl);
-            }
+            rankscores.push(predWidget(mkl_rankscore))
+
+            // Fathmm xf
+            var xf_pred = getWidgetData(tabName, 'fathmm_xf_coding', row, 'fathmm_xf_coding_pred');
+            predictions.push(predWidget(xf_pred))
             var xf_score = getWidgetData(tabName, 'fathmm_xf_coding', row, 'fathmm_xf_coding_score');
-            if (xf_score != undefined || xf_score != null) {
-                var xf = predWidget('coding score', xf_score);
-                scores.push(xf);
-                var xf_pred = getWidgetData(tabName, 'fathmm_xf_coding', row, 'fathmm_xf_coding_pred');
-                predictions.push(xf_pred);
-                var pred = predWidget('prediction', xf_pred);
-                preds.push(pred);
-            } else {
-                var xf = predWidget(null, null);
-                scores.push(xf);
-                var ssdiv = getEl('div')
-                ssdiv.classList.add('pred_noanno')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(xf_score))
             var xf_rankscore = getWidgetData(tabName, 'fathmm_xf_coding', row, 'fathmm_xf_coding_rankscore');
-            if (xf_rankscore != undefined || xf_rankscore != null) {
-                var xf = getDialWidget('coding rankscore', xf_rankscore, 0.50);
-                rankscores.push(xf);
-            } else {
-                var xf = predWidget(null, null);
-                rankscores.push(xf);
-            }
+            rankscores.push(predWidget(xf_rankscore))
+
+            // lrt
+            var lrt_pred = getWidgetData(tabName, 'lrt', row, 'lrt_pred');
+            predictions.push(predWidget(lrt_pred))
             var lrt_score = getWidgetData(tabName, 'lrt', row, 'lrt_score');
-            if (lrt_score != undefined || lrt_score != null) {
-                var l = predWidget('coding score', lrt_score);
-                scores.push(l);
-                var lrt_pred = getWidgetData(tabName, 'lrt', row, 'lrt_pred');
-                predictions.push(lrt_pred);
-                var pred = predWidget('prediction', lrt_pred);
-                preds.push(pred);
-
-            } else {
-                var l = predWidget(null, null);
-                scores.push(l);
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(lrt_score))
             var lrt_rankscore = getWidgetData(tabName, 'lrt', row, 'lrt_converted_rankscore');
-            if (lrt_rankscore != undefined || lrt_rankscore != null) {
-                var lrt = getDialWidget('coding rankscore', lrt_rankscore, 0.80);
-                rankscores.push(lrt);
-            } else {
-                var lrt = predWidget(null, null);
-                rankscores.push(lrt);
-            }
+            rankscores.push(predWidget(lrt_rankscore))
+
+            // metalr
+            var metalr_pred = getWidgetData(tabName, 'metalr', row, 'pred');
+            predictions.push(predWidget(metalr_pred));
             var metalr_score = getWidgetData(tabName, 'metalr', row, 'score');
-            if (metalr_score != undefined || metalr_score != null) {
-                var metalr = predWidget('coding score', metalr_score);
-                scores.push(metalr);
-                var metalr_pred = getWidgetData(tabName, 'metalr', row, 'pred');
-                predictions.push(metalr_pred);
-                var pred = predWidget('prediction', metalr_pred);
-                preds.push(pred);
-            } else {
-                var metalr = predWidget(null, null);
-                scores.push(metalr);
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(metalr_score))
             var metalr_rankscore = getWidgetData(tabName, 'metalr', row, 'rankscore');
-            if (metalr_rankscore != undefined || metalr_rankscore != null) {
-                var metalr = getDialWidget('rankscore', metalr_rankscore, 0.81101);
-                rankscores.push(metalr);
-
-            } else {
-                var metalr = predWidget(null, null);
-                rankscores.push(metalr);
-            }
+            rankscores.push(predWidget(metalr_rankscore))
+    
+            // metasvm
+            var metasvm_pred = getWidgetData(tabName, 'metasvm', row, 'pred');
+            predictions.push(predWidget(metasvm_pred))
             var metasvm_score = getWidgetData(tabName, 'metasvm', row, 'score');
-            if (metasvm_score != undefined || metasvm_score != null) {
-                var metasvm = predWidget('score', metasvm_score);
-                scores.push(metasvm);
-                var metasvm_pred = getWidgetData(tabName, 'metasvm', row, 'pred');
-                predictions.push(metasvm_pred);
-                var pred = predWidget('prediction', metasvm_pred);
-                preds.push(pred);
-            } else {
-                var metasvm = predWidget(null, null);
-                scores.push(metasvm);
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(metasvm_score))
             var metasvm_rankscore = getWidgetData(tabName, 'metasvm', row, 'rankscore');
-            if (metasvm_rankscore != undefined || metasvm_rankscore != null) {
-                var metasvm = getDialWidget('rankscore', metasvm_rankscore, 0.82257);
-                rankscores.push(metasvm);
-            } else {
-                var metasvm = predWidget(null, null);
-                rankscores.push(metasvm);
-            }
-            var muta_score = Number(getWidgetData(tabName, 'mutation_assessor', row, 'score'));
-            if (isNaN(muta_score) === false) {
-                scores.push(predWidget('score', muta_score));
-                var muta_pred = getWidgetData(tabName, 'mutation_assessor', row, 'impact');
-                predictions.push(muta_pred);
-                preds.push(predWidget('prediction', muta_pred));
-            } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.classList.add('pred_noanno')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
-            var muta_rankscore = Number(getWidgetData(tabName, 'mutation_assessor', row, 'rankscore'));
-            if (isNaN(muta_rankscore) === false) {
-                rankscores.push(getDialWidget('rankscore', muta_rankscore, 0.80));
-            } else {
-                rankscores.push(predWidget(null, null));
-            }
-            var mutpred_score = getWidgetData(tabName, 'mutpred1', row, 'mutpred_general_score');
-            if (mutpred_score != undefined || mutpred_score != null) {
-                scores.push(predWidget('score', mutpred_score));
-                predictions.push(null);
-                preds.push(predWidget(null, null));
-            } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
-            var mutpred_rankscore = getWidgetData(tabName, 'mutpred1', row, 'mutpred_rankscore');
-            if (mutpred_rankscore != undefined || mutpred_rankscore != null) {
-                rankscores.push(getDialWidget('rankscore', mutpred_rankscore, 0.80));
-            } else {
-                rankscores.push(predWidget(null, null));
-            }
+            rankscores.push(predWidget(metasvm_rankscore))
 
+            // Mutation Assessor
+            var muta_pred = getWidgetData(tabName, 'mutation_assessor', row, 'impact');
+            predictions.push(predWidget(muta_pred))
+            var muta_score = Number(getWidgetData(tabName, 'mutation_assessor', row, 'score'));
+            scores.push(predWidget(muta_score))
+            var muta_rankscore = Number(getWidgetData(tabName, 'mutation_assessor', row, 'rankscore'));
+            rankscores.push(predWidget(muta_rankscore))
+
+            // mutpred
+            // mutpred offers no prediction
+            predictions.push(predWidget(null))
+            var mutpred_score = getWidgetData(tabName, 'mutpred1', row, 'mutpred_general_score');
+            scores.push(predWidget(mutpred_score))
+            var mutpred_rankscore = getWidgetData(tabName, 'mutpred1', row, 'mutpred_rankscore');
+            rankscores.push(predWidget(mutpred_rankscore))
+
+            // mutation taster
+            var taster_pred = getWidgetData(tabName, 'mutationtaster', row, 'prediction');
+            predictions.push(predWidget(taster_pred))
             var taster_score = getWidgetData(tabName, 'mutationtaster', row, 'score');
-            if (taster_score != undefined || taster_score != null) {
-                scores.push(predWidget('score', taster_score));
-                var taster_pred = getWidgetData(tabName, 'mutationtaster', row, 'prediction');
-                predictions.push(taster_pred);
-                preds.push(predWidget('prediction', taster_pred));
-            } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(taster_score))
             var taster_rankscore = getWidgetData(tabName, 'mutationtaster', row, 'rankscore');
-            if (taster_rankscore != undefined || taster_rankscore != null) {
-                rankscores.push(getDialWidget('rankscore', taster_rankscore, 0.31733));
-            } else {
-                rankscores.push(predWidget(null, null));
+            rankscores.push(predWidget(taster_rankscore))
+            
+            // polyphen hdiv
+            let hdiv_pred = getWidgetData(tabName, 'polyphen2', row, 'hdiv_pred');
+            if (hdiv_pred == 'D') {
+                hdiv_pred = 'Probably Damaging';
+            } else if (hdiv_pred == 'P') {
+                hdiv_pred = 'Possibly Damaging';
+            } else if (hdiv_pred == 'B') {
+                hdiv_pred = 'Benign';
             }
+            predictions.push(predWidget(hdiv_pred))
             var hdiv_score = getWidgetData(tabName, 'polyphen2', row, 'hdiv_score');
-            if (hdiv_score != undefined || hdiv_score != null) {
-                scores.push(predWidget('score', hdiv_score));
-                var hdiv_pred = getWidgetData(tabName, 'polyphen2', row, 'hdiv_pred');
-                if (hdiv_pred == 'D') {
-                    hdiv_pred = 'Probably Damaging';
-                } else if (hdiv_pred == 'P') {
-                    hdiv_pred = 'Possibly Damaging';
-                } else if (hdiv_pred == 'B') {
-                    hdiv_pred = 'Benign';
-                }
-                predictions.push(hdiv_pred);
-                preds.push(predWidget('prediction', hdiv_pred));
-            } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(hdiv_score))
             var hdiv_rankscore = getWidgetData(tabName, 'polyphen2', row, 'hdiv_rank');
-            if (hdiv_rankscore != undefined || hdiv_rankscore != null) {
-                rankscores.push(getDialWidget('rankscore', hdiv_rankscore, 0.37043));
-            } else {
-                rankscores.push(predWidget(null, null));
+            rankscores.push(predWidget(hdiv_rankscore))
+            
+            // polyphen hvar
+            let hvar_pred = getWidgetData(tabName, 'polyphen2', row, 'hvar_pred');
+            if (hvar_pred == 'D') {
+                hvar_pred = 'Probably Damaging';
+            } else if (hvar_pred == 'P') {
+                hvar_pred = 'Possibly Damaging';
+            } else if (hvar_pred == 'B') {
+                hvar_pred = 'Benign';
             }
+            predictions.push(predWidget(hvar_pred))
             var hvar_score = getWidgetData(tabName, 'polyphen2', row, 'hvar_score');
-            if (hvar_score != undefined || hvar_score != null) {
-                scores.push(predWidget('score', hvar_score));
-                var hvar_pred = getWidgetData(tabName, 'polyphen2', row, 'hvar_pred');
-                if (hvar_pred == 'D') {
-                    hvar_pred = 'Probably Damaging';
-                } else if (hvar_pred == 'P') {
-                    hvar_pred = 'Possibly Damaging';
-                } else if (hvar_pred == 'B') {
-                    hvar_pred = 'Benign';
-                }
-                predictions.push(hvar_pred);
-                preds.push(predWidget('prediction', hvar_pred));
-            } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(hvar_score))
             var hvar_rankscore = getWidgetData(tabName, 'polyphen2', row, 'hvar_rank');
-            if (hvar_rankscore != undefined || hvar_rankscore != null) {
-                rankscores.push(getDialWidget('rankscore', hvar_rankscore, 0.47121));
-            } else {
-                rankscores.push(predWidget(null, null));
-            }
+            rankscores.push(predWidget(hvar_rankscore))
+            
+            // provean
+            var provean_pred = getWidgetData(tabName, 'provean', row, 'prediction');
+            predictions.push(predWidget(provean_pred))
             var provean_score = getWidgetData(tabName, 'provean', row, 'score');
-            if (provean_score != undefined || provean_score != null) {
-                scores.push(predWidget('score', provean_score));
-                var provean_pred = getWidgetData(tabName, 'provean', row, 'prediction');
-                predictions.push(provean_pred);
-                preds.push(predWidget('prediction', provean_pred));
-            } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(provean_score))
             var provean_rankscore = getWidgetData(tabName, 'provean', row, 'rankscore');
-            if (provean_rankscore != undefined || provean_rankscore != null) {
-                rankscores.push(getDialWidget('rankscore', provean_rankscore, 0.54382));
-            } else {
-                rankscores.push(predWidget(null, null));
-            }
+            rankscores.push(predWidget(provean_rankscore))
+
+            // revel
             var revel_score = getWidgetData(tabName, 'revel', row, 'score');
-            if (revel_score != null || revel_score != undefined) {
-                var r = predWidget('score', revel_score);
-                scores.push(r);
-                let revel_pred;
+            scores.push(predWidget(revel_score))
+            var revel_rankscore = getWidgetData(tabName, 'revel', row, 'rankscore');
+            rankscores.push(predWidget(revel_rankscore))
+            let revel_pred = null
+            if (revel_score !== null) {
                 if (revel_score <= 0.183) {
                     revel_pred = "Benign"
                 } else if (revel_score >= 0.773) {
@@ -2279,51 +2099,24 @@ widgetGenerators['predictionpanel'] = {
                 } else {
                     revel_pred = "Uncertain"
                 }
-                predictions.push(revel_pred);
-                preds.push(predWidget('prediction', revel_pred));
-            } else {
-                var r = predWidget(null, null);
-                scores.push(r);
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
             }
-            var revel_rankscore = getWidgetData(tabName, 'revel', row, 'rankscore');
-            if (revel_rankscore != null || revel_rankscore != undefined) {
-                var revel = getDialWidget('rankscore', revel_rankscore, 0.80);
-                rankscores.push(revel);
-            } else {
-                var revel = predWidget(null, null);
-                rankscores.push(revel);
+            predictions.push(predWidget(revel_pred))
 
-            }
+            // sift
+            var sift_pred = getWidgetData(tabName, 'sift', row, 'prediction');
+            predictions.push(predWidget(sift_pred))
             var sift_score = getWidgetData(tabName, 'sift', row, 'score');
-            if (sift_score != undefined || sift_score != null) {
-                scores.push(predWidget('score', sift_score));
-                var sift_pred = getWidgetData(tabName, 'sift', row, 'prediction');
-                predictions.push(sift_pred);
-                preds.push(predWidget('prediction', sift_pred));
-            } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
-            }
+            scores.push(predWidget(sift_score))
             var sift_rankscore = getWidgetData(tabName, 'sift', row, 'rankscore');
-            if (sift_rankscore != undefined || sift_rankscore != null) {
-                rankscores.push(getDialWidget('rankscore', sift_rankscore, 0.80));
-            } else {
-                rankscores.push(predWidget(null, null));
-            }
+            rankscores.push(predWidget(sift_rankscore))
+            
+            // vest
             var vest_score = getWidgetData(tabName, 'vest', row, 'score');
-            var vest_pval = getWidgetData(tabName, 'vest', row, 'pval');
-            if (vest_score != undefined || vest_score != null) {
-                scores.push(predWidget('p-value', vest_pval))
-                let vest_pred;
+            scores.push(predWidget(vest_score))
+            // vest provides no rank score
+            rankscores.push(predWidget(null))
+            let vest_pred = null
+            if (vest_score != null) {
                 if (vest_score <= 0.302) {
                     vest_pred = "Benign"
                 } else if ( vest_score >= 0.861) {
@@ -2331,24 +2124,20 @@ widgetGenerators['predictionpanel'] = {
                 } else {
                     vest_pred = "Uncertain"
                 }
-                predictions.push(vest_pred);
-                preds.push(predWidget("prediction", vest_pred));
-            } else {
-                scores.push(predWidget(null, null));
-                var ssdiv = getEl('div')
-                ssdiv.textContent = getNoAnnotMsgVariantLevel()
-                ssdiv.classList.add('pred_noanno')
-                preds.push(ssdiv)
-                predictions.push(null);
             }
-            if (vest_score != undefined || vest_score != null) {
-                rankscores.push(getDialWidget('score', vest_score, 0.80));
-            } else {
-                rankscores.push(predWidget(null, null));
-            }
+            predictions.push(predWidget(vest_pred));
+
             var table = getWidgetTableFrame();
             table.setAttribute("id", "pred");
             var tbody = getEl('tbody');
+            tooltipContent = [
+                {id: "source", label: "Source", info: null},
+                {id: "prediction", label: "Prediction", info: "Predictions, when provided, indicate the predicted outcome or impact of the variant."},
+                {id: "score", label: "Score", info: "Raw scores reported by the method."},
+                {id: "rankscore", label: "Rankscore", info: "When provided rankscores closer to 0 are considered more tolerated, while rankscores closer to 1 are considered more damaging."}
+            ]
+            var thead = getWidgetTableHeadTooltips(tooltipContent);
+            addEl(table, thead);
             var sdiv = getEl('div');
             var sdiv = getEl('div')
             sdiv.style.maxWidth = '75rem'
@@ -2358,31 +2147,36 @@ widgetGenerators['predictionpanel'] = {
             var counts = [];
             var dam_count = 0;
             var tol_count = 0;
+            var uncertain_count = 0;
             for (var i = 0; i < names.length; i++) {
                 var name = names[i];
                 var titleEl = makeModuleDescUrlTitle(name)
-                var p = predictions[i];
                 var tr = document.createElement('tr');
                 var td = document.createElement('td');
                 td.style.textAlign = 'center';
                 td.style.verticalAlign = 'middle';
                 addEl(tr, td);
                 addEl(td, titleEl)
-                var pred = preds[i];
+                var pred = predictions[i];
+                var p = pred.textContent
                 var score = scores[i];
-                if (score != null) {
+                if (score.textContent !== "") {
                     score.classList.add('pred_score');
+                } else {
+                    pred.textContent = getNoAnnotMsgVariantLevel()
+                    pred.classList.add("pred_noanno")
                 }
                 var td = document.createElement('td');
-                if (p != null && p.includes('Damaging') || p == 'Medium' || p == 'Disease Causing' || p == 'D' || p == "Pathogenic") {
+                if (p.includes('Damaging') || p == 'Medium' || p == 'Disease Causing' ||  p == "Pathogenic") {
                     dam_count = dam_count + 1;
                     pred.classList.add('pred_damaging');
-                } else if (p != null) {
+                } else if ( p === "Uncertain") {
+                    uncertain_count = uncertain_count + 1
+                    pred.classList.add('pred_uncertain');
+                } else if (p != "") {
                     tol_count = tol_count + 1;
                     pred.classList.add('pred_tol');
                 }
-                var a = getEl('a')
-                var tn = document.createTextNode(pred)
                 addEl(tr, td);
                 addEl(td, pred)
                 var td = document.createElement('td');
@@ -2390,21 +2184,20 @@ widgetGenerators['predictionpanel'] = {
                 addEl(tr, td);
                 var rank = rankscores[i];
                 var td = document.createElement('td');
-
                 addEl(td, rank);
                 addEl(tr, td);
                 addEl(tbody, tr);
             }
             counts.push(dam_count);
             counts.push(tol_count);
-            var total_count = tol_count + dam_count
+            counts.push(uncertain_count);
+            var total_count = dam_count + tol_count + uncertain_count
             addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
             var sdiv = getEl('div');
             sdiv.className = "prediction"
             var chartDiv = getEl('canvas');
             var span = getEl('span')
-            span.innerHTML = tol_count + "/" + total_count + " Tolerated"
-
+            span.innerHTML = tol_count + "/" + total_count + " Tolerated or Benign"
             addEl(sdiv, chartDiv);
             addEl(sdiv, span)
             var chart = new Chart(chartDiv, {
@@ -2412,15 +2205,14 @@ widgetGenerators['predictionpanel'] = {
                 data: {
                     datasets: [{
                         data: counts,
-                        backgroundColor: ['rgba(153, 27, 27, 1)', 'rgba(6, 95, 70, 1)']
+                        backgroundColor: ['rgba(153, 27, 27, 1)', 'rgba(6, 95, 70, 1)', 'black']
                     }],
-                    labels: ['Damaging', 'Tolerated']
+                    labels: ['Damaging / Pathogenic', 'Tolerated / Benign', 'Uncertain']
                 },
                 options: {
                     responsive: true,
                     responsiveAnimationDuration: 500,
                     maintainAspectRatio: false,
-
                     legend: {
                         display: false,
                         position: 'right',
