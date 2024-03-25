@@ -1,19 +1,20 @@
 #CRAVAT Report
-#Created at Tuesday 02/26/2019 12:08:29
+#Created at Monday 03/25/2024 08:34:13
 #Report level: variant
 #
-Variant Annotation												PhyloP						Tag Sampler		
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Hugo	Transcript	Sequence Ontology	Protein Change	All Mappings	Vert Score	Vert Ranked Score	Mamm Score	Mamm Ranked Score	Primate Score	Primate Ranked Score	Number of Samples	Samples	Tags
-1	chrM	3310	C	A								-2.215	0.01306	-2.265	0.00506	-6.85	2e-05	0		
-2	chrM	3315	G	C								-6.544	0.00077	-1.479	0.01276	-0.783	0.03311	0		
+Variant Annotation																		Original Input				PhyloP					
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele	Vert Score	Vert Ranked Score	Mamm Score	Mamm Ranked Score	Primate Score	Primate Ranked Score
+1	chrM	3310	C	A			MT-TI	ENST00000387365.1	Mt_tRNA				ENST00000386347.1:MT-TL1::2kb_downstream_variant,Mt_tRNA::; ENST00000387342.1:MT-TV::2kb_downstream_variant,Mt_tRNA::; ENST00000387347.2:MT-RNR2::2kb_downstream_variant,Mt_rRNA::; ENST00000387365.1:MT-TI::2kb_upstream_variant,Mt_tRNA::; ENST00000387372.1:MT-TQ::2kb_downstream_variant,Mt_tRNA::; ENST00000387377.1:MT-TM::2kb_upstream_variant,Mt_tRNA::; ENST00000389680.2:MT-RNR1::2kb_downstream_variant,Mt_rRNA::	3310	0			chrM	3310	C	A	-2.215	0.01306	-1.569	0.0515	-6.85	2e-05
+2	chrM	3315	G	C			MT-TI	ENST00000387365.1	Mt_tRNA				ENST00000386347.1:MT-TL1::2kb_downstream_variant,Mt_tRNA::; ENST00000387342.1:MT-TV::2kb_downstream_variant,Mt_tRNA::; ENST00000387347.2:MT-RNR2::2kb_downstream_variant,Mt_rRNA::; ENST00000387365.1:MT-TI::2kb_upstream_variant,Mt_tRNA::; ENST00000387372.1:MT-TQ::2kb_downstream_variant,Mt_tRNA::; ENST00000387377.1:MT-TM::2kb_upstream_variant,Mt_tRNA::; ENST00000389680.2:MT-RNR1::2kb_downstream_variant,Mt_rRNA::	3315	0			chrM	3315	G	C	-6.544	0.00077	-0.326	0.09927	-0.783	0.03311
 #CRAVAT Report
-#Created at Tuesday 02/26/2019 12:08:29
+#Created at Monday 03/25/2024 08:34:13
 #Report level: gene
 #
-Variant Annotation				
-Hugo	Variants in Gene	Sequence Ontology	All Sequence Ontologies	Note
+Variant Annotation					
+Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+MT-TI		0	2	Mt_tRNA	Mt_tRNA(0)
 #CRAVAT Report
-#Created at Tuesday 02/26/2019 12:08:29
+#Created at Monday 03/25/2024 08:34:13
 #Report level: sample
 #
 Variant Annotation	
@@ -21,10 +22,10 @@ UID	Sample
 1	
 2	
 #CRAVAT Report
-#Created at Tuesday 02/26/2019 12:08:29
+#Created at Monday 03/25/2024 08:34:13
 #Report level: mapping
 #
-Variant Annotation		
-Original Line	User Tags	UID
-2		1
-3		2
+Variant Annotation			
+Original Line	User Tags	UID	Input File Number
+2		1	0
+3		2	0

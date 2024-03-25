@@ -1,4 +1,4 @@
-datasource: dbNSFP v4.0b1
+datasource: dbNSFP v4.5a
 description: A database of compressed phastCons conservation scores.
 developer:
   citation: Pollard, K. S., Hubisz, M. J., Rosenbloom, K. R., & Siepel, A. (2010).
@@ -24,18 +24,19 @@ output_columns:
   type: float
   width: 58
   hidden: false
-- desc: phastCons conservation score based on the multiple alignments of 30 mammalian
-    genomes (including human). The larger the score, the more conserved the site.
+- desc: phastCons conservation score based on the multiple alignments 
+    of 470 mammalian genomes (including human). The larger the score, the more conserved 
+    the site. Scores range from 0 to 1. 
   filterable: true
-  name: phastcons30_mamm
+  name: phastcons470_mamm
   title: Mamm Score
   type: float
   hidden: true
-- desc: phastCons30way_mammalian scores were ranked among all phastCons30way_mammalian
-    scores in dbNSFP. The rankscore is the ratio of the rank of the score over the
-    total number of phastCons30way_mammalian scores in dbNSFP.
+- desc: phastCons470way_mammalian scores were ranked among
+    all phastCons470way_mammalian scores in dbNSFP. The rankscore is the ratio of the rank 
+    of the score over the total number of phastCons470way_mammalian scores in dbNSFP.
   filterable: false
-  name: phastcons30_mamm_r
+  name: phastcons470_mamm_r
   title: Mamm Ranked Score
   type: float
   width: 56
@@ -60,9 +61,10 @@ tags:
 - evolution
 title: Phast Cons
 type: annotator
-version: 3.5.9
+version: 3.6.0
 requires:
-- wgphastcons
+- wgphastcons>=1.2.0
 release_note:
+  3.6.0: updated data with phastcons 470 mammalian scores
   3.5.9: non-canonical chrom support for older oc versions
   3.5.8: handle only specific alt chroms

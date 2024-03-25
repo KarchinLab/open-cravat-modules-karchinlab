@@ -1,4 +1,4 @@
-datasource: dbNSFP v4.0b1
+datasource: dbNSFP v4.5a
 description: A database providing conservation scoring by phylogenetic p-values
 developer:
   citation: Pollard, K. S., Hubisz, M. J., Rosenbloom, K. R., & Siepel, A. (2010).
@@ -24,18 +24,18 @@ output_columns:
   width: 54
   filterable: false
   hidden: false
-- desc: phyloP (phylogenetic p-values) conservation score based on the multiple alignments
-    of 30 mammalian genomes (including human). The larger the score, the more conserved
-    the site.
+- desc: phyloP (phylogenetic p-values) conservation score based on the
+    multiple alignments of 470 mammalian genomes (including human). The larger the score, 
+    the more conserved the site. Scores range from -20 to 11.936.
   filterable: true
-  name: phylop30_mamm
+  name: phylop470_mamm
   title: Mamm Score
   type: float
   hidden: true
 - desc: phyloP mammalian scores were ranked among all phyloP mammalian scores in dbNSFP.
     The rankscore is the ratio of the rank of the score over the total number of phyloP
     mammalian scores in dbNSFP.
-  name: phylop30_mamm_r
+  name: phylop470_mamm_r
   title: Mamm Ranked Score
   type: float
   width: 54
@@ -60,9 +60,10 @@ tags:
 - evolution
 title: PhyloP
 type: annotator
-version: 3.5.10
+version: 3.6.0
 requires:
-- wgphylop
+- wgphylop>=1.2.0
 release_note:
+  3.6.0: updated data with phylop 470 mammalian scores 
   3.5.10: non-canonical chrom support for older oc versions
   3.5.9: handle only specific alt chroms

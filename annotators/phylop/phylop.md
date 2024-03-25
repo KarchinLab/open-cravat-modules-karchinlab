@@ -1,2 +1,2 @@
-# phyloP 100 Way Vertebrate & phyloP 20 Way Mammalian: conservation scoring by phylogenetic p-values
-The phyloP database contains conservation scoring by phyloP (phylogenetic p-values) for multiple alignments of 99 vertebrate genomes to the human genome as well as for multiple alignments of 19 mammalian genome sequences to the human genome.
+# phyloP 100 Way Vertebrate, phyloP 470 Way Mammalian, & phyloP 17 Way Primate: conservation scoring by phylogenetic p-values
+The phyloP database contains conservation scoring by phyloP (phylogenetic p-values) for multiple alignments of 99 vertebrate genomes to the human genome as well as for multiple alignments of 469 mammalian genome sequences to the human genome and a 17 way alignment primate set.

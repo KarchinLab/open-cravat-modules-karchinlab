@@ -2617,8 +2617,8 @@ widgetGenerators['phastcons3'] = {
             sdiv.style.overflow = 'hidden'
             var vert_r = getWidgetData(tabName, 'phastcons', row, 'phastcons100_vert_r');
             var vert = getWidgetData(tabName, 'phastcons', row, 'phastcons100_vert');
-            var mamm_r = getWidgetData(tabName, 'phastcons', row, 'phastcons30_mamm_r');
-            var mamm = getWidgetData(tabName, 'phastcons', row, 'phastcons30_mamm');
+            var mamm_r = getWidgetData(tabName, 'phastcons', row, 'phastcons470_mamm_r');
+            var mamm = getWidgetData(tabName, 'phastcons', row, 'phastcons470_mamm');
             var v = barWidget("Vertebrate", "Score", vert, prettyVal(vert_r), 0.0, 1, "More " + "<br />" + "Conserved", null, null)
             var m = barWidget("Mammalian", "Score", prettyVal(mamm), prettyVal(mamm_r),  0.0, 1, "More " + "<br />" + "Conserved", null, null)
             v.style.paddingRight = '40px'
@@ -2651,8 +2651,8 @@ widgetGenerators['phylop2'] = {
             } else {
                 var v = `No annotation is available for ${annotData["base"]["hugo"]} ${annotData["base"]["achange"]}`
             }
-            var mamm_r = getWidgetData(tabName, 'phylop', row, 'phylop30_mamm_r');
-            var mamm = getWidgetData(tabName, 'phylop', row, 'phylop30_mamm');
+            var mamm_r = getWidgetData(tabName, 'phylop', row, 'phylop470_mamm_r');
+            var mamm = getWidgetData(tabName, 'phylop', row, 'phylop470_mamm');
             if (mamm_r != null || mamm_r != undefined) {
                 var m = barWidget("Mammalian", "Score", prettyVal(mamm), prettyVal(mamm_r), -20, 1.312, "More"  + "<br />" + "Conserved", null, null)
             } else {

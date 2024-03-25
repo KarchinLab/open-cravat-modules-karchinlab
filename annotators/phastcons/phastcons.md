@@ -1,2 +1,2 @@
-# phastCons 100 Way Vertebrate & phastCons 20 Way Mammalian: compressed phastCons conservation scoring
-The phastCons database contains compressed phastCons scores for multiple alignments of 99 vertebrate genomes to the human genome as well as for multiple alignments of 19 mammalian genome sequences to the human genome.
+# phastCons 100 Way Vertebrate, phastCons 470 Way Mammalian & phastCons 17 Way Primate: compressed phastCons conservation scoring
+The phastCons database contains compressed phastCons scores for multiple alignments of 99 vertebrate genomes to the human genome as well as for multiple alignments of 469 mammalian genome sequences to the human genome and a 17 way alignment primate set.
