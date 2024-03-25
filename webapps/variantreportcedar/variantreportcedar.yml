@@ -1,5 +1,5 @@
 title: OpenCRAVAT / CEDAR Variant Report
-version: 1.0.0
+version: 1.1.0
 type: webapp
 live_modules:
 - cancer_genome_interpreter
@@ -97,6 +97,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.1.0: Requested updates by CEDAR group
   1.0.0: Initial release
 tags:
 - visualization
