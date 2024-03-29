@@ -227,6 +227,11 @@ dl > div {
   grid-template-columns: 12rem auto;
 }
 
+#contdiv_prediction dl > div {
+  grid-template-columns: 16rem auto;
+} 
+
+
 dt {
   line-height: 1.25rem;
   font-weight: 500;
@@ -307,22 +312,10 @@ dd {
   font-weight: bolder;
 }
 
-.preddiv > div {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  position: relative;
-  bottom: 15px;
+.preddiv {
+  font-size: 1.15rem;
   text-align: center;
-}
-
-.preddiv > div > div:first-child {
-  font-size: 0.75rem;
-}
-
-.preddiv > div > div:nth-child(2) {
-  font-size: 1.25rem;
+  vertical-align: middle;
 }
 
 .contentdiv > div {
@@ -563,19 +556,85 @@ h3 {
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 5px;
-  text-align: left;
+  text-align: center;
   background-color: rgb(73 134 189);
   color: white;
   height: 10px;
   position: sticky;
   top: 0;
+  pointer-events: none;
+  
+}
+
+.th_tooltip::after {
+  content: "?";
+  display: inline-block;
+  font-family: sans-serif;
+  font-weight: 400;
+  text-align: center;
+  width: 1.8ex;
+  height: 1.8ex;
+  font-size: 12px;
+  border-radius: 18.2ex;
+  padding: 2px;
+  color: white;
+  background: transparent;
+  border: 1px solid white;
+  text-decoration: none;
+  margin-left: 4px;
+  vertical-align: center;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.show_tooltip { 
+  display: block;
+}
+
+.hide_tooltip {
+  display: none;
+}
+
+#rankscore_info {
+  position: absolute;
+  left: 75%;
+  z-index: 3;
+  background-color: white;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 4px 4px 4px gray;
+  border: 1px dashed gray;
+  word-break: normal;
+}
+
+#prediction_info {
+  position: absolute;
+  left: 40%;
+  z-index: 3;
+  background-color: white;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 4px 4px 4px gray;
+  border: 1px dashed gray;
+  word-break: normal;
+}
+
+#score_info {
+  position: absolute;
+  left: 57%;
+  z-index: 3;
+  background-color: white;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 4px 4px 4px gray;
+  border: 1px dashed gray;
+  word-break: normal;
 }
 
 #pred {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
-
   background-color: white;
   border-radius: 9px;
 }
@@ -595,17 +654,23 @@ h3 {
 .pred_damaging {
   color: rgba(153, 27, 27, 1);
   position: relative;
-  top: 25px;
 }
 .pred_tol {
   color: rgba(6, 95, 70, 1);
   position: relative;
-  top: 25px;
+}
+
+.pred_uncertain {
+  color: black;
+  position: relative;
+}
+.pred_tol {
+  color: rgba(6, 95, 70, 1);
+  position: relative;
 }
 .pred_noanno {
   color: darkgrey;
   position: relative;
-  top: 40px;
   font-size: 1rem;
   text-align: center;
 }
@@ -613,13 +678,12 @@ h3 {
   background-color: white;
   color: black;
   position: relative;
-  top: 25px;
 }
 #pred td {
   padding-bottom: 15px;
   padding-top: 15px;
-  vertical-align: top;
-  height: 126px;
+  height: 75px;
+  vertical-align: middle;
 }
 #pred tr {
   border: 1px solid #ddd;
@@ -904,4 +968,26 @@ h3 {
 
 #detaildiv_documentation > h1 {
   margin-block-end: 1em;
+}
+
+.prediction {
+  overflow: auto;
+  padding-left: 1.5rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.prediction canvas {
+  max-height: 203px;
+}
+.prediction span{
+  background-color: white;
+  padding: 5px;
+  border: 1px solid black;
+  max-width: 192px;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  font-size: 15px;
 }
