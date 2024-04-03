@@ -38,6 +38,39 @@ function getWidgetTableHead(headers, widths) {
     return thead;
 }
 
+function getWidgetTableHeadTooltips(content) {
+    var thead = getEl('thead');
+    thead.style.textAlign = 'left';
+    thead.style['word-break'] = 'normal';
+    thead.style.borderBottom = widgetTableBorderStyle;
+    var tr = getEl('tr');
+    content.map((header) => {
+        var th = getEl('th');
+        if (header.info) {
+            th.classList.add("th_tooltip")
+            var div = getEl("div")
+            div.setAttribute("id", `${header.id}_info`)
+            div.classList.add("hide_tooltip")
+            div.innerText = header.info
+            addEl(thead, div)
+            th.addEventListener('click', function (evt) {
+                var el = document.getElementById(`${header.id}_info`)
+                el.classList.remove("hide_tooltip")
+                el.classList = "show_tooltip"
+            });
+            div.addEventListener('mouseout', function (evt) {
+                var el = document.getElementById(`${header.id}_info`)
+                el.classList.remove("show_tooltip")
+                el.classList = "hide_tooltip"
+            });
+        }
+        addEl(th, getTn(header.label));
+        addEl(tr, th);
+    })
+    addEl(thead, tr);
+    return thead;
+}
+
 function getWidgetTableTr(values, linkNames) {
     var numBorder = values.length - 1;
     var linkNameItr = 0;
