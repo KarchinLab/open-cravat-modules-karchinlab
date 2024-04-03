@@ -1,14 +1,11 @@
-datasource: 09.06.22
-description: OncoKB is a precision oncology knowledge base that annotates the biological
-  consequences and clinical implications (therapeutic, diagnostic, and prognostic)
-  of genetic variants in cancer.
+datasource: APIv1
+description: '*Local Installation Use Only* OncoKB is a precision oncology knowledge base that annotates the biological consequences and clinical implications (therapeutic, diagnostic, and prognostic) of genetic variants in cancer.'
 developer:
-  name: Memorial Sloan Cancer Center
-  organization: Memorial Sloan Cancer Center
-  email: support@cravat.us.com
-  website: https://www.oncokb.org/
-  citation: 'Chakravarty, Debyani, et al. "OncoKB: a precision oncology knowledge
-    base." JCO precision oncology 1 (2017): 1-16.'
+  name: 'Memorial Sloan Cancer Center'
+  organization: 'Memorial Sloan Cancer Center'
+  email: 'rkim@oakbioinformatics.com'
+  website: 'https://www.oncokb.org/'
+  citation: 'Chakravarty, Debyani, et al. "OncoKB: a precision oncology knowledge base." JCO precision oncology 1 (2017): 1-16.'
 
 level: variant
 
@@ -25,7 +22,7 @@ output_columns:
   type: string
   width: 100
   hidden: false
-  category: single
+  category: single 
 - name: hotspot
   title: Hotspot
   type: string
@@ -33,7 +30,7 @@ output_columns:
   category: single
 - name: highestSensitiveLevel
   title: Highest Sensitive Level
-  type: string
+  type: string 
   width: 85
   category: single
 - name: highestResistanceLevel
@@ -41,27 +38,25 @@ output_columns:
   type: string
   width: 85
   category: single
-  desc: Mutations that have been shown to confer resistance to specific targeted therapies.
-    Level 1 is standard care. Level 2 is clinical evidence.
+  desc: Mutations that have been shown to confer resistance to specific targeted therapies. Level 1 is standard care. Level 2 is clinical evidence.
 - name: highestDiagnosticImplicationLevel
   title: Highest Dx Level
   type: string
   width: 85
-  desc: Highest Diagnostic Level of Evidence. Level 1 is required for diagnosis. Level
-    2 supports diagnosis. Level 3 is investigational diagnosis.
+  desc: Highest Diagnostic Level of Evidence. Level 1 is required for diagnosis. Level 2 supports diagnosis. 
+    Level 3 is investigational diagnosis.
   category: single
 - name: highestPrognosticImplicationLevel
   title: Highest Px Level
   type: string
   width: 85
-  desc: Highest Prognistic Level of Evidence. Level 1 is guideline-recognized with
-    well-powered data. Level 2 is guideline-recognized with limited data. Level 3
-    is investigational.
+  desc: Highest Prognistic Level of Evidence. Level 1 is guideline-recognized with well-powered data. 
+    Level 2 is guideline-recognized with limited data. Level 3 is investigational.
   category: single
 - name: pmids
   title: PubMed
   type: string
-  link_format: https://pubmed.ncbi.nlm.nih.gov/${[^;]+}
+  link_format: 'https://pubmed.ncbi.nlm.nih.gov/${[^;]+}'
   width: 70
   desc: Link to Literature
   hidden: true
@@ -100,15 +95,12 @@ output_columns:
 
 title: OncoKB
 version: 1.1.3
-release_note:
-  1.1.3: updated annotator fields.
 type: annotator
 requires_opencravat: '>=2.2.7'
 tags:
 - cancer
-- clinical relevance
-- variants
 requires:
 - wgoncokb
-commercial_warning: For commercial use, visit https://www.oncokb.org/account/register.
-private: true
+commercial_warning: 'For commercial use, visit https://www.oncokb.org/account/register.'
+release_note:
+  1.1.3: Update usage description and API token use for local use
