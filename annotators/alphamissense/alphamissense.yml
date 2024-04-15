@@ -2,6 +2,9 @@ title: AlphaMissense
 version: 1.0.0
 type: annotator
 level: variant
+tags:
+- variant effect prediction
+- variants
 
 output_columns:
 - name: am_pathogenicity
