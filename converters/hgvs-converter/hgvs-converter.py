@@ -5,9 +5,6 @@ from cravat import BaseConverter
 from cravat import BadFormatError
 import requests
 
-_HGVS_API_URL = 'http://localhost:8000'
-_COORDINATES_ENDPOINT = _HGVS_API_URL + '/coordinates'
-
 
 class CravatConverter(BaseConverter):
     """
@@ -24,12 +21,26 @@ class CravatConverter(BaseConverter):
 
     def __init__(self):
         super().__init__()
+        self.api_url = self.conf['api_url']
+        self.coordinates_endpoint = self.api_url + '/coordinates'
         self.format_name = 'hgvs'
+        self.valid_sequence_types = ['c', 'g', 'm', 'n', 'o', 'p', 'r']
 
     def _check_line(self, line):
+        """For non-comment lines, ensure that the first token is at least vaguely HGVS-like"""
         tokens = line.strip('\r\n').split('\t')
         if len(tokens) == 1:
             tokens = tokens[0].split()
+
+        # check that the first token is something like aaaa:X.bbb where X is a valid reference sequence type
+        parts = tokens[0].split(':')
+        if len(parts) != 2:
+            return False, 'HGVS token incorrectly formatted'
+        desc_parts = parts[1].split('.')
+        if len(desc_parts) != 2:
+            return False, 'HGVS token incorrectly formatted'
+        if desc_parts[0] not in self.valid_sequence_types:
+            return False, 'HGVS token incorrectly formatted'
         return True, ''
 
     def _get_string_sample_and_tags(self, line):
@@ -46,6 +57,8 @@ class CravatConverter(BaseConverter):
         return hgvs_string, sample, tags
 
     def check_format(self, f):
+        if f.name.endswith('.hgvs'):
+            return True
         format_correct = False
         for l in f:
             if not (l.startswith('#')):
@@ -55,20 +68,19 @@ class CravatConverter(BaseConverter):
         return format_correct
 
     def setup(self, f):
-        # Do some API connection test?
-        r = requests.get(f'{_HGVS_API_URL}/hello')
-        pass
+        """Ensure connection to the HGVS API, raise exception if anything goes wrong"""
+        r = requests.get(f'{self.api_url}/hello', timeout=1)
+        r.raise_for_status()
 
     def _call_api(self, hgvs):
         data = {'hgvs': hgvs}
         headers = {'Content-Type': 'application/json'}
-        r = requests.post(_COORDINATES_ENDPOINT, data=json.dumps(data), headers=headers)
-        if r.status_code != 200:
-            try:
-                js = r.json()
-            except JSONDecodeError:
-                js = f'{{"body": "{r.status_code} - {r.text}"}}'
-            raise BadFormatError(r.json()['body'])
+        r = requests.post(self.coordinates_endpoint, data=json.dumps(data), headers=headers)
+        r.raise_for_status()
+        try:
+            js = r.json()
+        except JSONDecodeError:
+            js = f'{{"body": "{r.status_code} - {r.text}"}}'
         return r.json()
 
     def convert_line(self, line):
@@ -85,6 +97,10 @@ class CravatConverter(BaseConverter):
 
         tokens = self._call_api(hgvs_string)
         # {'alt': 'A', 'assembly': 'hg38', 'body': 'HGVS successfully converted to coordinates', 'chrom': 'chrX', 'code': 200, 'hgvs': 'NC_000023.11:g.32389644G>A', 'is_valid': True, 'original': 'NM_004006.2:c.4375C>T', 'pos': 32389644, 'ref': 'G'}
+        assembly = tokens['assembly']
+        if self.input_assembly and self.input_assembly != assembly:
+            raise BadFormatError(
+                f'HGVS {hgvs_string} found to be from assembly {assembly}; expected {self.input_assembly}')
         wdict = {
             'tags': tags,
             'chrom': tokens['chrom'],
@@ -92,5 +108,6 @@ class CravatConverter(BaseConverter):
             'ref_base': tokens['ref'],
             'alt_base': tokens['alt'],
             'sample_id': sample,
+            'assembly': tokens['assembly']
         }
         return [wdict]
