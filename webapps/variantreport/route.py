@@ -6,7 +6,6 @@ import urllib.parse
 import json
 import sys
 import argparse
-import imp
 import yaml
 import re
 from cravat import ConfigLoader
