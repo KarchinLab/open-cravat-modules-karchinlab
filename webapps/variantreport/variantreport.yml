@@ -1,5 +1,5 @@
 title: OpenCRAVAT Variant Report
-version: 1.3.0
+version: 1.3.1
 type: webapp
 live_modules:
 - aloft
@@ -184,6 +184,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.3.1: remove imp module for use with python 3.12
   1.3.0: updated variant effect predictions panel
   1.2.2: works with updated phylop and phastcons
   1.2.1: show documentation on blank page
