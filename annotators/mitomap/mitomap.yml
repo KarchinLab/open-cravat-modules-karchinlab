@@ -1,4 +1,4 @@
-datasource: 2020.04.27
+datasource: 2023.06.21
 description: The MITOMAP database of human mitochondrial DNA (mtDNA) information has
   been an important compilation of mtDNA variation for researchers, clinicians and
   genetic counselors.
@@ -55,8 +55,9 @@ tags:
 requires:
 - wgmitomap
 title: MITOMAP
-version: 1.1.0
+version: 1.2.0
 type: annotator
 input_format: crv
 release_note:
+  1.2.0: Data update
   1.1.0: Non-chrM will not produce an exception.
