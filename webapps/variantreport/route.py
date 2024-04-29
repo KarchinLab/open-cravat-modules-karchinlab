@@ -1,6 +1,9 @@
+import asyncio
 import os
 import webbrowser
 import multiprocessing
+
+import aiohttp.web
 import aiosqlite
 import urllib.parse
 import json
@@ -29,18 +32,63 @@ module_confs = {}
 modules_to_run_ordered = []
 oncokb_cache = {}
 wgsreader = cravat.get_wgs_reader(assembly='hg38')
+VARIANT_REPORT_CONFIG = {}
+
 
 async def test (request):
     return web.json_response({'result': 'success'})
 
+
+def get_coordinates_from_hgvs_api(queries):
+    global VARIANT_REPORT_CONFIG
+    if not VARIANT_REPORT_CONFIG:
+        confloader = ConfigLoader()
+        VARIANT_REPORT_CONFIG = confloader.get_module_conf('variantreport')
+    if 'hgvs_api_url' not in VARIANT_REPORT_CONFIG:
+        raise aiohttp.web.HTTPInternalServerError(text='"hgvs_api_url" not found in variantreport configuration.')
+    data = {'hgvs': queries['hgvs']}
+    headers = {'Content-Type': 'application/json'}
+    resp = requests.post(VARIANT_REPORT_CONFIG['hgvs_api_url'], data=json.dumps(data), headers=headers, timeout=20)
+    resp.raise_for_status()
+    tokens = resp.json()
+    return {
+        'chrom': tokens['chrom'],
+        'pos': tokens['pos'],
+        'ref_base': tokens['ref'],
+        'alt_base': tokens['alt'],
+        'assembly': tokens['assembly']
+    }
+
+
+async def get_coordinates_from_request_params(queries):
+    parameters = {}
+    required_coordinate_params = {'chrom', 'pos', 'ref_base', 'alt_base', 'assembly'}
+    if (required_coordinate_params <= queries.keys()
+        and None not in {queries[x] for x in required_coordinate_params}):
+        parameters = {
+            x: queries[x] for x in required_coordinate_params
+        }
+    elif 'hgvs' in queries.keys() and queries['hgvs'] and 'assembly' in queries.keys():
+        # make hgvs api call
+        parameters = get_coordinates_from_hgvs_api(queries)
+    else:
+        raise web.HTTPBadRequest(reason='Required parameters missing. Need either "chrom", "pos", "ref_base", and "alt_base", or "hgvs". Parameter "assembly" always required.')
+    parameters['uid'] = queries.get('uid', '')
+    if 'annotators' in queries.keys():
+        parameters['annotators'] = queries.get('annotators', '')
+    return parameters
+
+
 async def get_live_annotation_post (request):
     queries = await request.post()
-    response = await get_live_annotation(queries)
+    coords = await get_coordinates_from_request_params(queries)
+    response = await get_live_annotation(coords)
     return web.json_response(response)
 
 async def get_live_annotation_get (request):
     queries = request.rel_url.query
-    response = await get_live_annotation(queries)
+    coords = await get_coordinates_from_request_params(queries)
+    response = await get_live_annotation(coords)
     return web.json_response(response)
 
 async def get_live_annotation (queries):
@@ -254,9 +302,11 @@ async def load_live_modules ():
     global live_mapper
     global module_confs
     global modules_to_run_ordered
+    global VARIANT_REPORT_CONFIG
     confloader = ConfigLoader()
-    conf = confloader.get_module_conf('variantreport')
-    module_names_to_load = conf['live_modules']
+    if not VARIANT_REPORT_CONFIG:
+        VARIANT_REPORT_CONFIG = confloader.get_module_conf('variantreport')
+    module_names_to_load = VARIANT_REPORT_CONFIG['live_modules']
     if live_mapper is None:
         cravat_conf = au.get_cravat_conf()
         if 'genemapper' in cravat_conf:
@@ -426,3 +476,23 @@ routes = [
 ]
 
 canonicals = None
+
+
+async def test():
+    required_coordinate_params = {'chrom', 'pos', 'ref_base', 'alt_base', 'assembly'}
+    queries = {
+        # 'chrom': 'chr1',
+        # 'pos': 1234,
+        # 'ref_base': 'A',
+        # 'alt_base': 'C',
+        'assembly': 'hg38',
+        'annotators': ['civic', 'clinvar'],
+        'hgvs': 'NM_177402.5:c.1197C>T',
+        'uid': '123abc'
+    }
+    resp = await get_coordinates_from_request_params(queries)
+    print(repr(resp))
+
+
+if __name__ == '__main__':
+    asyncio.run(test())

@@ -176,6 +176,7 @@ requires:
 - wgdgi
 - wgndex_chdsummary
 - wgthousandgenomes
+hgvs_api_url: https://hgvs.opencravat.org/coordinates
 description: OpenCRAVAT Variant Report Webapp
 developer:
   name: OpenCravat
