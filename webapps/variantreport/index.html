@@ -22,24 +22,22 @@
         <div id='logodiv'>
             <div>
             <a href="https://open-cravat.readthedocs.io/en/latest/OpenCRAVAT-Variant-Report.html" target="_blank">
-            <img src='question.png' style='display: flex; justify-content: left; align-items: left;
-                width: 3.5vw; cursor: pointer; margin-left: 25px; margin-right: 25px; margin-top:20px;' 
-            />
+                <img id="question_icon" src='question.png' alt="Single Variant Report Documentation"/>
             </a>
             </div>
             <div>
                 <div id='inputdiv'>
                     <div id="variant_input_boxes">
-                        <input id="input_variant_chrom" name="inputVariantChrom" placeholder="Chromosome">
-                        <input id="input_variant_pos" name="inputVariantPos" placeholder="Position">
-                        <input id="input_variant_ref" name="inputVariantRef" placeholder="Reference Allele">
-                        <input id="input_variant_alt" name="inputVariantAlt" placeholder="Alternate Allele">
-                        <div style="grid-column: span 2;"> OR </div>
-                        <input id="input_variant_hgvs" name="inputVariantHgvs" placeholder="HGVS">
+                        <input id="input_variant_chrom" name="inputVariantChrom" class="coordinate-input" placeholder="Chromosome">
+                        <input id="input_variant_pos" name="inputVariantPos" class="coordinate-input" placeholder="Position">
+                        <input id="input_variant_ref" name="inputVariantRef" class="coordinate-input" placeholder="Reference Allele">
+                        <input id="input_variant_alt" name="inputVariantAlt" class="coordinate-input" placeholder="Alternate Allele">
+                        <div class="two_col"> OR </div>
+                        <input id="input_variant_hgvs" name="inputVariantHgvs" class="hgvs-input two_col" placeholder="HGVS (Beta)">
                     </div>
-                <button id="input_submit" class="input_directions" onclick="submitForm();" style="cursor: pointer;
+                <button id="input_submit" onclick="submitForm();" style="cursor: pointer;
                     margin-bottom: 3px; min-height: 30px;">
-                    Submit</button>
+                    View <br/>Variant</button>
                 </div>
             </div>
             <div>

@@ -4932,7 +4932,7 @@ function hideContentDiv() {
 }
 
 function showSearch () {
-    document.querySelector('#inputdiv').style.display = 'block';
+    document.querySelector('#inputdiv').style.display = 'flex';
 }
 
 function run() {
