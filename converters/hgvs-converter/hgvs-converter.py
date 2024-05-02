@@ -61,7 +61,7 @@ class CravatConverter(BaseConverter):
             return True
         format_correct = False
         for l in f:
-            if not (l.startswith('#')):
+            if not (l.startswith('#')) and not len(l.strip()) == 0:
                 format_correct, _ = self._check_line(l)
                 if format_correct:
                     break
