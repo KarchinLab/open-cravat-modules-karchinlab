@@ -1,0 +1,14 @@
+title: HGVS Converter
+version: 1.0.0
+type: converter
+description: File converter for HGVS string input
+api_url: https://hgvs.opencravat.org
+developer:
+  name: Kyle Anderson
+  organization: Potomac IT Group
+  email: kanderson@potomacitgroup.com
+  website: https://potomacitgroup.com/
+  citation: ''
+requires_opencravat: '>=1.8.0'
+release_note:
+  1.0.0: Initial release of HGVS input
