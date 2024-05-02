@@ -173,7 +173,7 @@ widgetGenerators['lollipop2'] = {
                     addEl(div, spinner);
                     if (hugo != v.hugo) {
                         $.ajax({
-                            url: '/webapps/moleculartumorboard/widgets/' + widgetName, 
+                            url: '/webapps/variantreport/widgets/' + widgetName,
                             data: {hugo: hugo},
                             success: function (data) {
                                 v['data'] = data;
