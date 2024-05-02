@@ -446,15 +446,16 @@ function getInputDataFromUrl() {
     var inputPos = urlParams.get('pos');
     var inputRef = urlParams.get('ref_base');
     var inputAlt = urlParams.get('alt_base');
-    var assembly = urlParams.get('assembly')
+    var assembly = urlParams.get('assembly');
+    var hgvs = decodeURIComponent(urlParams.get('hgvs'));
     if (assembly == undefined) {
         assembly = 'hg38'
     }
-    var inputData = cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly);
+    var inputData = cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly, hgvs);
     return inputData;
 }
 
-function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly) {
+function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly, inputHgvs) {
     if (inputChrom == '') {
         inputChrom = null;
     }
@@ -470,9 +471,7 @@ function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly) {
     if (assembly == undefined) {
         assembly = 'hg38'
     }
-    if (inputChrom == null || inputPos == null || inputRef == null || inputAlt == null) {
-        return null;
-    } else {
+    if (inputChrom !== null && inputPos !== null && inputRef !== null && inputAlt !== null) {
         return {
             'chrom': inputChrom,
             'pos': inputPos,
@@ -480,6 +479,14 @@ function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly) {
             'alt': inputAlt,
             'assembly': assembly
         };
+    } else {
+        if (inputHgvs === '') {
+            return null;
+        } else {
+            return {
+                'hgvs': inputHgvs
+            }
+        }
     }
 }
 
@@ -488,27 +495,29 @@ function submitForm() {
     var pos = document.querySelector('#input_variant_pos').value;
     var ref = document.querySelector('#input_variant_ref').value;
     var alt = document.querySelector('#input_variant_alt').value;
-    var inputData = cleanInputData(chrom, pos, ref, alt);
-    var assembly = 'hg38'
-    inputData['assembly'] = assembly
+    let hgvs = document.querySelector('#input_variant_hgvs').value;
+    var inputData = cleanInputData(chrom, pos, ref, alt, '', hgvs);
     if (inputData != null) {
         showContentDiv();
         submitAnnotate(inputData['chrom'], inputData['pos'], inputData['ref'],
-            inputData['alt'], 'hg38')
+            inputData['alt'], inputData['assembly'], inputData['hgvs'])
     }
 }
 
-function submitAnnotate(inputChrom, inputPos, inputRef, inputAlt, assembly) {
+function submitAnnotate(inputChrom, inputPos, inputRef, inputAlt, assembly, inputHgvs) {
+    showSpinner();
     if (assembly == undefined) {
         assembly = 'hg38'
     }
     var url = 'annotate';
     var params = {
         'chrom': inputChrom,
-        'pos': parseInt(inputPos),
+        // 'pos': parseInt(inputPos),
+        'pos': inputPos,
         'ref_base': inputRef,
         'alt_base': inputAlt,
-        'assembly': assembly
+        'assembly': assembly,
+        'hgvs': inputHgvs
     };
     $.ajax({
         type: 'POST',
@@ -4866,10 +4875,11 @@ function writeToVariantArea(inputData) {
     var value = inputData['chrom'] + ':' + inputData['pos'] +
         ':' + inputData['ref'] + ':' + inputData['alt'] + ':' + inputData['assembly']
     // document.querySelector('#input_variant').value = value;
-    document.querySelector('#input_variant_chrom').value = inputData['chrom'];
-    document.querySelector('#input_variant_pos').value = inputData['pos'];
-    document.querySelector('#input_variant_ref').value = inputData['ref'];
-    document.querySelector('#input_variant_alt').value = inputData['alt'];
+    document.querySelector('#input_variant_chrom').value = inputData['chrom'] ?? '';
+    document.querySelector('#input_variant_pos').value = inputData['pos'] ?? '';
+    document.querySelector('#input_variant_ref').value = inputData['ref'] ?? '';
+    document.querySelector('#input_variant_alt').value = inputData['alt'] ?? '';
+    document.querySelector('#input_variant_hgvs').value = inputData['hgvs'] ?? '';
 }
 
 function hideSpinner() {
@@ -4885,7 +4895,7 @@ function processUrl() {
     if (inputData != null) {
         writeToVariantArea(inputData);
         submitAnnotate(inputData['chrom'], inputData['pos'],
-            inputData['ref'], inputData['alt'], inputData['assembly']);
+            inputData['ref'], inputData['alt'], inputData['assembly'], inputData['hgvs']);
     }
 }
 
@@ -4922,17 +4932,19 @@ function hideContentDiv() {
 }
 
 function showSearch () {
-    document.querySelector('#inputdiv').style.display = 'block';
+    document.querySelector('#inputdiv').style.display = 'flex';
 }
 
 function run() {
     mqMaxMatch.addListener(mqMaxMatchHandler);
     mqMinMatch.addListener(mqMinMatchHandler);
     var params = new URLSearchParams(window.location.search);
-    if (params.get('chrom') != null && params.get('pos') != null && params.get('ref_base') != null && params.get('alt_base') != null) {
+    if ((params.get('chrom') != null && params.get('pos') != null && params.get('ref_base') != null && params.get('alt_base') != null)
+        || params.get('hgvs') != null) {
         showContentDiv();
         showSpinner();
         // hideSearch();
+        showSearch();
         setupEvents();
         getWidgets(processUrl, null);
     } else {
