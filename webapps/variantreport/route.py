@@ -476,23 +476,3 @@ routes = [
 ]
 
 canonicals = None
-
-
-async def test():
-    required_coordinate_params = {'chrom', 'pos', 'ref_base', 'alt_base', 'assembly'}
-    queries = {
-        # 'chrom': 'chr1',
-        # 'pos': 1234,
-        # 'ref_base': 'A',
-        # 'alt_base': 'C',
-        'assembly': 'hg38',
-        'annotators': ['civic', 'clinvar'],
-        'hgvs': 'NM_177402.5:c.1197C>T',
-        'uid': '123abc'
-    }
-    resp = await get_coordinates_from_request_params(queries)
-    print(repr(resp))
-
-
-if __name__ == '__main__':
-    asyncio.run(test())
