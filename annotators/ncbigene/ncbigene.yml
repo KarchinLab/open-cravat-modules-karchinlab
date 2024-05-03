@@ -24,9 +24,10 @@ tags:
 - literature
 title: NCBI Gene
 type: annotator
-version: 2024.04.01
-datasource: 2024.04.01
+version: 2024.05.01
+datasource: 2024.05.01
 release_note:
+  2024.05.01: data update
   2024.04.01: data update
   2024.03.01: data update
   2024.02.01: data update
