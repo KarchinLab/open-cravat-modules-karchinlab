@@ -1,68 +1,17 @@
 #CRAVAT Report
-#Created at Wednesday 01/30/2019 12:25:07
+#Created at Friday 05/03/2024 13:50:29
 #Report level: variant
 #
-Variant Annotation												Tag Sampler		
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Hugo	Transcript	Sequence Ontology	Protein Change	All Mappings	Number of Samples	Samples	Tags
-1	chr1	22563636	A	T		Y	EPHA8	ENST00000166244.7	missense	M1L	ENST00000166244.7:EPHA8:P29322:missense:M1L:A1T; ENST00000374644.8:EPHA8:(na):missense:M1L:A1T; ENST00000538803.1:EPHA8:(na):missense:M1L:A1T	0		EPHA8
-2	chr17	31095310	A	T		Y	NF1	ENST00000358273.8	missense	M1L	ENST00000356175.7:NF1:(na):missense:M1L:A1T; ENST00000358273.8:NF1:P21359:missense:M1L:A1T; ENST00000431387.8:NF1:(na):missense:M1L:A1T	0		NF1
-3	chr7	55019278	A	T		Y	EGFR	ENST00000275493.6	missense	M1L	ENST00000275493.6:EGFR:P00533:missense:M1L:A1T; ENST00000342916.7:EGFR:(na):missense:M1L:A1T; ENST00000344576.6:EGFR:(na):missense:M1L:A1T; ENST00000420316.6:EGFR:(na):missense:M1L:A1T; ENST00000442591.5:EGFR:A0A0B4J1Y5:missense:M1L:A1T; ENST00000454757.6:EGFR:E9PFD7:missense:M1L:A1T; ENST00000455089.5:EGFR:Q504U8:missense:M1L:A1T	0		EGFR
-4	chr4	1793935	A	T		Y	FGFR3	ENST00000440486.6	missense	M1L	ENST00000260795.6:FGFR3:P22607:missense:M1L:A1T; ENST00000340107.8:FGFR3:(na):missense:M1L:A1T; ENST00000352904.5:FGFR3:(na):missense:M1L:A1T; ENST00000412135.6:FGFR3:(na):missense:M1L:A1T; ENST00000440486.6:FGFR3:P22607:missense:M1L:A1T; ENST00000481110.6:FGFR3:F8W9L4:missense:M1L:A1T; ENST00000613647.4:FGFR3:I6LM06:missense:M1L:A1T	0		FGFR3
-5	chr10	87864470	A	T		Y	PTEN	ENST00000371953.7	missense	M1L	ENST00000371953.7:PTEN:P60484:missense:M1L:A1T; ENST00000445946.3:KLLN:B2CW77:2kb upstream:(na):(na); ENST00000610634.1:PTEN:A0A087WT17:5-prime utr:(na):(na)	0		PTEN
-6	chr7	140924703	T	A		Y	BRAF	ENST00000288602.10	missense	M1L	ENST00000288602.10:BRAF:P15056:missense:M1L:A1T	0		BRAF
-7	chr15	45378453	T	A		Y	GATM	ENST00000396659.7	missense	M1L	ENST00000396659.7:GATM:P50440:missense:M1L:A1T; ENST00000558336.5:GATM:(na):missense:M1L:A1T	0		GATM
-8	chr17	7676594	T	A		Y	TP53	ENST00000445888.6	missense	M1L	ENST00000269305.8:TP53:P04637:missense:M1L:A1T; ENST00000359597.8:TP53:J3KP33:missense:M1L:A1T; ENST00000413465.6:TP53:E7EQX7:missense:M1L:A1T; ENST00000420246.6:TP53:(na):missense:M1L:A1T; ENST00000445888.6:TP53:P04637:missense:M1L:A1T; ENST00000455263.6:TP53:(na):missense:M1L:A1T; ENST00000504290.5:TP53:(na):2kb upstream:(na):(na); ENST00000504937.5:TP53:(na):2kb upstream:(na):(na); ENST00000510385.5:TP53:(na):2kb upstream:(na):(na); ENST00000610292.4:TP53:(na):5-prime utr:(na):(na); ENST00000610538.4:TP53:(na):5-prime utr:(na):(na); ENST00000610623.4:TP53:A0A087WT22:2kb upstream:(na):(na); ENST00000615910.4:TP53:A0A087WZU8:missense:M1L:A1T; ENST00000617185.4:TP53:(na):missense:M1L:A1T; ENST00000618944.4:TP53:A0A087WXZ1:2kb upstream:(na):(na); ENST00000619186.4:TP53:A0A087X1Q1:2kb upstream:(na):(na); ENST00000619485.4:TP53:(na):5-prime utr:(na):(na); ENST00000620739.4:TP53:(na):5-prime utr:(na):(na); ENST00000622645.4:TP53:(na):5-prime utr:(na):(na)	0		TP53
-9	chr12	25245384	T	A		Y	KRAS	ENST00000256078.8	missense	M1L	ENST00000256078.8:KRAS:P01116:missense:M1L:A1T; ENST00000311936.7:KRAS:(na):missense:M1L:A1T; ENST00000556131.1:KRAS:G3V4K2:missense:M1L:A1T; ENST00000557334.5:KRAS:G3V5T7:missense:M1L:A1T	0		KRAS
-10	chr17	61861539	T	A		Y	BRIP1	ENST00000259008.6	missense	M1L	ENST00000259008.6:BRIP1:(na):missense:M1L:A1T; ENST00000577598.5:BRIP1:J3QSE8:missense:M1L:A1T	0		BRIP1
-11	chr6	149683132	A	T		Y	LATS1	ENST00000543571.5	missense	S653T	ENST00000253339.9:LATS1:O95835:missense:S653T:T1957A; ENST00000392273.7:LATS1:(na):missense:S653T:T1957A; ENST00000543571.5:LATS1:O95835:missense:S653T:T1957A	0		LATS1
-#CRAVAT Report
-#Created at Wednesday 01/30/2019 12:25:07
-#Report level: gene
-#
-Variant Annotation					Cancer Genome Census			
-Hugo	Variants in Gene	Sequence Ontology	All Sequence Ontologies	Note	CGC driver class	CGC inheritance	CGC tumor types somatic	CGC tumor types germline
-EPHA8	1	missense	missense(1)					
-NF1	1	missense	missense(1)		TSG, fusion	somatic/germline	neurofibroma, glioma	neurofibroma, glioma
-EGFR	1	missense	missense(1)		Oncogene	somatic/germline	glioma, NSCLC	NSCLC
-FGFR3	1	missense	missense(1)		Oncogene, fusion	somatic	bladder, MM, T-cell lymphoma	
-PTEN	1	missense	missense(1)		TSG	somatic/germline	glioma, prostate, endometrial	harmartoma, glioma, prostate, endometrial
-BRAF	1	missense	missense(1)		Oncogene, fusion	somatic	melanoma, colorectal, papillary thyroid, borderline ovarian, NSCLC, cholangiocarcinoma, pilocytic astrocytoma, Spitzoid tumour, pancreas acinar carcinoma, melanocytic nevus, prostate, gastric	
-GATM	1	missense	missense(1)					
-TP53	1	missense	missense(1)		Oncogene, TSG, fusion	somatic/germline	breast, colorectal, lung, sarcoma, adrenocortical, glioma, Spitzoid tumour, multiple other tumour types	breast, sarcoma, adrenocortical carcinoma, glioma, multiple other tumour types
-KRAS	1	missense	missense(1)		Oncogene	somatic	pancreatic, colorectal, lung, thyroid, AML, other tumour types	
-BRIP1	1	missense	missense(1)		TSG	germline		AML, leukaemia, breast
-LATS1	1	missense	missense(1)		TSG	somatic	skin basal cell carcinoma	
-#CRAVAT Report
-#Created at Wednesday 01/30/2019 12:25:07
-#Report level: sample
-#
-Variant Annotation	
-UID	Sample
-1	
-2	
-3	
-4	
-5	
-6	
-7	
-8	
-9	
-10	
-11	
-#CRAVAT Report
-#Created at Wednesday 01/30/2019 12:25:07
-#Report level: mapping
-#
-Variant Annotation		
-Original Line	User Tags	UID
-2	EPHA8	1
-3	NF1	2
-4	EGFR	3
-5	FGFR3	4
-6	PTEN	5
-7	BRAF	6
-8	GATM	7
-9	TP53	8
-10	KRAS	9
-11	BRIP1	10
-12	LATS1	11
+Variant Annotation																		Cancer Gene Census					Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Driver class	Inheritance	Tumor types somatic	Tumor types germline	Link	Chrom	Pos	Reference allele	Alternate allele
+1	chr1	22563636	A	T		Yes	EPHA8	ENST00000166244.8	start_lost	1	c.1A>T	p.Met1?	ENST00000166244.8:EPHA8:P29322:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000374644.8:EPHA8:P29322:missense_variant,start_lost:p.Met1?:c.1A>T	22563636	0		EPHA8						chr1	22563636	A	T
+2	chr17	31095310	A	T		Yes	NF1	ENST00000358273.9	start_lost	1	c.1A>T	p.Met1?	ENST00000356175.7:NF1:P21359:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000358273.9:NF1:P21359:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000431387.8:NF1:P21359:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000487476.5:NF1:P21359:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000578268.1:MIR4733::2kb_upstream_variant,miRNA::; ENST00000583377.1:AC138207.2::lnc_RNA::	31095310	0		NF1	TSG, fusion	somatic/germline	neurofibroma, glioma	neurofibroma, glioma	NF1	chr17	31095310	A	T
+3	chr7	55019278	A	T		Yes	EGFR	ENST00000275493.7	start_lost	1	c.1A>T	p.Met1?	ENST00000275493.7:EGFR:P00533:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000342916.7:EGFR:P00533:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000344576.6:EGFR:P00533:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000420316.6:EGFR:P00533:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000454757.6:EGFR::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000455089.5:EGFR::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000459688.1:EGFR::processed_transcript::; ENST00000463948.1:EGFR::processed_transcript::	55019278	0		EGFR	Oncogene	somatic/germline	glioma, NSCLC	NSCLC	EGFR	chr7	55019278	A	T
+4	chr4	1793935	A	T		Yes	FGFR3	ENST00000340107.8	start_lost	2	c.1A>T	p.Met1?	ENST00000260795.7:FGFR3::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000340107.8:FGFR3:P22607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000352904.6:FGFR3:P22607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000412135.6:FGFR3:P22607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000440486.7:FGFR3:P22607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000481110.6:FGFR3::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000613647.4:FGFR3::missense_variant,start_lost:p.Met1?:c.1A>T	1793935	0		FGFR3	Oncogene, fusion	somatic	bladder, MM, T-cell lymphoma		FGFR3	chr4	1793935	A	T
+5	chr10	87864470	A	T		Yes	PTEN	ENST00000371953.8	start_lost	1	c.1A>T	p.Met1?	ENST00000371953.8:PTEN:P60484:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000445946.4:KLLN:B2CW77:2kb_upstream_variant::c.-1983T>A; ENST00000487939.1:PTEN::processed_transcript::; ENST00000618586.1:PTEN::2kb_upstream_variant,processed_transcript::	87864470	0		PTEN	TSG	somatic/germline	glioma, prostate, endometrial	harmartoma, glioma, prostate, endometrial	PTEN	chr10	87864470	A	T
+6	chr7	140924703	T	A		Yes	BRAF	ENST00000644969.1	start_lost	1	c.1A>T	p.Met1?	ENST00000288602.11:BRAF::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000469930.2:BRAF::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000496384.7:BRAF::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000497784.2:BRAF::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000642228.1:BRAF::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000642808.1:BRAF::processed_transcript::; ENST00000643790.1:BRAF::processed_transcript::; ENST00000644969.1:BRAF::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000646730.1:BRAF::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000646891.1:BRAF:P15056:missense_variant,start_lost:p.Met1?:c.1A>T	140924703	0		BRAF	Oncogene, fusion	somatic	melanoma, colorectal, papillary thyroid, borderline ovarian, NSCLC, cholangiocarcinoma, pilocytic astrocytoma, Spitzoid tumour, pancreas acinar carcinoma, melanocytic nevus, prostate, gastric		BRAF	chr7	140924703	T	A
+7	chr15	45378453	T	A		Yes	GATM	ENST00000396659.8	start_lost	1	c.1A>T	p.Met1?	ENST00000396659.8:GATM:P50440:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000458245.5:GATM::2kb_downstream_variant,processed_transcript::; ENST00000558118.1:GATM::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000558336.5:GATM:P50440:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000560538.1:GATM::intron_variant,processed_transcript::; ENST00000617932.1:AC025580.3::2kb_upstream_variant,lnc_RNA::	45378453	0		GATM						chr15	45378453	T	A
+8	chr17	7676594	T	A		Yes	TP53	ENST00000269305.8	start_lost	2	c.1A>T	p.Met1?	ENST00000269305.8:TP53:P04637:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000359597.8:TP53::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000413465.6:TP53::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000420246.6:TP53:P04637:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000445888.6:TP53:P04637:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000455263.6:TP53:P04637:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000504290.5:TP53:P04637:2kb_upstream_variant::c.-1379A>T; ENST00000504937.5:TP53:P04637:2kb_upstream_variant::c.-1379A>T; ENST00000510385.5:TP53:P04637:2kb_upstream_variant::c.-1379A>T; ENST00000574684.1:TP53::2kb_upstream_variant,processed_transcript::; ENST00000610292.4:TP53:P04637:5_prime_UTR_variant::c.-234A>T; ENST00000610538.4:TP53:P04637:5_prime_UTR_variant::c.-117A>T; ENST00000610623.4:TP53::2kb_upstream_variant::c.-1460A>T; ENST00000615910.4:TP53::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000617185.4:TP53:P04637:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000618944.4:TP53::2kb_upstream_variant::c.-1460A>T; ENST00000619186.4:TP53::2kb_upstream_variant::c.-1460A>T; ENST00000619485.4:TP53:P04637:5_prime_UTR_variant::c.-117A>T; ENST00000620739.4:TP53:P04637:5_prime_UTR_variant::c.-117A>T; ENST00000622645.4:TP53:P04637:5_prime_UTR_variant::c.-117A>T; ENST00000635293.1:TP53::NMD_transcript_variant,5_prime_UTR_variant::c.-117A>T	7676594	0		TP53	Oncogene, TSG, fusion	somatic/germline	breast, colorectal, lung, sarcoma, adrenocortical, glioma, Spitzoid tumour, multiple other tumour types	breast, sarcoma, adrenocortical carcinoma, glioma, multiple other tumour types	TP53	chr17	7676594	T	A
+9	chr12	25245384	T	A		Yes	KRAS	ENST00000256078.9	start_lost	2	c.1A>T	p.Met1?	ENST00000256078.9:KRAS:P01116:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000311936.8:KRAS:P01116:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000556131.1:KRAS::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000557334.5:KRAS::missense_variant,start_lost:p.Met1?:c.1A>T	25245384	0		KRAS	Oncogene	somatic	pancreatic, colorectal, lung, thyroid, AML, other tumour types		KRAS	chr12	25245384	T	A
+10	chr17	61861539	T	A		Yes	BRIP1	ENST00000259008.7	start_lost	2	c.1A>T	p.Met1?	ENST00000259008.7:BRIP1:Q9BX63:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000577598.5:BRIP1:Q9BX63:missense_variant,start_lost:p.Met1?:c.1A>T	61861539	0		BRIP1	TSG	germline		AML, leukaemia, breast	BRIP1	chr17	61861539	T	A
+11	chr6	149683132	A	T		Yes	LATS1	ENST00000543571.6	missense_variant	4	c.1957T>A	p.Ser653Thr	ENST00000253339.9:LATS1:O95835:missense_variant:p.Ser653Thr:c.1957T>A; ENST00000392273.7:LATS1:O95835:missense_variant:p.Ser653Thr:c.1957T>A; ENST00000441107.5:LATS1::NMD_transcript_variant,3_prime_UTR_variant::c.*1644T>A; ENST00000542720.1:LATS1::2kb_downstream_variant,NMD_transcript_variant::c.*1644T>A; ENST00000542747.5:LATS1::processed_transcript::; ENST00000543571.6:LATS1:O95835:missense_variant:p.Ser653Thr:c.1957T>A	149683132	0		LATS1	TSG	somatic	skin basal cell carcinoma		LATS1	chr6	149683132	A	T

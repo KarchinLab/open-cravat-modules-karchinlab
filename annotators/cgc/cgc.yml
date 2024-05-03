@@ -1,4 +1,4 @@
-datasource: '2019-03-23'
+datasource: 'v99'
 description: Cancer Gene Census annotation
 developer:
   citation: Futreal, P.A., Coin, L.J., Marshall, M., Down, T., Hubbard, T.L., Wooster,
@@ -45,7 +45,10 @@ tags:
 - cancer
 title: Cancer Gene Census
 type: annotator
-version: 85.0.12
+version: 99.0.0
 requires:
 - wgcgc
+release-note:
+  99.0.0: data update to v99
+
 commercial_warning: For commercial use, contact cosmic@sanger.ac.uk
