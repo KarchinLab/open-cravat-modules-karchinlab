@@ -1,5 +1,7 @@
 # Cancer Genome Interpreter
 
+*We are unable to update Cancer Genome Interpreter with latest October 2022 version because genomic coordinates of the mutations are no longer being provided.*
+
 Cancer Genome Interpreter (CGI) is designed to support the identification of tumor alterations that drive the disease and detect those that may be therapeutically actionable. CGI relies on existing knowledge collected from several resources and on computational methods that annotate the alterations in a tumor according to distinct levels of evidence.
 
 CGI Flags validated oncogenic alterations, and predicts cancer drivers among mutations of unknown significance. In addition to genomic biomarkers of drug response with different levels of clinical relevance.
