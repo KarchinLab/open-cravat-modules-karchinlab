@@ -4130,9 +4130,15 @@ widgetGenerators['predictionpanel'] = {
             // Mutation Assessor
             var muta_pred = getWidgetData(tabName, 'mutation_assessor', row, 'impact');
             predictions.push(predWidget(muta_pred))
-            var muta_score = Number(getWidgetData(tabName, 'mutation_assessor', row, 'score'));
+            let muta_score = Number(getWidgetData(tabName, 'mutation_assessor', row, 'score'));
+            if (isNaN(muta_score)) {
+                muta_score = null
+            }
             scores.push(predWidget(muta_score))
-            var muta_rankscore = Number(getWidgetData(tabName, 'mutation_assessor', row, 'rankscore'));
+            let muta_rankscore = Number(getWidgetData(tabName, 'mutation_assessor', row, 'rankscore'));
+            if (isNaN(muta_rankscore)) {
+                muta_rankscore = null
+            }
             rankscores.push(predWidget(muta_rankscore))
 
             // mutpred
@@ -4195,7 +4201,7 @@ widgetGenerators['predictionpanel'] = {
             var revel_rankscore = getWidgetData(tabName, 'revel', row, 'rankscore');
             rankscores.push(predWidget(revel_rankscore))
             let revel_pred = null
-            if (revel_score !== null) {
+            if (revel_score != null) {
                 if (revel_score <= 0.183) {
                     revel_pred = "Benign"
                 } else if (revel_score >= 0.773) {
@@ -4302,7 +4308,9 @@ widgetGenerators['predictionpanel'] = {
             var chartDiv = getEl('canvas');
             var span = getEl('span')
             span.innerHTML = tol_count + "/" + total_count + " Tolerated or Benign"
-            addEl(sdiv, chartDiv);
+            if (total_count > 0 ) {
+                addEl(sdiv, chartDiv);
+            }
             addEl(sdiv, span)
             var chart = new Chart(chartDiv, {
                 type: 'doughnut',
