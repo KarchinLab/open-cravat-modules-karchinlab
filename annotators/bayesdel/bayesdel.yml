@@ -1,0 +1,55 @@
+title: BayesDel
+version: 1.0.1
+datasource: dbNSFP v4.7a
+type: annotator
+description: BayesDel is a deleteriousness meta-score predictor with pre-computed scores for missense variants.
+developer:
+  name: 'Bing-Jian Feng'
+  organization: 'University of Utah'
+  email: 'support@opencravat.org'
+  website: 'http://bjfenglab.org/'
+  citation: 'Feng, Bing-Jian. “PERCH: A Unified Framework for Disease Gene Prioritization.” Human mutation vol. 38,3 (2017): 243-251. doi:10.1002/humu.23158'
+level: variant
+output_columns:
+- name: bayesdel_addAF_score
+  title: Score (MaxAF)
+  type: float
+  hidden: true
+  width: 80
+  desc: MaxAF score includes the background population frequency of the variant. The scores range from -1.11707 to 0.750927.
+- name: bayesdel_addAF_rankscore
+  title: Rank Score (MaxAF)
+  type: float
+  hidden: true
+  width: 100
+  desc:  Ratio of the rank of the score over the total number of BayesDel maxAF scores. The score cutoff between Deleterious and Tolerated is 0.0692655, based upon the authors recommendation.
+- name: bayesdel_addAF_pred
+  title: Prediction (MaxAF)
+  type: string
+  hidden: true
+  width: 90
+  desc: MaxAF prediction includes the background population frequency of the variant.
+- name: bayesdel_noAF_score
+  title: Score (no MaxAF)
+  type: float
+  width: 70
+  desc: No MaxAF score does not include the background population frequency of the variant. The scores range from -1.31914 to 0.840878.
+- name: bayesdel_noAF_rankscore
+  title: Rank Score (no MaxAF)
+  type: float
+  width: 90
+  desc: Ratio of the rank of the score over the total number of BayesDel no maxAF scores
+- name: bayesdel_noAF_pred
+  title: Prediction (no MaxAF)
+  type: string
+  width: 80
+  desc: No MaxAF prediction does not include the background population frequency of the variant. The score cutoff between Deleterious and Tolerated is -0.0570105, based upon the authors recommendation.
+
+tags:
+- variant effect prediction
+- variants
+release_note:
+  1.0.1: updated column descriptions
+  1.0.0: initial release
+
+

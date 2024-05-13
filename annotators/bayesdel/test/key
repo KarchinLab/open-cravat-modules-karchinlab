@@ -1,0 +1,38 @@
+#title="OpenCRAVAT Report"
+#created=Wednesday 05/08/2024 08:05:49
+#level=variant
+#datasource=/Users/madisonlarsen/insilico/jobs/new/input.sqlite
+#Column description. Column 0 uid=UID
+#Column description. Column 1 chrom=Chrom
+#Column description. Column 2 pos=Position
+#Column description. Column 3 ref_base=Ref Base
+#Column description. Column 4 alt_base=Alt Base
+#Column description. Column 5 note_variant=Variant Note
+#Column description. Column 6 coding=Coding
+#Column description. Column 7 hugo=Gene
+#Column description. Column 8 transcript=Transcript
+#Column description. Column 9 so=Sequence Ontology
+#Column description. Column 10 exonno=Exon Number
+#Column description. Column 11 cchange=cDNA change
+#Column description. Column 12 achange=Protein Change
+#Column description. Column 13 all_mappings=All Mappings
+#Column description. Column 14 gposend=End Position
+#Column description. Column 15 numsample=Sample Count
+#Column description. Column 16 samples=Samples
+#Column description. Column 17 tags=Tags
+#Column description. Column 18 bayesdel.bayesdel_addAF_score=Score (MaxAF)
+#Column description. Column 19 bayesdel.bayesdel_addAF_rankscore=Rank Score (MaxAF)
+#Column description. Column 20 bayesdel.bayesdel_addAF_pred=Prediction (MaxAF)
+#Column description. Column 21 bayesdel.bayesdel_noAF_score=Score (no MaxAF)
+#Column description. Column 22 bayesdel.bayesdel_noAF_rankscore=Rank Score (no MaxAF)
+#Column description. Column 23 bayesdel.bayesdel_noAF_pred=Prediction (no MaxAF)
+#Column description. Column 24 original_input.chrom=Chrom
+#Column description. Column 25 original_input.pos=Pos
+#Column description. Column 26 original_input.ref_base=Reference allele
+#Column description. Column 27 original_input.alt_base=Alternate allele
+uid	chrom	pos	ref_base	alt_base	note_variant	coding	hugo	transcript	so	exonno	cchange	achange	all_mappings	gposend	numsample	samples	tags	bayesdel.bayesdel_addAF_score	bayesdel.bayesdel_addAF_rankscore	bayesdel.bayesdel_addAF_pred	bayesdel.bayesdel_noAF_score	bayesdel.bayesdel_noAF_rankscore	bayesdel.bayesdel_noAF_pred	original_input.chrom	original_input.pos	original_input.ref_base	original_input.alt_base
+1	chr10	121593817	T	A		Yes	FGFR2	ENST00000358487.9	start_lost	2	c.1A>T	p.Met1?	ENST00000346997.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000351936.10:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000356226.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000357555.9:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000358487.9:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000359354.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000360144.7:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369056.5:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369059.5:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369060.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369061.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000457416.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000490349.5:FGFR2::processed_transcript::; ENST00000491111.1:FGFR2::processed_transcript::; ENST00000604236.5:FGFR2::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000611527.1:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000613048.4:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000636922.1:FGFR2::NSD_transcript::	121593817	1	s0		0.345988	0.86236	Deleterious	0.259212	0.86056	Deleterious	chr10	121593817	T	A
+2	chr1	155213392	G	T			MTX1	ENST00000368376.7	splice_site_variant	8	c.1186+1G>T		ENST00000316721.8:MTX1:Q13505:intron_variant,splice_site_variant::c.1093+1G>T; ENST00000368376.7:MTX1:Q13505:intron_variant,splice_site_variant::c.1186+1G>T; ENST00000424959.5:MTX1::intron_variant,NMD_transcript_variant,splice_site_variant::c.*396+1G>T; ENST00000455788.1:AC234582.2::intron_variant,lnc_RNA::; ENST00000495589.5:MTX1::intron_variant,processed_transcript::; ENST00000609421.1:MTX1:Q13505:intron_variant,splice_site_variant::c.739+1G>T	155213392	1	s1		0.212577	0.75073	Deleterious	0.0675755	0.74748	Deleterious	chr1	155213392	G	T
+3	chr12	50081180	-	T		Yes	ASIC1	ENST00000447966.6	frameshift_elongation	10	c.1375_1376insT	p.Glu459ValfsTer4	ENST00000228468.8:ASIC1:P78348:frameshift_elongation:p.Glu505ValfsTer4:c.1513_1514insT; ENST00000447966.6:ASIC1:P78348:frameshift_elongation:p.Glu459ValfsTer4:c.1375_1376insT; ENST00000550558.5:ASIC1::NMD_transcript_variant,3_prime_UTR_variant::c.*665_*666insT; ENST00000552438.5:ASIC1:P78348:frameshift_elongation:p.Glu493ValfsTer4:c.1477_1478insT	50081180	1	s1		0.306727	0.83496	Deleterious	0.202816	0.83281	Deleterious	chr12	50081180	-	T
+4	chr13	48303913	A	T		Yes	RB1	ENST00000267163.5	start_lost	1	c.1A>T	p.Met1?	ENST00000267163.5:RB1:P06400:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000433480.2:RB1-DT::2kb_upstream_variant,lnc_RNA::; ENST00000436963.1:RB1-DT::2kb_upstream_variant,lnc_RNA::; ENST00000467505.5:RB1::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000646097.1:RB1::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000650461.1:RB1::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000669900.1:RB1-DT::2kb_upstream_variant,lnc_RNA::	48303913	1	s2		0.438093	0.91932	Deleterious	0.391514	0.91833	Deleterious	chr13	48303913	A	T
+5	chr1	114713881	TGGTC	-		Yes	NRAS	ENST00000369535.5	frameshift_truncation	3	c.205_209del	p.Asp69IlefsTer16	ENST00000369535.5:NRAS:P01111:frameshift_truncation:p.Asp69IlefsTer16:c.205_209del	114713885	1	s1								chr1	114713881	TGGTC	-

@@ -1,0 +1,66 @@
+title: ESM1b
+version: 1.0.1
+datasource: dbNSFP v4.7a
+type: annotator
+description: ESM1b is a 650-million-parameter protein language model to predict all ~450 million possible missense variant effects in the human genome.
+developer:
+  name: 'Ntranos Lab'
+  organization: 'University of California San Francisco'
+  email: 'support@opencravat.org'
+  website: 'https://huggingface.co/spaces/ntranoslab/esm_variants'
+  citation: 'Brandes, N., Goldman, G., Wang, C.H. et al. Genome-wide prediction of disease variant effects with a deep protein language model. Nat Genet 55, 1512–1522 (2023). https://doi.org/10.1038/s41588-023-01465-0'
+level: variant
+output_columns:
+- name: transcript
+  title: Transcript ID
+  type: string
+  hidden: true
+  width: 70
+  desc: Ensembl transcript ids
+- filterable: true
+  name: score
+  title: Score
+  type: float
+  desc: Scores are log-likelihood ratio (LLR) scores for predicting the pathogenic effects of coding variants. The scores range from from -24.538 to 6.937. The smaller the score, the more likely the variant is pathogenic. 
+  hidden: true
+- name: rankscore
+  title: Rank Score
+  type: float
+  hidden: false
+  desc: Ratio of the rank of the -ESM1b score over the total number of ESM1b scores.
+- name: prediction
+  title: Prediction
+  type: string
+  hidden: false
+  width: 80
+  desc: The variant is predicted as either "Tolerated" or "Deleterious" based on the threshold of -7.5 described in their paper that yields a true-positive rate of 81% and a true-negative rate of 82% in their ClinVar and HGMD test datasets.
+- hidden: true
+  name: all
+  title: All Annotations
+  type: string
+  width: 75
+  filterable: false
+  table: true
+  table_headers:
+  - name: transcript
+    title: Transcript
+    type: string
+  - name: score
+    title: Score
+    type: float
+  - name: rankscore
+    title: rankscore
+    type: float
+  - name: prediction
+    title: prediction
+    type: string
+
+requires:
+- wgesm1b
+tags:
+- variant effect prediction
+- variants
+release_note:
+  1.0.1: updated column descriptions
+  1.0.0: initial release
+
