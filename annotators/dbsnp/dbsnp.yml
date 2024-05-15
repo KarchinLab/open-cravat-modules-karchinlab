@@ -1,4 +1,4 @@
-datasource: v154
+datasource: v156
 description: Comprehensive database of both single base nucleotide subsitutions and
   short deletion and insertion polymorphisms
 developer:
@@ -21,8 +21,9 @@ tags:
 - literature
 title: dbSNP
 type: annotator
-version: 154.0.2
+version: 156.0.0
 release_note:
+  156.0.0: data update to build 156
   154.0.2: removed widget requirement
   154.0.1: data fix
   154.0.0: data update to build 154
