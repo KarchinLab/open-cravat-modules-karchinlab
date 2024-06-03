@@ -13,6 +13,7 @@ class CravatConverter(BaseConverter):
 
     def __init__(self):
         self.format_name = 'cravat'
+        self.variant_type = self.GENOMIC_VARIANT_TYPE
 
     def _switch_strand(self, bases):
         return ''.join([self.comp_base[base] for base in bases[::-1]])

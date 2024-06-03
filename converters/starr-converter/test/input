@@ -1,0 +1,9 @@
+chr22	30025797	+	A	T	sample_1	Tag1
+chr22	30025797	+	A	T	sample_2	TagSame
+chr22	40418496	-	A	G	sample_1	Tag2;Tag2b
+chr22	40419252	+	C	T	sample_1	Tag3
+chr22	24719483	+	-	AGG	sample_2	Tag4
+chr22	24719483	+	AGA	-	sample_2	Tag5
+chr22	24719483	+	AG	T	sample_2	Tag6
+chr2	218270043	+	G	-	sample_3	Tag7
+chr2	218270044	+	-	G	sample_3	Tag8

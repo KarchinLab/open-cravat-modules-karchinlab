@@ -1,0 +1,11 @@
+title: STARR Fusion Converter
+version: 1.0.0
+type: converter
+description: File converter for standard cravat input
+developer:
+  name: Kyle Moad
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: http://karchinlab.org
+  citation: ''
+requires_opencravat: '>=1.8.0'
