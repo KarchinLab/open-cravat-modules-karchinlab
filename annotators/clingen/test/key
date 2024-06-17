@@ -1,36 +1,9 @@
 #CRAVAT Report
-#Created at Monday 09/30/2019 11:04:58
+#Created at Monday 06/17/2024 08:34:19
 #Report level: variant
 #
-Variant Annotation															ClinGen			
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Hugo	Transcript	Sequence Ontology	Protein Change	All Mappings	Sample Count	Samples	Tags	Disease	ID	Classification	Link
-1	chr17	58415577	T	A		Yes	RNF43	ENST00000584437.5	missense	M1L	ENST00000407977.6:RNF43:Q68DV7:missense:M1L:A1T; ENST00000577716.5:RNF43:Q68DV7:missense:M1L:A1T; ENST00000581868.1:RNF43:J3KSE3:intron:(na):(na); ENST00000583753.5:RNF43:(na):missense:M1L:A1T; ENST00000584437.5:RNF43:Q68DV7:missense:M1L:A1T	1	s1		sessile serrated polyposis cancer syndrome; SSPCS	MONDO_0014919	Limited	https://search.clinicalgenome.org/kb/gene-validity/9857
-2	chr12	120978769	A	T		Yes	HNF1A	ENST00000541395.5	missense	M1L	ENST00000257555.10:HNF1A:A0A0A0MQU7:missense:M1L:A1T; ENST00000400024.6:HNF1A:U3KQS6:missense:M1L:A1T; ENST00000541395.5:HNF1A:A0A0A0MTK8:missense:M1L:A1T; ENST00000543427.5:HNF1A:E0YMI9:missense:M1L:A1T; ENST00000544413.2:HNF1A:F5H0K0:missense:M1L:A1T; ENST00000615446.4:HNF1A:E0YMJ1:intron:(na):(na); ENST00000617366.4:HNF1A:A0A087WYP0:missense:M1L:A1T	1	s1		monogenic diabetes	MONDO_0015967	Definitive	https://search.clinicalgenome.org/kb/gene-validity/2f6d71c6-6595-49bf-a50e-fce726b22088--2018-10-05T16:00:00
-3	chr10	121593817	T	A		Yes	FGFR2	ENST00000358487.9	missense	M1L	ENST00000346997.6:FGFR2:(na):missense:M1L:A1T; ENST00000351936.10:FGFR2:A0A0A0MR25:missense:M1L:A1T; ENST00000356226.8:FGFR2:(na):missense:M1L:A1T; ENST00000357555.9:FGFR2:(na):missense:M1L:A1T; ENST00000358487.9:FGFR2:P21802:missense:M1L:A1T; ENST00000359354.6:FGFR2:(na):missense:M1L:A1T; ENST00000360144.7:FGFR2:(na):missense:M1L:A1T; ENST00000369056.5:FGFR2:(na):missense:M1L:A1T; ENST00000369059.5:FGFR2:E7EVR7:missense:M1L:A1T; ENST00000369060.8:FGFR2:(na):missense:M1L:A1T; ENST00000369061.8:FGFR2:(na):missense:M1L:A1T; ENST00000457416.6:FGFR2:(na):missense:M1L:A1T; ENST00000611527.1:FGFR2:A0A087X2D1:missense:M1L:A1T; ENST00000613048.4:FGFR2:D2CGD1:missense:M1L:A1T	1	s0					
-#CRAVAT Report
-#Created at Monday 09/30/2019 11:04:58
-#Report level: gene
-#
-Variant Annotation						ClinGen			
-Hugo	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies	Disease	ID	Classification	Link
-RNF43		1	0	missense	intron(1),missense(1)	sessile serrated polyposis cancer syndrome; SSPCS	MONDO_0014919	Limited	https://search.clinicalgenome.org/kb/gene-validity/9857
-HNF1A		1	0	missense	intron(1),missense(1)	monogenic diabetes	MONDO_0015967	Definitive	https://search.clinicalgenome.org/kb/gene-validity/2f6d71c6-6595-49bf-a50e-fce726b22088--2018-10-05T16:00:00
-FGFR2		1	0	missense	missense(1)				
-#CRAVAT Report
-#Created at Monday 09/30/2019 11:04:58
-#Report level: sample
-#
-Variant Annotation	
-UID	Sample
-1	s1
-2	s1
-3	s0
-#CRAVAT Report
-#Created at Monday 09/30/2019 11:04:58
-#Report level: mapping
-#
-Variant Annotation			
-Original Line	User Tags	UID	Input File Number
-1		1	0
-2		2	0
-3		3	0
+Variant Annotation																		ClinGen Gene					Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Disease	ID	Classification	Link	Gene Validity Source	Chrom	Pos	Reference allele	Alternate allele
+1	chr17	58415577	T	A		Yes	RNF43	ENST00000407977.6	start_lost	2	c.1A>T	p.Met1?	ENST00000407977.6:RNF43:Q68DV7:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000577716.5:RNF43:Q68DV7:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000580014.1:RNF43::2kb_downstream_variant,processed_transcript::; ENST00000581868.1:RNF43::intron_variant::c.-130+1440A>T; ENST00000583753.5:RNF43:Q68DV7:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000583841.1:TSPOAP1-AS1::lnc_RNA::; ENST00000584437.5:RNF43:Q68DV7:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000648873.1:AC004687.2::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T	58415577	1	s1		sessile serrated polyposis cancer syndrome	MONDO:0014919	Definitive	RNF43	https://search.clinicalgenome.org/kb/gene-validity/CGGV:assertion_9abf2a1d-21a7-4ef7-99c7-b0b37d5acf38-2022-12-30T180000.000Z	chr17	58415577	T	A
+2	chr12	120978769	A	T		Yes	HNF1A	ENST00000257555.10	start_lost	1	c.1A>T	p.Met1?	ENST00000257555.10:HNF1A::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000400024.6:HNF1A::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000433033.3:HNF1A-AS1::intron_variant,lnc_RNA::; ENST00000535301.2:HNF1A-AS1::intron_variant,lnc_RNA::; ENST00000535955.5:HNF1A::intron_variant,processed_transcript::; ENST00000537361.1:HNF1A-AS1::intron_variant,lnc_RNA::; ENST00000538626.2:HNF1A::processed_transcript::; ENST00000538646.5:HNF1A:P20823:missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000540108.1:HNF1A:P20823:missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000541395.5:HNF1A::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000541924.5:HNF1A:P20823:missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000543427.5:HNF1A::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000544413.2:HNF1A::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000544574.5:HNF1A::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000615446.4:HNF1A::intron_variant::c.-258+58A>T; ENST00000617366.4:HNF1A::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000619441.1:HNF1A-AS1::intron_variant,lnc_RNA::; ENST00000646404.1:HNF1A-AS1::intron_variant,lnc_RNA::; ENST00000647473.1:HNF1A-AS1::intron_variant,lnc_RNA::	120978769	1	s1		monogenic diabetes	MONDO:0015967	Definitive	HNF1A	https://search.clinicalgenome.org/kb/gene-validity/CGGV:assertion_2f6d71c6-6595-49bf-a50e-fce726b22088-2018-10-05T160000.000Z	chr12	120978769	A	T
+3	chr10	121593817	T	A		Yes	FGFR2	ENST00000358487.9	start_lost	2	c.1A>T	p.Met1?	ENST00000346997.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000351936.10:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000356226.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000357555.9:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000358487.9:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000359354.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000360144.7:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369056.5:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369059.5:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369060.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369061.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000457416.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000490349.5:FGFR2::processed_transcript::; ENST00000491111.1:FGFR2::processed_transcript::; ENST00000604236.5:FGFR2::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000611527.1:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000613048.4:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000636922.1:FGFR2::NSD_transcript::	121593817	1	s0		Apert syndrome;Beare-Stevenson cutis gyrata syndrome;Crouzon syndrome;Pfeiffer syndrome	MONDO:0007041;MONDO:0007412;MONDO:0007405;MONDO:0007043	Definitive;Definitive;Definitive;Definitive	FGFR2	https://search.clinicalgenome.org/kb/gene-validity/CGGV:assertion_2aa63602-d820-4fee-893b-b807e7b62f28-2021-12-14T221137.192Z;https://search.clinicalgenome.org/kb/gene-validity/CGGV:assertion_7805e806-44ee-4339-a078-d62c204bff00-2022-03-31T163711.748Z;https://search.clinicalgenome.org/kb/gene-validity/CGGV:assertion_c2cfa70a-750f-4357-98b9-f5c30ca4dc26-2021-12-23T165345.170Z;https://search.clinicalgenome.org/kb/gene-validity/CGGV:assertion_eccfe56b-15d7-4ba9-abf2-163dfd3dab3c-2022-03-21T210958.425Z	chr10	121593817	T	A

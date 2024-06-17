@@ -22,6 +22,7 @@ class CravatAnnotator(BaseAnnotator):
             for k,v in hit.items():
                 temp[k].append(v)
         for k,l in temp.items():
+            out["gene_link"] = input_data['hugo']
             out[k] = ';'.join(l)
         return out
     

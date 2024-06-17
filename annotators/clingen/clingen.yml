@@ -1,5 +1,5 @@
 title: ClinGen Gene
-version: 1.0.1
+version: 1.1.0
 type: annotator
 level: gene
 output_columns:
@@ -18,10 +18,16 @@ output_columns:
   type: string
   width: 90
   hidden: true
-- name: link
+- name: gene_link
   title: Link
   type: string
   hidden: true
+  link_format: https://search.clinicalgenome.org/kb/genes/${.*}
+- name: link
+  title: Gene-Disease Validity Source
+  type: string
+  hidden: true
+  link_format: ${.*}
 smartfilters:
 - name: hasdata
   title: ClinGen
@@ -51,3 +57,5 @@ requires:
 tags:
 - genes
 - clinical relevance
+release_notes:
+  1.1.0: Updated data with new links
