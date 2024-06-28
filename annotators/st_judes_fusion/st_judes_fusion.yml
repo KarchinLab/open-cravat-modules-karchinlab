@@ -1,0 +1,22 @@
+title: St. Jude's Fusion
+version: 0.0.1
+type: annotator
+level: gene_fusion
+output_columns:
+- name: Patient
+  title: Patient
+  type: string
+- name: Sample
+  title: Sample
+  type: string
+- name: BreakpointPubmedID
+  title: PubMed ID of Breakpoint Data
+  type: string
+description: Annotations of oncogenic fusions found in St. Jude's child cancer patients.
+developer:
+  name: 'Kyle Anderson'
+  organization: 'Potomac IT Group'
+  email: 'kanderson@potomacitgroup.com'
+  website: 'potomacitgroup.com'
+  citation: 'Liu Y, Klein J, Bajpai R, Dong L, Tran Q, Kolekar P, Smith JL, Ries RE, Huang BJ, Wang YC, Alonzo TA, Tian L, Mulder HL, Shaw TI, Ma J, Walsh MP, Song G, Westover T, Autry RJ, Gout AM, Wheeler DA, Wan S, Wu G, Yang JJ, Evans WE, Loh M, Easton J, Zhang J, Klco JM, Meshinchi S, Brown PA, Pruett-Miller SM, Ma X. Etiology of oncogenic fusions in 5,190 childhood cancers and its clinical and therapeutic implication. Nat Commun. 2023 Apr 5;14(1):1739. doi: 10.1038/s41467-023-37438-4. PMID: 37019972; PMCID: PMC10076316.'
+
