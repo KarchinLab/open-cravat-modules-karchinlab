@@ -1,31 +1,29 @@
 #CRAVAT Report
-#Created at Wednesday 07/22/2020 15:38:22
+#Created at Monday 07/01/2024 15:08:31
 #Report level: variant
 #
-Variant Annotation															
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags
-1	chr22	30025797	A	T		Yes	MTMR3	ENST00000401950.6	missense_variant	c.3593A>T	p.Asn1198Ile	ENST00000323630.9:MTMR3::missense_variant:p.Asn1062Ile:c.3185A>T; ENST00000333027.7:MTMR3:Q13615:missense_variant:p.Asn1170Ile:c.3509A>T; ENST00000351488.7:MTMR3:Q13615:missense_variant:p.Asn1161Ile:c.3482A>T; ENST00000401950.6:MTMR3:Q13615:missense_variant:p.Asn1198Ile:c.3593A>T; ENST00000406629.1:MTMR3:Q13615:missense_variant:p.Asn1170Ile:c.3509A>T; ENST00000429350.5:HORMAD2-AS1::intron_variant,lnc_RNA::; ENST00000453743.6:HORMAD2-AS1::intron_variant,lnc_RNA::; ENST00000624945.1:AC003681.1::lnc_RNA::	2	sample_1;sample_2	Tag1;TagSame
-2	chr22	40418496	T	C		Yes	MRTFA	ENST00000355630.9	missense_variant	c.2242A>G	p.Ser748Gly	ENST00000355630.9:MRTFA::missense_variant:p.Ser748Gly:c.2242A>G; ENST00000396617.7:MRTFA::missense_variant:p.Ser648Gly:c.1942A>G; ENST00000402042.6:MRTFA::missense_variant:p.Ser698Gly:c.2092A>G; ENST00000407029.7:MRTFA:Q969V6:missense_variant:p.Ser648Gly:c.1942A>G; ENST00000614754.4:MRTFA::missense_variant:p.Ser649Gly:c.1945A>G; ENST00000618196.6:MRTFA::missense_variant:p.Ser598Gly:c.1792A>G; ENST00000618417.1:MRTFA::intron_variant::c.-1245-5604A>G; ENST00000620651.4:MRTFA::missense_variant:p.Ser599Gly:c.1795A>G; ENST00000651595.1:MRTFA::missense_variant:p.Ser748Gly:c.2242A>G; ENST00000652095.2:MRTFA::missense_variant:p.Ser683Gly:c.2047A>G	1	sample_1	Tag2;Tag2b
-3	chr22	40419252	C	T		Yes	MRTFA	ENST00000355630.9	missense_variant	c.1486G>A	p.Ala496Thr	ENST00000355630.9:MRTFA::missense_variant:p.Ala496Thr:c.1486G>A; ENST00000396617.7:MRTFA::missense_variant:p.Ala396Thr:c.1186G>A; ENST00000402042.6:MRTFA::missense_variant:p.Ala446Thr:c.1336G>A; ENST00000407029.7:MRTFA:Q969V6:missense_variant:p.Ala396Thr:c.1186G>A; ENST00000614754.4:MRTFA::missense_variant:p.Ala397Thr:c.1189G>A; ENST00000618196.6:MRTFA::missense_variant:p.Ala346Thr:c.1036G>A; ENST00000618417.1:MRTFA::intron_variant::c.-1245-6360G>A; ENST00000620651.4:MRTFA::missense_variant:p.Ala347Thr:c.1039G>A; ENST00000651595.1:MRTFA::missense_variant:p.Ala496Thr:c.1486G>A; ENST00000652095.2:MRTFA::missense_variant:p.Ala431Thr:c.1291G>A	1	sample_1	Tag3
-4	chr22	24719483	-	AGG		Yes	PIWIL3	ENST00000332271.9	inframe_insertion	c.2638_2639insCCT	p.Leu879_Phe880insSer	ENST00000332271.9:PIWIL3:Q7Z3Z3:inframe_insertion:p.Leu879_Phe880insSer:c.2638_2639insCCT; ENST00000527701.5:PIWIL3::inframe_insertion:p.Leu761_Phe762insSer:c.2284_2285insCCT; ENST00000532537.2:PIWIL3::processed_transcript::; ENST00000533313.5:PIWIL3::inframe_insertion:p.Leu761_Phe762insSer:c.2284_2285insCCT; ENST00000616349.4:PIWIL3:Q7Z3Z3:inframe_insertion:p.Leu879_Phe880insSer:c.2638_2639insCCT	1	sample_2	Tag4
-5	chr22	24719483	AGA	-		Yes	PIWIL3	ENST00000332271.9	inframe_deletion	c.2637_2639del	p.Phe880del	ENST00000332271.9:PIWIL3:Q7Z3Z3:inframe_deletion:p.Phe880del:c.2637_2639del; ENST00000527701.5:PIWIL3::inframe_deletion:p.Phe762del:c.2283_2285del; ENST00000532537.2:PIWIL3::processed_transcript::; ENST00000533313.5:PIWIL3::inframe_deletion:p.Phe762del:c.2283_2285del; ENST00000616349.4:PIWIL3:Q7Z3Z3:inframe_deletion:p.Phe880del:c.2637_2639del	1	sample_2	Tag5
-6	chr22	24719483	AG	T		Yes	PIWIL3	ENST00000332271.9	frameshift_truncation	c.2637_2638delinsA	p.Tyr881ThrfsTer9	ENST00000332271.9:PIWIL3:Q7Z3Z3:complex_substitution,frameshift_truncation:p.Tyr881ThrfsTer9:c.2637_2638delinsA; ENST00000527701.5:PIWIL3::complex_substitution,frameshift_truncation:p.Tyr763ThrfsTer9:c.2283_2284delinsA; ENST00000532537.2:PIWIL3::processed_transcript::; ENST00000533313.5:PIWIL3::complex_substitution,frameshift_truncation:p.Tyr763ThrfsTer9:c.2283_2284delinsA; ENST00000616349.4:PIWIL3:Q7Z3Z3:complex_substitution,frameshift_truncation:p.Tyr881ThrfsTer9:c.2637_2638delinsA	1	sample_2	Tag6
-7	chr22	24719483	G	T		Yes	PIWIL3	ENST00000332271.9	missense_variant	c.2638C>A	p.Phe880Ile	ENST00000332271.9:PIWIL3:Q7Z3Z3:missense_variant:p.Phe880Ile:c.2638C>A; ENST00000527701.5:PIWIL3::missense_variant:p.Phe762Ile:c.2284C>A; ENST00000532537.2:PIWIL3::processed_transcript::; ENST00000533313.5:PIWIL3::missense_variant:p.Phe762Ile:c.2284C>A; ENST00000616349.4:PIWIL3:Q7Z3Z3:missense_variant:p.Phe880Ile:c.2638C>A	1	sample_2	Tagww
-8	chr22	24719484	G	-		Yes	PIWIL3	ENST00000332271.9	frameshift_truncation	c.2637del	p.Tyr881ThrfsTer9	ENST00000332271.9:PIWIL3:Q7Z3Z3:frameshift_truncation:p.Tyr881ThrfsTer9:c.2637del; ENST00000527701.5:PIWIL3::frameshift_truncation:p.Tyr763ThrfsTer9:c.2283del; ENST00000532537.2:PIWIL3::processed_transcript::; ENST00000533313.5:PIWIL3::frameshift_truncation:p.Tyr763ThrfsTer9:c.2283del; ENST00000616349.4:PIWIL3:Q7Z3Z3:frameshift_truncation:p.Tyr881ThrfsTer9:c.2637del	1	sample_2	Tagqq
-9	chr2	218270043	G	-		Yes	AAMP	ENST00000248450.8	frameshift_truncation	c.44del	p.Pro15HisfsTer5	ENST00000248450.8:AAMP:Q13685:frameshift_truncation:p.Pro15HisfsTer5:c.44del; ENST00000248451.7:PNKD:Q8N490:2kb_upstream_variant::c.-487del; ENST00000273077.9:PNKD:Q8N490:2kb_upstream_variant::c.-487del; ENST00000420660.5:AAMP::2kb_upstream_variant::c.-445del; ENST00000444053.5:AAMP::frameshift_truncation:p.Pro15HisfsTer5:c.44del; ENST00000472650.1:PNKD::2kb_upstream_variant,processed_transcript::	1	sample_3	Tag7
-10	chr2	218270044	-	G		Yes	AAMP	ENST00000248450.8	frameshift_elongation	c.44dup	p.Leu16ThrfsTer9	ENST00000248450.8:AAMP:Q13685:frameshift_elongation:p.Leu16ThrfsTer9:c.44dup; ENST00000248451.7:PNKD:Q8N490:2kb_upstream_variant::c.-487dup; ENST00000273077.9:PNKD:Q8N490:2kb_upstream_variant::c.-487dup; ENST00000420660.5:AAMP::2kb_upstream_variant::c.-445dup; ENST00000444053.5:AAMP::frameshift_elongation:p.Leu16ThrfsTer9:c.44dup; ENST00000472650.1:PNKD::2kb_upstream_variant,processed_transcript::	1	sample_3	Tag8
+Variant Annotation																		Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele
+1	chr22	30025797	A	T		Yes	MTMR3	ENST00000401950.6	missense_variant	20	c.3593A>T	p.Asn1198Ile	ENST00000323630.9:MTMR3::missense_variant:p.Asn1062Ile:c.3185A>T; ENST00000333027.7:MTMR3:Q13615:missense_variant:p.Asn1170Ile:c.3509A>T; ENST00000351488.7:MTMR3:Q13615:missense_variant:p.Asn1161Ile:c.3482A>T; ENST00000401950.6:MTMR3:Q13615:missense_variant:p.Asn1198Ile:c.3593A>T; ENST00000406629.1:MTMR3:Q13615:missense_variant:p.Asn1170Ile:c.3509A>T; ENST00000429350.5:HORMAD2-AS1::intron_variant,lnc_RNA::; ENST00000453743.6:HORMAD2-AS1::intron_variant,lnc_RNA::; ENST00000624945.1:AC003681.1::lnc_RNA::	30025797	2	sample_1;sample_2	Tag1;TagSame	chr22	30025797	A	T
+2	chr22	40418496	T	C		Yes	MRTFA	ENST00000355630.9	missense_variant	12	c.2242A>G	p.Ser748Gly	ENST00000355630.9:MRTFA::missense_variant:p.Ser748Gly:c.2242A>G; ENST00000396617.7:MRTFA::missense_variant:p.Ser648Gly:c.1942A>G; ENST00000402042.6:MRTFA::missense_variant:p.Ser698Gly:c.2092A>G; ENST00000407029.7:MRTFA:Q969V6:missense_variant:p.Ser648Gly:c.1942A>G; ENST00000614754.4:MRTFA::missense_variant:p.Ser649Gly:c.1945A>G; ENST00000618196.6:MRTFA::missense_variant:p.Ser598Gly:c.1792A>G; ENST00000618417.1:MRTFA::intron_variant::c.-1245-5604A>G; ENST00000620651.4:MRTFA::missense_variant:p.Ser599Gly:c.1795A>G; ENST00000651595.1:MRTFA::missense_variant:p.Ser748Gly:c.2242A>G; ENST00000652095.2:MRTFA::missense_variant:p.Ser683Gly:c.2047A>G	40418496	1	sample_1	Tag2;Tag2b	chr22	40418496	T	C
+3	chr22	40419252	C	T		Yes	MRTFA	ENST00000355630.9	missense_variant	12	c.1486G>A	p.Ala496Thr	ENST00000355630.9:MRTFA::missense_variant:p.Ala496Thr:c.1486G>A; ENST00000396617.7:MRTFA::missense_variant:p.Ala396Thr:c.1186G>A; ENST00000402042.6:MRTFA::missense_variant:p.Ala446Thr:c.1336G>A; ENST00000407029.7:MRTFA:Q969V6:missense_variant:p.Ala396Thr:c.1186G>A; ENST00000614754.4:MRTFA::missense_variant:p.Ala397Thr:c.1189G>A; ENST00000618196.6:MRTFA::missense_variant:p.Ala346Thr:c.1036G>A; ENST00000618417.1:MRTFA::intron_variant::c.-1245-6360G>A; ENST00000620651.4:MRTFA::missense_variant:p.Ala347Thr:c.1039G>A; ENST00000651595.1:MRTFA::missense_variant:p.Ala496Thr:c.1486G>A; ENST00000652095.2:MRTFA::missense_variant:p.Ala431Thr:c.1291G>A	40419252	1	sample_1	Tag3	chr22	40419252	C	T
+4	chr22	24719483	-	AGG		Yes	PIWIL3	ENST00000332271.9	inframe_insertion	21	c.2638_2639insCCT	p.Leu879_Phe880insSer	ENST00000332271.9:PIWIL3:Q7Z3Z3:inframe_insertion:p.Leu879_Phe880insSer:c.2638_2639insCCT; ENST00000527701.5:PIWIL3::inframe_insertion:p.Leu761_Phe762insSer:c.2284_2285insCCT; ENST00000532537.2:PIWIL3::processed_transcript::; ENST00000533313.5:PIWIL3::inframe_insertion:p.Leu761_Phe762insSer:c.2284_2285insCCT; ENST00000616349.4:PIWIL3:Q7Z3Z3:inframe_insertion:p.Leu879_Phe880insSer:c.2638_2639insCCT	24719485	1	sample_2	Tag4	chr22	24719483	-	AGG
+5	chr22	24719483	AGA	-		Yes	PIWIL3	ENST00000332271.9	inframe_deletion	21	c.2637_2639del	p.Phe880del	ENST00000332271.9:PIWIL3:Q7Z3Z3:inframe_deletion:p.Phe880del:c.2637_2639del; ENST00000527701.5:PIWIL3::inframe_deletion:p.Phe762del:c.2283_2285del; ENST00000532537.2:PIWIL3::processed_transcript::; ENST00000533313.5:PIWIL3::inframe_deletion:p.Phe762del:c.2283_2285del; ENST00000616349.4:PIWIL3:Q7Z3Z3:inframe_deletion:p.Phe880del:c.2637_2639del	24719485	1	sample_2	Tag5	chr22	24719483	AGA	-
+6	chr22	24719483	AG	T		Yes	PIWIL3	ENST00000332271.9	frameshift_truncation	21	c.2637_2638delinsA	p.Tyr881ThrfsTer9	ENST00000332271.9:PIWIL3:Q7Z3Z3:complex_substitution,frameshift_truncation:p.Tyr881ThrfsTer9:c.2637_2638delinsA; ENST00000527701.5:PIWIL3::complex_substitution,frameshift_truncation:p.Tyr763ThrfsTer9:c.2283_2284delinsA; ENST00000532537.2:PIWIL3::processed_transcript::; ENST00000533313.5:PIWIL3::complex_substitution,frameshift_truncation:p.Tyr763ThrfsTer9:c.2283_2284delinsA; ENST00000616349.4:PIWIL3:Q7Z3Z3:complex_substitution,frameshift_truncation:p.Tyr881ThrfsTer9:c.2637_2638delinsA	24719484	1	sample_2	Tag6	chr22	24719483	AG	T
+7	chr2	218270043	G	-		Yes	AAMP	ENST00000248450.8	frameshift_truncation	1	c.44del	p.Pro15HisfsTer5	ENST00000248450.8:AAMP:Q13685:frameshift_truncation:p.Pro15HisfsTer5:c.44del; ENST00000248451.7:PNKD:Q8N490:2kb_upstream_variant::c.-487del; ENST00000273077.9:PNKD:Q8N490:2kb_upstream_variant::c.-487del; ENST00000420660.5:AAMP::2kb_upstream_variant::c.-445del; ENST00000444053.5:AAMP::frameshift_truncation:p.Pro15HisfsTer5:c.44del; ENST00000472650.1:PNKD::2kb_upstream_variant,processed_transcript::	218270043	1	sample_3	Tag7	chr2	218270043	G	-
+8	chr2	218270044	-	G		Yes	AAMP	ENST00000248450.8	frameshift_elongation	1	c.44dup	p.Leu16ThrfsTer9	ENST00000248450.8:AAMP:Q13685:frameshift_elongation:p.Leu16ThrfsTer9:c.44dup; ENST00000248451.7:PNKD:Q8N490:2kb_upstream_variant::c.-487dup; ENST00000273077.9:PNKD:Q8N490:2kb_upstream_variant::c.-487dup; ENST00000420660.5:AAMP::2kb_upstream_variant::c.-445dup; ENST00000444053.5:AAMP::frameshift_elongation:p.Leu16ThrfsTer9:c.44dup; ENST00000472650.1:PNKD::2kb_upstream_variant,processed_transcript::	218270044	1	sample_3	Tag8	chr2	218270044	-	G
 #CRAVAT Report
-#Created at Wednesday 07/22/2020 15:38:22
+#Created at Monday 07/01/2024 15:08:31
 #Report level: gene
 #
 Variant Annotation					
-Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
 MTMR3		1	0	missense_variant	missense_variant(2)
 MRTFA		2	0	missense_variant	intron_variant(2),missense_variant(2)
-PIWIL3		5	0	frameshift_truncation	complex_substitution(1),frameshift_truncation(2),inframe_deletion(1),inframe_insertion(1),missense_variant(1),processed_transcript(5)
+PIWIL3		3	0	frameshift_truncation	complex_substitution(1),frameshift_truncation(1),inframe_deletion(1),inframe_insertion(1),processed_transcript(3)
 AAMP		2	0	frameshift_elongation	frameshift_truncation(1),frameshift_elongation(1)
 #CRAVAT Report
-#Created at Wednesday 07/22/2020 15:38:22
+#Created at Monday 07/01/2024 15:08:31
 #Report level: sample
 #
 Variant Annotation	
@@ -37,12 +35,10 @@ UID	Sample
 4	sample_2
 5	sample_2
 6	sample_2
-7	sample_2
-8	sample_2
-9	sample_3
-10	sample_3
+7	sample_3
+8	sample_3
 #CRAVAT Report
-#Created at Wednesday 07/22/2020 15:38:22
+#Created at Monday 07/01/2024 15:08:31
 #Report level: mapping
 #
 Variant Annotation			
@@ -54,7 +50,5 @@ Original Line	User Tags	UID	Input File Number
 5	Tag4	4	0
 6	Tag5	5	0
 7	Tag6	6	0
-8	Tagww	7	0
-9	Tagqq	8	0
-10	Tag7	9	0
-11	Tag8	10	0
+8	Tag7	7	0
+9	Tag8	8	0
