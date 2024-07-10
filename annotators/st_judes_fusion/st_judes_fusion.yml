@@ -3,14 +3,18 @@ version: 0.0.1
 type: annotator
 level: gene_fusion
 output_columns:
-- name: Patient
-  title: Patient
+- name: patients
+  title: Patients
   type: string
-- name: Sample
-  title: Sample
+- name: samples
+  title: Samples
   type: string
-- name: BreakpointPubmedID
+- name: pubmed_ids
   title: PubMed ID of Breakpoint Data
+  type: string
+- name: supporting_read_counts
+  title: Supporting Read Counts
+  hidden: true
   type: string
 description: Annotations of oncogenic fusions found in St. Jude's child cancer patients.
 developer:
