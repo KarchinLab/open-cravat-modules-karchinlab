@@ -1,4 +1,4 @@
-datasource: 2024.05.01
+datasource: 2024.07.15
 description: ClinVar is an archive of reports of the relationships among human variations
   and phenotypes, with supporting evidence.
 developer:
@@ -26,11 +26,28 @@ output_columns:
   width: 55
   filterable: false
   desc: Disease reference numbers
+- hidden: true
+  name: disease_refs_incl
+  title: Disease Ref Nums Included Variant
+  type: string
+  width: 55
+  filterable: false
+  desc: Disease reference numbers
 - name: disease_names
   title: Disease Names
   type: string
   width: 55
   hidden: false
+- name: clinvar_preferred_names
+  title: Preferred Disease Names
+  type: string
+  width: 55
+  hidden: true
+- name: hgvs
+  title: HGVS
+  type: string
+  width: 55
+  hidden: true
 - desc: The level of review supporting the assertion of clinical significance
   name: rev_stat
   title: Review Status
@@ -45,14 +62,187 @@ output_columns:
   type: string
   width: 55
   link_format: https://www.ncbi.nlm.nih.gov/clinvar/variation/${.*}/
-- desc: Addional detail on clinical significance used when it is conflicting
+- desc: Additional detail on clinical significance used when it is conflicting
   name: sig_conf
   title: Significance Detail
   type: string
   width: 55
   filterable: false
   hidden: true
+- desc: Germline classification for a haplotype or genotype that includes this variant.
+  name: sig_conf_incl
+  title: Significance Detail
+  type: string
+  width: 55
+  filterable: false
+  hidden: true
+- desc: Allele frequencies from GO-ESP
+  name: af_go_esp
+  title: Allele Frequencies GO-ESP
+  type: string
+  width: 55
+  filterable: false
+  hidden: true
+- desc: Allele frequencies from EXAC
+  name: af_exac
+  title: Allele Frequencies EXAC
+  type: string
+  width: 55
+  filterable: false
+  hidden: true
+- desc: Allele frequencies from TGP
+  name: af_tgp
+  title: Allele Frequencies TGP
+  type: string
+  width: 55
+  filterable: false
+  hidden: true
+- desc: Clinvar Allele Id
+  name: clinvar_allele_id
+  title: Clinvar Allele Id
+  type: string
+  width: 55
+  hidden: true
+- desc: Variant Type
+  name: variant_type
+  title: Variant Type
+  type: string
+  width: 55
+  hidden: true
+- desc: Sequence Ontology for Variant Type
+  name: variant_type_sequence_ontology
+  title: Variant Type SO
+  type: string
+  width: 55
+  hidden: true
+- desc: Clinical sources for the variant
+  name: variant_clinical_sources
+  title: Variant Clinical Sources
+  type: string
+  width: 55
+  hidden: true
+- desc: DBVAR ID
+  name: dbvar_id
+  title: DBVAR ID
+  type: string
+  width: 55
+  hidden: true
+- desc: Gene Info
+  name: clinvar_gene_info
+  title: Gene names for the variant
+  type: string
+  width: 55
+  hidden: true
+- desc: Molecular consequence
+  name: gene_info
+  title: Molecular Consequence
+  type: string
+  width: 55
+  hidden: true
+- desc: Oncogenecity disease names
+  name: onc_disease_name
+  title: Oncogenecity Disease Names
+  type: string
+  width: 55
+  hidden: true
+- desc: Oncogenecity disease names for included variant
+  name: onc_disease_name_incl
+  title: Oncogenecity Disease Names Incl
+  type: string
+  width: 55
+  hidden: true
+- desc: Oncogenecity disease references
+  name: onc_disease_refs
+  title: Oncogenecity Disease References
+  type: string
+  width: 55
+  hidden: true
+- desc: Oncogenecity disease references for included variant
+  name: onc_disease_refs_incl
+  title: Oncogenecity Disease References Incl
+  type: string
+  width: 55
+  hidden: true
+- desc: Aggregate onconogenecity classification
+  name: onc_classification
+  title: Oncogenecity Classification
+  type: string
+  width: 55
+  hidden: true
+- desc: Onconogenecity classification for haplotype or genotype containing the variant
+  name: onc_classification_type
+  title: Oncogenecity Classification Type
+  type: string
+  width: 55
+  hidden: true
+- desc: Onconogenecity review status
+  name: onc_rev_stat
+  title: Oncogenecity Review Status
+  type: string
+  width: 55
+  hidden: true
+- desc: Conflicting onconogenecity classification
+  name: onc_classification_conflicting
+  title: Conflicting Oncogenecity Classification
+  type: string
+  width: 55
+  hidden: true
+- desc: Allele Origin
+  name: allele_origin
+  title: Allele Origin
+  type: string
+  width: 55
+  hidden: true
+- desc: DBSNP ID
+  name: dbsnp_id
+  title: DBSNP ID
+  type: string
+  width: 55
+  hidden: true
+- desc: Somatic Disease Name
+  name: somatic_disease_name
+  title: Somatic Disease Name
+  type: string
+  width: 55
+  hidden: true
+- desc: Somatic disease name for included variant
+  name: somatic_disease_name_incl
+  title: Somatic Disease Name Incl
+  type: string
+  width: 55
+  hidden: true
+- desc: Somatic reference numbers
+  name: somatic_refs
+  title: Somatic References
+  type: string
+  width: 55
+  hidden: true
+- desc: Somatic reference numbers for included variant
+  name: somatic_refs_incl
+  title: Somatic References Incl
+  type: string
+  width: 55
+  hidden: true
+- desc: Somatic review status
+  name: somatic_rev_stat
+  title: Somatic Review Status
+  type: string
+  width: 55
+  hidden: true
+- desc: Aggregate somatic clinical impact for this variant
+  name: somatic_impact
+  title: Somatic Impact
+  type: string
+  width: 55
+  hidden: true
+- desc: Somatic clinical impact classification of haplotype or genotype that includes this variant
+  name: somatic_impact_incl
+  title: Somatic Impact Incl
+  type: string
+  width: 55
+  hidden: true
 release_note:
+  2024.07.15: Update data and include additional columns including classifications of somatic and germline oncogenecity.
   2024.05.01: data update
   2024.04.01: data update
   2024.03.01: data update
@@ -82,7 +272,7 @@ tags:
 - variants
 title: ClinVar
 type: annotator
-version: 2024.05.01
+version: 2024.07.15
 requires_opencravat: '>=1.4.0'
 requires:
 - wgclinvar

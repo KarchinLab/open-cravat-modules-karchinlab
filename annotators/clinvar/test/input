@@ -9,3 +9,4 @@ chr17	7674904	+	TC	-		minus_del_TP53
 chr10	87894027	+	-	CG		no_result
 chr17	7674904	+	T	-		fuzzy_del_TP53
 chrM	235	+	A	G		chrM
+chr2	157766004   +   C   A   chr2    somatic
