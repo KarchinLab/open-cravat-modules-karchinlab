@@ -1,5 +1,5 @@
 title: Recurrently Mutated Genes
-version: 2.3.0
+version: 2.3.1
 type: webviewerwidget
 requires_opencravat: '>=2.4.2'
 required_annotator: base
@@ -11,6 +11,7 @@ developer:
   website:
   citation: ''
 release_note:
+  2.3.1: Change x-axis tick marks to integer values only
   2.3.0: Use variant_filtered table only when available
   2.2.1: Change in query.
   2.2.0: New color scheme
