@@ -21,8 +21,9 @@ tags:
 - literature
 title: dbSNP
 type: annotator
-version: 156.0.0
+version: 156.0.1
 release_note:
+  156.0.1: data bug fix
   156.0.0: data update to build 156
   154.0.2: removed widget requirement
   154.0.1: data fix

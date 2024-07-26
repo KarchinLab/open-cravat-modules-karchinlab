@@ -25,8 +25,9 @@ tags:
 - literature
 - variants
 title: dbSNP Common
-version: 1.1.0
+version: 1.1.1
 release_note:
+  1.1.1: data bug fix
   1.1.0: data update to build 156
   1.0.1: data fix
 type: annotator
