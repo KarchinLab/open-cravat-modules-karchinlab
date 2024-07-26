@@ -59,6 +59,7 @@ widgetGenerators['topgenessummary'] = {
 							},
 							ticks: {
 								beginAtZero: true,
+								stepSize: 1,
 							}
 						}],
 					},
