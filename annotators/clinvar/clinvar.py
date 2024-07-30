@@ -40,7 +40,8 @@ col_order = [
     'somatic_refs_incl',
     'somatic_rev_stat',
     'somatic_impact',
-    'somatic_impact_incl'
+    'somatic_impact_incl',
+    'germline_or_somatic'
 ]
 info_cols = ', '.join([f'{x}' for x in col_order[:]])
 

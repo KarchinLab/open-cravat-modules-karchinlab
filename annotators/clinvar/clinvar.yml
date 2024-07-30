@@ -1,4 +1,4 @@
-datasource: 2024.07.15
+datasource: 2024.07.29
 description: ClinVar is an archive of reports of the relationships among human variations
   and phenotypes, with supporting evidence.
 developer:
@@ -241,6 +241,12 @@ output_columns:
   type: string
   width: 55
   hidden: true
+- desc: Germline or Somatic classification, calculated from Origin
+  name: germline_or_somatic
+  title: Germline or Somatic
+  type: string
+  width: 55
+  hidden: true
 release_note:
   2024.07.15: Update data and include additional columns including classifications of somatic and germline oncogenecity.
   2024.05.01: data update
@@ -272,7 +278,7 @@ tags:
 - variants
 title: ClinVar
 type: annotator
-version: 2024.07.15
+version: 2024.07.29
 requires_opencravat: '>=1.4.0'
 requires:
 - wgclinvar
@@ -285,3 +291,18 @@ smartfilters:
   filter:
     column: clinvar__id
     test: hasData
+- name: germline_or_somatic
+  title: ClinVar Origin
+  description: Germline or Somatic classification
+  selector:
+    type: select
+    options:
+      germline: germline
+      somatic: somatic
+      unknown: unknown
+#    optionsColumn: clinvar__germline_or_somatic
+#    defaultValue: germline
+  filter:
+    column: clinvar__germline_or_somatic
+    test: equals
+    value: ${value}
