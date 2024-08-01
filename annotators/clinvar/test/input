@@ -8,4 +8,5 @@ chr15	48756289	+	G	A	minus_CEP152_2
 chr17	7674904	+	TC	-		minus_del_TP53
 chr10	87894027	+	-	CG		no_result
 chr17	7674904	+	T	-		fuzzy_del_TP53
+chr2	157766004	+	C	A		somatic
 chrM	235	+	A	G		chrM
