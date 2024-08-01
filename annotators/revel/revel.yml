@@ -23,13 +23,29 @@ output_columns:
   type: float
   desc: Max pathogenicity score across all transcripts. The larger the score the more
     likely the SNP has damaging effect.
-  hidden: true
+  hidden: false
 - name: rankscore
   title: Rank Score
   type: float
-  hidden: false
+  hidden: true
   desc: Max rank score across all transcripts. The ratio of the rank of the score
     over the total number of REVEL scores.
+- name: benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 - hidden: true
   name: all
   title: All Annotations
@@ -54,8 +70,9 @@ tags:
 - variants
 title: REVEL
 type: annotator
-version: 2022.11.29
+version: 2024.07.30
 release_note:
+  2024.07.30: pathogenicity callibration results.
   2022.11.29: data update
   2020.12.02: data update
 smartfilters:
@@ -72,3 +89,4 @@ smartfilters:
 requires:
 - wgrevel
 commercial_warning: For commercial use, contact xmliu.uth@gmail.com
+private: true

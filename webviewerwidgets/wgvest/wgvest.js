@@ -1,9 +1,26 @@
 widgetGenerators['vest'] = {
 	'variant': {
-		'width': 280, 
+		'width': 480, 
 		'height': 180, 
-		'default_hidden': true,
+		'default_hidden': false,
 		'function': function (div, row, tabName) {
+            getGradientColor = function(pathogenicity) {
+                let color = ""
+                if (pathogenicity === "Indeterminate") {
+                    color = "#fffff"
+                } else if (pathogenicity === "BP4 Moderate") {
+                    color = "#48cae4"
+                } else if (pathogenicity === "BP4 Supporting") {
+                    color = "#ade8f4"
+                } else if (pathogenicity === "PP3 Supporting") {
+                    color = "#ffcbd1"
+                } else if (pathogenicity === "PP3 Moderate") {
+                    color = "#f94449"
+                } else if (pathogenicity === "PP3 Strong") {
+                    color = "#c30010"
+                }
+                return color
+            }
 			var allMappings = getWidgetData(tabName, 'vest', row, 'all');
 			if (allMappings != undefined && allMappings != null) {
                 if(typeof addGradientBarComponent == 'function'){
@@ -14,15 +31,31 @@ widgetGenerators['vest'] = {
                 }
                 var results = JSON.parse(allMappings);
 				var table = getWidgetTableFrame();
-				var thead = getWidgetTableHead(['Transcript', 'Score', 'P-value']);
+				var thead = getWidgetTableHead(['Transcript', 'Score', 'Pathogenicity']);
 				addEl(table, thead);
 				var tbody = getEl('tbody');
                 for (var i = 0; i < results.length; i++) {
 					var row = results[i];
 					var transcript = row[0];
 					var score = row[1].toFixed(3);
-					var pvalue = row[2].toFixed(4);
-					var tr = getWidgetTableTr([transcript, score, pvalue]);
+					// var pvalue = row[2].toFixed(4);
+                    var bp4 = row[3]
+                    var pp3 = row[4]
+                    let pathogenicity
+                    if (bp4 !== "") {
+						pathogenicity = "BP4 " + bp4
+					} else if (pp3 !== "") {
+						pathogenicity = "PP3 " + pp3
+					} else if (pp3 === "" && bp4 === "") {
+						pathogenicity = "Indeterminate"
+					}
+					var tr = getWidgetTableTr([transcript, score, pathogenicity]);
+                    const color = getGradientColor(pathogenicity)
+                    if (pathogenicity !== "") {
+                        $(tr).children().eq(2).css("background-color", color);
+                        $(tr).children().eq(2).css("color", pathogenicity.includes("Strong") ? "white" : "black");
+                    }
+                    
 					addEl(tbody, tr);
 				}
 				addEl(div, addEl(table, tbody));

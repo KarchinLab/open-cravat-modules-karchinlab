@@ -64,12 +64,28 @@ output_columns:
 - name: score
   title: Score
   type: float
-  hidden: true
+  hidden: false
 - name: pval
   title: P-value
   type: float
   filterable: false
+  hidden: true
+- name: benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
   hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 - hidden: true
   name: all
   title: All annotations
@@ -92,9 +108,10 @@ tags:
 - variant effect prediction
 title: VEST4
 type: annotator
-version: 4.4.0
+version: 4.5.0
 requires_opencravat: '>=2.2.1'
 release_note:
+  4.5.0: pathogencity callibration results.
   4.4.0: works with variantreport.
   4.3.3: fixed transcript version mismatch with new gene mapper
   4.3.2: table data enabled
@@ -106,3 +123,4 @@ release_note:
 requires:
 - wgvest
 commercial_warning: null
+private: true
