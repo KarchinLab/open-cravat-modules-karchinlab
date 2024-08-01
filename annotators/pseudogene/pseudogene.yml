@@ -1,5 +1,5 @@
 datasource: hg38
-description: Pseudogenes from UCSC hg38 wgEncodeGencodePseudoGeneV27
+description: Pseudogenes from UCSC hg38 wgEncodeGencodePseudoGeneV46
 developer:
   citation: 'Harrow, J., Frankish, A., Gonzalez, J. M., Tapanari, E., Diekhans, M.,
     Kokocinski, F., ... & Barnes, I. (2012). GENCODE: the reference human genome annotation
@@ -23,6 +23,7 @@ output_columns:
   width: 90
   filterable: false
 release_note:
+  446.0.0: data update to V46
   45.0.0: data update to v45
   27.0.3: corrected test key
   28.0.0: intervaltree and pickle
@@ -30,7 +31,7 @@ tags:
 - non coding
 title: Pseudogene
 type: annotator
-version: 45.0.0
+version: 46.0.0
 requires:
 - wgpseudogene
 requires_opencravat: '>=1.4.4'
