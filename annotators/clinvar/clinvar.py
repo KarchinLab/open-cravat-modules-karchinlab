@@ -5,6 +5,7 @@ from cravat import InvalidData
 import sqlite3
 
 col_order = [
+    'id',
     'af_go_esp',
     'af_exac',
     'af_tgp',
