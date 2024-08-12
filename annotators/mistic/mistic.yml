@@ -1,0 +1,30 @@
+title: MISTIC (MISsense deleTeriousness predICtor)
+version: 1.0.0
+datasource: 2021
+type: annotator
+level: variant
+developer:
+  name: Kirsley Chennen, Thomas Webber, and Oliver Poch
+  organization: Faculté de médecine de Strasbourg
+  email: support@opencravat.org
+  website: https://lbgi.fr/mistic/
+  citation: 'Chennen K, Weber T, Lornage X, Kress A, Böhm J, Thompson J, Laporte J, Poch O. MISTIC: A prediction tool to reveal disease-relevant deleterious missense variants. 2020 Jul 31;15(7):e0236962. doi: https://doi.org/10.1371/journal.pone.0236962. eCollection 2020.'
+output_columns:
+- name: score
+  title: Score
+  type: float
+  desc: Scores range from 0 to 1 and represents the probability of a given missense variant to be classified as deleterious. 
+- name: pred
+  title: Prediction
+  type: string
+  filterable: true
+  category: single
+  width: 70
+  desc: Scores >0.5 are classified as deleterious and scores <0.5 are classified as benign.
+
+description: A supervised machine-learning model dedicated to the prediction of deleterious missense variants. 
+tags:
+- variants
+- variant effect prediction
+commercial_warning: MISTIC is freely available for all non-commercial applications. For a commercial application, please contact here https://lbgi.fr/mistic/contact.
+private: true

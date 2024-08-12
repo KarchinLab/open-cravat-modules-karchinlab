@@ -1,0 +1,10 @@
+#CRAVAT Report
+#Created at Monday 08/12/2024 11:15:38
+#Report level: variant
+#
+Variant Annotation																		MISTIC (MISsense deleTeriousness predICtor)		Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Score	Prediction	Chrom	Pos	Reference allele	Alternate allele
+1	chr16	14446	A	T										14446	1	s0		0.4394890715252965	Benign	chr16	14446	A	T
+2	chr1	43453712	C	A		Yes	HYI	ENST00000372434.5	missense_variant	1	c.82G>T	p.Gly28Cys	ENST00000372425.8:HYI:Q5T013:missense_variant:p.Gly28Cys:c.82G>T; ENST00000372432.5:HYI:Q5T013:missense_variant:p.Gly28Cys:c.82G>T; ENST00000372434.5:HYI::missense_variant:p.Gly28Cys:c.82G>T; ENST00000444386.1:HYI-AS1::2kb_upstream_variant,lnc_RNA::; ENST00000486909.1:HYI::missense_variant:p.Gly28Cys:c.82G>T; ENST00000562955.2:SZT2:Q5T011:3_prime_UTR_variant::c.*3232C>A; ENST00000583037.5:HYI::missense_variant:p.Gly28Cys:c.82G>T; ENST00000634258.3:SZT2:Q5T011:3_prime_UTR_variant::c.*3232C>A	43453712	1	s1		0.07755986833883334	Benign	chr1	43453712	C	A
+3	chr17	156220	G	A		Yes	DOC2B	ENST00000613549.3	missense_variant	6	c.923C>T	p.Thr308Ile	ENST00000613549.3:DOC2B:Q14184:missense_variant:p.Thr308Ile:c.923C>T	156220	1	s1		0.6033465592112748	Deleterious	chr17	156220	G	A
+4	chr13	48303913	A	T		Yes	RB1	ENST00000267163.5	start_lost	1	c.1A>T	p.Met1?	ENST00000267163.5:RB1:P06400:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000433480.2:RB1-DT::2kb_upstream_variant,lnc_RNA::; ENST00000436963.1:RB1-DT::2kb_upstream_variant,lnc_RNA::; ENST00000467505.5:RB1::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000646097.1:RB1::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000650461.1:RB1::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000669900.1:RB1-DT::2kb_upstream_variant,lnc_RNA::	48303913	1	s2				chr13	48303913	A	T
