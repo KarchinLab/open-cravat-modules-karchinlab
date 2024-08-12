@@ -19,6 +19,8 @@ VEST4 scores have been calbrated and validated as reliable to support Benign Sup
 |Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
 |-|-|≤0.302|(0.302, 0.449]|[0.764, 0.861)|[0.861, 0.965)|≥0.965|   -   |
 
+\* A "-" means that VEST4 did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
+
 ### Indeterminate Scores
 
 If the VEST score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding VEST widget.

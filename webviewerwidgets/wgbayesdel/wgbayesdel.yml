@@ -1,0 +1,19 @@
+title: BayesDel 
+version: 1.0.0
+type: webviewerwidget
+requires_opencravat: '>=2.4.2'
+required_annotator: base
+requires:
+- bayesdel
+description: BayesDel webviewer widget
+developer:
+  name: OpenCRAVAT
+  organization: KarchinLab
+  email: cravat@support.us
+  website:
+  citation: ''
+release_note:
+  1.0.0: intial release
+tags:
+- visualization
+private: true

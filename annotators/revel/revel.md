@@ -14,6 +14,8 @@ REVEL scores have been calbrated and validated as reliable to support Benign Sup
 |Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
 |≤0.003|(0.003, 0.016]|(0.016, 0.183]|(0.183, 0.290]|[0.644, 0.773)|[0.773, 0.932)|	≥0.932|   -   |
 
+\* A "-" means that BayesDel did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
+
 ### Indeterminate Scores
 
 If the REVEL score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding REVEL widget.

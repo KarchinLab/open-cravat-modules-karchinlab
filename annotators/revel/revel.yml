@@ -68,6 +68,7 @@ requires_opencravat: '>=2.2.1'
 tags:
 - variant effect prediction
 - variants
+- clinical relevance
 title: REVEL
 type: annotator
 version: 2024.07.30
