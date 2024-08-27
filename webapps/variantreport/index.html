@@ -18,7 +18,7 @@
     <title> OpenCRAVAT Variant Report</title>
 </head>
 <body>
-    <div id = 'body'> 
+    <div id = 'body'>
         <div id='logodiv'>
             <div>
             <a href="https://open-cravat.readthedocs.io/en/latest/OpenCRAVAT-Variant-Report.html" target="_blank">
@@ -66,29 +66,23 @@
             </div>
             <div class="main">
                 <div id="detaildiv_documentation">
-                    <h1>Input a variant to see annotation</h1>
-                    <p>The Variant Report is a full page view of a single variant.</p>
-                    <p>
-                        Input a variant in the top left by chromosome, position, reference allele, and alternate allele. 
-                        Or, add a variant from the browser URL bar. Click one of the examples below to see URL 
-                        formatting. For more documentation, click the ? icon in the top left.
-                    </p>
+                    <h1>Annotate a Single Variant</h1>
+                    <p>All of the functionality of OpenCRAVAT, but for a single variant. Accepted inputs are hg38 genomic coordinates or HGVS IDs. Lookup by ClinGen Allele Registry ID and dbSNP rsID coming soon!</p>
+                    <h1>Start Exploring</h1>
                     <ul>
-                        <li><a href="index.html?chrom=chr17&pos=39724004&ref_base=C&alt_base=G">Example 1 - Chr17 Pos 3972400 Ref C Alt G</a></li>
-                        <li><a href="index.html?chrom=chr10&pos=87864470&ref_base=A&alt_base=T">Example 2 - Chr10 Pos 87864470 Ref A Alt T</a></li>
-                        <li><a href="index.html?chrom=chr22&pos=19965038&ref_base=G&alt_base=A">Example 3 - Chr22 Pos 19965038 Ref G Alt A</a></li>
-                        <li><a href="index.html?chrom=chr1&pos=1719358&ref_base=A&alt_base=G">Example 4 - Chr1 Pos 1719358 Ref A Alt G</a></li>
-                        <li><a href="index.html?hgvs=NM_177402.5%3Ac.1197C>T">Example 5 - NM_177402.5:c.1197C>T</a></li>
-                        <li><a href="index.html?hgvs=ENST00000536005.7%3Ac.145C>T">Example 6 - ENST00000536005.7:c.145C>T</a></li>
+                        <li><a href="index.html?chrom=chr9&pos=136496197&ref_base=AG&alt_base=-">NOTCH1 - chr9 136496197 delAG</a></li>
+                        <li><a href="index.html?chrom=chr6&pos=31946402&ref_base=C&alt_base=T">CFB - chr9 136496197 AG>T</a></li>
+                        <li><a href="index.html?hgvs=NM_000051.4%3Ac.2413C>T">ATM - NM_000051.4:c.2413C>T</a></li>
+                        <li><a href="index.html?hgvs=NM_004333.6%3Ac.1798_1799delinsAA">BRAF - NM_004333.6:c.1798_1799delinsAA</a></li>
                     </ul>
                 </div>
                 <div id='detaildiv_variant' class='detaildiv singlevariantpage'>
                     <div id='spinnerdiv'>
                         <img src='/result/images/arrow-spinner.gif'/>
                     </div>
-                    <div id='screendiv' style='position: absolute; width: 100%; height: 100%; 
+                    <div id='screendiv' style='position: absolute; width: 100%; height: 100%;
                             background-color: gray; display: none; z-index: 2;'></div>
-                    <div class='container_titlediv' style='margin-bottom: 0vw; background-color: whitesmoke; 
+                    <div class='container_titlediv' style='margin-bottom: 0vw; background-color: whitesmoke;
                             height: 0vw;' >&nbsp;</div>
                     <div class='container_titlediv hidden'><a name= 'section1'></a><img src="info.png" style= "width: 45px; position: relative; top: 10px;"> Variant Information</div>
                     <div id='wrapdiv_vinfo' class='detailcontainerwrapdiv' >

@@ -269,7 +269,7 @@ dl > div {
 
 #contdiv_prediction dl > div {
   grid-template-columns: 16rem auto;
-} 
+}
 
 
 dt {
@@ -602,7 +602,7 @@ h3 {
   position: sticky;
   top: 0;
   pointer-events: none;
-  
+
 }
 
 .th_tooltip::after {
@@ -626,7 +626,7 @@ h3 {
   pointer-events: all;
 }
 
-.show_tooltip { 
+.show_tooltip {
   display: block;
 }
 
@@ -994,9 +994,9 @@ h3 {
   width: 50em;
   margin: 4em;
   line-height: 1.5;
-}
-#detaildiv_documentation > ul {
-  font-size: 18px;
+  font-family: 'DejaVu Sans';
+  font-weight: 400;
+  font-size: 20px;
 }
 
 #detaildiv_documentation > p {
