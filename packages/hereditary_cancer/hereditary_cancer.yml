@@ -1,7 +1,7 @@
 type: package
 description: Reports on variants in a gene list implicated in nine hereditary cancer types by the Cancer Gene Census
 title: Hereditary Cancer
-version: '1.0.0'
+version: '1.1.0'
 developer:
   name: OpenCRAVAT Team
   organization: KarchinLab
@@ -13,7 +13,6 @@ requires:
 - cosmic
 - dbsnp
 - gnomad3
-- oncokb
 - cgc
 run:
   annotators:
