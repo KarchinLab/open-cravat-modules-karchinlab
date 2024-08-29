@@ -501,6 +501,8 @@ function submitForm() {
         showContentDiv();
         submitAnnotate(inputData['chrom'], inputData['pos'], inputData['ref'],
             inputData['alt'], inputData['assembly'], inputData['hgvs'])
+    } else {
+        alert('No variant input.');
     }
 }
 
@@ -1297,7 +1299,7 @@ widgetGenerators['base2'] = {
             dbsnp.classList.add("basepaneldiv")
             addEl(sdiv, dbsnp)
             div.style.backgroundColor = "white"
-            div.style.maxWidth = "120vh"
+            div.style.maxWidth = "80vw"
             addEl(div, sdiv)
         }
     }
@@ -5102,6 +5104,22 @@ function processUrl() {
     }
 }
 
+function fillExampleCoordinates() {
+    document.querySelector('#input_variant_chrom').value = 'chr6';
+    document.querySelector('#input_variant_pos').value = '31946402';
+    document.querySelector('#input_variant_ref').value = 'C';
+    document.querySelector('#input_variant_alt').value = 'T';
+    document.querySelector('#input_variant_hgvs').value = '';
+}
+
+function fillExampleHgvs() {
+    document.querySelector('#input_variant_chrom').value = '';
+    document.querySelector('#input_variant_pos').value = '';
+    document.querySelector('#input_variant_ref').value = '';
+    document.querySelector('#input_variant_alt').value = '';
+    document.querySelector('#input_variant_hgvs').value = 'NM_000051.4:c.2413C>T';
+}
+
 function setupEvents() {
     // document.querySelector('#input_variant').addEventListener('keyup', function(evt) {
     //     evt.stopPropagation();
@@ -5120,7 +5138,9 @@ function setupEvents() {
         if (moduledetaildiv != null) {
             moduledetaildiv.classList.remove("show")
         }
-    })
+    });
+    document.getElementById('example-coords').addEventListener('click', fillExampleCoordinates);
+    document.getElementById('example-hgvs').addEventListener('click', fillExampleHgvs);
 }
 
 

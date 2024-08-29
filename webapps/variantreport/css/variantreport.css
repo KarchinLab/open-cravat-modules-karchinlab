@@ -26,16 +26,17 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-left: 5px;
-  transition: .2s ease;
+  transition: .2s ease background-color;
 }
 
 #input_submit:hover {
   background-color: #6EA7D0;
-  transition: .2s ease;
+  transition: .2s ease background-color;
 }
 
 .two_col {
   grid-column: span 2;
+  align-content: center;
 }
 
 .coordinate-input {
@@ -43,6 +44,25 @@
 }
 
 .hgvs-input {
+}
+
+.input-examples {
+  float: right;
+}
+
+.input-example-small {
+  outline: 1px solid #053252;
+  border-radius: 12px;
+  color: #053252;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: none;
+  font-family: 'Trebuchet MS', 'DejaVu Sans', sans-serif;
+}
+
+.input-example-small:hover {
+  outline: 1px solid lightblue;
+  background-color: rgba(255, 255, 255, .6);
 }
 
 .bold-placeholder::placeholder {
@@ -145,7 +165,7 @@
 #logodiv {
   background-color: white;
   display: grid;
-  grid-template-columns: 100px 0.5fr 1fr;
+  grid-template-columns: 100px 0.5fr 1fr 170px;
   margin: 0;
   background-image: url("banner.png");
   background-size: 100% 100%;
@@ -195,7 +215,7 @@
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  transition: 1s ease-out;
+  /*transition: 1s ease-out;*/
 }
 
 #inputdiv br {
@@ -269,7 +289,7 @@ dl > div {
 
 #contdiv_prediction dl > div {
   grid-template-columns: 16rem auto;
-}
+} 
 
 
 dt {
@@ -528,8 +548,7 @@ dd {
 
 .logoHover {
   opacity: 1;
-  transition: 0.5s ease-in-out;
-  padding-top: 15px;
+  /*transition: 0.5s ease-in-out;*/
 }
 
 .sidenav-header {
@@ -602,7 +621,7 @@ h3 {
   position: sticky;
   top: 0;
   pointer-events: none;
-
+  
 }
 
 .th_tooltip::after {
@@ -626,7 +645,7 @@ h3 {
   pointer-events: all;
 }
 
-.show_tooltip {
+.show_tooltip { 
   display: block;
 }
 
@@ -994,19 +1013,29 @@ h3 {
   width: 50em;
   margin: 4em;
   line-height: 1.5;
-  font-family: 'DejaVu Sans';
-  font-weight: 400;
   font-size: 20px;
 }
+
 
 #detaildiv_documentation > p {
   margin-block-end: 1.5em;
   text-align: justify;
   text-justify: inter-word;
+  font-family: 'Trebuchet MS', 'DejaVu Sans', sans-serif;
 }
 
 #detaildiv_documentation > h1 {
   margin-block-end: 1em;
+  font-family: 'Trebuchet MS', 'DejaVu Sans', sans-serif;
+}
+
+#detaildiv_documentation > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#detaildiv_documentation > ul > li > a {
+  font-family: 'Trebuchet MS', 'DejaVu Sans', sans-serif;
 }
 
 .prediction {

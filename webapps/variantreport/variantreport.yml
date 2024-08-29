@@ -1,5 +1,5 @@
 title: OpenCRAVAT Variant Report
-version: 1.5.0
+version: 1.5.1
 type: webapp
 live_modules:
 - aloft
@@ -189,6 +189,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.5.1: Update example inputs
   1.5.0: cancer associated panel added
   1.4.1: bug fix with updated prediction panel
   1.4.0: Add HGVS input
