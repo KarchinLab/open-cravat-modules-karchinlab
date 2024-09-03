@@ -1,5 +1,5 @@
 #CRAVAT Report
-#Created at Friday 08/09/2024 09:18:30
+#Created at Tuesday 09/03/2024 14:41:32
 #Report level: variant
 #
 Variant Annotation																		ClinVar																																						Original Input			
@@ -15,7 +15,7 @@ UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequenc
 9	chr2	157766004	C	A		Yes	ACVR1	ENST00000434821.7	missense_variant	8	c.983G>T	p.Gly328Val	ENST00000263640.7:ACVR1:Q04771:missense_variant:p.Gly328Val:c.983G>T; ENST00000409283.6:ACVR1:Q04771:missense_variant:p.Gly328Val:c.983G>T; ENST00000410057.6:ACVR1:Q04771:missense_variant:p.Gly328Val:c.983G>T; ENST00000424669.6:ACVR1::missense_variant:p.Gly328Val:c.983G>T; ENST00000434821.7:ACVR1:Q04771:missense_variant:p.Gly328Val:c.983G>T; ENST00000539637.6:ACVR1::missense_variant:p.Gly328Val:c.983G>T; ENST00000672582.1:ACVR1::missense_variant:p.Gly328Val:c.983G>T; ENST00000673324.1:ACVR1::missense_variant:p.Gly328Val:c.983G>T	157766004	1	no-sample	somatic	Likely pathogenic	Human Phenotype Ontology:HP:0010796,MONDO:MONDO:0002911,MedGen:C0677865		Brainstem glioma		NC 000002.12:g.157766004C>A	no assertion criteria provided	376363						363242	single nucleotide variant	SO:0001483	ClinGen:CA16602802		ACVR1:90										somatic	387906589	Diffuse midline glioma, H3 K27M-mutant		MONDO:MONDO:0957196,MedGen:C4289688		criteria provided, single submitter	Tier II - Potential		somatic	chr2	157766004	C	A
 10	chrM	235	A	G			MT-TF	ENST00000387314.1	Mt_tRNA				ENST00000387314.1:MT-TF::2kb_upstream_variant,Mt_tRNA::; ENST00000387342.1:MT-TV::2kb_upstream_variant,Mt_tRNA::; ENST00000387347.2:MT-RNR2::2kb_upstream_variant,Mt_rRNA::; ENST00000389680.2:MT-RNR1::2kb_upstream_variant,Mt_rRNA::	235	1	no-sample	chrM	Uncertain significance	Human Phenotype Ontology:HP:0001427,MedGen:C0887941		Mitochondrial inheritance		NC 012920.1:m.235A>G	no assertion criteria provided	1344497						1336200	single nucleotide variant	SO:0001483													maternal	3937037								germline	chrM	235	A	G
 #CRAVAT Report
-#Created at Friday 08/09/2024 09:18:30
+#Created at Tuesday 09/03/2024 14:41:32
 #Report level: gene
 #
 Variant Annotation					
@@ -29,7 +29,7 @@ TP53		2	0	frameshift_truncation	frameshift_truncation(2),intron_variant(2),NMD_t
 ACVR1		1	0	missense_variant	missense_variant(1)
 MT-TF		0	1	Mt_tRNA	Mt_tRNA(1)
 #CRAVAT Report
-#Created at Friday 08/09/2024 09:18:30
+#Created at Tuesday 09/03/2024 14:41:32
 #Report level: sample
 #
 Variant Annotation	
@@ -45,7 +45,7 @@ UID	Sample
 9	no-sample
 10	no-sample
 #CRAVAT Report
-#Created at Friday 08/09/2024 09:18:30
+#Created at Tuesday 09/03/2024 14:41:32
 #Report level: mapping
 #
 Variant Annotation			

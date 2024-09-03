@@ -1,4 +1,4 @@
-datasource: 2024.08.01
+datasource: 2024.09.01
 description: Provides descriptions and linkouts to CIViC
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
@@ -33,8 +33,9 @@ tags:
 - literature
 title: CIViC Gene
 type: annotator
-version: 2024.08.01
+version: 2024.09.01
 release_note:
+  2024.09.01: Monthly data update
   2024.08.01: Monthly data update
   2024.07.02: Fix to the autoupdater to account for changes to Civic GraphQL model. Update test key.
   2024.07.01: Monthly data update
