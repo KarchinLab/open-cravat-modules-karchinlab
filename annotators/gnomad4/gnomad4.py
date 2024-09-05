@@ -47,7 +47,7 @@ class CravatAnnotator(BaseAnnotator):
                         out[self.af_keys[info_toks[0]]] = float(info_toks[1])
         # Fill missing AF with 0.0
         if len(out) > 0:
-            for af_key in self.af_keys.items():
+            for af_key in self.af_keys.values():
                 out[af_key] = out.get(af_key,0.0)
         return out
     
