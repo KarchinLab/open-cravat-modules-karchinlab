@@ -15,18 +15,18 @@ class CravatAnnotator(BaseAnnotator):
         for item in data_path.glob('*.vcf.gz'):
             chrom = item.name.split('.')[0]
             self.tabix_archives[chrom] = tabix.open(str(item))
-        self.af_keys = set([
-            'AF',
-            'AF_afr',
-            'AF_ami',
-            'AF_amr',
-            'AF_asj',
-            'AF_eas',
-            'AF_fin',
-            'AF_mid',
-            'AF_nfe',
-            'AF_sas',
-            ])
+        self.af_keys = {
+            'AF_joint':     'af',
+            'AF_joint_afr': 'af_afr',
+            'AF_joint_ami': 'af_ami',
+            'AF_joint_amr': 'af_amr',
+            'AF_joint_asj': 'af_asj',
+            'AF_joint_eas': 'af_eas',
+            'AF_joint_fin': 'af_fin',
+            'AF_joint_mid': 'af_mid',
+            'AF_joint_nfe': 'af_nfe',
+            'AF_joint_sas': 'af_sas',
+        }
 
     def annotate(self, input_data):
         out = {}
@@ -40,14 +40,15 @@ class CravatAnnotator(BaseAnnotator):
         if len(records) == 0:
             return
         for record in records:
-            if int(record[1]) == pos and record[3] == ref and record[4] == alt:
+            if pos == int(record[1]) and ref == record[3] and alt == record[4]:
                 for info_item in record[7].split(';'):
                     info_toks = info_item.split('=')
                     if info_toks[0] in self.af_keys:
-                        out[info_toks[0].lower()] = float(info_toks[1])
+                        out[self.af_keys[info_toks[0]]] = float(info_toks[1])
+        # Fill missing AF with 0.0
         if len(out) > 0:
-            for af_key in self.af_keys:
-                out[af_key.lower()] = out.get(af_key.lower(),0.0)
+            for af_key in self.af_keys.items():
+                out[af_key] = out.get(af_key,0.0)
         return out
     
     def cleanup(self):
