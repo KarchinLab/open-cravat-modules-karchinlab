@@ -40,12 +40,39 @@ class CravatAnnotator(BaseAnnotator):
         )
         row = self.cursor.fetchone()
         if row:
+            score = row[0]
+            if score <= 0.070:
+                benign = "NA"
+                pathogenic = ""
+            elif score >= 0.071 and score <= 0.099:
+                benign = "Moderate"
+                pathogenic = ""
+            elif score >= 0.100 and score <=0.169:
+                benign = "Supporting"
+                pathogenic = ""
+            elif score >= 0.792 and score <= 0.905:
+                benign = ""
+                pathogenic = "Supporting"
+            elif score >= 0.906 and score <= 0.971:
+                benign = ""
+                pathogenic = "Moderate"
+            elif score >= 0.972 and score <= 0.989:
+                benign = ""
+                pathogenic = "NA"
+            elif score >= 0.990:
+                benign = ""
+                pathogenic = "Strong"
+            else: 
+                benign = ""
+                pathogenic = ""
             return {
-                'am_pathogenicity': row[0],
+                'am_pathogenicity': score,
                 'am_class': row[1],
                 'transcript_id': row[2],
                 'uniprot_id': row[3],
                 'protein_variant': row[4],
+                'benign': benign,
+                'pathogenic': pathogenic
             }
     
     def cleanup(self):

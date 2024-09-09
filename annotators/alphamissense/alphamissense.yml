@@ -1,11 +1,15 @@
 title: AlphaMissense
-version: 1.0.0
+# Note: v1.1.0 of AlphaMissense has the calibration scores added but will need to be updated with the new ACMG category that is currently "NA"
+# this annotator should not be included in the first round of the release of these calibrations
+version: 1.1.0
 type: annotator
 level: variant
 tags:
 - variant effect prediction
 - variants
-
+- clinical relevance
+requires:
+- wgalphamissense
 output_columns:
 - name: am_pathogenicity
   title: Score
@@ -40,6 +44,16 @@ output_columns:
   desc: 'Scored protein variant'
   hidden: true
   width: 60
+- name: benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  desc: Strength of evidence for benignity.
+  width: 100
+- name: pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  desc: Strength of evidence for pathogenicity.
+  width: 100
 
 smartfilters:
 - name: class
@@ -63,4 +77,7 @@ developer:
   email: 'support@opencravat.org'
   website: ''
   citation: 'J. Cheng et al., Science 381, eadg7492 (2023). DOI: 10.1126/science.adg7492'
+release_note:
+  1.1.0: pathogenicity callibration results.
+private: true
 
