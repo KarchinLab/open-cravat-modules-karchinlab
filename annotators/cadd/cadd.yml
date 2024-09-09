@@ -1,5 +1,5 @@
 title: CADD
-version: 1.0.1
+version: 1.1.0
 datasource: v1.6
 type: annotator
 level: variant
@@ -16,6 +16,22 @@ output_columns:
     of each variant relative to all possible 8.6 billion substitutions in the human
     reference genome. A scaled score of 10, for example, refers to the top 10% of
     all reference genome SNVs.
+- name: benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 description: CADD is a tool for scoring the deleteriousness of single nucleotide variants
   in the human genome.
 developer:
@@ -31,7 +47,13 @@ commercial_warning: CADD scores are freely available for all non-commercial appl
 tags:
 - variant effect prediction
 - variants
+- clinical relevance
 pypi_dependency:
 - pytabix
 requires_opencravat: '>=2.2.6'
+release_note:
+  1.1.0: pathogenicity callibration results.
+requires:
+- wgcadd
+private: true
 
