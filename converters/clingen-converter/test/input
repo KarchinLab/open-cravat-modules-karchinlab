@@ -1,0 +1,8 @@
+## HGVS input format
+# One HGVS string per line
+# Optional tab-separated values for sample and tags, sample MUST come first and tags second.
+# Comment lines must start with a # symbol
+
+NM_004006.2:c.4375C>T   s0  tag
+ENST00000536005.7:c.145C>T  s1  ensembl,bean1
+NM_177402.5:c.1197C>T   s0  more,tags
