@@ -1,9 +1,24 @@
 widgetGenerators['fathmm'] = {
 	'variant': {
-		'width': 380, 
+		'width': 480, 
 		'height': 180, 
 		'default_hidden': true,
 		'function': function (div, row, tabName) {
+			getGradientColor = function(pathogenicity) {
+                let color = ""
+                if (pathogenicity === "Indeterminate") {
+                    color = "#fffff"
+                } else if (pathogenicity === "BP4 Moderate") {
+                    color = "#48cae4"
+                } else if (pathogenicity === "BP4 Supporting") {
+                    color = "#ade8f4"
+                } else if (pathogenicity === "PP3 Supporting") {
+                    color = "#ffcbd1"
+                } else if (pathogenicity === "PP3 Moderate") {
+                    color = "#f94449"
+                }
+                return color
+            }
 			var value = getWidgetData(tabName, 'fathmm', row, 'fathmm_rscore');
 			if (value == null) {
                 var span = getEl('span');
@@ -18,6 +33,8 @@ widgetGenerators['fathmm'] = {
 			var pidls = pid != null ? pid.split(';') : [];
 			var score = getWidgetData(tabName, 'fathmm', row, 'fathmm_score');
 			var scorels = score != null ? score.split(';') : [];
+			var pathogenicity = getWidgetData(tabName, 'fathmm', row, 'fathmm_pathogenicity');
+			var pathogenicityls = pathogenicity != null ? pathogenicity.split(';') : [];
 			for (var i=0;i<scorels.length;i++){
 				if (scorels[i] == '.'){
 					scorels[i] = null;
@@ -32,7 +49,7 @@ widgetGenerators['fathmm'] = {
 			}
 			var table = getWidgetTableFrame();
 			addEl(div, table);
-			var thead = getWidgetTableHead(['Transcript', 'Protein', 'Score', 'Prediction'],['35%','35%','15%','15%']);
+			var thead = getWidgetTableHead(['Transcript', 'Protein', 'Score', 'Prediction', 'ACMG Pathogenicity'],['25%','22%','10%','12%', '30%']);
 			addEl(table, thead);
 			var tbody = getEl('tbody');
 			addEl(table, tbody);
@@ -41,7 +58,13 @@ widgetGenerators['fathmm'] = {
 				var piditr = pidls[i];
 				var sitr = scorels[i];
 				var pitr = predls[i];
-				var tr = getWidgetTableTr([tiditr, piditr, sitr, pitr]);
+				var pathogenicityr = pathogenicityls[i]
+				var tr = getWidgetTableTr([tiditr, piditr, sitr, pitr, pathogenicityr]);
+				const color = getGradientColor(pathogenicityr)
+				if (pathogenicity !== "") {
+					$(tr).children().eq(4).css("background-color", color);
+					$(tr).children().eq(4).css("color", pathogenicityr.includes("Strong") ? "white" : "black");
+				}
 				addEl(tbody, tr);
 			}
 			addEl(div, addEl(table, tbody));

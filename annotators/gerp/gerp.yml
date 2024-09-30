@@ -29,16 +29,27 @@ output_columns:
   width: 60
   filterable: false
   desc: Rank of the score in dbNSFP divided by the total number of scores in dbNSFP
+- name: gerp_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
 tags:
 - variants
 - evolution
+- clinical relevance
 title: GERP++
 type: annotator
-version: 3.6.2
+version: 3.7.0
 release-note:
-  3.6.0: return None if no annotation
+  3.7.0: return None if no annotation
 requires:
 - wggerp
 release_note:
+  3.7.0: pathogenicity callibration results.
   3.6.2: non-canonical chrom support for older oc versions
   3.6.1: handle only specific alt chroms
+private: true

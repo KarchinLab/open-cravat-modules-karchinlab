@@ -1,17 +1,19 @@
 title: FATHMM
-version: 1.1.0
+version: 1.2.0
 type: webviewerwidget
 required_annotator: fathmm
 description: FATHMM webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
 hidden: true
 requires_opencravat: '>=1.7.0'
 release_note:
+  1.2.0: works with added pathogenicity callibration results.
   1.1.0: works with single variant page in oc 1.7.0.
+private: true
