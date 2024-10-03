@@ -39,6 +39,7 @@ class CravatConverter(BaseConverter):
         self.batch_size = self.conf.get('batch_size', 10000)
         self.format_name = 'clingen'
         self.assembly = 'GRCh38'
+        self.exc_handler = None
 
     def _validate_id(self, ca_id):
         upper_id = ca_id.upper()
@@ -50,14 +51,20 @@ class CravatConverter(BaseConverter):
             return False, 'Clingen Allele Registry Id incorrectly formatted'
         return True, ''
 
-    def _check_line(self, line):
-        """For non-comment lines, ensure that the first token is a CA ID"""
+    def _check_line(self, line_number, line):
+        """For non-comment lines, ensure that the first token is a CA ID
+
+        Check Line has a side effect of logging an error for invalid lines
+        that are not comments."""
         tokens = line.strip('\r\n').split('\t')
         if len(tokens) == 1:
             tokens = tokens[0].split()
 
         # check that the first token is like CA######
         valid, message = self._validate_id(tokens[0])
+        # report invalid lines
+        if not valid and not tokens[0].startswith('#') and self.exc_handler:
+            self.exc_handler(line_number, line, message)
         return valid
 
     def _initialize_dict(self, line_number, line):
@@ -66,14 +73,14 @@ class CravatConverter(BaseConverter):
             'line': line,
             'line_number': line_number,
             'ca_id': ca_id,
-            'sample': sample,
+            'sample_id': sample,
             'tags': tags
         }
 
     def _get_batch(self, file):
         line_numbers = count(1)
         numbered_file = zip(line_numbers, file)
-        filtered_file = [self._initialize_dict(ln, l) for (ln, l) in numbered_file if self._check_line(l)]
+        filtered_file = [self._initialize_dict(ln, l) for (ln, l) in numbered_file if self._check_line(ln, l)]
         for batch in batched(filtered_file, self.batch_size):
             yield list(batch)
 
@@ -83,28 +90,31 @@ class CravatConverter(BaseConverter):
         parts = line.split('\t')
         if len(parts) == 1:
             parts = line.split()
-        ca_id = parts[0]
+        ca_id = parts[0].strip()
         if len(parts) > 1:
-            sample = parts[1]
+            sample = parts[1].strip()
         if len(parts) > 2:
-            tags = parts[2]
+            tags = parts[2].strip()
         return ca_id, sample, tags
 
     def check_format(self, f):
         if f.name.endswith('.clingen'):
             return True
         format_correct = False
-        for l in f:
-            if not (l.startswith('#')) and not len(l.strip()) == 0:
-                format_correct, _ = self._check_line(l)
+        ln = 0
+        for line in f:
+            if not (line.startswith('#')) and not len(line.strip()) == 0:
+                format_correct = self._check_line(ln, line)
                 if format_correct:
                     break
+                ln += 1
         return format_correct
 
     def setup(self, f):
         """Ensure connection to the Clingen API, raise exception if anything goes wrong"""
-        # r = requests.get(self.api_url, timeout=1)
-        # r.raise_for_status()
+        headers = {'Content-Type': 'application/json'}
+        r = requests.post(self.api_url, data='CA000123', headers=headers, timeout=1)
+        r.raise_for_status()
         pass
 
     def _call_api(self, line_dicts):
@@ -124,6 +134,12 @@ class CravatConverter(BaseConverter):
                 return coords
         return None
 
+    def _format_allele(self, base):
+        base_string = str(base)
+        if not base_string or base_string == '':
+            base_string = '-'
+        return base_string
+
     def _combine_data(self, batch, results):
         for info, result in zip(batch, results):
             if '@id' not in result:
@@ -134,19 +150,20 @@ class CravatConverter(BaseConverter):
             try:
                 full_id = result['@id']
                 ca_id = full_id.split('/')[-1]
-                input_id = info['ca_id']
+                info['ca_id'] = ca_id
                 coord_data = self._get_genomic_coordinates(result, self.assembly)
                 pos_data = coord_data['coordinates'][0]
 
                 info['chrom'] = f"chr{coord_data['chromosome']}"
                 info['pos'] = str(pos_data['start'])
-                info['ref'] = str(pos_data['referenceAllele'])
-                info['alt'] = str(pos_data['allele'])
+                info['ref_base'] = self._format_allele(pos_data['referenceAllele'])
+                info['alt_base'] = self._format_allele(pos_data['allele'])
             except Exception as e:
                 info['error'] = e
         return batch
 
     def convert_file(self, file, exc_handler=None, *args, **kwargs):
+        self.exc_handler = exc_handler
         for batch in self._get_batch(file):
             clingen_results = self._call_api(batch)
             batch_wdicts = self._combine_data(batch, clingen_results)

@@ -1,36 +1,36 @@
 #CRAVAT Report
-#Created at Tuesday 03/19/2024 15:53:40
+#Created at Wednesday 10/02/2024 14:44:13
 #Report level: variant
 #
 Variant Annotation																		Original Input			
 UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Chrom	Pos	Reference allele	Alternate allele
-1	chrX	32389644	G	A		Yes	DMD	ENST00000357033.8	stop_gained	32	c.4375C>T	p.Arg1459Ter	ENST00000357033.8:DMD::stop_gained:p.Arg1459Ter:c.4375C>T; ENST00000378677.6:DMD::stop_gained:p.Arg1455Ter:c.4363C>T; ENST00000488902.5:DMD::intron_variant,processed_transcript::; ENST00000619831.4:DMD::stop_gained:p.Arg1455Ter:c.4363C>T; ENST00000620040.4:DMD::stop_gained:p.Arg1459Ter:c.4375C>T	32389644	1	s0	tag	chrX	32389644	G	A
-2	chr16	66469721	C	T		Yes	BEAN1	ENST00000536005.7	missense_variant	3	c.145C>T	p.Leu49Phe	ENST00000299694.12:BEAN1:Q3B7T3:5_prime_UTR_variant::c.-183C>T; ENST00000536005.7:BEAN1:Q3B7T3:missense_variant:p.Leu49Phe:c.145C>T; ENST00000561796.5:BEAN1:Q3B7T3:5_prime_UTR_variant::c.-183C>T; ENST00000562849.6:BEAN1:Q3B7T3:NMD_transcript_variant,5_prime_UTR_variant::c.-183C>T; ENST00000563075.1:BEAN1::processed_transcript::; ENST00000564618.1:BEAN1-AS1::2kb_downstream_variant,lnc_RNA::; ENST00000564819.5:BEAN1::5_prime_UTR_variant::c.-183C>T; ENST00000567528.5:BEAN1-AS1::2kb_downstream_variant,lnc_RNA::; ENST00000569125.1:BEAN1-AS1::2kb_downstream_variant,lnc_RNA::; ENST00000622872.4:BEAN1:Q3B7T3:5_prime_UTR_variant::c.-183C>T	66469721	1	s1	ensembl,bean1	chr16	66469721	C	T
-3	chr1	202596820	G	A		Yes	SYT2	ENST00000367268.5	synonymous_variant	9	c.1197C>T	p.Ile399=	ENST00000367267.5:SYT2:Q8N9I0:synonymous_variant:p.Ile399=:c.1197C>T; ENST00000367268.5:SYT2:Q8N9I0:synonymous_variant:p.Ile399=:c.1197C>T	202596820	1	s0	more,tags	chr1	202596820	G	A
+1	chr7	55174771	GGAATTAAGAGAAGC	-		Yes	EGFR	ENST00000275493.7	inframe_deletion	19	c.2234_2248del	p.Lys745_Ala750delinsThr	ENST00000275493.7:EGFR:P00533:inframe_deletion:p.Lys745_Ala750delinsThr:c.2234_2248del; ENST00000454757.6:EGFR::inframe_deletion:p.Lys700_Ala705delinsThr:c.2099_2113del; ENST00000455089.5:EGFR::inframe_deletion:p.Lys700_Ala705delinsThr:c.2099_2113del	55174785	1	s0	tag	chr7	55174771	GGAATTAAGAGAAGC	-
+2	chr5	171410544	-	TCTG		Yes	NPM1	ENST00000296930.9	frameshift_elongation	11	c.860_863dup	p.Trp288CysfsTer12	ENST00000296930.9:NPM1:P06748:frameshift_elongation:p.Trp288CysfsTer12:c.860_863dup; ENST00000351986.10:NPM1:P06748:frameshift_elongation:p.Trp259CysfsTer12:c.773_776dup; ENST00000517671.5:NPM1:P06748:frameshift_elongation:p.Trp288CysfsTer12:c.860_863dup	171410547	1	s1	test,tag	chr5	171410544	-	TCTG
+3	chr19	12943757	CTTAAGGAGGAGGAAGAAGACAAGAAACGCAAAGAGGAGGAGGAGGCAGAGG	-		Yes	CALR	ENST00000316448.9	frameshift_truncation	9	c.1099_1150del	p.Leu367ThrfsTer46	ENST00000316448.9:CALR:P27797:frameshift_truncation:p.Leu367ThrfsTer46:c.1099_1150del; ENST00000589120.1:AC092069.1::2kb_downstream_variant,lnc_RNA::	12943808	1	s2	test	chr19	12943757	CTTAAGGAGGAGGAAGAAGACAAGAAACGCAAAGAGGAGGAGGAGGCAGAGG	-
 #CRAVAT Report
-#Created at Tuesday 03/19/2024 15:53:40
+#Created at Wednesday 10/02/2024 14:44:13
 #Report level: gene
 #
 Variant Annotation					
 Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
-DMD		1	0	stop_gained	intron_variant(1),processed_transcript(1),stop_gained(1)
-BEAN1		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),processed_transcript(1),5_prime_UTR_variant(1)
-SYT2		1	0	synonymous_variant	synonymous_variant(1)
+EGFR		1	0	inframe_deletion	inframe_deletion(1)
+NPM1		1	0	frameshift_elongation	frameshift_elongation(1)
+CALR		1	0	frameshift_truncation	frameshift_truncation(1)
 #CRAVAT Report
-#Created at Tuesday 03/19/2024 15:53:40
+#Created at Wednesday 10/02/2024 14:44:13
 #Report level: sample
 #
 Variant Annotation	
 UID	Sample
 1	s0
 2	s1
-3	s0
+3	s2
 #CRAVAT Report
-#Created at Tuesday 03/19/2024 15:53:40
+#Created at Wednesday 10/02/2024 14:44:13
 #Report level: mapping
 #
 Variant Annotation			
 Original Line	User Tags	UID	Input File Number
-6	tag	1	0
-7	ensembl,bean1	2	0
-8	more,tags	3	0
+1	tag	1	0
+2	test,tag	2	0
+3	test	3	0
