@@ -1,4 +1,4 @@
-datasource: 2024.09.01
+datasource: 2024.10.01
 description: ClinVar is an archive of reports of the relationships among human variations
   and phenotypes, with supporting evidence.
 developer:
@@ -248,6 +248,7 @@ output_columns:
   width: 55
   hidden: true
 release_note:
+  2024.10.01: Monthly data update, update test key
   2024.09.01: Monthly data update
   2024.08.09: Fix missing ClinVar ID field
   2024.08.01: Update data and include additional columns including classifications of somatic and germline oncogenecity.
@@ -280,7 +281,7 @@ tags:
 - variants
 title: ClinVar
 type: annotator
-version: 2024.09.01
+version: 2024.10.01
 requires_opencravat: '>=1.4.0'
 requires:
 - wgclinvar

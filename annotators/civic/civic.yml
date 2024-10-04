@@ -1,4 +1,4 @@
-datasource: 2024.09.01
+datasource: 2024.10.01
 description: Provides descriptions and linkouts to CIViC
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
@@ -49,12 +49,13 @@ tags:
 - literature
 title: CIViC
 type: annotator
-version: 2024.09.01
+version: 2024.10.01
 requires_opencravat: '>=1.4.0'
 requires:
 - wgcivic
 release_note:
-  2024.08.01: Monthly data update
+  2024.10.01: Monthly data update, update test key
+  2024.09.01: Monthly data update
   2024.08.01: Monthly data update
   2024.07.01: Monthly data update, update test key
   2024.06.01: Monthly data update, fix autoupdate script
