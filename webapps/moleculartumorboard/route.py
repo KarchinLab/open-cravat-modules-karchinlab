@@ -1,20 +1,6 @@
 import os
-import webbrowser
-import multiprocessing
-import aiosqlite
-import urllib.parse
 import json
-import sys
-import argparse
-import yaml
-import re
-from cravat import ConfigLoader
 from cravat import admin_util as au
-from cravat import CravatFilter
-from cravat.constants import base_smartfilters
-from aiohttp import web
-import time
-from concurrent.futures import ProcessPoolExecutor
 from cravat import get_live_annotator, get_live_mapper
 from cravat.config_loader import ConfigLoader
 import requests
@@ -23,6 +9,8 @@ import datetime
 from pyliftover import LiftOver
 import cravat
 
+from flask import jsonify, abort
+
 live_modules = {}
 live_mapper = None
 module_confs = {}
@@ -30,20 +18,20 @@ modules_to_run_ordered = []
 oncokb_cache = {}
 wgsreader = cravat.get_wgs_reader(assembly='hg38')
 
-async def test (request):
-    return web.json_response({'result': 'success'})
+def test(request):
+    return jsonify({'result': 'success'})
 
-async def get_live_annotation_post (request):
-    queries = await request.post()
-    response = await get_live_annotation(queries)
-    return web.json_response(response)
+def get_live_annotation_post(request):
+    queries = request.values
+    response = get_live_annotation(queries)
+    return jsonify(response)
 
-async def get_live_annotation_get (request):
-    queries = request.rel_url.query
-    response = await get_live_annotation(queries)
-    return web.json_response(response)
+def get_live_annotation_get (request):
+    queries = request.values
+    response = get_live_annotation(queries)
+    return jsonify(response)
 
-async def get_live_annotation (queries):
+def get_live_annotation (queries):
     chrom = queries['chrom']
     pos = queries['pos']
     ref_base = queries['ref_base']
@@ -66,10 +54,10 @@ async def get_live_annotation (queries):
         annotators = None
     global live_modules
     if len(live_modules) == 0:
-        await load_live_modules()
-        response = await live_annotate(input_data, annotators)
+        load_live_modules()
+        response = live_annotate(input_data, annotators)
     else:
-        response = await live_annotate(input_data, annotators)
+        response = live_annotate(input_data, annotators)
     return response
 
 def clean_annot_dict (d):
@@ -167,7 +155,7 @@ def liftover(input_data, lifter, orig_assembly):
         newalt = alt
     return [newchrom, newpos, newref, newalt]
 
-async def live_annotate (input_data, annotators):
+def live_annotate(input_data, annotators):
     from cravat.constants import mapping_parser_name
     from cravat.constants import all_mappings_col_name
     from cravat.inout import AllMappingsParser
@@ -271,7 +259,7 @@ def set_crx_canonical (crx_data):
                 break
     return crx_data
 
-async def load_live_modules ():
+def load_live_modules ():
     global live_modules
     global live_mapper
     global module_confs
@@ -317,7 +305,7 @@ async def load_live_modules ():
         if len(modules_to_run_ordered) == num_module_names - 1:
             break
 
-async def get_oncokb_annotation (request):
+def get_oncokb_annotation (request):
     global oncokb_conf
     global oncokb_cache
     queries = request.rel_url.query
@@ -348,27 +336,25 @@ async def get_oncokb_annotation (request):
     else:
         use_cache = False
     if use_cache:
-        response = web.json_response(oncokb_cache[cache_key]['rjson'])
+        response = jsonify(oncokb_cache[cache_key]['rjson'])
     else:
         if token is None:
-            response = web.json_response({'notoken': True})
+            response = jsonify({'notoken': True})
         else:
             url = f'https://www.oncokb.org/api/v1/annotate/mutations/byGenomicChange?genomicLocation={chrom},{start},{end},{ref_base},{alt_base}&referenceGenome=GRCh38'
             headers = {'Authorization': 'Bearer ' + token}
             r = requests.get(url, headers=headers)
             rjson = r.json()
             if 'status' in rjson and rjson['status'] == 401:
-                response = web.json_response({'notoken': True})
+                response = jsonify({'notoken': True})
                 response.cookies['oncokb_token'] = ''
             else:
-                response = web.json_response(rjson)
+                response = jsonify(rjson)
                 oncokb_cache[cache_key] = {'date': datetime.datetime.now(), 'rjson': rjson}
     return response
 
-async def get_hallmarks (request):
-    return web.HTTPServerError(reason='Temporarily disabled to avoid scraping cosmic',
-        text = 'testtesttest'
-    )
+def get_hallmarks (request):
+    abort(400, description='Temporarily disabled to avoid scraping cosmic')
     # queries = request.rel_url.query
     # hugo = queries['hugo']
     # if hugo == '':
@@ -380,8 +366,8 @@ async def get_hallmarks (request):
     # content = {'func_summary': func_summary}
     # return web.json_response(content)
 
-async def get_litvar (request):
-    queries = request.rel_url.query
+def get_litvar (request):
+    queries = request.values
     rsid = queries['rsid']
     url = 'https://www.ncbi.nlm.nih.gov/research/bionlp/litvar/api/v1/public/rsids2pmids?rsids=' + rsid
     r = requests.get(url)
@@ -389,13 +375,12 @@ async def get_litvar (request):
     n = 0
     if len(response) > 0:
         n = len(response[0]['pmids'])
-    return web.json_response({'n': n})
+    return jsonify({'n': n})
 
-async def save_oncokb_token (request):
-    queries = request.rel_url.query
+def save_oncokb_token (request):
+    queries = request.values
     token = queries['token']
-    oncokb_conf = {'token': token}
-    response = web.json_response({"result": "success"})
+    response = jsonify({"result": "success"})
     response.cookies['oncokb_token'] = token
     return response
 

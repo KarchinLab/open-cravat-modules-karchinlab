@@ -1,27 +1,16 @@
 import os
-import webbrowser
-import multiprocessing
-
-import aiosqlite
-import urllib.parse
 import json
-import sys
-import argparse
-import yaml
-import re
-from cravat import ConfigLoader
+
+from flask import abort, jsonify, make_response
+
 from cravat import admin_util as au
-from cravat import CravatFilter
-from cravat.constants import base_smartfilters
-from aiohttp import web
-import time
-from concurrent.futures import ProcessPoolExecutor
 from cravat import get_live_annotator, get_live_mapper
 from cravat.config_loader import ConfigLoader
 import requests
 import oyaml
 import datetime
 from pyliftover import LiftOver
+
 import cravat
 
 live_modules = {}
@@ -33,8 +22,8 @@ wgsreader = cravat.get_wgs_reader(assembly='hg38')
 VARIANT_REPORT_CONFIG = {}
 
 
-async def test (request):
-    return web.json_response({'result': 'success'})
+def test(request):
+    return jsonify({'result': 'success'})
 
 
 def get_coordinates_from_hgvs_api(queries):
@@ -43,7 +32,7 @@ def get_coordinates_from_hgvs_api(queries):
         confloader = ConfigLoader()
         VARIANT_REPORT_CONFIG = confloader.get_module_conf('variantreport')
     if 'hgvs_api_url' not in VARIANT_REPORT_CONFIG:
-        raise aiohttp.web.HTTPInternalServerError(text='"hgvs_api_url" not found in variantreport configuration.')
+        raise abort(500, description='"hgvs_api_url" not found in variantreport configuration.')
     data = {'hgvs': queries['hgvs']}
     headers = {'Content-Type': 'application/json'}
     resp = requests.post(VARIANT_REPORT_CONFIG['hgvs_api_url'], data=json.dumps(data), headers=headers, timeout=20)
@@ -58,7 +47,7 @@ def get_coordinates_from_hgvs_api(queries):
     }
 
 
-async def get_coordinates_from_request_params(queries):
+def get_coordinates_from_request_params(queries):
     parameters = {}
     required_coordinate_params = {'chrom', 'pos', 'ref_base', 'alt_base', 'assembly'}
     if (required_coordinate_params <= queries.keys()
@@ -70,26 +59,26 @@ async def get_coordinates_from_request_params(queries):
         # make hgvs api call
         parameters = get_coordinates_from_hgvs_api(queries)
     else:
-        raise web.HTTPBadRequest(reason='Required parameters missing. Need either "chrom", "pos", "ref_base", and "alt_base", or "hgvs". Parameter "assembly" always required.')
+        raise abort(400, description='Required parameters missing. Need either "chrom", "pos", "ref_base", and "alt_base", or "hgvs". Parameter "assembly" always required.')
     parameters['uid'] = queries.get('uid', '')
     if 'annotators' in queries.keys():
         parameters['annotators'] = queries.get('annotators', '')
     return parameters
 
 
-async def get_live_annotation_post (request):
-    queries = await request.post()
-    coords = await get_coordinates_from_request_params(queries)
-    response = await get_live_annotation(coords)
-    return web.json_response(response)
+def get_live_annotation_post(request):
+    queries = request.values
+    coords = get_coordinates_from_request_params(queries)
+    response = get_live_annotation(coords)
+    return jsonify(response)
 
-async def get_live_annotation_get (request):
-    queries = request.rel_url.query
-    coords = await get_coordinates_from_request_params(queries)
-    response = await get_live_annotation(coords)
-    return web.json_response(response)
+def get_live_annotation_get(request):
+    queries = request.values
+    coords = get_coordinates_from_request_params(queries)
+    response = get_live_annotation(coords)
+    return jsonify(response)
 
-async def get_live_annotation (queries):
+def get_live_annotation (queries):
     chrom = queries['chrom']
     pos = queries['pos']
     ref_base = queries['ref_base']
@@ -112,10 +101,9 @@ async def get_live_annotation (queries):
         annotators = None
     global live_modules
     if len(live_modules) == 0:
-        await load_live_modules()
-        response = await live_annotate(input_data, annotators)
-    else:
-        response = await live_annotate(input_data, annotators)
+        load_live_modules()
+
+    response = live_annotate(input_data, annotators)
     return response
 
 def clean_annot_dict (d):
@@ -209,7 +197,7 @@ def liftover(input_data, lifter):
         newalt = alt
     return [newchrom, newpos, newref, newalt]
 
-async def live_annotate (input_data, annotators):
+def live_annotate (input_data, annotators):
     from cravat.constants import mapping_parser_name
     from cravat.constants import all_mappings_col_name
     from cravat.inout import AllMappingsParser
@@ -217,6 +205,7 @@ async def live_annotate (input_data, annotators):
     global live_mapper
     global module_confs
     global modules_to_run_ordered
+
     response = {}
     assembly = input_data.get('assembly', 'hg38')
     if assembly in cravat.constants.liftover_chain_paths:
@@ -295,7 +284,7 @@ def set_crx_canonical (crx_data):
                 break
     return crx_data
 
-async def load_live_modules ():
+def load_live_modules ():
     global live_modules
     global live_mapper
     global module_confs
@@ -343,10 +332,10 @@ async def load_live_modules ():
         if len(modules_to_run_ordered) == num_module_names - 1:
             break
 
-async def get_oncokb_annotation (request):
+def get_oncokb_annotation(request):
     global oncokb_conf
     global oncokb_cache
-    queries = request.rel_url.query
+    queries = request.values
     chrom = queries['chrom']
     start = queries['start']
     end = queries['end']
@@ -374,37 +363,37 @@ async def get_oncokb_annotation (request):
     else:
         use_cache = False
     if use_cache:
-        response = web.json_response(oncokb_cache[cache_key]['rjson'])
+        response = jsonify(oncokb_cache[cache_key]['rjson'])
     else:
         if token is None:
-            response = web.json_response({'notoken': True})
+            response = jsonify({'notoken': True})
         else:
             url = f'https://www.oncokb.org/api/v1/annotate/mutations/byGenomicChange?genomicLocation={chrom},{start},{end},{ref_base},{alt_base}&referenceGenome=GRCh38'
             headers = {'Authorization': 'Bearer ' + token}
             r = requests.get(url, headers=headers)
             rjson = r.json()
             if 'status' in rjson and rjson['status'] == 401:
-                response = web.json_response({'notoken': True})
+                response = jsonify({'notoken': True})
                 response.cookies['oncokb_token'] = ''
             else:
-                response = web.json_response(rjson)
+                response = jsonify(rjson)
                 oncokb_cache[cache_key] = {'date': datetime.datetime.now(), 'rjson': rjson}
     return response
 
-async def get_hallmarks (request):
-    queries = request.rel_url.query
+def get_hallmarks(request):
+    queries = request.values
     hugo = queries['hugo']
     if hugo == '':
-        return web.json_response({})
+        return jsonify({})
     url = 'https://cancer.sanger.ac.uk/cosmic/census-page/' + hugo
     r = requests.get(url)
     text = r.text[r.text.index('<p class="census-hallmark-desc">') + 32:]
     func_summary = text[:text.index('<a href=')].strip()
     content = {'func_summary': func_summary}
-    return web.json_response(content)
+    return jsonify(content)
 
-async def get_litvar (request):
-    queries = request.rel_url.query
+def get_litvar(request):
+    queries = request.values
     rsid = queries['rsid']
     url = 'https://www.ncbi.nlm.nih.gov/research/bionlp/litvar/api/v1/public/rsids2pmids?rsids=' + rsid
     r = requests.get(url)
@@ -412,29 +401,28 @@ async def get_litvar (request):
     n = 0
     if len(response) > 0:
         n = len(response[0]['pmids'])
-    return web.json_response({'n': n})
+    return jsonify({'n': n})
 
-async def save_oncokb_token (request):
-    queries = request.rel_url.query
+def save_oncokb_token (request):
+    queries = request.values
     token = queries['token']
-    oncokb_conf = {'token': token}
-    response = web.json_response({"result": "success"})
-    response.cookies['oncokb_token'] = token
+    response = make_response(jsonify({"result": "success"}))
+    response.set_cookie('oncokb_token', token)
     return response
 
-async def get_module_info (request):
+def get_module_info (request):
     content = {}
-    queries = request.rel_url.query
+    queries = request.values
     module_name = queries['module']
     module_info = au.get_local_module_info(module_name)
     module_dir = module_info.directory
     if module_name in au.mic.local:
         content = au.mic.local[module_name].conf
     content['has_logo'] = os.path.exists(os.path.join(module_dir, 'logo.png'))
-    return web.json_response(content)
+    return jsonify(content)
 
-async def get_modules_info(request):
-    queries = request.rel_url.query
+def get_modules_info(request):
+    queries = request.values
     module_names = queries['modules'].split(",")
     response = []
     for module_name in module_names:
@@ -449,7 +437,7 @@ async def get_modules_info(request):
             desc = conf.get("description", "")
             url = conf.get("developer", {}).get("website", "")
         response.append({"name": module_name, "title": title, "desc": desc, "url": url})
-    return web.json_response(response)
+    return jsonify(response)
 
 oncokb_conf_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'oncokb_conf.yml')
 
