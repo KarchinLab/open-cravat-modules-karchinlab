@@ -33,8 +33,37 @@ class CravatAnnotator(BaseAnnotator):
                 for i in range(len(new)):
                     transc = new[i]
                     score = scores[i]
-                    transc_revel_result = [transc, score, rankscore]
-                    precomp_data.append({'transcript':transc, 'score': score, 'rankscore': rankscore, 'full_result' : transc_revel_result})
+                    if score <= 0.003:
+                        benign = "Very Strong"
+                        pathogenic = ""
+                    elif score > 0.003 and score <= 0.016:
+                        benign = "Strong"
+                        pathogenic = ""
+                    elif score > 0.016 and score <= 0.183:
+                        benign = "Moderate"
+                        pathogenic = ""
+                    elif score > 0.183 and score <= 0.290:
+                        benign = "Supporting"
+                        pathogenic = ""
+                    elif score  >= 0.664 and score < 0.773: 
+                        benign = ""
+                        pathogenic = "Supporting"
+                    elif score >= 0.773 and score < 0.932:
+                        benign = ""
+                        pathogenic = "Moderate"
+                    elif score >= 0.932:
+                        benign = ""
+                        pathogenic = "Strong"
+                    else:
+                        benign = ""
+                        pathogenic = ""
+                    transc_revel_result = [transc, score, rankscore, benign, pathogenic]
+                    precomp_data.append({'transcript':transc, 
+                                         'score': score, 
+                                         'rankscore': rankscore, 
+                                         'benign': benign,
+                                         'pathogenic': pathogenic, 
+                                         'full_result' : transc_revel_result})
             if precomp_data:
                 all_transcripts = set()
                 scores = [x['score'] for x in precomp_data]
@@ -49,7 +78,9 @@ class CravatAnnotator(BaseAnnotator):
                 max_index = scores.index(max_score)
                 worst_mapping = precomp_data[max_index]
                 worst_rankscore = worst_mapping['rankscore']
-                out = {'transcript': all_transcripts, 'score': max_score, 'rankscore': worst_rankscore, 'all': all_results_list}
+                worst_pathogenic = worst_mapping['pathogenic']
+                worst_benign = worst_mapping['benign']
+                out = {'transcript': all_transcripts, 'score': max_score, 'rankscore': worst_rankscore, 'pathogenic': worst_pathogenic, 'benign': worst_benign, 'all': all_results_list}
                 return out
 
         

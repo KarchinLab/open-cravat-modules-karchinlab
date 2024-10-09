@@ -1,14 +1,17 @@
 title: GERP++
-version: 1.0.3
+version: 1.1.0
 type: webviewerwidget
 required_annotator: gerp
 description: GERP++ web viewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
 hidden: true
+release_note:
+  1.1.0: works with added pathogenicity callibration results.
+private: true

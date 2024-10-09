@@ -32,6 +32,21 @@ class CravatAnnotator(BaseAnnotator):
                 else:
                     prediction = 'Tolerated'
                 rankscore = row[2]
+                if score >= 0.327:
+                    benign = 'Moderate'
+                    pathogenic = ''
+                elif score >= 0.080 and score < 0.327:
+                    benign = 'Supporting'
+                    pathogenic = ''
+                elif score > 0 and score <= 0.001:
+                    benign = ''
+                    pathogenic ='Supporting'
+                elif score == 0:
+                    benign = ''
+                    pathogenic ='Moderate'
+                else:
+                    benign = ''
+                    pathogenic = ''
                 med = row[3]
                 if med <= 3.25:
                     confidence = 'High'
@@ -41,8 +56,8 @@ class CravatAnnotator(BaseAnnotator):
                 new = transcript.strip().split(';')
                 for i in range(len(new)):
                     transc = new[i]
-                    transc_revel_result = [transc, score, prediction, rankscore, med, confidence, seqs]
-                    precomp_data.append({'transcript':transc, 'score': score, 'prediction': prediction, 'rankscore': rankscore, 'med': med, 'confidence': confidence,'seqs': seqs, 'full_result' : transc_revel_result})
+                    transc_revel_result = [transc, score, prediction, rankscore, med, confidence, seqs, benign, pathogenic]
+                    precomp_data.append({'transcript':transc, 'score': score, 'prediction': prediction, 'rankscore': rankscore, 'med': med, 'confidence': confidence,'seqs': seqs,'benign': benign, 'pathogenic': pathogenic, 'full_result' : transc_revel_result})
             if precomp_data:
                 all_transcripts = set()
                 scores = [x['rankscore'] for x in precomp_data]
@@ -61,6 +76,8 @@ class CravatAnnotator(BaseAnnotator):
                 worst_med = worst_mapping['med']
                 worst_confidence = worst_mapping['confidence']
                 worst_seqs = worst_mapping['seqs']
+                worst_pathogenic = worst_mapping['pathogenic']
+                worst_benign = worst_mapping['benign']
                 if all_results_list:
                     out['transcript'] = all_transcripts
                     out['score'] = worst_score
@@ -69,6 +86,8 @@ class CravatAnnotator(BaseAnnotator):
                     out['med'] = worst_med
                     out['confidence'] = worst_confidence
                     out['seqs'] = worst_seqs
+                    out['benign'] = worst_benign
+                    out['pathogenic'] = worst_pathogenic
                     out['all'] = all_results_list
                     out['multsite'] = 'True' if len(all_results_list) > 1 else None
                     return out

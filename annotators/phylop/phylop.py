@@ -25,12 +25,27 @@ class CravatAnnotator(BaseAnnotator):
         self.curs.execute(stmt)
         row = self.curs.fetchone()
         if row is not None:
+            phylop100Vert = float(row[0])
+            if phylop100Vert <= 0.021:
+                benign = 'Moderate'
+                pathogenic = ''
+            elif phylop100Vert > 0.021 and phylop100Vert <= 1.879:
+                benign = 'Supporting'
+                pathogenic = ''
+            elif phylop100Vert >= 7.367 and phylop100Vert < 9.741:
+                benign = ''
+                pathogenic = 'Supporting'
+            elif phylop100Vert >= 9.741:
+                benign = ''
+                pathogenic = 'Moderate'
             out['phylop100_vert'] = float(row[0])
             out['phylop100_vert_r'] = float(row[1])
             out['phylop470_mamm'] = float(row[2])
             out['phylop470_mamm_r'] = float(row[3])
             out['phylop17_primate'] = float(row[4])
             out['phylop17_primate_r'] = float(row[5])
+            out['benign'] = benign
+            out['pathogenic'] = pathogenic
         return out
     
     def cleanup(self):

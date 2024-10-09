@@ -1,5 +1,5 @@
 title: CADD Exome
-version: 1.6.1
+version: 1.7.0
 datasource: '1.6'
 type: annotator
 level: variant
@@ -10,6 +10,22 @@ output_columns:
 - name: phred
   title: Phred
   type: float
+- name: benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 description: CADD is a tool for scoring the deleteriousness of single nucleotide variants
   in the human genome.
 developer:
@@ -23,8 +39,13 @@ developer:
 commercial_warning: CADD scores are freely available for all non-commercial applications.
   If you are planning on using them in a commercial application, please obtain a license.
 release_note:
+  1.7.0: pathogenicity callibration results.
   1.6.1: Bugfix for indel handling
   1.4.7: Initial release
 tags:
 - variant effect prediction
 - variants
+- clinical relevance
+requires:
+- wgcadd_exome
+private: true

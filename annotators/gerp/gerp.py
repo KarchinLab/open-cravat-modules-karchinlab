@@ -21,9 +21,17 @@ class CravatAnnotator(BaseAnnotator):
         self.cursor.execute(stmt)
         row = self.cursor.fetchone()
         if row is not None:
+            score = self.myCast(row[1])
+            if score <= -4.54:
+                benign = "Moderate"
+            elif row[0] > -4.54 and row[0] <= 2.70:
+                benign = "Supporting"
+            else:
+                benign = ""
             out['gerp_nr'] = self.myCast(row[0])
             out['gerp_rs'] = self.myCast(row[1])
             out['gerp_rs_rank'] = self.myCast(row[2])
+            out['gerp_benign'] = benign
             return out
     
     def cleanup(self):
