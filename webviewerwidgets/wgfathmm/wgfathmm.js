@@ -4,21 +4,6 @@ widgetGenerators['fathmm'] = {
 		'height': 180, 
 		'default_hidden': true,
 		'function': function (div, row, tabName) {
-			getGradientColor = function(pathogenicity) {
-                let color = ""
-                if (pathogenicity === "Indeterminate") {
-                    color = "#fffff"
-                } else if (pathogenicity === "BP4 Moderate") {
-                    color = "#48cae4"
-                } else if (pathogenicity === "BP4 Supporting") {
-                    color = "#ade8f4"
-                } else if (pathogenicity === "PP3 Supporting") {
-                    color = "#ffcbd1"
-                } else if (pathogenicity === "PP3 Moderate") {
-                    color = "#f94449"
-                }
-                return color
-            }
 			var value = getWidgetData(tabName, 'fathmm', row, 'fathmm_rscore');
 			if (value == null) {
                 var span = getEl('span');
@@ -60,7 +45,7 @@ widgetGenerators['fathmm'] = {
 				var pitr = predls[i];
 				var pathogenicityr = pathogenicityls[i]
 				var tr = getWidgetTableTr([tiditr, piditr, sitr, pitr, pathogenicityr]);
-				const color = getGradientColor(pathogenicityr)
+				const color = getCalibrationGradientColor(pathogenicityr)
 				if (pathogenicity !== "") {
 					$(tr).children().eq(4).css("background-color", color);
 					$(tr).children().eq(4).css("color", pathogenicityr.includes("Strong") ? "white" : "black");

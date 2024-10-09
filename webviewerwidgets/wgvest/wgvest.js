@@ -4,23 +4,6 @@ widgetGenerators['vest'] = {
 		'height': 180, 
 		'default_hidden': false,
 		'function': function (div, row, tabName) {
-            getGradientColor = function(pathogenicity) {
-                let color = ""
-                if (pathogenicity === "Indeterminate") {
-                    color = "#fffff"
-                } else if (pathogenicity === "BP4 Moderate") {
-                    color = "#48cae4"
-                } else if (pathogenicity === "BP4 Supporting") {
-                    color = "#ade8f4"
-                } else if (pathogenicity === "PP3 Supporting") {
-                    color = "#ffcbd1"
-                } else if (pathogenicity === "PP3 Moderate") {
-                    color = "#f94449"
-                } else if (pathogenicity === "PP3 Strong") {
-                    color = "#c30010"
-                }
-                return color
-            }
 			var allMappings = getWidgetData(tabName, 'vest', row, 'all');
 			if (allMappings != undefined && allMappings != null) {
                 if(typeof addGradientBarComponent == 'function'){
@@ -38,7 +21,6 @@ widgetGenerators['vest'] = {
 					var row = results[i];
 					var transcript = row[0];
 					var score = row[1].toFixed(3);
-					// var pvalue = row[2].toFixed(4);
                     var bp4 = row[3]
                     var pp3 = row[4]
                     let pathogenicity
@@ -50,7 +32,7 @@ widgetGenerators['vest'] = {
 						pathogenicity = "Indeterminate"
 					}
 					var tr = getWidgetTableTr([transcript, score, pathogenicity]);
-                    const color = getGradientColor(pathogenicity)
+                    const color = getCalibrationGradientColor(pathogenicity)
                     if (pathogenicity !== "") {
                         $(tr).children().eq(2).css("background-color", color);
                         $(tr).children().eq(2).css("color", pathogenicity.includes("Strong") ? "white" : "black");

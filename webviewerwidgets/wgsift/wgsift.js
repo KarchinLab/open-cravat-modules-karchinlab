@@ -4,27 +4,6 @@ widgetGenerators['sift'] = {
 		'height': 180, 
 		'function': function (div, row, tabName) {
 			var allMappings = getWidgetData(tabName, 'sift', row, 'all');
-			getGradientColor = function(pathogenicity) {
-                let color = ""
-                if (pathogenicity === "Indeterminate") {
-                    color = "#fffff"
-                } else if (pathogenicity === "BP4 Very Strong") {
-					color = "#03045e"
-				} else if (pathogenicity === "BP4 Strong") {
-					color = "#023e8a"
-				} else if (pathogenicity === "BP4 Moderate") {
-                    color = "#48cae4"
-                } else if (pathogenicity === "BP4 Supporting") {
-                    color = "#ade8f4"
-                } else if (pathogenicity === "PP3 Supporting") {
-                    color = "#ffcbd1"
-                } else if (pathogenicity === "PP3 Moderate") {
-                    color = "#f94449"
-                } else if (pathogenicity === "PP3 Strong") {
-                    color = "#c30010"
-                }
-                return color
-            }
 			if (allMappings != undefined && allMappings != null) {
                 var results = JSON.parse(allMappings);
 				var table = getWidgetTableFrame();
@@ -52,7 +31,7 @@ widgetGenerators['sift'] = {
 						pathogenicity = "Indeterminate"
 					}
 					var tr = getWidgetTableTr([trans, pred,conf,score, rank, med, seqs, pathogenicity]);
-					const color = getGradientColor(pathogenicity)
+					const color = getCalibrationGradientColor(pathogenicity)
                     if (pathogenicity !== "") {
                         $(tr).children().eq(7).css("background-color", color);
 						$(tr).children().eq(7).css("color", pathogenicity.includes("Strong") ? "white" : "black");
