@@ -4,7 +4,7 @@ from json import JSONDecodeError
 from cravat import BaseConverter
 from cravat import BadFormatError
 import requests
-from itertools import count, chain, islice
+from itertools import chain, islice
 
 
 def batched(iterable, n):
@@ -56,8 +56,11 @@ class CravatConverter(BaseConverter):
 
         Check Line has a side effect of logging an error for invalid lines
         that are not comments."""
-        tokens = line.strip('\r\n').split('\t')
+        tokens = line.strip(' \r\n').split('\t')
         if len(tokens) == 1:
+            # ignore blank lines
+            if not tokens[0]:
+                return False
             tokens = tokens[0].split()
 
         # check that the first token is like CA######
@@ -78,8 +81,7 @@ class CravatConverter(BaseConverter):
         }
 
     def _get_batch(self, file):
-        line_numbers = count(1)
-        numbered_file = zip(line_numbers, file)
+        numbered_file = enumerate(file, start=1)
         filtered_file = [self._initialize_dict(ln, l) for (ln, l) in numbered_file if self._check_line(ln, l)]
         for batch in batched(filtered_file, self.batch_size):
             yield list(batch)

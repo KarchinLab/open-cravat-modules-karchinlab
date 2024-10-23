@@ -15,7 +15,7 @@ CA10583404
 CA114360
 ```
 
-Bulk Query Endpoint
+This annotator uses the bulk query endpoint, for example like this:
 ```bash
 curl --location 'https://reg.clinicalgenome.org/alleles?file=id' \
 --header 'Content-Type: application/javascript' \

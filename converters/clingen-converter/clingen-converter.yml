@@ -11,5 +11,7 @@ developer:
   website: https://potomacitgroup.com/
   citation: ''
 requires_opencravat: '>=1.8.0'
+tags:
+  - input/output
 release_note:
   1.0.0: Initial release of Clingen Allele Registry input
