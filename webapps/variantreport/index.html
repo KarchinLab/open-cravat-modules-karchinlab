@@ -15,43 +15,39 @@
     <script src='/store/js/showdown-1.9.1.min.js'></script>
 	<link rel='stylesheet' href='css/widget.css' />
 	<link rel='stylesheet' href='css/variantreport.css' />
+
+    <!-- Single Variant Input -->
+    <script src="single-variant-input/oc-svi.js" type="application/javascript" defer></script>
+    <link rel="stylesheet" type="text/css" href="single-variant-input/oc-svi.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title> OpenCRAVAT Variant Report</title>
 </head>
 <body>
     <div id = 'body'> 
         <div id='logodiv'>
-            <div>
-            <a href="https://open-cravat.readthedocs.io/en/latest/OpenCRAVAT-Variant-Report.html" target="_blank">
-                <img id="question_icon" src='question.png' alt="Single Variant Report Documentation"/>
-            </a>
-            </div>
-            <div>
-                <div id='inputdiv'>
-                    <div id="variant_input_boxes">
-                        <input id="input_variant_chrom" name="inputVariantChrom" class="coordinate-input bold-placeholder" placeholder="Chromosome">
-                        <input id="input_variant_pos" name="inputVariantPos" class="coordinate-input bold-placeholder" placeholder="Start Position">
-                        <input id="input_variant_ref" name="inputVariantRef" class="coordinate-input bold-placeholder" placeholder="Reference Allele">
-                        <input id="input_variant_alt" name="inputVariantAlt" class="coordinate-input bold-placeholder" placeholder="Alternate Allele">
-                        <div class="two_col">
-                            OR
-                            <span class="input-examples">ex.
-                                <span id='example-coords' class="input-example-small">Coords</span>
-                                <span id='example-hgvs' class="input-example-small">HGVS</span>
-                            </span>
-                        </div>
-                        <input id="input_variant_hgvs" name="inputVariantHgvs" class="hgvs-input two_col bold-placeholder" placeholder="HGVS">
-                    </div>
-                <button id="input_submit" onclick="submitForm();" style="cursor: pointer;
-                    margin-bottom: 3px; min-height: 30px;">
-                    View <br/>Variant</button>
-                </div>
-            </div>
-            <div>
-              <span id='pagetitle'>Single Variant Report</span>
+            <div id="variant-header">
+                <div id="current-input"> </div>
+                <button id="back-search" class="header-button">
+                    <div class='logo back-search'> </div>
+                    Search for another Variant
+                </button>
             </div>
             <div class="logoHover">
-                <a id="logo" href="https://opencravat.org" target="_blank"><img alt= "OpenCravat Logo" src='OpenCRAVAT_Logo_Black.png' width = "80px"></a>
+                <a id="logo" href="https://opencravat.org" target="_blank"><img alt= "OpenCravat Logo" src='OC_COLOR.svg' width = "200px"></a>
             </div>
+            <div>
+                <div class="single-variant-label">Single Variant Page</div>
+                <a class="header-button" href="https://open-cravat.readthedocs.io/en/latest/OpenCRAVAT-Variant-Report.html" target="_blank">
+                    <div class="logo help"></div>
+                    Help
+                </a>
+            </div>
+        </div>
+        <div id="detaildiv_documentation">
+            <div id="annotation_errors" style="display: none"></div>
+            <div id="oc-svi" class="oc-svi-light-theme custom-handler" title="Single Variant Page"></div>
         </div>
         <div id = 'bottom-div'>
             <div class="sidenav">
@@ -71,22 +67,13 @@
                 <a href="#section14"><img src="viz.png" class= "logos_short"> Vizualization</a>
             </div>
             <div class="main">
-                <div id="detaildiv_documentation">
-                    <h1>Annotate a Single Variant</h1>
-                    <p>Try out one of our examples to get started.</p>
-                    <ul>
-                        <li><a href="index.html?chrom=chr6&pos=31946402&ref_base=C&alt_base=T">chr6 31946402 C &gt; T</a></li>
-                        <li><a href="index.html?chrom=chr9&pos=136496197&ref_base=AG&alt_base=-">chr9 136496197 AG &gt; -</a></li>
-                        <li><a href="index.html?hgvs=NM_000051.4%3Ac.2413C>T">NM_000051.4:c.2413C>T</a></li>
-                        <li><a href="index.html?hgvs=NM_004333.6%3Ac.1798_1799delinsAA">NM_004333.6:c.1798_1799delinsAA</a></li>
-                    </ul>
-                </div>
                 <div id='detaildiv_variant' class='detaildiv singlevariantpage'>
                     <div id='spinnerdiv'>
                         <img src='/result/images/arrow-spinner.gif'/>
                     </div>
                     <div id='screendiv' style='position: absolute; width: 100%; height: 100%; 
                             background-color: gray; display: none; z-index: 2;'></div>
+                    <div id="alternate-variants"></div>
                     <div class='container_titlediv' style='margin-bottom: 0vw; background-color: whitesmoke; 
                             height: 0vw;' >&nbsp;</div>
                     <div class='container_titlediv hidden'><a name= 'section1'></a><img src="info.png" style= "width: 45px; position: relative; top: 10px;"> Variant Information</div>

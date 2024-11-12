@@ -69,7 +69,7 @@
   font-family: 'source-sans-pro-bold';
 }
 
-#question_icon {
+.header_btn {
   width: 60px;
   cursor: pointer;
   margin-left: 20px;
@@ -155,7 +155,7 @@
 }
 
 #bottom-div {
-  display: grid;
+  display: none;
   grid-template-columns: minmax(0, 17rem) 1fr;
   margin: 0;
   padding: 0;
@@ -165,16 +165,84 @@
 #logodiv {
   background-color: white;
   display: grid;
-  grid-template-columns: 100px 0.5fr 1fr 170px;
+  grid-template-columns: 300px 1fr 300px;
   margin: 0;
-  background-image: url("banner.png");
   background-size: 100% 100%;
   width: 100%;
+  border-bottom: 3px solid #90cce7;
+}
+
+#logodiv * {
+  font-family: 'Inter', 'Fira Sans', sans-serif;
+  line-height: 2em;
+  font-size: 14px;
 }
 
 #logodiv > div {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#variant-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  text-align: center;
+}
+
+#current-input {
+  font-weight: 500;
+}
+
+#logodiv .single-variant-label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.header-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border: none;
+  border-bottom: 1px dotted darkgray;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.header-button:hover {
+  outline: 1px dashed darkgray;
+  margin-bottom: 1px;
+  border-bottom: none;
+}
+
+.alternate-allele {
+  color: #006bff;
+  font-family: 'Inter', 'Fira Sans', sans-serif;
+  margin-left: 1em;
+}
+
+.logo {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48cGF0aCBmaWxsPSIjMDE2YmZmIiBkPSJNOS40IDIzMy40Yy0xMi41IDEyLjUtMTIuNSAzMi44IDAgNDUuM2wxOTIgMTkyYzEyLjUgMTIuNSAzMi44IDEyLjUgNDUuMyAwczEyLjUtMzIuOCAwLTQ1LjNMNzcuMyAyNTYgMjQ2LjYgODYuNmMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMGwtMTkyIDE5MnoiLz48L3N2Zz4=');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 1em;
+  height: 1em;
+  margin-right: .2em;
+}
+
+.back-search {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48cGF0aCBmaWxsPSIjMDE2YmZmIiBkPSJNOS40IDIzMy40Yy0xMi41IDEyLjUtMTIuNSAzMi44IDAgNDUuM2wxOTIgMTkyYzEyLjUgMTIuNSAzMi44IDEyLjUgNDUuMyAwczEyLjUtMzIuOCAwLTQ1LjNMNzcuMyAyNTYgMjQ2LjYgODYuNmMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMGwtMTkyIDE5MnoiLz48L3N2Zz4=');
+}
+
+.help {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDE2YmZmIiBkPSJNNDY0IDI1NkEyMDggMjA4IDAgMSAwIDQ4IDI1NmEyMDggMjA4IDAgMSAwIDQxNiAwek0wIDI1NmEyNTYgMjU2IDAgMSAxIDUxMiAwQTI1NiAyNTYgMCAxIDEgMCAyNTZ6bTE2OS44LTkwLjdjNy45LTIyLjMgMjkuMS0zNy4zIDUyLjgtMzcuM2w1OC4zIDBjMzQuOSAwIDYzLjEgMjguMyA2My4xIDYzLjFjMCAyMi42LTEyLjEgNDMuNS0zMS43IDU0LjhMMjgwIDI2NC40Yy0uMiAxMy0xMC45IDIzLjYtMjQgMjMuNmMtMTMuMyAwLTI0LTEwLjctMjQtMjRsMC0xMy41YzAtOC42IDQuNi0xNi41IDEyLjEtMjAuOGw0NC4zLTI1LjRjNC43LTIuNyA3LjYtNy43IDcuNi0xMy4xYzAtOC40LTYuOC0xNS4xLTE1LjEtMTUuMWwtNTguMyAwYy0zLjQgMC02LjQgMi4xLTcuNSA1LjNsLS40IDEuMmMtNC40IDEyLjUtMTguMiAxOS0zMC42IDE0LjZzLTE5LTE4LjItMTQuNi0zMC42bC40LTEuMnpNMjI0IDM1MmEzMiAzMiAwIDEgMSA2NCAwIDMyIDMyIDAgMSAxIC02NCAweiIvPjwvc3ZnPg==');
+  width: 1.2em;
+  height: 1.2em;
 }
 
 #detaildiv_variant {
@@ -200,6 +268,15 @@
   border-radius: 10px;
   text-shadow: 0 0 6px #000;
   position: absolute;
+}
+
+#alternate-variants {
+  font-family: 'Inter', 'Fira Sans', sans-serif;
+  margin: 2em 1em;
+  border: 1px solid #006bff;
+  color: #006bff;
+  padding: 1em;
+  display: none;
 }
 
 #search_btn {
@@ -1010,12 +1087,16 @@ h3 {
 }
 
 #detaildiv_documentation {
-  width: 50em;
-  margin: 4em;
-  line-height: 1.5;
-  font-size: 20px;
+  width: 100%;
 }
 
+#annotation_errors {
+  border: 1px solid darkred;
+  color: darkred;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+}
 
 #detaildiv_documentation > p {
   margin-block-end: 1.5em;

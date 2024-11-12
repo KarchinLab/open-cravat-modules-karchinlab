@@ -447,15 +447,17 @@ function getInputDataFromUrl() {
     var inputRef = urlParams.get('ref_base');
     var inputAlt = urlParams.get('alt_base');
     var assembly = urlParams.get('assembly');
-    var hgvs = decodeURIComponent(urlParams.get('hgvs'));
+    var hgvs = urlParams.get('hgvs') ? decodeURIComponent(urlParams.get('hgvs')) : null;
+    var clingen = urlParams.get('clingen');
+    var dbsnp = urlParams.get('dbsnp');
     if (assembly == undefined) {
         assembly = 'hg38'
     }
-    var inputData = cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly, hgvs);
+    var inputData = cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly, hgvs, clingen, dbsnp);
     return inputData;
 }
 
-function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly, inputHgvs) {
+function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly, inputHgvs, inputClingen, inputDbsnp) {
     if (inputChrom == '') {
         inputChrom = null;
     }
@@ -479,14 +481,20 @@ function cleanInputData(inputChrom, inputPos, inputRef, inputAlt, assembly, inpu
             'alt': inputAlt,
             'assembly': assembly
         };
-    } else {
-        if (inputHgvs === '') {
-            return null;
-        } else {
-            return {
-                'hgvs': inputHgvs
-            }
+    } else if (inputHgvs !== null && inputHgvs !== '') {
+        return {
+            'hgvs': inputHgvs
         }
+    } else if (inputClingen !== null && inputClingen !== '') {
+        return {
+            'clingen': inputClingen
+        }
+    } else if (inputDbsnp !== null && inputDbsnp !== '') {
+        return {
+            'dbsnp': inputDbsnp
+        }
+    } else {
+        return null;
     }
 }
 
@@ -506,7 +514,7 @@ function submitForm() {
     }
 }
 
-function submitAnnotate(inputChrom, inputPos, inputRef, inputAlt, assembly, inputHgvs) {
+function submitAnnotate(inputChrom, inputPos, inputRef, inputAlt, assembly, inputHgvs, inputClingen, inputDbsnp) {
     showSpinner();
     if (assembly == undefined) {
         assembly = 'hg38'
@@ -519,7 +527,9 @@ function submitAnnotate(inputChrom, inputPos, inputRef, inputAlt, assembly, inpu
         'ref_base': inputRef,
         'alt_base': inputAlt,
         'assembly': assembly,
-        'hgvs': inputHgvs
+        'hgvs': inputHgvs,
+        'clingen': inputClingen,
+        'dbsnp': inputDbsnp
     };
     $.ajax({
         type: 'POST',
@@ -611,11 +621,51 @@ function showSectionTitles() {
     });
 }
 
+function buildAlternateAlleleButton(allele) {
+    const label = `${allele['chrom']} ${allele['pos']} ${allele['ref_base']} ${allele['alt_base']}`;
+    return `
+        <a class="header-button alternate-allele" target="_blank"
+        href="/webapps/variantreport/index.html?assembly=hg38&chrom=${allele['chrom']}&pos=${allele['pos']}&ref_base=${allele['ref_base']}&alt_base=${allele['alt_base']}">
+            ${label}
+        </a>`;
+}
+
+function showAlternateAlleles(response) {
+    if ('alternateAlleles' in response && response['alternateAlleles']) {
+        const alternateAllelesDiv = document.getElementById('alternate-variants');
+        let markup = `Alternate Alleles for ${response['originalInput']['input']}: `;
+        for (const allele of response['alternateAlleles']) {
+            const btn = buildAlternateAlleleButton(allele);
+            markup += btn;
+        }
+        alternateAllelesDiv.innerHTML = markup;
+        alternateAllelesDiv.style.display = 'flex';
+    }
+}
+
+function hideAlternateAlleles() {
+    document.getElementById('alternate-variants').innerHTML = '';
+    document.getElementById('alternate-variants').style.display = 'none';
+}
+
 function showAnnotation(response) {
+    let errorDiv = document.getElementById('annotation_errors');
+    errorDiv.textContent = '';
+    errorDiv.style.display = 'none';
     document.querySelectorAll('.detailcontainerdiv').forEach(function(el) {
         $(el).empty();
     });
     hideSpinner();
+
+    if ('error' in response) {
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = response['error'];
+        hideContentDiv();
+        return;
+    }
+
+    showAlternateAlleles(response);
+
     showSectionTitles();
     var parentDiv = document.querySelector('#contdiv_vinfo');
     var retDivs = showWidget('basepanel', ['base'], 'variant', parentDiv);
@@ -658,6 +708,9 @@ function showAnnotation(response) {
     var parentDiv = document.querySelector('#contdiv_cancerassoc');
     showWidget('cancerassocpanel', ['base', 'cgc', 'cosmic', 'cancer_genome_interpreter', 'target', 'civic', 'chasmplus', 'cscape_coding', 'cedar'],
         'variant', parentDiv, null, null, false);
+    const input = response['originalInput'];
+    writeToVariantArea(input);
+    showContentDiv();
 }
 
 function getWidgets(callback, callbackArgs) {
@@ -5077,14 +5130,25 @@ widgetGenerators['cancer_hotspots2'] = {
 }
 
 function writeToVariantArea(inputData) {
-    var value = inputData['chrom'] + ':' + inputData['pos'] +
-        ':' + inputData['ref'] + ':' + inputData['alt'] + ':' + inputData['assembly']
-    // document.querySelector('#input_variant').value = value;
-    document.querySelector('#input_variant_chrom').value = inputData['chrom'] ?? '';
-    document.querySelector('#input_variant_pos').value = inputData['pos'] ?? '';
-    document.querySelector('#input_variant_ref').value = inputData['ref'] ?? '';
-    document.querySelector('#input_variant_alt').value = inputData['alt'] ?? '';
-    document.querySelector('#input_variant_hgvs').value = inputData['hgvs'] ?? '';
+    if (inputData) {
+        let value = '';
+        if ('chrom' in inputData) {
+            value = `${inputData['assembly']} ${inputData['chrom']} ${inputData['pos']} ${inputData['ref']} ${inputData['alt']}`;
+        } else if ('dbsnp' in inputData) {
+            value = inputData['dbsnp'];
+        } else if ('clingen' in inputData) {
+            value = inputData['clingen'];
+        } else if ('hgvs' in inputData) {
+            value = inputData['hgvs'];
+        } else if ('input' in inputData) {
+            value = inputData['input'];
+        }
+        document.getElementById('current-input').textContent = value;
+        document.getElementById('variant-header').style.visibility = 'visible';
+    } else {
+        document.getElementById('current-input').textContent = '';
+        document.getElementById('variant-header').style.visibility = 'hidden';
+    }
 }
 
 function hideSpinner() {
@@ -5100,7 +5164,7 @@ function processUrl() {
     if (inputData != null) {
         writeToVariantArea(inputData);
         submitAnnotate(inputData['chrom'], inputData['pos'],
-            inputData['ref'], inputData['alt'], inputData['assembly'], inputData['hgvs']);
+            inputData['ref'], inputData['alt'], inputData['assembly'], inputData['hgvs'], inputData['clingen'], inputData['dbsnp']);
     }
 }
 
@@ -5120,13 +5184,30 @@ function fillExampleHgvs() {
     document.querySelector('#input_variant_hgvs').value = 'NM_000051.4:c.2413C>T';
 }
 
+function variantSubmitHandler(event) {
+    const inputData = event.detail;
+    if (inputData != null) {
+        showContentDiv();
+        submitAnnotate(inputData['chrom'], inputData['pos'], inputData['ref_base'],
+            inputData['alt_base'], inputData['assembly'], inputData['hgvs'], inputData['clingen'], inputData['dbsnp'])
+    } else {
+        alert('No variant input.');
+    }
+}
+
+function searchBackButtonHandler(event) {
+    hideSpinner();
+    document.getElementById('annotation_errors').style.display = 'none';
+    hideContentDiv();
+    writeToVariantArea(null);
+}
+
+function ocSVIReadyHandler() {
+    alert('oc svi ready');
+    document.getElementById('oc-svi-header').innerText = 'Single Variant Page';
+}
+
 function setupEvents() {
-    // document.querySelector('#input_variant').addEventListener('keyup', function(evt) {
-    //     evt.stopPropagation();
-    //     if (evt.keyCode == 13) {
-    //         document.querySelector('#input_submit').click();
-    //     }
-    // });
     document.querySelector("body").addEventListener("click", function(evt) {
         var tooltipdiv = document.querySelector("#tooltipdiv")
         if (tooltipdiv != null) {
@@ -5139,23 +5220,27 @@ function setupEvents() {
             moduledetaildiv.classList.remove("show")
         }
     });
-    document.getElementById('example-coords').addEventListener('click', fillExampleCoordinates);
-    document.getElementById('example-hgvs').addEventListener('click', fillExampleHgvs);
+    document.getElementById('oc-svi').addEventListener('variantSubmit', variantSubmitHandler);
+    document.getElementById('oc-svi').addEventListener('ready', ocSVIReadyHandler);
+    document.getElementById('back-search').addEventListener('click', searchBackButtonHandler);
 }
 
 
 function showContentDiv() {
+    document.getElementById('bottom-div').style.display = 'grid';
     document.querySelector('#detaildiv_variant').style.display = 'block';
     document.querySelector('#detaildiv_documentation').style.display = 'none';
 }
 
 function hideContentDiv() {
+    hideAlternateAlleles();
+    document.getElementById('bottom-div').style.display = 'none';
     document.querySelector('#detaildiv_variant').style.display = 'none';
     document.querySelector('#detaildiv_documentation').style.display = 'block';
 }
 
 function showSearch () {
-    document.querySelector('#inputdiv').style.display = 'flex';
+    // document.querySelector('#inputdiv').style.display = 'flex';
 }
 
 function run() {
@@ -5163,7 +5248,7 @@ function run() {
     mqMinMatch.addListener(mqMinMatchHandler);
     var params = new URLSearchParams(window.location.search);
     if ((params.get('chrom') != null && params.get('pos') != null && params.get('ref_base') != null && params.get('alt_base') != null)
-        || params.get('hgvs') != null) {
+        || params.get('hgvs') != null || params.get('clingen') != null || params.get('dbsnp') != null) {
         showContentDiv();
         showSpinner();
         // hideSearch();
