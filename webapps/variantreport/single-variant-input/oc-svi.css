@@ -1,0 +1,207 @@
+#oc-svi {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Inter', 'Fira Sans', sans-serif;
+}
+#oc-svi *  {
+    font-family: 'Inter', 'Fira Sans', sans-serif;
+}
+
+h1.oc-svi-text-block {
+    font-size: 55px;
+    margin-bottom: 0;
+    margin-top: 1em;
+}
+
+h2.oc-svi-text-block {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#oc-svi-container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+#oc-svi-examples-container {
+    margin-bottom: 5px;
+    display: grid;
+    justify-content: right;
+}
+
+.oc-svi-text-block {
+    max-width: 781px;
+    margin: .5em;
+    color: #ffffff;
+    text-align: center;
+}
+.oc-svi-light-theme .oc-svi-text-block {
+    color: black;
+}
+
+#oc-svi-examples.show-examples {
+    display: grid;
+    position: absolute;
+    max-width: 761px;
+    margin-top: -157px;
+}
+
+#oc-svi-examples {
+    display: none;
+    border: 2px solid lightblue;
+    padding: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    background: white;
+}
+
+#oc-svi-examples-close-btn {
+    height: 18px;
+    width: 18px;
+    background-color: #016bff;
+    padding: 2px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-radius: 3px;
+    justify-self: right;
+    margin-bottom: -18px;
+    cursor: pointer;
+    z-index: 999;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMzQyLjYgMTUwLjZjMTIuNS0xMi41IDEyLjUtMzIuOCAwLTQ1LjNzLTMyLjgtMTIuNS00NS4zIDBMMTkyIDIxMC43IDg2LjYgMTA1LjRjLTEyLjUtMTIuNS0zMi44LTEyLjUtNDUuMyAwcy0xMi41IDMyLjggMCA0NS4zTDE0Ni43IDI1NiA0MS40IDM2MS40Yy0xMi41IDEyLjUtMTIuNSAzMi44IDAgNDUuM3MzMi44IDEyLjUgNDUuMyAwTDE5MiAzMDEuMyAyOTcuNCA0MDYuNmMxMi41IDEyLjUgMzIuOCAxMi41IDQ1LjMgMHMxMi41LTMyLjggMC00NS4zTDIzNy4zIDI1NiAzNDIuNiAxNTAuNnoiLz48L3N2Zz4K');
+    background-size: 70%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+#oc-svi-examples-btn {
+    justify-self: right;
+    margin-top: -1.5em;
+}
+
+.top-list {
+    display: flex;
+    margin: 1em;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 1em;
+}
+
+.example {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin-left: 1em;
+    margin-right: 1em;
+    align-items: flex-start;
+    flex: 0 0 13em;
+}
+
+.example-label {
+    align-self: flex-start;
+    font-size: small;
+    font-weight: bold;
+}
+
+.oc-svi-light {
+    color: #ffffff;
+}
+
+#oc-svi-form {
+    display: grid;
+    grid-template-columns: 1fr 4em 3em;
+    column-gap: .5em;
+    flex-grow: 1;
+    width: 800px;
+    /*height: 48px;*/
+    padding: .5em 1em .5em 1em;
+    border: #11557C 2px solid;
+    border-radius: 40px;
+    font-size: 20px;
+    line-height: 30px;
+    background: white;
+    box-sizing: border-box;
+}
+
+#oc-svi-input {
+    border: none;
+    font-size: 18px;
+}
+#oc-svi-input:focus-visible {
+    outline: none;
+}
+#oc-svi-input:focus {
+    outline: none;
+}
+
+.oc-svi-select-container {
+    font-size: 18px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-top: none;
+    border-bottom: none;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-content: center;
+}
+
+#oc-svi-assembly-label {
+    font-size: small;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+#oc-svi-assembly {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: -4px;
+}
+
+#oc-svi-submit-button {
+    font-size: 18px;
+    border-radius: 2.5em;
+    background-color: #016bff;
+    color: white;
+    margin-left: 1em;
+    width: 3em;
+    height: 3em;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    text-decoration: none;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNTA1IDQ0Mi43TDQwNS4zIDM0M2MtNC41LTQuNS0xMC42LTctMTctN0gzNzJjMjcuNi0zNS4zIDQ0LTc5LjcgNDQtMTI4QzQxNiA5My4xIDMyMi45IDAgMjA4IDBTMCA5My4xIDAgMjA4czkzLjEgMjA4IDIwOCAyMDhjNDguMyAwIDkyLjctMTYuNCAxMjgtNDR2MTYuM2MwIDYuNCAyLjUgMTIuNSA3IDE3bDk5LjcgOTkuN2M5LjQgOS40IDI0LjYgOS40IDMzLjkgMGwyOC4zLTI4LjNjOS40LTkuNCA5LjQtMjQuNiAuMS0zNHpNMjA4IDMzNmMtNzAuNyAwLTEyOC01Ny4yLTEyOC0xMjggMC03MC43IDU3LjItMTI4IDEyOC0xMjggNzAuNyAwIDEyOCA1Ny4yIDEyOCAxMjggMCA3MC43LTU3LjIgMTI4LTEyOCAxMjh6Ii8+PC9zdmc+Cg==');
+    background-size: 70%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+#oc-svi-error {
+    align-self: center;
+    font-size: 18px;
+    text-align: center;
+}
+
+.oc-svi-text-button {
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px #11557C dotted;
+    background: transparent;
+    cursor: pointer;
+}
+.oc-svi-text-button:hover {
+    border: none;
+    margin-bottom: 1px;
+    outline: 1px #11557C dashed;
+}
+.oc-svi-light-theme .oc-svi-text-button {
+    color: black;
+    border-color: #0b3750;
+}

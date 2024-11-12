@@ -1,6 +1,9 @@
+import asyncio
 import os
 import webbrowser
 import multiprocessing
+from collections import namedtuple
+from types import SimpleNamespace
 
 import aiosqlite
 import urllib.parse
@@ -9,14 +12,16 @@ import sys
 import argparse
 import yaml
 import re
-from cravat import ConfigLoader
+
+from aiohttp.http_exceptions import HttpBadRequest
+from cravat import ConfigLoader, InvalidData
 from cravat import admin_util as au
 from cravat import CravatFilter
 from cravat.constants import base_smartfilters
 from aiohttp import web
 import time
 from concurrent.futures import ProcessPoolExecutor
-from cravat import get_live_annotator, get_live_mapper
+from cravat import get_live_annotator, get_live_mapper, get_module
 from cravat.config_loader import ConfigLoader
 import requests
 import oyaml
@@ -31,11 +36,23 @@ modules_to_run_ordered = []
 oncokb_cache = {}
 wgsreader = cravat.get_wgs_reader(assembly='hg38')
 VARIANT_REPORT_CONFIG = {}
+DBSNP_CONVERTER = None
 
 
 async def test (request):
     return web.json_response({'result': 'success'})
 
+
+def format_hgvs_string(hgvs_input):
+    hgvs_parts = hgvs_input.upper().split(':')
+    if len(hgvs_parts) != 2:
+        raise InvalidData('HGVS input invalid.')
+    prefix = hgvs_parts[1][0].lower()
+    # TODO: if HGVS API is upgraded to support p., change this here to allow it on single variant page
+    if prefix not in ('g', 'c'):
+        raise InvalidData('HGVS input invalid. Only g. and c. prefixes are supported.')
+    end = hgvs_parts[1][1:]
+    return f'{hgvs_parts[0]}:{prefix}{end}'
 
 def get_coordinates_from_hgvs_api(queries):
     global VARIANT_REPORT_CONFIG
@@ -43,11 +60,15 @@ def get_coordinates_from_hgvs_api(queries):
         confloader = ConfigLoader()
         VARIANT_REPORT_CONFIG = confloader.get_module_conf('variantreport')
     if 'hgvs_api_url' not in VARIANT_REPORT_CONFIG:
-        raise aiohttp.web.HTTPInternalServerError(text='"hgvs_api_url" not found in variantreport configuration.')
-    data = {'hgvs': queries['hgvs']}
+        raise web.HTTPInternalServerError(text='"hgvs_api_url" not found in variantreport configuration.')
+    hgvs_input = format_hgvs_string(queries.get('hgvs'))
+    data = {'hgvs': hgvs_input}
     headers = {'Content-Type': 'application/json'}
     resp = requests.post(VARIANT_REPORT_CONFIG['hgvs_api_url'], data=json.dumps(data), headers=headers, timeout=20)
-    resp.raise_for_status()
+    try:
+        resp.raise_for_status()
+    except Exception as e:
+        raise InvalidData(f"Error retrieving data from HGVS API. {hgvs_input} {e}")
     tokens = resp.json()
     return {
         'chrom': tokens['chrom'],
@@ -57,36 +78,121 @@ def get_coordinates_from_hgvs_api(queries):
         'assembly': tokens['assembly']
     }
 
+def format_allele(base):
+    base_string = str(base)
+    if not base_string or base_string == '':
+        base_string = '-'
+    return base_string
+
+def coordinates_from_clingen_json(ca_id, data):
+    genomic_alleles = data.get('genomicAlleles')
+    for ga in genomic_alleles:
+        if ga.get('referenceGenome') == 'GRCh38':
+            coords = ga.get('coordinates')[0]
+            return {
+                'chrom': f'chr{ga.get("chromosome")}',
+                'pos': int(coords.get('start')),
+                'ref_base': format_allele(coords.get('referenceAllele')),
+                'alt_base': format_allele(coords.get('allele')),
+                'assembly': 'hg38'
+            }
+    raise web.HTTPInternalServerError(text=f'Could not find hg38 coordinates for clingen allele id {ca_id}.')
+
+
+def get_coordinates_from_clingen_id(queries):
+    global VARIANT_REPORT_CONFIG
+    if not VARIANT_REPORT_CONFIG:
+        confloader = ConfigLoader()
+        VARIANT_REPORT_CONFIG = confloader.get_module_conf('variantreport')
+    if 'clingen_api_url' not in VARIANT_REPORT_CONFIG:
+        raise web.HTTPInternalServerError(text='"clingen_api_url" not found in variantreport configuration.')
+    ca_id = queries['clingen'].strip().upper()
+    headers = {'Content-Type': 'application/json'}
+    request_url = f"{VARIANT_REPORT_CONFIG['clingen_api_url']}/{ca_id}"
+    resp = requests.get(request_url, headers=headers, timeout=20)
+    try:
+        resp.raise_for_status()
+    except Exception as e:
+        raise InvalidData(f"Error retrieving data from Clingen Allele registry. Clingen Allele Registry Id should be formatted like 'CA12345'. {e}")
+    data = resp.json()
+    return coordinates_from_clingen_json(ca_id, data)
+
+
+def get_coordinates_from_dbsnp(queries):
+    global DBSNP_CONVERTER
+    if not DBSNP_CONVERTER:
+        converter_module = get_module('dbsnp-converter')
+        DBSNP_CONVERTER = converter_module()
+
+    dbsnp = queries.get('dbsnp').strip().lower()
+    try:
+        all_params = DBSNP_CONVERTER.convert_line(dbsnp)
+    except Exception as e:
+        raise InvalidData(f"Could not parse DBSNP '{dbsnp}'. Should be formatted like 'rs12345'.")
+    params = all_params[0]
+    params['assembly'] = 'hg38'
+    alternates = None
+    if len(all_params) > 1:
+        alternates = all_params[1:]
+    return params, alternates
+
 
 async def get_coordinates_from_request_params(queries):
     parameters = {}
+    original_input = {}
+    alternate_alleles = None
     required_coordinate_params = {'chrom', 'pos', 'ref_base', 'alt_base', 'assembly'}
     if (required_coordinate_params <= queries.keys()
         and None not in {queries[x] for x in required_coordinate_params}):
         parameters = {
-            x: queries[x] for x in required_coordinate_params
+            x: queries[x].upper() for x in required_coordinate_params
         }
+        parameters['chrom'] = parameters['chrom'].lower()
+        original_input = {'type': 'coordinates', 'input': f'{queries["assembly"]} {queries["chrom"]} {queries["pos"]} {queries["ref_base"]} {queries["alt_base"]}'}
     elif 'hgvs' in queries.keys() and queries['hgvs'] and 'assembly' in queries.keys():
         # make hgvs api call
+        original_input = {'type': 'hgvs', 'input': queries['hgvs']}
         parameters = get_coordinates_from_hgvs_api(queries)
+    elif 'clingen' in queries.keys() and queries.get('clingen'):
+        # make clingen api call
+        original_input = {'type': 'clingen', 'input': queries['clingen']}
+        parameters = get_coordinates_from_clingen_id(queries)
+    elif 'dbsnp' in queries.keys() and queries.get('dbsnp'):
+        # use dbsnp-converter
+        original_input = {'type': 'dbsnp', 'input': queries['dbsnp']}
+        parameters, alternate_alleles = get_coordinates_from_dbsnp(queries)
     else:
-        raise web.HTTPBadRequest(reason='Required parameters missing. Need either "chrom", "pos", "ref_base", and "alt_base", or "hgvs". Parameter "assembly" always required.')
+        raise web.HTTPBadRequest(reason='Required parameters missing. Need either "chrom", "pos", "ref_base", and "alt_base", or "hgvs", or "dbsnp", or "clingen". Parameter "assembly" always required.')
     parameters['uid'] = queries.get('uid', '')
     if 'annotators' in queries.keys():
         parameters['annotators'] = queries.get('annotators', '')
-    return parameters
+    return parameters, original_input, alternate_alleles
 
 
 async def get_live_annotation_post (request):
     queries = await request.post()
-    coords = await get_coordinates_from_request_params(queries)
+    try:
+        coords, original_input, alternate_alleles = await get_coordinates_from_request_params(queries)
+    except Exception as e:
+        text = str(e)
+        q = {key: value for key, value in queries.items()}
+        return web.json_response(data={'error': text, 'originalInput': q})
     response = await get_live_annotation(coords)
+    response['originalInput'] = original_input
+    response['alternateAlleles'] = alternate_alleles
     return web.json_response(response)
 
 async def get_live_annotation_get (request):
     queries = request.rel_url.query
-    coords = await get_coordinates_from_request_params(queries)
+    try:
+        coords, original_input, alternate_alleles = await get_coordinates_from_request_params(queries)
+    except Exception as e:
+        text = str(e)
+        q = {key: value for key, value in queries.items()}
+        return web.json_response(data={'error': text, 'originalInput': q})
     response = await get_live_annotation(coords)
+    response['originalInput'] = original_input
+    response['alternateAlleles'] = alternate_alleles
     return web.json_response(response)
 
 async def get_live_annotation (queries):
@@ -264,6 +370,9 @@ async def live_annotate (input_data, annotators):
         except Exception as e:
             import traceback
             traceback.print_exc()
+            if 'annotationErrors' not in response:
+                response['annotationErrors'] = {}
+            response['annotationErrors'][module_name] = repr(e)
             response[module_name] = None
     del crx_data[mapping_parser_name]
     set_crx_canonical(crx_data)
@@ -474,3 +583,19 @@ routes = [
 ]
 
 canonicals = None
+
+if __name__ == '__main__':
+    # queries = request.rel_url.query
+    query_params = {
+        'dbsnp': 'RSRSrsRSRSrs'
+        # 'clingen': 'cacaca'
+       # 'clingen': 'ca12345'
+    }
+    RelUrlMock = namedtuple('rel_url', 'query')
+    RequestMock = namedtuple('Request', 'rel_url')
+    rel_url = RelUrlMock(query_params)
+    req = RequestMock(rel_url)
+    r = asyncio.run(get_live_annotation_get(req))
+    print(r.body)
+    # params = get_coordinates_from_clingen_id({'clingen': 'CA12345'})
+    # print(f'params: {params}')
