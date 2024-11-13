@@ -1,5 +1,5 @@
 title: OpenCRAVAT Variant Report
-version: 1.5.1
+version: 1.6.0
 type: webapp
 live_modules:
 - aloft
@@ -105,6 +105,7 @@ requires:
 - cvdkp
 - dann_coding
 - dbsnp
+- dbsnp-converter
 - denovo
 - dgi
 - encode_tfbs
@@ -181,6 +182,7 @@ requires:
 - wgndex_chdsummary
 - wgthousandgenomes
 hgvs_api_url: https://hgvs.opencravat.org/coordinates
+clingen_api_url: http://reg.genome.network/allele
 description: OpenCRAVAT Variant Report Webapp
 developer:
   name: OpenCravat
@@ -189,6 +191,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.6.0: Add Clingen Allele Registry and dbSNP support. Add new single input form.
   1.5.1: Update example inputs
   1.5.0: cancer associated panel added
   1.4.1: bug fix with updated prediction panel
