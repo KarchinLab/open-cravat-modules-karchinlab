@@ -6,7 +6,7 @@ developer:
   name: Kymberleigh Pagel
   organization: Indiana University
   email: support@cravat.us
-  website: http://mutpredindel.cs.indiana.edu/index.html
+  website: http://mutpred2.mutdb.org/mutpredindel/
   citation: 'Pagel, Kymberleigh A., et al. "Pathogenicity and functional impact of
     non-frameshifting insertion/deletion variation in the human genome." PLoS computational
     biology 15.6 (2019): e1007112.'
@@ -41,7 +41,7 @@ tags:
 - variant effect prediction
 - variants
 title: MutPred-Indel
-version: 1.1.0
+version: 1.1.1
 type: annotator
 release_note:
   1.1.0: Updated data to include insertions
