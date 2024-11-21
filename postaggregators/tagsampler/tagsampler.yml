@@ -13,11 +13,16 @@ output_columns:
   filterable: false
   hidden: true
   desc: Number of samples which contain the variant.
+  filter_reagg_function: count
+  filter_reagg_source_column: sample.base__sample_id
 - name: samples
   title: Samples
   type: string
   width: 65
   desc: Samples which contain the variant.
+  filter_reagg_function: group_concat
+  filter_reagg_function_args: ';'
+  filter_reagg_source_column: sample.base__sample_id
 - name: tags
   title: Tags
   type: string
