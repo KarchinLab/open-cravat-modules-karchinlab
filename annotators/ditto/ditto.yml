@@ -27,12 +27,12 @@ output_columns:
     title: Score
     type: float
 
-description: DITTO is a transcript-aware explainable ML tool for scoring the pathogenicity of any type of small variants.
+description: DITTO is a transcript-aware explainable Machine Learning tool for scoring the pathogenicity of any type of small variants.
 developer:
   name: Tarun Mamidi
   organization: The University of Alabama at Birmingham
   email: support@cravat.us
-  website: https://cadd.gs.washington.edu/
+  website: https://github.com/uab-cgds-worthey/DITTO
   citation: 'Mamidi, T.K.K.; Wilk, B.M.; Gajapathy, M.; Worthey, E.A. DITTO: An Explainable Machine-Learning Model for Transcript-Specific Variant Pathogenicity Prediction. Preprints 2024, 2024040837. https://doi.org/10.20944/preprints202404.0837.v1'
 
 tags:

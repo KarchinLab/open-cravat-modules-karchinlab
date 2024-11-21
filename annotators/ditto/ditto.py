@@ -6,7 +6,7 @@ import tabix
 class CravatAnnotator(BaseAnnotator):
 
     def setup(self):
-        datafile = os.path.join(self.data_dir,'DITTO_chrY.tsv.gz')
+        datafile = os.path.join(self.data_dir,'dittodb.tsv.gz')
         self.tb = tabix.open(datafile)
 
     def annotate(self, input_data, secondary_data=None):
