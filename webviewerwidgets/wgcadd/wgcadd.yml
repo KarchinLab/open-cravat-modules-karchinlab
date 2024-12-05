@@ -1,0 +1,16 @@
+title: CADD
+version: 1.0.0
+type: webviewerwidget
+required_annotator: cadd
+description: CADD webviewer widget
+hidden: true
+developer:
+  name: OpenCravat
+  organization: KarchinLab
+  email: support@cravat.us
+  website: ''
+  citation: ''
+tags:
+- visualization
+requires_opencravat: '>=2.2.7'
+

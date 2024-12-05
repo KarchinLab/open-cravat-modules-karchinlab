@@ -55,6 +55,24 @@ class CravatAnnotator(BaseAnnotator):
             precomp_data = []
             for r in qr:
                 score = r[0]
+                if score <= 0.302:
+                    benign = "Moderate"
+                    pathogenic = ""
+                elif score > 0.302 and score <= 0.449:
+                    benign = "Supporting"
+                    pathogenic = ""
+                elif score  >= 0.764 and score < 0.861: 
+                    benign = ""
+                    pathogenic = "Supporting"
+                elif score >= 0.861 and score < 0.965:
+                    benign = ""
+                    pathogenic = "Moderate"
+                elif score >= 0.965:
+                    benign = ""
+                    pathogenic = "Strong"
+                else:
+                    benign = ""
+                    pathogenic = ""
                 transc = r[1]
                 transc_base = transc.split('.')[0]
                 if transc_base not in transc_ontologies:
@@ -64,10 +82,12 @@ class CravatAnnotator(BaseAnnotator):
                     pval = self.pvalue_table[transc_so][score]
                 else:
                     pval = 0.0
-                transc_vest_result = [transc, score, pval]
+                transc_vest_result = [transc, score, pval, benign, pathogenic]
                 precomp_data.append({'score':score,
                                      'transcript':transc,
                                      'pval':pval,
+                                     'benign': benign,
+                                     'pathogenic': pathogenic,
                                      'full_result':transc_vest_result})
             if precomp_data:
                 scores = [x['score'] for x in precomp_data]
@@ -77,11 +97,16 @@ class CravatAnnotator(BaseAnnotator):
                 worst_mapping = precomp_data[max_index]
                 worst_transcript = worst_mapping['transcript']
                 worst_pval = worst_mapping['pval']
+                worst_pathogenic = worst_mapping['pathogenic']
+                worst_benign = worst_mapping['benign']
+
                 #all_results_list[max_index] = '*'+all_results_list[max_index]
                 ret = {
                     'transcript': worst_transcript,
                     'score': max_score,
                     'pval': worst_pval,
+                    'pathogenic': worst_pathogenic,
+                    'benign': worst_benign,
                     'all': all_results_list,
                     'hugo': input_data['hugo'],
                 }

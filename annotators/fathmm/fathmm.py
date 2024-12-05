@@ -25,11 +25,26 @@ class CravatAnnotator(BaseAnnotator):
         self.curs.execute(stmt)
         row = self.curs.fetchone()
         if row is not None:
+            pathogenicity_list = []
+            scores = row[2].split(";")
+            for val in scores:
+                score = float(val)
+                if score >= 4.69:
+                    pathogenicity_list.append("BP4 Moderate")
+                elif score >= 3.32 and score < 4.69:
+                    pathogenicity_list.append("BP4 Supporting")
+                elif score > -5.04 and score >= -4.14:
+                    pathogenicity_list.append("PP3 Supporting")
+                elif score <= -5.04:
+                    pathogenicity_list.append("PP3 Moderate")
+                else:
+                    pathogenicity_list.append("Indeterminate")
             out['ens_tid'] = row[0]
             out['ens_pid'] = row[1]
             out['fathmm_score'] = row[2]
             out['fathmm_rscore'] = float(row[3])
             out['fathmm_pred'] = row[4]
+            out['fathmm_pathogenicity'] = ';'.join(pathogenicity_list)
         return out
     
     def cleanup(self):
