@@ -16,4 +16,4 @@ requires_opencravat: '>=1.7.0'
 release_note:
   1.2.0: works with added pathogenicity callibration results.
   1.1.0: works with single variant page in oc 1.7.0.
-private: true
+

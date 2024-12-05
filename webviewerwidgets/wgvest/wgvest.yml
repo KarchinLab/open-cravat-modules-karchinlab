@@ -17,4 +17,4 @@ tags:
 - visualization
 hidden: true
 requires_opencravat: '>=2.2.2'
-private: true
+

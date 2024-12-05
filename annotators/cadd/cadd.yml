@@ -55,5 +55,4 @@ release_note:
   1.1.0: pathogenicity callibration results.
 requires:
 - wgcadd
-private: true
 

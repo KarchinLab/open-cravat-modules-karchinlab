@@ -142,4 +142,4 @@ smartfilters:
     value: ${value}
 commercial_warning: Freely available to the academic community. Commercial licensees
   should contact Steven Henikoff.
-private: true
+

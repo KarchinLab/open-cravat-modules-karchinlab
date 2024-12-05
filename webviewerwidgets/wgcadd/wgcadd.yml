@@ -13,4 +13,4 @@ developer:
 tags:
 - visualization
 requires_opencravat: '>=2.2.7'
-private: true
+

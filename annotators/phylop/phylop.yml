@@ -85,4 +85,4 @@ release_note:
   3.6.0: updated data with phylop 470 mammalian scores 
   3.5.10: non-canonical chrom support for older oc versions
   3.5.9: handle only specific alt chroms
-private: true
+

@@ -52,4 +52,4 @@ release_note:
   3.7.0: pathogenicity callibration results.
   3.6.2: non-canonical chrom support for older oc versions
   3.6.1: handle only specific alt chroms
-private: true
+
