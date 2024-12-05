@@ -21,7 +21,7 @@ class CravatAnnotator(BaseAnnotator):
             pass
         for record in records:
             if record[3] == alt:
-                phred = record[5]
+                phred = float(record[5])
                 if phred <= 0.15:
                     benign = "Strong"
                     pathogenic = ""
