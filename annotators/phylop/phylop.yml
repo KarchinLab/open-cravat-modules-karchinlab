@@ -55,15 +55,34 @@ output_columns:
   width: 54
   filterable: false
   hidden: false
+- name: benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity, based upon the 100-way Vertebrate Score.
+- name: pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity, based upon the 100-way Vertebrate Score.
+  category: multi
+  filterable: true
 tags:
 - variants
 - evolution
+- clinical revelance
 title: PhyloP
 type: annotator
-version: 3.6.0
+version: 3.7.0
 requires:
 - wgphylop>=1.2.0
 release_note:
+  3.7.0: pathogenicity callibration results.
   3.6.0: updated data with phylop 470 mammalian scores 
   3.5.10: non-canonical chrom support for older oc versions
   3.5.9: handle only specific alt chroms
+

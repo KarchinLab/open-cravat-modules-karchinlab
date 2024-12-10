@@ -15,3 +15,22 @@ Fixed or nearly fixed recent evolutionary changes were identified as differences
 We believe that CADD scores are useful in two distinct forms, namely "raw" and "scaled", and we provide both in our output files. "Raw" CADD scores come straight from the model, and are interpretable as the extent to which the annotation profile for a given variant suggests that the variant is likely to be "observed" (negative values) vs "simulated" (positive values). These values have no absolute unit of meaning and are incomparable across distinct annotation combinations, training sets, or model parameters. However, raw values do have relative meaning, with higher values indicating that a variant is more likely to be simulated (or "not observed") and therefore more likely to have deleterious effects.
 
 Since the raw scores do have relative meaning, one can take a specific group of variants, define the rank for each variant within that group, and then use that value as a "normalized" and now externally comparable unit of analysis. In our case, we scored and ranked all ~8.6 billion SNVs of the GRCh37/hg19 reference and then "PHRED-scaled" those values by expressing the rank in order of magnitude terms rather than the precise rank itself. For example, reference genome single nucleotide variants at the 10th-% of CADD scores are assigned to CADD-10, top 1% to CADD-20, top 0.1% to CADD-30, etc. The results of this transformation are the "scaled" CADD scores. 
+
+
+## Clinical Application
+
+The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select variant effect predictors are reliable as Very Strong, Strong, or Moderate evidence for Pathogenicity (PP3) or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013).
+
+CADD phred scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Benign Very Strong, Pathogenic Supporting and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
+
+| CADD Thresholds |                 |                |                |                |                |                |                |                |
+|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Benign (BP4) |||| Pathogenic (PP3)|
+|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
+|-|<= 0.15|(0.15, 17.3]|(17.3, 22.7]|[25.3, 28.1)|>= 28.1|-|   -   |
+
+\* A "-" means that CADD did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
+
+### Indeterminate Scores
+
+If the CADD score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding CADD widget.

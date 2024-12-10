@@ -1,0 +1,56 @@
+title: PrimateAI
+datasource: dbNSFPv4.7a
+version: 1.0.0
+type: annotator
+
+level: variant
+output_columns:
+- name: primateai_score
+  title: Score 
+  type: float
+  hidden: false
+  width: 80
+  desc: A pathogenicity prediction score for missense variants based on common variants of non-human primate species using a deep neural network. The range of PrimateAI score is 0 to 1. The larger the score, the more likely the variant is pathogenic. 
+- name: primateai_rankscore
+  title: Rank Score
+  type: float
+  hidden: true
+  width: 100
+- name: primateai_pred
+  title: Prediction
+  type: string
+  hidden: true
+  width: 90
+  desc: Prediction of PrimateAI score based on the authors' recommendation, "T(olerated)" or "D(amaging)". The score cutoff between "D" and "T" is 0.803.
+- name: benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
+
+description: Deep residual neural network for classifying the pathogenicity of missense mutations
+tags:
+- variants
+- variant effect prediction
+- clinical relevance
+requires:
+- wgprimateai
+# developer is you!
+developer:
+  name: ''
+  organization: 'Illumina Artificial Intelligence Laboratory, Illumina Inc, San Diego, CA, USA'
+  email: 'support@opencravat.org'
+  website: 'https://github.com/Illumina/PrimateAI'
+  citation: 'Sundaram, L., Gao, H., Padigepati, S.R. et al. Predicting the clinical impact of human mutation with deep neural networks. Nat Genet 50, 1161–1170 (2018). https://doi.org/10.1038/s41588-018-0167-z'
+

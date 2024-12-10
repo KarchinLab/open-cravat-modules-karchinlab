@@ -1,0 +1,16 @@
+title: PrimateAI 
+version: 1.0.0
+type: webviewerwidget
+required_annotator: primateai
+description: PrimateAI webviewer widget
+developer:
+  name: OpenCRAVAT
+  organization: KarchinLab
+  email: cravat@support.us
+  website:
+  citation: ''
+release_note:
+  1.0.0: intial release
+tags:
+- visualization
+

@@ -21,7 +21,26 @@ class CravatAnnotator(BaseAnnotator):
             pass
         for record in records:
             if record[3] == alt:
-                return {'score':record[4], 'phred': record[5]}
+                phred = float(record[5])
+                if phred <= 0.15:
+                    benign = "Strong"
+                    pathogenic = ""
+                elif phred > 0.15 and phred <= 17.3:
+                    benign = "Moderate"
+                    pathogenic = ""
+                elif phred > 17.3 and phred <= 22.7:
+                    benign = "Supporting"
+                    pathogenic = ""
+                elif phred  >= 25.3 and phred < 28.1: 
+                    benign = ""
+                    pathogenic = "Supporting"
+                elif phred >= 28.1:
+                    benign = ""
+                    pathogenic = "Moderate"
+                else:
+                    benign = ""
+                    pathogenic = ""
+                return {'score':record[4], 'phred': phred, 'benign': benign, 'pathogenic': pathogenic}
     
     def cleanup(self):
         pass

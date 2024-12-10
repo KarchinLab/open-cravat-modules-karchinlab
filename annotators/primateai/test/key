@@ -1,0 +1,36 @@
+#title="OpenCRAVAT Report"
+#created=Sunday 10/06/2024 21:38:25
+#level=variant
+#datasource=/Users/madisonlarsen/insilico/jobs/new/input.sqlite
+#Column description. Column 0 uid=UID
+#Column description. Column 1 chrom=Chrom
+#Column description. Column 2 pos=Position
+#Column description. Column 3 ref_base=Ref Base
+#Column description. Column 4 alt_base=Alt Base
+#Column description. Column 5 note_variant=Variant Note
+#Column description. Column 6 coding=Coding
+#Column description. Column 7 hugo=Gene
+#Column description. Column 8 transcript=Transcript
+#Column description. Column 9 so=Sequence Ontology
+#Column description. Column 10 exonno=Exon Number
+#Column description. Column 11 cchange=cDNA change
+#Column description. Column 12 achange=Protein Change
+#Column description. Column 13 all_mappings=All Mappings
+#Column description. Column 14 gposend=End Position
+#Column description. Column 15 numsample=Sample Count
+#Column description. Column 16 samples=Samples
+#Column description. Column 17 tags=Tags
+#Column description. Column 18 original_input.chrom=Chrom
+#Column description. Column 19 original_input.pos=Pos
+#Column description. Column 20 original_input.ref_base=Reference allele
+#Column description. Column 21 original_input.alt_base=Alternate allele
+#Column description. Column 22 primateai.primateai_score=Score
+#Column description. Column 23 primateai.primateai_rankscore=Rank Score
+#Column description. Column 24 primateai.primateai_pred=Prediction
+#Column description. Column 25 primateai.benign=ACMG/AMP Benign (BP4)
+#Column description. Column 26 primateai.pathogenic=ACMG/AMP Pathogenic (PP3)
+uid	chrom	pos	ref_base	alt_base	note_variant	coding	hugo	transcript	so	exonno	cchange	achange	all_mappings	gposend	numsample	samples	tags	original_input.chrom	original_input.pos	original_input.ref_base	original_input.alt_base	primateai.primateai_score	primateai.primateai_rankscore	primateai.primateai_pred	primateai.benign	primateai.pathogenic
+1	chr21	43095723	T	A		Yes	U2AF1	ENST00000291552.8	missense_variant	4	c.220A>T	p.Met74Leu	ENST00000291552.8:U2AF1:Q01081:missense_variant:p.Met74Leu:c.220A>T; ENST00000380276.6:U2AF1:Q01081:missense_variant:p.Met74Leu:c.220A>T; ENST00000398137.5:U2AF1:Q01081:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000459639.5:U2AF1:Q01081:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000464750.5:U2AF1:Q01081:NMD_transcript_variant,3_prime_UTR_variant::c.*59A>T; ENST00000486519.5:U2AF1::NMD_transcript_variant,3_prime_UTR_variant::c.*53A>T	43095723	1	s3		chr21	43095723	T	A	0.83905339241	0.8795	D		Supporting
+2	chr8	54626835	A	T		Yes	RP1	ENST00000220676.2	missense_variant	4	c.2953A>T	p.Asn985Tyr	ENST00000220676.2:RP1:P56715:missense_variant:p.Asn985Tyr:c.2953A>T; ENST00000636932.1:RP1::intron_variant::c.787+4547A>T; ENST00000637698.1:RP1::intron_variant::c.787+4547A>T	54626835	1	s0		chr8	54626835	A	T	0.275323450565	0.06849	T	Moderate	
+3	chr2	197434999	T	A		Yes	SF3B1	ENST00000335508.10	start_lost	1	c.1A>T	p.Met1?	ENST00000335508.10:SF3B1:O75533:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000409915.8:SF3B1:O75533:missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000414174.1:SF3B1::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000414963.2:SF3B1:O75533:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000487698.5:SF3B1::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000652026.1:SF3B1::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000652738.1:SF3B1::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T	197434999	1	s1		chr2	197434999	T	A					
+4	chr2	201266487	A	T		Yes	CASP8	ENST00000673742.1	start_lost	2	c.1A>T	p.Met1?	ENST00000264274.13:CASP8:Q14790:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000264275.9:CASP8:Q14790:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000323492.11:CASP8:Q14790:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000358485.8:CASP8:Q14790:missense_variant:p.Met60Leu:c.178A>T; ENST00000392258.7:CASP8:Q14790:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000392263.6:CASP8:Q14790:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000392266.7:CASP8::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000432109.6:CASP8:Q14790:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000437283.5:CASP8::missense_variant,NMD_transcript_variant:p.Asp51Val:c.152A>T; ENST00000490412.5:CASP8::intron_variant,processed_transcript::; ENST00000673742.1:CASP8::missense_variant,start_lost:p.Met1?:c.1A>T	201266487	1	s2		chr2	201266487	A	T	0.480346560478	0.36105	T	Supporting	
