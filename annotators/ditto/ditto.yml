@@ -13,9 +13,9 @@ output_columns:
   type: float
   desc: Ranges from 0 to 1, with 1 being the most pathogenic.
 - name: all
-  title: All Annotations
+  title: Per transcript DITTO scores
   type: string
-  desc: All annotations from the DITTO annotator.
+  desc: DITTO scores for all transcripts.
   width: 75
   filterable: false
   table: true
@@ -31,10 +31,12 @@ description: DITTO is a transcript-aware explainable Machine Learning tool for s
 developer:
   name: Tarun Mamidi
   organization: The University of Alabama at Birmingham
-  email: support@cravat.us
+  email: tmamidi@uab.edu
   website: https://github.com/uab-cgds-worthey/DITTO
   citation: 'Mamidi, T.K.K.; Wilk, B.M.; Gajapathy, M.; Worthey, E.A. DITTO: An Explainable Machine-Learning Model for Transcript-Specific Variant Pathogenicity Prediction. Preprints 2024, 2024040837. https://doi.org/10.20944/preprints202404.0837.v1'
 
+requires:
+- wgditto
 tags:
 - variant effect prediction
 - variants
