@@ -1,5 +1,5 @@
 title: DITTO
-version: 0.0.1
+version: 0.0.3
 type: webviewerwidget
 required_annotator: ditto
 description: DITTO webviewer widget
