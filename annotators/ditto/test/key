@@ -1,9 +1,9 @@
 #CRAVAT Report
-#Created at Thursday 11/21/2024 11:11:01
+#Created at Tuesday 12/10/2024 19:51:24
 #Report level: variant
 #
-Variant Annotation																		DITTO			Original Input
-UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Transcript	Pathogenicity Score	All Annotations	Chrom	Pos	Reference allele	Alternate allele
+Variant Annotation																		DITTO			Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Transcript	Pathogenicity Score	Per transcript DITTO scores	Chrom	Pos	Reference allele	Alternate allele
 1	chr10	121593817	T	A		Yes	FGFR2	ENST00000358487.9	start_lost	2	c.1A>T	p.Met1?	ENST00000346997.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000351936.10:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000356226.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000357555.9:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000358487.9:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000359354.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000360144.7:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369056.5:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369059.5:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369060.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000369061.8:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000457416.6:FGFR2:P21802:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000490349.5:FGFR2::processed_transcript::; ENST00000491111.1:FGFR2::processed_transcript::; ENST00000604236.5:FGFR2::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000611527.1:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000613048.4:FGFR2::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000636922.1:FGFR2::NSD_transcript::	121593817	1	s0		ENST00000346997	1.0	[["ENST00000346997", 1.0], ["ENST00000351936", 1.0], ["ENST00000356226", 1.0], ["ENST00000357555", 1.0], ["ENST00000358487", 1.0], ["ENST00000359354", 1.0], ["ENST00000360144", 1.0], ["ENST00000369056", 1.0], ["ENST00000369059", 1.0], ["ENST00000369060", 1.0], ["ENST00000369061", 1.0], ["ENST00000457416", 1.0], ["ENST00000490349", 0.9999119], ["ENST00000491111", 0.9999119], ["ENST00000604236", 0.9999997], ["ENST00000611527", 1.0], ["ENST00000613048", 1.0], ["ENST00000636922", 0.9995081]]	chr10	121593817	T	A
 2	chr10	2987654	T	A										2987654	1	s1			0.0007750988	[["", 0.0007750988]]	chr10	2987654	T	A
 3	chr10	43077259	A	T		Yes	RET	ENST00000355710.8	start_lost	1	c.1A>T	p.Met1?	ENST00000340058.6:RET:P07949:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000355710.8:RET:P07949:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000615310.4:RET::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000671844.1:RET::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000672389.1:RET::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T	43077259	1	s2		ENST00000340058	1.0	[["ENST00000340058", 1.0], ["ENST00000355710", 1.0], ["ENST00000615310", 1.0], ["ENST00000671844", 1.0], ["ENST00000672389", 1.0]]	chr10	43077259	A	T
@@ -63,10 +63,10 @@ UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequenc
 57	chrX	77786001	T	A		Yes	ATRX	ENST00000373344.10	start_lost	1	c.1A>T	p.Met1?	ENST00000373344.10:ATRX:P46100:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000395603.7:ATRX:P46100:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000480283.5:ATRX::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>T; ENST00000624193.1:ATRX::processed_transcript::	77786001	1	s1		ENST00000373344	0.99998426	[["ENST00000373344", 0.99998426], ["ENST00000395603", 0.99997336], ["ENST00000480283", 0.9810361], ["ENST00000624193", 0.819963]]	chrX	77786001	T	A
 58	chrY	13479665	T	A		Yes	UTY	ENST00000545955.5	start_lost	1	c.1A>T	p.Met1?	ENST00000329134.9:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000331397.8:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000362096.8:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000382893.2:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000382896.8:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000474365.1:UTY::2kb_upstream_variant,processed_transcript::; ENST00000478900.5:UTY::2kb_upstream_variant,processed_transcript::; ENST00000479713.1:UTY::processed_transcript::; ENST00000537580.5:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000538878.5:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000540140.5:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000545955.5:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000612274.4:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000617789.4:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000618474.4:UTY::missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000624098.3:UTY:O14607:missense_variant,start_lost:p.Met1?:c.1A>T	13479665	1	s2		ENST00000624098	0.8486687	[["ENST00000329134", 0.63986117], ["ENST00000331397", 0.66022736], ["ENST00000362096", 0.28097576], ["ENST00000382893", 0.76855105], ["ENST00000382896", 0.7841655], ["ENST00000474365", 0.0068405867], ["ENST00000478900", 0.0068405867], ["ENST00000479713", 0.023102045], ["ENST00000537580", 0.48879808], ["ENST00000538878", 0.51901615], ["ENST00000540140", 0.48350382], ["ENST00000545955", 0.6362107], ["ENST00000612274", 0.80862254], ["ENST00000617789", 0.79005444], ["ENST00000618474", 0.7665896], ["ENST00000624098", 0.8486687]]	chrY	13479665	T	A
 #CRAVAT Report
-#Created at Thursday 11/21/2024 11:11:01
+#Created at Tuesday 12/10/2024 19:51:24
 #Report level: gene
 #
-Variant Annotation
+Variant Annotation					
 Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
 FGFR2		1	0	start_lost	missense_variant(1),start_lost(1),NMD_transcript_variant(1),NSD_transcript(1),processed_transcript(1)
 RET		1	0	start_lost	missense_variant(1),start_lost(1),NMD_transcript_variant(1)
@@ -108,10 +108,10 @@ MED12		1	0	missense_variant	missense_variant(1),start_lost(1)
 ATRX		1	0	start_lost	missense_variant(1),start_lost(1),NMD_transcript_variant(1),processed_transcript(1)
 UTY		1	0	start_lost	missense_variant(1),start_lost(1),processed_transcript(1)
 #CRAVAT Report
-#Created at Thursday 11/21/2024 11:11:01
+#Created at Tuesday 12/10/2024 19:51:24
 #Report level: sample
 #
-Variant Annotation
+Variant Annotation	
 UID	Sample
 1	s0
 2	s1
@@ -172,10 +172,10 @@ UID	Sample
 57	s1
 58	s2
 #CRAVAT Report
-#Created at Thursday 11/21/2024 11:11:01
+#Created at Tuesday 12/10/2024 19:51:24
 #Report level: mapping
 #
-Variant Annotation
+Variant Annotation			
 Original Line	User Tags	UID	Input File Number
 1		1	0
 2		2	0
