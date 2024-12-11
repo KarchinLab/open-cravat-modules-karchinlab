@@ -1,0 +1,14 @@
+title: DITTO
+version: 0.0.3
+type: webviewerwidget
+required_annotator: ditto
+description: DITTO webviewer widget
+developer:
+  name: Tarun Mamidi
+  organization: The University of Alabama at Birmingham
+  email: tmamidi@uab.edu
+  website: https://github.com/uab-cgds-worthey/DITTO
+  citation: 'Mamidi, T.K.K.; Wilk, B.M.; Gajapathy, M.; Worthey, E.A. DITTO: An Explainable Machine-Learning Model for Transcript-Specific Variant Pathogenicity Prediction. Preprints 2024, 2024040837. https://doi.org/10.20944/preprints202404.0837.v1'
+tags:
+- visualization
+requires_opencravat: '>=2.2.6'
