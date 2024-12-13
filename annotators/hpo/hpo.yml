@@ -1,4 +1,4 @@
-datasource: May 2024
+datasource: 2024.12.10
 description: The Human Phenotype Ontology (HPO) provides a standardized vocabulary of phenotypic abnormalities encountered in human disease. Each term in the HPO describes a phenotypic abnormality.
 developer:
   name: ''
@@ -42,9 +42,10 @@ requires:
 - wghpo
 
 title: Human Phenotype Ontology
-version: 2.1.2
+version: 2024.12.10
 type: annotator
 release_note:
+  2024.12.10: data update
   2.1.2: data update
   2.1.1: data update
   2.1.0: data update
