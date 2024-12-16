@@ -2,13 +2,11 @@ can_summarize_by_gene: true
 datasource: v4
 description: VEST annotation
 developer:
-  citation: Douville, C., Masica, D. L., Stenson, P. D., et al. (2016). Assessing
-    the pathogenicity of insertion and deletion variants with the variant effect scoring
-    tool (VEST-Indel). Human mutation, 37(1), 28-35.
+  citation: Carter H, Douville C, Stenson PD, Cooper DN, Karchin R. Identifying Mendelian disease genes with the variant effect scoring tool. BMC Genomics. 2013;14 Suppl 3(Suppl 3):S3.
   email: ''
   name: Johns Hopkins University - Karchin Lab
   organization: Johns Hopkins University - Karchin Lab
-  website: http://karchinlab.org/apps/appVest.html
+  website: ''
 gene_summary_output_columns:
 - name: max_score
   title: Max Score
@@ -109,9 +107,10 @@ tags:
 - clinical relevance
 title: VEST4
 type: annotator
-version: 4.5.0
+version: 4.5.1
 requires_opencravat: '>=2.2.1'
 release_note:
+  4.5.1: Update citation.
   4.5.0: pathogencity callibration results.
   4.4.0: works with variantreport.
   4.3.3: fixed transcript version mismatch with new gene mapper
