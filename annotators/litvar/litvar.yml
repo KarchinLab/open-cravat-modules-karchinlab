@@ -3,7 +3,7 @@ description: LitVar allows the search and retrieval of variant relevant informat
 developer:
   name: 'NCBI'
   organization: 'NCBI'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/LitVar/#!?query='
   citation: 'Allot, Alexis, et al. "LitVar: a semantic search engine for linking genomic variant data in PubMed and PMC." Nucleic acids research 46.W1 (2018): W530-W536.'
 

@@ -3,7 +3,7 @@ description: UK10K cohort provides genetic information from DTR & ALSPAC
 developer:
   citation: UK10K consortium. (2015). The UK10K project identifies rare variants in
     health and disease. Nature, 526(7571), 82.
-  email: support@cravat.us
+  email: support@opencravat.org
   name: UK10K Consortium
   organization: Wellcome Sanger Institute
   website: https://www.uk10k.org/studies/cohorts.html

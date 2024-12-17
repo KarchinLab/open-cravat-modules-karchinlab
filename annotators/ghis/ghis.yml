@@ -3,7 +3,7 @@ description: Gene haploinsufficiency scoring
 developer:
   citation: Steinberg, J., Honti, F., Meader, S., & Webber, C. (2015). Haploinsufficiency
     predictions without study bias. Nucleic acids research, 43(15), e101-e101.
-  email: support@cravat.us
+  email: support@opencravat.org
   name: Julia Steinberg, Frantisek Honti, Stephen Meader, Caleb Webber
   organization: 1MRC Functional Genomics Unit, University of Oxford
   website: https://doi.org/10.1093/nar/gkv474

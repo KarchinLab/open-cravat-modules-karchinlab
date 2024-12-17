@@ -3,7 +3,7 @@ description: The Human Phenotype Ontology (HPO) provides a standardized vocabula
 developer:
   name: ''
   organization: 'The Jackson Laboratory'
-  email: 'support@cravat.us.com'
+  email: 'support@opencravat.org'
   website: 'https://hpo.jax.org/app/'
   citation: 'Koehler, Sebastian et al. The Human Phenotype Ontology in 2021.Nucleic acids research vol. 49,D1 (2021): D1207-D1217. doi:10.1093/nar/gkaa1043'
 

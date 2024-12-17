@@ -4,7 +4,7 @@ type: package
 developer:
   name: 'In Silico Solutions'
   organization: 'In Silico Solutions'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'insilico.us.com'
   citation: ''
 description: 'Base OpenCRAVAT modules. Needed for each install.'

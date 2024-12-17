@@ -110,7 +110,7 @@ output_columns:
 developer:
   name: Broad Institute
   organization: Broad Institute
-  email: support@cravat.us
+  email: support@opencravat.org
   website: http://gnomad.broadinstitute.org/
   citation: https://www.nature.com/articles/nature19057
 datasource: v2.1

@@ -5,7 +5,7 @@ description: Converter for VCF format input
 developer:
   name: 'Kyle Moad, Rick Kim'
   organization: 'In Silico Solutions'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'http://www.insilico.us.com'
   citation: ''
 requires_opencravat: '>=2.2.6'

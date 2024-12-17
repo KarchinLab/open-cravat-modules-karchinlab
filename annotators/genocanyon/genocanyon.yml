@@ -3,7 +3,7 @@ description: GenoCanyon is a whole-genome functional annotation approach based o
 developer:
   name: ''
   organization: 'Yale University'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'http://zhaocenter.org/GenoCanyon_Index.html'
   citation: 'Lu, Q., Hu, Y., Sun, J. et al. A Statistical Framework to Predict Functional Non-Coding Regions in the Human Genome Through Integrated Analysis of Annotation Data. Sci Rep 5, 10576 (2015). https://doi.org/10.1038/srep10576'
 

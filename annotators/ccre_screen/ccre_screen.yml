@@ -3,7 +3,7 @@ description: SCREEN allows the user to explore Candidate cis-Regulatory Elements
 developer:
   name: 'Weng Lab'
   organization: 'UMass Med, ENCODE Data Analysis Center'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://screen.wenglab.org/'
   citation: 'ENCODE Project Consortium, Jill E. Moore, Michael J. Purcaro, Henry E. Pratt, Charles B. Epstein, Noam Shoresh, Jessika Adrian, et al. 2020. “Expanded Encyclopaedias of DNA Elements in the Human and Mouse Genomes.” Nature 583 (7818): 699–710.'
 

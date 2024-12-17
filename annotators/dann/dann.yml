@@ -4,7 +4,7 @@ description: A deep learning approach for annotating the pathogenicity of geneti
 developer:
   name: Center for Complex Biological Systems, University of California
   organization: Center for Complex Biological Systems, University of California
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://sites.google.com/site/jpopgen/dbNSFP
   citation: 'Quang, Daniel, Yifei Chen, and Xiaohui Xie. "DANN: a deep learning approach
     for annotating the pathogenicity of genetic variants." Bioinformatics 31.5 (2015):

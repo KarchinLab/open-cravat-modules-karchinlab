@@ -5,7 +5,7 @@ description: Produces an effect weight for the variant in which disease it is fo
 developer:
   name: Broad Institute
   organization: Broad Institute
-  email: support@cravat.us
+  email: support@opencravat.org
   website: http://www.kp4cd.org/dataset_downloads/mi
   citation: Cardiovascular Disease Knowledge Portal. 2020 July 14; http://www.kp4cd.org/dataset_downloads/mi
 level: variant

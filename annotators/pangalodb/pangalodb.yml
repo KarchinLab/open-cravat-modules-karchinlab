@@ -3,7 +3,7 @@ description: PanglaoDB is a single cell gene expression resource for the scienti
 developer:
   name: 'Oscar Franzen'
   organization: 'Integrated Cardio Metabolic Centre at Karolinska Institutet.'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://panglaodb.se/markers.html?cell_type=%27Smooth%20muscle%20cells%27'
   citation: 'Oscar Franzén, Li-Ming Gan, Johan L M Björkegren, PanglaoDB: a web server for exploration of mouse and human single-cell RNA sequencing data, Database, Volume 2019, 2019, baz046, https://doi.org/10.1093/database/baz046'
 

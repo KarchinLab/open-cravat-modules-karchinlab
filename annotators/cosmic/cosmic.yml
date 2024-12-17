@@ -5,7 +5,7 @@ description: Catalogue Of Somatic Mutations In Cancer, is the world's largest an
 developer:
   citation: 'Forbes, S.A., Beare, D., Boutselakis, H., et al. (2017). COSMIC: somatic
     cancer genetics at high-resolution. Nucleic Acids Research, 45(D1):D777-D783.'
-  email: support@cravat.us
+  email: support@opencravat.org
   name: Sanger Institute
   organization: Sanger Institute
   website: https://cancer.sanger.ac.uk/cosmic

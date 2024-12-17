@@ -3,7 +3,7 @@ description: A high quality manually annotated protein sequence database, specif
 developer:
   name: The UniProt Consortium
   organization: The UniProt Consortium
-  email: support@cravat.us
+  email: support@opencravat.org
   website:  https://www.uniprot.org/help/ptm_processing_section
   citation: 'Khoury, George A., Richard C. Baliban, and Christodoulos A. Floudas. "Proteome-wide post-translational modification statistics: frequency analysis and curation of the swiss-prot database." Scientific reports 1 (2011): 90.' 
 

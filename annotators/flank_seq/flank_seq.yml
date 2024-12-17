@@ -13,7 +13,7 @@ description: Reference and alternate bases with flanking sequence
 developer:
   name: Mary Wood
   organization: Oregon Health and Science University
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://github.com/pdxgx/neoepiscope
   citation: Wood, M. A., et al. (2018). neoepiscope Improves Neoepitope Prediction
     with Multi-variant Phasing. BioRxiv, 418129.

@@ -3,7 +3,7 @@ description: ALoFT provides extensive annotations to putative loss-of-function v
 developer:
   name: 'Gerstein Lab'
   organization: 'Yale University'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'http://aloft.gersteinlab.org/'
   citation: 'Suganthi Balasubramanian, Yao Fu, Mayur Pawashe, Patrick McGillivray, Mike Jin, Jeremy Liu, Konrad J. Karczewski, Daniel G. MacArthur, and Mark Gerstein. "Using ALoFT to determine the impact of putative loss-of-function variants in protein-coding genes." Nature Communications 8 (2017).'
 output_columns:

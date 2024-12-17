@@ -4,7 +4,7 @@ description: Examines variants associated with arrhythmia diseases such as Bruga
 developer:
   name: Vanderbilt University Medical Center for Arrhythmia Research and Therapeutics
   organization: Vanderbilt University Medical Center for Arrhythmia Research and Therapeutics
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://oates.app.vumc.org/vancart/
   citation: 'Kroncke, Brett M., et al. "A Bayesian method to estimate variant-induced
     disease penetrance." PLoS genetics 16.6 (2020): e1008862.'

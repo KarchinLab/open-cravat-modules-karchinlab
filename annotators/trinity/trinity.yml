@@ -3,7 +3,7 @@ description: Trinity assembles transcript sequences from Illumina RNA-Seq data.
 developer:
   name: Broad Institute
   organization: Broad Institute
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://data.broadinstitute.org/Trinity/CTAT_RESOURCE_LIB/MUTATION_LIB_SUPPLEMENT/rna_editing/
   citation: 'Grabherr MG, Haas BJ, Yassour M, Levin JZ, Thompson DA, Amit I, Adiconis
     X, Fan L, Raychowdhury R, Zeng Q, Chen Z, Mauceli E, Hacohen N, Gnirke A, Rhind

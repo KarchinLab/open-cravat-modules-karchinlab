@@ -4,7 +4,7 @@ description: Gene Ontology (GO) project provides a comprehensive computable know
 developer:
   citation: 'Ashburner, M., Ball, C. A., Blake, J. A., et al. (2000). Gene Ontology:
     tool for the unification of biology. Nature genetics, 25(1), 25.'
-  email: support@cravat.us
+  email: support@opencravat.org
   name: Gene Ontology Consortium
   organization: Gene Ontology Consortium
   website: http://geneontology.org/

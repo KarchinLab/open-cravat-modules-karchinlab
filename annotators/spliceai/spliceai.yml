@@ -5,7 +5,7 @@ description: A deep neural network that accurately predicts splice junctions fro
 developer:
   name: illumina
   organization: illumina
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://sites.google.com/site/jpopgen/dbNSFP
   citation: 'Jaganathan, Kishore, et al. "Predicting splicing from primary sequence
     with deep learning." Cell 176.3 (2019): 535-548.'

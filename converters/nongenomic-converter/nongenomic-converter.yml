@@ -5,7 +5,7 @@ description: Converts non genomic input into genomic locations using TransVar
 developer:
   name: Madison Larsen
   organization: In Silico Solutions
-  email: support@cravat.us
+  email: support@opencravat.org
   website: 
   citation: 
 requires_opencravat: '>=1.7.0'

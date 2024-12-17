@@ -2,7 +2,7 @@ datasource: v8
 description: Genotype-tissue expression
 developer:
   citation: https://gtexportal.org/home/faq#citePortal
-  email: support@cravat.us
+  email: support@opencravat.org
   name: GTEx Consortium
   organization: The Broad Institute of MIT and Harvard
   website: https://gtexportal.org/home/

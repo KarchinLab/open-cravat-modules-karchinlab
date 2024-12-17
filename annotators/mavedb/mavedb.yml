@@ -3,7 +3,7 @@ description: MaveDB is a public repository for datasets from Multiplexed Assays 
 developer:
   name: 'Fowler Lab'
   organization: 'University of Washington, Department of Genome Sciences'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://www.mavedb.org/'
   citation: 'Esposito, Daniel, et al. "MaveDB: an open-source platform to distribute and interpret data from multiplexed assays of variant effect." Genome biology 20.1 (2019): 1-11.'
 

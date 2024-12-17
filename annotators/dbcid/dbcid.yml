@@ -5,7 +5,7 @@ description: The database of Cancer driver InDels (dbCID) is a highly curated da
 developer:
   name: ''
   organization: AnHui University
-  email: support@cravat.us
+  email: support@opencravat.org
   website: http://bioinfo.ahu.edu.cn:8080/dbCID
   citation: 'Yue, Zhenyu et al. “dbCID: a manually curated resource for exploring
     the driver indels in human cancer.” Briefings in bioinformatics vol. 20,5 (2019):

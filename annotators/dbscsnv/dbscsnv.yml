@@ -8,7 +8,7 @@ datasource: v1.1
 developer:
   name: Xiaoming Liu
   organization: University of South Florida
-  email: support@cravat.us
+  email: support@opencravat.org
   website: http://www.liulab.science/dbscsnv.html
   citation: 'Jian, Xueqiu, Eric Boerwinkle, and Xiaoming Liu. "In silico prediction
     of splice-altering single nucleotide variants in the human genome." Nucleic acids

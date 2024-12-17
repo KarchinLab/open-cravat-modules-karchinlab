@@ -4,7 +4,7 @@ description: A flexible framework to prioritize regulatory mutations from cancer
 developer:
   name: Gerstein Lab
   organization: Yale University
-  email: support@cravat.us
+  email: support@opencravat.org
   website: http://funseq2.gersteinlab.org/
   citation: 'Fu, Y., Liu, Z., Lou, S. et al. FunSeq2: a framework for prioritizing
     noncoding regulatory variants in cancer. Genome Biol 15, 480 (2014). https://doi.org/10.1186/s13059-014-0480-5'

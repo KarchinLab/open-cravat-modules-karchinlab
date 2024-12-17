@@ -3,7 +3,7 @@ description: Provides any useful information about the protein, mostly binding s
 developer:
   name: 'The UniProt Consortium'
   organization: 'The UniProt Consortium'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://www.uniprot.org/help/function_section'
   citation: 'The UniProt Consortium, UniProt: a hub for protein information, Nucleic Acids Research, Volume 43, Issue D1, 28 January 2015, Pages D204–D212, https://doi.org/10.1093/nar/gku989'
 level: variant

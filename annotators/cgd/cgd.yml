@@ -4,7 +4,7 @@ description: A manually curated database of conditions with known genetic causes
 developer:
   name: NIH
   organization: NIH
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://research.nhgri.nih.gov/CGD/
   citation: Solomon BD, Nguyen AD, Bear KA, Wolfsberg TG. Clinical Genomic Database.
     Proc Natl Acad Sci U S A. 2013 May 21. [Epub ahead of print] [PubMed].

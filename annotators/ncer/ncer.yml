@@ -3,7 +3,7 @@ description: ncER has a good performance for the identification of deleterious v
 developer:
   name: ''
   organization: 'Department of Integrative Structural and Computational Biology, The Scripps Research Institute'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://github.com/TelentiLab/ncER_datasets'
   citation: 'Wells, A., Heckerman, D., Torkamani, A. et al. Ranking of non-coding pathogenic variants and putative essential regions of the human genome. Nat Commun 10, 5241 (2019). https://doi.org/10.1038/s41467-019-13212-3'
 

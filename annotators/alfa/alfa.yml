@@ -3,7 +3,7 @@ description: The goal of the ALFA project is to make frequency data from over 1M
 developer:
   name: 'NCBI'
   organization: 'NCBI'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://www.ncbi.nlm.nih.gov/snp/docs/gsr/alfa/#background'
   citation: 'L. Phan, Y. Jin, H. Zhang, W. Qiang, E. Shekhtman, D. Shao, D. Revoe, R. Villamarin, E. Ivanchenko, M. Kimura, Z. Y. Wang, L. Hao, N. Sharopova, M. Bihan, A. Sturcke, M. Lee, N. Popova, W. Wu, C. Bastiani, M. Ward, J. B. Holmes, V. Lyoshin, K. Kaur, E. Moyer, M. Feolo, and B. L. Kattman. "ALFA: Allele Frequency Aggregator." National Center for Biotechnology Information, U.S. National Library of Medicine, 10 Mar. 2020, www.ncbi.nlm.nih.gov/snp/docs/gsr/alfa/.'
 output_columns:

@@ -5,7 +5,7 @@ description: The MITOMAP database of human mitochondrial DNA (mtDNA) information
 developer:
   name: ''
   organization: FOSWIKI
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://mitomap.org/foswiki/bin/view/MITOMAP/WebHome
   citation: Lott, et al., mtDNA variation and analysis using MITOMAP and MITOMASTER,
     Current Protocols in Bioinformatics 44:1.23.1-1.23.26 (December 2013).

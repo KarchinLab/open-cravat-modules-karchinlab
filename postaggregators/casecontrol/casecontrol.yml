@@ -67,7 +67,7 @@ description: Performs case-control analysis on cohorts
 developer:
   name: 'Kyle Moad'
   organization: 'In Silico Solutions'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'http://www.insilico.us.com'
   citation: ''
 release_note:

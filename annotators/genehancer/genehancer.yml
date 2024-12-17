@@ -3,7 +3,7 @@ description: GeneHancer is a database of genome-wide enhancer-to-gene and promot
 developer:
   name: 'Weizmann Institute of Science'
   organization: 'Weizmann Institute of Science'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://genecards.weizmann.ac.il/geneloc_prev/index.shtml'
   citation: 'Rosen, N., V. Chalifa-Caspi, O. Shmueli, A. Adato, M. Lapidot, J. Stampnitzky, M. Safran, and D. Lancet (2003). GeneLoc: Exon-based integration of human genome maps. Bioinformatics 19(S1).
 URL: http://genecards.weizmann.ac.il/geneloc'

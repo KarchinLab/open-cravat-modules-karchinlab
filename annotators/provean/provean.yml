@@ -4,7 +4,7 @@ description: A tool to predict the functional effect of amino acid substitutions
 developer:
   name: Yongwook Choi, Agnes Chan
   organization: J. Craig Venter Institute (JCVI)
-  email: support@cravat.us
+  email: support@opencravat.org
   website: http://provean.jcvi.org/index.php
   citation: 'Choi Y, Chan AP (2015) PROVEAN web server: a tool to predict the functional
     effect of amino acid substitutions and indels. Bioinformatics 31(16): 2745-2747.'

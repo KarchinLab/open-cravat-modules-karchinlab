@@ -4,7 +4,7 @@ description: ExAC Functional Gene Constraint & CNV Scores provides probability o
 developer:
   citation: Lek, M., Karczewski, K. J., Minikel, E. V., et al. (2016). Analysis of
     protein-coding genetic variation in 60,706 humans. Nature, 536(7616), 285.
-  email: support@cravat.us
+  email: support@opencravat.org
   name: ExAC
   organization: Exome Aggregation Consortium
   website: http://exac.broadinstitute.org/

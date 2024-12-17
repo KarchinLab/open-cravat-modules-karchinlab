@@ -4,7 +4,7 @@ description: MetaLR creates an ensemble-based prediction score by using machine 
 developer:
   name: Chengliang Dong
   organization: University of Southern California, Biostatistics Department
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://academic.oup.com/hmg/article/24/8/2125/651446
   citation: Dong C, Wei P, Jian X, Gibbs R, Boerwinkle E, Wang K* and Liu X*. (2015)
     Comparison and integration of deleteriousness prediction methods for nonsynonymous

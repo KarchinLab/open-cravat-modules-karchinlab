@@ -5,7 +5,7 @@ description: The constrained coding regions model (CCR) uses the Genome Aggregat
 developer:
   name: James M. Havrilla
   organization: University of Utah
-  email: support@cravat.us
+  email: support@opencravat.org
   website: https://s3.us-east-2.amazonaws.com/ccrs/ccr.html
   citation: Havrilla, J.M., Pedersen, B.S., Layer, R.M. & Quinlan, A.R. A map of constrained
     coding regions in the human genome. Nature Genetics (2018). doi:10.1038/s41588-018-0294-6

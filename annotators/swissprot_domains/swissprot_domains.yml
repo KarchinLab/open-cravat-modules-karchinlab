@@ -3,7 +3,7 @@ description: Provides information on location,topology, and domain(s) of a prote
 developer:
   name: 'The UniProt Consortium'
   organization: 'The UniProt Consortium'
-  email: 'support@cravat.us'
+  email: 'support@opencravat.org'
   website: 'https://www.uniprot.org/help/family_and_domains_section'
   citation: 'The UniProt Consortium, UniProt: a worldwide hub of protein knowledge, Nucleic Acids Research, Volume 47, Issue D1, 08 January 2019, Pages D506–D515, https://doi.org/10.1093/nar/gky1049'
  
