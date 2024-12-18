@@ -1,17 +1,8 @@
-# Read the installation section. This module requires the python package `pytabix`, and is not available for Windows operating system.
+## _For local installation, read the installation section. This module requires the python package `pytabix`, and is not available for Windows operating system._
 
 # CScape
 
 CScape Coding predicts the oncogenic status (disease-driver or neutral) of somatic point mutations specifically in the coding region of the cancer genome.
-
-# Installation
-
-Install the `CScape` module
-
-```bash
-oc module install CScape
-```
-CScape uses the python package pytabix for querying the data. On Mac and Linux systems, this can be installed with `pip3 install --user pytabix`. If this does not work, consult the [pytabix website](https://pypi.org/project/pytabix/) for more options.
 
 # Prediction Interpretation
 
@@ -23,4 +14,12 @@ We use distinct predictors for positions either in coding regions (positions wit
 
 Information from http://cscape.biocompute.org.uk/
 
+# Local Installation
+
+Install the `CScape` module
+
+```bash
+oc module install CScape
+```
+CScape uses the python package pytabix for querying the data. On Mac and Linux systems, this can be installed with `pip3 install --user pytabix`. If this does not work, consult the [pytabix website](https://pypi.org/project/pytabix/) for more options.
 

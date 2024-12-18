@@ -1,4 +1,4 @@
-# Read the installation section. This module requires the python package `pytabix`, and is not available for Windows operating system.
+## _For local installation, read the installation section. This module requires the python package `pytabix`, and is not available for Windows operating system._
 
 # CADD
 
@@ -9,15 +9,6 @@ While many variant annotation and scoring tools are around, most annotations ten
 C-scores strongly correlate with allelic diversity, pathogenicity of both coding and non-coding variants, and experimentally measured regulatory effects, and also highly rank causal variants within individual genome sequences. Finally, C-scores of complex trait-associated variants from genome-wide association studies (GWAS) are significantly higher than matched controls and correlate with study sample size, likely reflecting the increased accuracy of larger GWAS.
 
 CADD can quantitatively prioritize functional, deleterious, and disease causal variants across a wide range of functional categories, effect sizes and genetic architectures and can be used prioritize causal variation in both research and clinical settings. 
-
-# Installation
-
-Install the `CADD` module
-
-```bash
-oc module install cadd
-```
-CADD uses the python package pytabix for querying the data. On Mac and Linux systems, this can be installed with `pip3 install --user pytabix`. If this does not work, consult the [pytabix website](https://pypi.org/project/pytabix/) for more options.
 
 ## Short method summary
 
@@ -48,3 +39,13 @@ CADD phred scores have been calbrated and validated as reliable to support Benig
 If the CADD score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding CADD widget.
 
 Information from https://cadd.gs.washington.edu/info
+
+# Local Installation
+
+To install the `CADD` module
+
+```bash
+oc module install cadd
+```
+CADD uses the python package pytabix for querying the data. On Mac and Linux systems, this can be installed with `pip3 install --user pytabix`. If this does not work, consult the [pytabix website](https://pypi.org/project/pytabix/) for more options.
+

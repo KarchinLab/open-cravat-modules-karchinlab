@@ -1,5 +1,4 @@
-
-# Read the installation section. This module requires the python package `pytabix`, and is not available for Windows operating system.
+## _For local installation, read the installation section. This module requires the python package `pytabix`, and is not available for Windows operating system._
 
 # FunSeq2
 
@@ -8,15 +7,6 @@
 This tool is specialized to prioritize somatic variants from cancer whole genome sequencing. It contains two components : 1) building data context from various resources; 2) variants prioritization.
 
 The framework combines an adjustable data context integrating large-scale genomics and cancer resources with a streamlined variant-prioritization pipeline. The pipeline has a weighted scoring system combining: inter- and intra-species conservation; loss- and gain-of-function events for transcription-factor binding; enhancer-gene linkages and network centrality; and per-element recurrence across samples. We further highlight putative drivers with information specific to a particular sample, such as differential expression.
-
-## Installation
-
-Install the `FunSeq2` module
-
-```bash
-oc module install FunSeq2
-```
-FunSeq2 uses the python package pytabix for querying the data. On Mac and Linux systems, this can be installed with `pip3 install --user pytabix`. If this does not work, consult the [pytabix website](https://pypi.org/project/pytabix/) for more options.
 
 FunSeq2 also uses the python package scipy for statistical tests. On most systems, this can be installed with `pip3 install scipy`. If this does not work, consult the [scipy website](https://www.scipy.org/install.html) for more options.
 
@@ -52,3 +42,12 @@ Variants in coding regions (GENCODE 16 for the current version; users can replac
  Finally, for each cancer variant, we scored it by summing the weighted values of all its features (3). If a particular feature is not observed, it is not used in the scoring. Considering the situation that some features are subsets of other features, to avoid overweighting similar features, we took into account feature dependencies when calculating the summed scores. As shown in Additional file 1: Table S3, when having leaf features, the weighted values of root features are ignored. For example, when a variant occurs in sensitive regions, the score of `in functional annotations’ is not used in the sum-up. Leaf features are assumed independent. Variants ranked on top of the output are those with higher scores and are most likely to be deleterious.
 
  Information from http://info.gersteinlab.org/Funseq2 and https://genomebiology.biomedcentral.com/articles/10.1186/s13059-014-0480-5#citeas
+
+## Local Installation
+
+Install the `FunSeq2` module
+
+```bash
+oc module install FunSeq2
+```
+FunSeq2 uses the python package pytabix for querying the data. On Mac and Linux systems, this can be installed with `pip3 install --user pytabix`. If this does not work, consult the [pytabix website](https://pypi.org/project/pytabix/) for more options.

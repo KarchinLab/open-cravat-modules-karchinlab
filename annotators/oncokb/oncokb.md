@@ -1,3 +1,5 @@
+## _OncoKB is only available for local use. See the Prerequisite section for installation details._
+
 # OncoKB: MSK's Precision Oncology Knowledge Base
 
 OncoKB is a precision oncology knowledge base developed at Memorial Sloan Kettering Cancer Center that contains biological and clinical information about genomic alterations in cancer.
@@ -8,7 +10,7 @@ For additional details about the OncoKB curation process, please refer to the ve
 
 Information from https://www.oncokb.org/
 
-**Pre-requisite**
+**Prerequisite**
 
 *OncoKB is only available for local use*. OncoKB API token is required to run this module. See [the OncoKB API documentation](https://api.oncokb.org/oncokb-website/api) on getting an OncoKB API token.
 
