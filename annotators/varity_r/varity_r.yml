@@ -9,6 +9,14 @@ output_columns:
   type: float
   desc: VARITY_R score
   width: 72
+- name: pathogenic
+  title: ACMG/AMP Pathogenicity (BP4/PP3)
+  type: string
+  hidden: false
+  width: 72
+  desc: Strength of evidence for pathogenicity or benignity ofr VARITY_R score
+  category: multi
+  filterable: true
 - name: varity_er
   title: VARITY_ER
   type: float
