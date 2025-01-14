@@ -14,16 +14,18 @@ widgetGenerators['esm1b'] = {
 			if (allMappings != undefined && allMappings != null) {
                 var results = JSON.parse(allMappings);
 				var table = getWidgetTableFrame();
-				var thead = getWidgetTableHead(['Transcript', 'Score', 'Rank score', 'Prediction']);
+				// TODO: cvaske should check with kylem about how these are ordered... most likely by YML?
+				var thead = getWidgetTableHead(['Transcript', 'Score', 'Pathogenicity', 'Rank score', 'Prediction']);
 				addEl(table, thead);
 				var tbody = getEl('tbody');
                 for (var i = 0; i < results.length; i++) {
 					var row = results[i];
 					var transcript = row[0];
 					var score = row[1];
-					var rankscore = row[2];
-                    var pred = row[3]
-					var tr = getWidgetTableTr([transcript, score, rankscore, pred]);
+					var pathogenicity = row[2];
+					var rankscore = row[3];
+                    var pred = row[4]
+					var tr = getWidgetTableTr([transcript, score, pathogenicity, rankscore, pred]);
 					addEl(tbody, tr);
 				}
 				addEl(div, addEl(table, tbody));
