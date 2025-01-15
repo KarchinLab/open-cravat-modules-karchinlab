@@ -23,14 +23,6 @@ output_columns:
   type: float
   desc: Scores are log-likelihood ratio (LLR) scores for predicting the pathogenic effects of coding variants. The scores range from from -24.538 to 6.937. The smaller the score, the more likely the variant is pathogenic. 
   hidden: true
-- name: pathogenic
-  title: ACMG/AMP Pathogenicity (BP4/PP3)
-  type: string
-  hidden: false
-  width: 110
-  desc: Strength of evidence for pathogenicity or benignity.
-  category: multi
-  filterable: true
 - name: rankscore
   title: Rank Score
   type: float
@@ -42,6 +34,22 @@ output_columns:
   hidden: false
   width: 80
   desc: The variant is predicted as either "Tolerated" or "Deleterious" based on the threshold of -7.5 described in their paper that yields a true-positive rate of 81% and a true-negative rate of 82% in their ClinVar and HGMD test datasets.
+- name: benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 - hidden: true
   name: all
   title: All Annotations

@@ -13,15 +13,15 @@ The VARITY approach for pathogenicity prediction, which has been specifically op
 
 VARITY scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Benign Very Strong, Pathogenic Supporting, Pathogenic Moderate, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic. Calibration cutoffs were obtained from Bergquist et al., “Calibration of Additional Computational Tools Expands ClinGen Recommendation Options for Variant Classification with PP3/BP4 Criteria.” bioRxiv 2024.09.17.611902; doi:10.1101/2024.09.17.611902
 
- | ESM1b Thresholds |                |                |                 |                  |                |                |         |
- |------------------|----------------|----------------|-----------------|------------------|----------------|----------------|---------|
- | Benign (BP4)     |                |                |                 | Pathogenic (PP3) |                |                |         |
- | Strong           | Firm           | Moderate       | Supporting      | Supporting       | Moderate       | Firm           | Strong  |
- | ≤0.036           | (0.036, 0.063] | (0.063, 0.116] | (0.0116, 0.251] | (0.675, 0.841]   | (0.841, 0.914] | (0.914, 0.964] | > 0.965 |
+ | ESM1b Thresholds |        |                |                 |                  |                |         |             |
+ |------------------|--------|----------------|-----------------|------------------|----------------|---------|-------------|
+ | Benign (BP4)     |        |                |                 | Pathogenic (PP3) |                |         |             |
+ | Very Strong      | Strong | Moderate       | Supporting      | Supporting       | Moderate       | Strong  | Very Strong |
+ | -                | ≤0.036 | (0.036, 0.116] | (0.0116, 0.251] | (0.675, 0.841]   | (0.841, 0.964] | >0.964 | -           |
 
 
  \* A "-" means that Varity did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 
- ### Indeterminate Scores
+### Indeterminate Scores
 
  If the Varity score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding Varity widget.

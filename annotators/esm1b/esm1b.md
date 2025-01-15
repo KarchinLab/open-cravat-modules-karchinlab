@@ -15,11 +15,12 @@ Information from https://doi.org/10.1038/s41588-023-01465-0
 
 ESM1b scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Benign Very Strong, Pathogenic Supporting, Pathogenic Moderate, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic. Calibration cutoffs were obtained from Bergquist et al., “Calibration of Additional Computational Tools Expands ClinGen Recommendation Options for Variant Classification with PP3/BP4 Criteria.” bioRxiv 2024.09.17.611902; doi:10.1101/2024.09.17.611902
 
- | ESM1b Thresholds |      |             |              |                  |                |                |        |
- |------------------|------|-------------|--------------|------------------|----------------|----------------|--------|
- | Benign (BP4)     |      |             |              | Pathogenic (PP3) |                |                |        |
- | Strong           | Firm | Moderate    | Supporting   | Supporting       | Moderate       | Firm           | Strong |
- | -                | >8.7 | (-3.2, 8.7] | (-6.2, -3.2] | (-12.2, -10.7]   | [-12.2, -14.0) | (-24.0, -14.0] | ≤-24.0 |
+ | ESM1b Thresholds |        |          |              |                  |                |        |             |
+ |------------------|--------|----------|--------------|------------------|----------------|--------|-------------|
+ | Benign (BP4)     |        |          |              | Pathogenic (PP3) |                |        |             |
+ | Very Strong      | Strong | Moderate | Supporting   | Supporting       | Moderate       | Strong | Very Strong |
+ | -                | -      | >-3.2    | (-6.2, -3.2] | (-12.2, -10.7]   | [-12.2, -24.0) | ≤-24.0 | -           |
+
 
  \* A "-" means that ESM1b did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

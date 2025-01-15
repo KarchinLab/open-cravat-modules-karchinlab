@@ -21,18 +21,19 @@ def get_bin(score, cutoffs):
         if prev_cutoff is not None and prev_cutoff > cutoff:
             raise ValueError("cutoffs are not sorted")
         prev_cutoff = cutoff
-    return labels[-1]  ## when we run out of cutoffs
 
 
-PATHOGENICITY_CUTOFFS = [
+BP4_CUTOFFS = [
     (0.036, 'BP4 Strong (-4 Benign)'),
-    (0.063, 'BP4 [Firm] (-3 Benign)'),
     (0.116, 'BP4 Moderate (-2 Benign)'),
     (0.251, 'BP4 Supporting (-1 Benign)'),
-    (0.675, 'Indeterminate (0)'),
+    (float("inf"), '')
+]
+
+PP3_CUTOFFS = [
+    (0.675, ''),
     (0.841, 'PP3 Supporting (+1 Pathogenic)'),
-    (0.914, 'PP3 Moderate (+2 Pathogenic)'),
-    (0.964, 'PP3 [Firm] (+3 Pathogenic) '),
+    (0.964, 'PP3 Moderate (+2 Pathogenic)'),
     (float("inf"), 'PP3 Strong (+4 Pathogenic)')
 ]
 
@@ -54,7 +55,8 @@ class CravatAnnotator(BaseAnnotator):
             return {
                 'p_vid': row[0],
                 'varity_r': row[1],
-                'varity_r_pathogenicity': get_bin(row[1], PATHOGENICITY_CUTOFFS),
+                'varity_r_benign': get_bin(row[1], BP4_CUTOFFS),
+                'varity_r_pathogenic': get_bin(row[1], PP3_CUTOFFS),
                 'varity_er': row[2],
                 'varity_r_loo': row[3],
                 'varity_er_loo': row[4],
