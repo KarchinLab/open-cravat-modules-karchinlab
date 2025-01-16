@@ -18,8 +18,10 @@ widgetGenerators['fathmm'] = {
 			var pidls = pid != null ? pid.split(';') : [];
 			var score = getWidgetData(tabName, 'fathmm', row, 'fathmm_score');
 			var scorels = score != null ? score.split(';') : [];
-			var pathogenicity = getWidgetData(tabName, 'fathmm', row, 'fathmm_pathogenicity');
-			var pathogenicityls = pathogenicity != null ? pathogenicity.split(';') : [];
+			var pathogenic = getWidgetData(tabName, 'fathmm', row, 'fathmm_pathogenic');
+			var pathogenicls = pathogenic != null ? pathogenic.split(';') : [];
+			var benign = getWidgetData(tabName, 'fathmm', row, 'fathmm_benign');
+			var benignls = benign != null ? benign.split(';') : [];
 			for (var i=0;i<scorels.length;i++){
 				if (scorels[i] == '.'){
 					scorels[i] = null;
@@ -43,7 +45,16 @@ widgetGenerators['fathmm'] = {
 				var piditr = pidls[i];
 				var sitr = scorels[i];
 				var pitr = predls[i];
-				var pathogenicityr = pathogenicityls[i]
+				var bp4 = benignls[i]
+				var pp3 = pathogenicls[i]
+				let pathogenicityr = null
+				if (bp4 !== null) {
+					pathogenicity = "BP4 " + bp4
+				} else if (pp3 !== null) {
+					pathogenicity = "PP3 " + pp3
+				} else if (pp3 === null && bp4 === null && vert_score !== null) {
+					pathogenicity = "Indeterminate"
+				}
 				var tr = getWidgetTableTr([tiditr, piditr, sitr, pitr, pathogenicityr]);
 				const color = getCalibrationGradientColor(pathogenicityr)
 				if (pathogenicity !== "") {
