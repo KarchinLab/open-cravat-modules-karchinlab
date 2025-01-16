@@ -1,18 +1,19 @@
 title: Protein diagram
-version: 2.2.2
+version: 2.2.3
 requires_opencravat: '>=2.0.2'
 required_annotator: base
 type: webviewerwidget
 description: Protein diagram webviewer widget
 developer:
-  name: Rick Kim
-  organization: In Silico Solutions
-  email: rkim@insilico.us.com
-  website: http://www.insilico.us.com
+  name: OpenCRAVAT Team
+  organization: Karchinlab
+  email: support@opencravat.org
+  website: https://opencravat.org
   citation: ''
 tags:
 - visualization
 release_note:
+  2.2.3: bugfix for display on gene tab
   2.2.2: bugfix, now provides job_id to server during data request
   2.2.0: improved transcript mapping among UniProt, TCGA, and OpenCRAVAT and indel positioning.
   2.1.0: update with gencode v33
