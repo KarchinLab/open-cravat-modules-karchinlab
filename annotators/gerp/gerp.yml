@@ -38,6 +38,7 @@ output_columns:
   width: 100
   desc: Strength of evidence for benignity.
 tags:
+- variant effect prediction
 - variants
 - evolution
 - clinical relevance
