@@ -730,7 +730,19 @@ h3 {
   display: none;
 }
 
-#rankscore_info {
+#benign_info {
+  position: absolute;
+  left: 57%;
+  z-index: 3;
+  background-color: white;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 4px 4px 4px gray;
+  border: 1px dashed gray;
+  word-break: normal;
+}
+
+#pathogenic_info {
   position: absolute;
   left: 75%;
   z-index: 3;
@@ -742,21 +754,9 @@ h3 {
   word-break: normal;
 }
 
-#prediction_info {
-  position: absolute;
-  left: 40%;
-  z-index: 3;
-  background-color: white;
-  padding: 10px;
-  width: 250px;
-  box-shadow: 4px 4px 4px gray;
-  border: 1px dashed gray;
-  word-break: normal;
-}
-
 #score_info {
   position: absolute;
-  left: 57%;
+  left: 41%;
   z-index: 3;
   background-color: white;
   padding: 10px;
@@ -788,6 +788,10 @@ h3 {
 }
 .pred_damaging {
   color: rgba(153, 27, 27, 1);
+  position: relative;
+}
+.pred_benign {
+  color: rgb(27, 54, 153);
   position: relative;
 }
 .pred_tol {

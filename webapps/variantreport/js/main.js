@@ -700,7 +700,8 @@ function showAnnotation(response) {
     showWidget('noncodingpanel', ['base', 'ccre_screen', 'encode_tfbs', 'genehancer', 'vista_enhancer', 'ensembl_regulatory_build', 'trinity', 'segway', 'javierre_promoters'],
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_prediction');
-    showWidget('predictionpanel', ['base', 'dann_coding', 'fathmm_xf_coding', 'revel', 'lrt', 'fathmm_mkl', 'metalr', 'metasvm', 'mutation_assessor', 'mutpred1', 'mutationtaster', 'polyphen2', 'provean', 'sift', 'vest'],
+    const predictionPanelModules = ['bayesdel', 'cadd', 'cadd_exome', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'vest'];
+    showWidget('predictionpanel', predictionPanelModules,
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_functional');
     showWidget('functionalpanel', ['base', 'swissprot_binding', 'swissprot_domains', 'swissprot_ptm'],
@@ -1039,12 +1040,16 @@ const getDialWidget2 = function(title, value, threshold, score) {
 const predWidget = function (value) {
     var div = getEl('div');
     div.classList.add('preddiv')
-    if (isNaN(value) == false && value != null) {
-        div.textContent = prettyVal(value)
-    } else {
-        div.textContent = value
+    let number = value;
+    if (typeof value === 'string' || value instanceof String) {
+        number = parseFloat(value);
     }
-    return div
+    if (isNaN(number) === false && number !== null) {
+        div.textContent = prettyVal(number)
+    } else {
+        div.textContent = value;
+    }
+    return div;
 }
 
 const contentWidget = function(title, value) {
@@ -4277,18 +4282,37 @@ widgetGenerators['predictionpanel'] = {
             var scores = [];
             var rankscores = [];
             var predictions = [];
-            var names = ['dann_coding', 'fathmm', 'fathmm_mkl', 'fathmm_xf_coding', 'lrt', 'metalr', 'metasvm', 'mutation_assessor', 'mutpred1', 'mutationtaster2', 'polyphen2hdiv', 'polyphen2hvar', 'provean2', 'revel2', 'sift2', 'vest2'];
-            
-            // Dann Coding
-            // no prediction for Dann Coding
-            predictions.push(predWidget(null));
-            var dann_score = getWidgetData(tabName, 'dann_coding', row, 'dann_coding_score');
-            var dann_rankscore = getWidgetData(tabName, 'dann_coding', row, 'dann_rankscore');
-            scores.push(predWidget(dann_score));
-            rankscores.push(predWidget(dann_rankscore));
+            let benign = [];
+            let pathogenic = [];
+            // var names = ['dann_coding', 'fathmm', 'fathmm_mkl', 'fathmm_xf_coding', 'lrt', 'metalr', 'metasvm', 'mutation_assessor', 'mutpred1', 'mutationtaster2', 'polyphen2hdiv', 'polyphen2hvar', 'provean2', 'revel2', 'sift2', 'vest2'];
+            var names = ['bayesdel', 'cadd', 'cadd_exome', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'vest']
+
+            // bayesdel
+            const bdScore = getWidgetData(tabName, 'bayesdel', row, 'bayesdel_noAF_score');
+            const bdBenign = getWidgetData(tabName, 'bayesdel', row, 'benign');
+            const bdPathogenic = getWidgetData(tabName, 'bayesdel', row, 'pathogenic');
+            scores.push(predWidget(bdScore));
+            benign.push(predWidget(bdBenign));
+            pathogenic.push(predWidget(bdPathogenic));
+
+            // cadd
+            const caddScore = getWidgetData(tabName, 'cadd', row, 'score');
+            const caddBenign = getWidgetData(tabName, 'cadd', row, 'benign');
+            const caddPathogenic = getWidgetData(tabName, 'cadd', row, 'pathogenic');
+            scores.push(predWidget(caddScore));
+            benign.push(predWidget(caddBenign));
+            pathogenic.push(predWidget(caddPathogenic));
+
+            // cadd_exome
+            const ceScore = getWidgetData(tabName, 'cadd_exome', row, 'score');
+            const ceBenign = getWidgetData(tabName, 'cadd_exome', row, 'benign');
+            const cePathogenic = getWidgetData(tabName, 'cadd_exome', row, 'pathogenic');
+            scores.push(predWidget(ceScore));
+            benign.push(predWidget(ceBenign));
+            pathogenic.push(predWidget(cePathogenic));
 
             // Fathmm
-            var fathmm_score = getWidgetData(tabName, 'fathmm', row, 'fathmm_score');
+            const fathmm_score = getWidgetData(tabName, 'fathmm', row, 'fathmm_score');
             if (fathmm_score != undefined || fathmm_score != null) {
                 let scoreArray = fathmm_score.split(";").map(Number);
                 let maxIndex;
@@ -4298,193 +4322,87 @@ widgetGenerators['predictionpanel'] = {
                     maxIndex = scoreArray.indexOf(Math.max(...scoreArray));
                 }
                 scores.push(predWidget(scoreArray[maxIndex]));
-                var fathmm_pred = getWidgetData(tabName, 'fathmm', row, 'fathmm_pred');
-                var predArray = fathmm_pred.split(";");
-                let prediction;
-                if (predArray[maxIndex] === "T") {
-                    prediction = "Tolerated"
-                } else if (predArray[maxIndex] === "D") {
-                    prediction = "Damaging"
+                const fathmPathogenic = getWidgetData(tabName, 'fathmm', row, 'fathmm_pathogenicity');
+                const pathogenicArray = fathmPathogenic.split(";");
+                const prediction = pathogenicArray[maxIndex];
+                if (prediction && prediction.startsWith('BP4')) {
+                    benign.push(predWidget(prediction));
+                    pathogenic.push(predWidget(null));
+                } else if (prediction && prediction.startsWith('PP3')) {
+                    benign.push(predWidget(null));
+                    pathogenic.push(predWidget(prediction));
                 }
-                predictions.push(predWidget(prediction));
             } else {
                 scores.push(predWidget(null));
-                predictions.push(predWidget(null));
-            }
-            var fathmm_rankscore = getWidgetData(tabName, 'fathmm', row, 'fathmm_rscore');
-            if (fathmm_rankscore != undefined || fathmm_rankscore != null) {
-                rankscores.push(predWidget(fathmm_rankscore));
-            } else {
-                rankscores.push(predWidget(null));
+                benign.push(predWidget(null));
+                pathogenic.push(predWidget(null));
             }
 
-            // Fathmm Mkl
-            var mkl_pred = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_pred');
-            predictions.push(predWidget(mkl_pred))
-            var mkl_score = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_score');
-            scores.push(predWidget(mkl_score));
-            var mkl_rankscore = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_rankscore');
-            rankscores.push(predWidget(mkl_rankscore))
+            // gerp
+            const gerpScore = getWidgetData(tabName, 'gerp', row, 'gerp_rs');
+            const gerpBenign = getWidgetData(tabName, 'gerp', row, 'gerp_benign');
+            scores.push(predWidget(gerpScore));
+            benign.push(predWidget(gerpBenign));
+            pathogenic.push(predWidget(null));
 
-            // Fathmm xf
-            var xf_pred = getWidgetData(tabName, 'fathmm_xf_coding', row, 'fathmm_xf_coding_pred');
-            predictions.push(predWidget(xf_pred))
-            var xf_score = getWidgetData(tabName, 'fathmm_xf_coding', row, 'fathmm_xf_coding_score');
-            scores.push(predWidget(xf_score))
-            var xf_rankscore = getWidgetData(tabName, 'fathmm_xf_coding', row, 'fathmm_xf_coding_rankscore');
-            rankscores.push(predWidget(xf_rankscore))
+            // phylop
+            const phylopScore = getWidgetData(tabName, 'phylop', row, 'phylop100_vert');
+            const phylopBenign = getWidgetData(tabName, 'phylop', row, 'benign');
+            const phylopPathogenic = getWidgetData(tabName, 'phylop', row, 'pathogenic');
+            scores.push(predWidget(phylopScore));
+            benign.push(predWidget(phylopBenign));
+            pathogenic.push(predWidget(phylopPathogenic));
 
-            // lrt
-            var lrt_pred = getWidgetData(tabName, 'lrt', row, 'lrt_pred');
-            predictions.push(predWidget(lrt_pred))
-            var lrt_score = getWidgetData(tabName, 'lrt', row, 'lrt_score');
-            scores.push(predWidget(lrt_score))
-            var lrt_rankscore = getWidgetData(tabName, 'lrt', row, 'lrt_converted_rankscore');
-            rankscores.push(predWidget(lrt_rankscore))
-
-            // metalr
-            var metalr_pred = getWidgetData(tabName, 'metalr', row, 'pred');
-            predictions.push(predWidget(metalr_pred));
-            var metalr_score = getWidgetData(tabName, 'metalr', row, 'score');
-            scores.push(predWidget(metalr_score))
-            var metalr_rankscore = getWidgetData(tabName, 'metalr', row, 'rankscore');
-            rankscores.push(predWidget(metalr_rankscore))
-    
-            // metasvm
-            var metasvm_pred = getWidgetData(tabName, 'metasvm', row, 'pred');
-            predictions.push(predWidget(metasvm_pred))
-            var metasvm_score = getWidgetData(tabName, 'metasvm', row, 'score');
-            scores.push(predWidget(metasvm_score))
-            var metasvm_rankscore = getWidgetData(tabName, 'metasvm', row, 'rankscore');
-            rankscores.push(predWidget(metasvm_rankscore))
-
-            // Mutation Assessor
-            var muta_pred = getWidgetData(tabName, 'mutation_assessor', row, 'impact');
-            predictions.push(predWidget(muta_pred))
-            let muta_score = Number(getWidgetData(tabName, 'mutation_assessor', row, 'score'));
-            if (isNaN(muta_score)) {
-                muta_score = null
-            }
-            scores.push(predWidget(muta_score))
-            let muta_rankscore = Number(getWidgetData(tabName, 'mutation_assessor', row, 'rankscore'));
-            if (isNaN(muta_rankscore)) {
-                muta_rankscore = null
-            }
-            rankscores.push(predWidget(muta_rankscore))
-
-            // mutpred
-            // mutpred offers no prediction
-            predictions.push(predWidget(null))
-            var mutpred_score = getWidgetData(tabName, 'mutpred1', row, 'mutpred_general_score');
-            scores.push(predWidget(mutpred_score))
-            var mutpred_rankscore = getWidgetData(tabName, 'mutpred1', row, 'mutpred_rankscore');
-            rankscores.push(predWidget(mutpred_rankscore))
-
-            // mutation taster
-            var taster_pred = getWidgetData(tabName, 'mutationtaster', row, 'prediction');
-            predictions.push(predWidget(taster_pred))
-            var taster_score = getWidgetData(tabName, 'mutationtaster', row, 'score');
-            scores.push(predWidget(taster_score))
-            var taster_rankscore = getWidgetData(tabName, 'mutationtaster', row, 'rankscore');
-            rankscores.push(predWidget(taster_rankscore))
-            
-            // polyphen hdiv
-            let hdiv_pred = getWidgetData(tabName, 'polyphen2', row, 'hdiv_pred');
-            if (hdiv_pred == 'D') {
-                hdiv_pred = 'Probably Damaging';
-            } else if (hdiv_pred == 'P') {
-                hdiv_pred = 'Possibly Damaging';
-            } else if (hdiv_pred == 'B') {
-                hdiv_pred = 'Benign';
-            }
-            predictions.push(predWidget(hdiv_pred))
-            var hdiv_score = getWidgetData(tabName, 'polyphen2', row, 'hdiv_score');
-            scores.push(predWidget(hdiv_score))
-            var hdiv_rankscore = getWidgetData(tabName, 'polyphen2', row, 'hdiv_rank');
-            rankscores.push(predWidget(hdiv_rankscore))
-            
-            // polyphen hvar
-            let hvar_pred = getWidgetData(tabName, 'polyphen2', row, 'hvar_pred');
-            if (hvar_pred == 'D') {
-                hvar_pred = 'Probably Damaging';
-            } else if (hvar_pred == 'P') {
-                hvar_pred = 'Possibly Damaging';
-            } else if (hvar_pred == 'B') {
-                hvar_pred = 'Benign';
-            }
-            predictions.push(predWidget(hvar_pred))
-            var hvar_score = getWidgetData(tabName, 'polyphen2', row, 'hvar_score');
-            scores.push(predWidget(hvar_score))
-            var hvar_rankscore = getWidgetData(tabName, 'polyphen2', row, 'hvar_rank');
-            rankscores.push(predWidget(hvar_rankscore))
-            
-            // provean
-            var provean_pred = getWidgetData(tabName, 'provean', row, 'prediction');
-            predictions.push(predWidget(provean_pred))
-            var provean_score = getWidgetData(tabName, 'provean', row, 'score');
-            scores.push(predWidget(provean_score))
-            var provean_rankscore = getWidgetData(tabName, 'provean', row, 'rankscore');
-            rankscores.push(predWidget(provean_rankscore))
+            // primateai
+            const paiScore = getWidgetData(tabName, 'primateai', row, 'primateai_score');
+            const paiBenign = getWidgetData(tabName, 'primateai', row, 'benign');
+            const paiPathogenic = getWidgetData(tabName, 'primateai', row, 'pathogenic');
+            scores.push(predWidget(paiScore));
+            benign.push(predWidget(paiBenign));
+            pathogenic.push(predWidget(paiPathogenic));
 
             // revel
-            var revel_score = getWidgetData(tabName, 'revel', row, 'score');
-            scores.push(predWidget(revel_score))
-            var revel_rankscore = getWidgetData(tabName, 'revel', row, 'rankscore');
-            rankscores.push(predWidget(revel_rankscore))
-            let revel_pred = null
-            if (revel_score != null) {
-                if (revel_score <= 0.183) {
-                    revel_pred = "Benign"
-                } else if (revel_score >= 0.773) {
-                    revel_pred = "Pathogenic"
-                } else {
-                    revel_pred = "Uncertain"
-                }
-            }
-            predictions.push(predWidget(revel_pred))
+            const revelScore = getWidgetData(tabName, 'revel', row, 'score');
+            const revelBenign = getWidgetData(tabName, 'revel', row, 'benign');
+            const revelPathogenic = getWidgetData(tabName, 'revel', row, 'pathogenic');
+            scores.push(predWidget(revelScore))
+            benign.push(predWidget(revelBenign))
+            pathogenic.push(predWidget(revelPathogenic))
 
             // sift
-            var sift_pred = getWidgetData(tabName, 'sift', row, 'prediction');
-            predictions.push(predWidget(sift_pred))
-            var sift_score = getWidgetData(tabName, 'sift', row, 'score');
-            scores.push(predWidget(sift_score))
-            var sift_rankscore = getWidgetData(tabName, 'sift', row, 'rankscore');
-            rankscores.push(predWidget(sift_rankscore))
+            const siftScore = getWidgetData(tabName, 'sift', row, 'score');
+            const siftBenign = getWidgetData(tabName, 'sift', row, 'benign');
+            const siftPathogenic = getWidgetData(tabName, 'sift', row, 'pathogenic');
+            scores.push(predWidget(siftScore))
+            benign.push(predWidget(siftBenign))
+            pathogenic.push(predWidget(siftPathogenic))
             
             // vest
-            var vest_score = getWidgetData(tabName, 'vest', row, 'score');
-            scores.push(predWidget(vest_score))
-            // vest provides no rank score
-            rankscores.push(predWidget(null))
-            let vest_pred = null
-            if (vest_score != null) {
-                if (vest_score <= 0.302) {
-                    vest_pred = "Benign"
-                } else if ( vest_score >= 0.861) {
-                    vest_pred = "Pathogenic"
-                } else {
-                    vest_pred = "Uncertain"
-                }
-            }
-            predictions.push(predWidget(vest_pred));
+            const vestScore = getWidgetData(tabName, 'vest', row, 'score');
+            const vestBenign = getWidgetData(tabName, 'vest', row, 'benign');
+            const vestPathogenic = getWidgetData(tabName, 'vest', row, 'pathogenic');
+            scores.push(predWidget(vestScore))
+            benign.push(predWidget(vestBenign))
+            pathogenic.push(predWidget(vestPathogenic))
+
 
             var table = getWidgetTableFrame();
             table.setAttribute("id", "pred");
             var tbody = getEl('tbody');
             tooltipContent = [
                 {id: "source", label: "Source", info: null},
-                {id: "prediction", label: "Prediction", info: "Predictions, when provided, indicate the predicted outcome or impact of the variant. \n \n NOTE: Revel and Vest4.0 prediction output is based upon threshold ranges provided by Pejaver, Vikas et al. 'Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.' American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013"},
                 {id: "score", label: "Score", info: "Raw scores reported by the method."},
-                {id: "rankscore", label: "Rankscore", info: "When provided rankscores closer to 0 are considered more tolerated, while rankscores closer to 1 are considered more damaging."}
+                {id: "benign", label: "ACMG/AMP Benign (BP4)", info: "Strength of evidence for benignity. Based on scores that do not include the background population frequency of the variant."},
+                {id: "pathogenic", label: "ACMG/AMP Pathoginic (PP3)", info: "Strength of evidence for pathogenicity. Based on scores that do not include the background population frequency of the variant."},
             ]
             var thead = getWidgetTableHeadTooltips(tooltipContent);
             addEl(table, thead);
             var sdiv = getEl('div');
             var sdiv = getEl('div')
-            sdiv.style.maxWidth = '75rem'
-            sdiv.style.minWidth = '45rem'
             sdiv.style.maxHeight = '100%'
             sdiv.style.overflow = 'auto'
+            sdiv.style.paddingLeft = '1em';
+            sdiv.style.paddingRight = '1em';
             var counts = [];
             var dam_count = 0;
             var tol_count = 0;
@@ -4498,79 +4416,41 @@ widgetGenerators['predictionpanel'] = {
                 td.style.verticalAlign = 'middle';
                 addEl(tr, td);
                 addEl(td, titleEl)
-                var pred = predictions[i];
-                var p = pred.textContent
-                var score = scores[i];
-                if (score.textContent !== "") {
-                    score.classList.add('pred_score');
-                } else {
-                    pred.textContent = getNoAnnotMsgVariantLevel()
-                    pred.classList.add("pred_noanno")
-                }
-                var td = document.createElement('td');
-                if (p.includes('Damaging') || p == 'Medium' || p == 'Disease Causing' ||  p == "Pathogenic") {
-                    dam_count = dam_count + 1;
-                    pred.classList.add('pred_damaging');
-                } else if ( p === "Uncertain") {
-                    uncertain_count = uncertain_count + 1
-                    pred.classList.add('pred_uncertain');
-                } else if (p != "") {
-                    tol_count = tol_count + 1;
-                    pred.classList.add('pred_tol');
-                }
-                addEl(tr, td);
-                addEl(td, pred)
+
+                const score = scores[i];
                 var td = document.createElement('td');
                 addEl(td, score)
                 addEl(tr, td);
-                var rank = rankscores[i];
+
+                if (score.textContent !== "") {
+                    score.classList.add('pred_score');
+                } else {
+                    score.textContent = getNoAnnotMsgVariantLevel()
+                    score.classList.add("pred_noanno")
+                }
+
+                const benignWidget = benign[i];
+                const benignText = benignWidget.textContent;
                 var td = document.createElement('td');
-                addEl(td, rank);
+                if (benignText) {
+                    benignWidget.classList.add('pred_benign');
+                }
+                addEl(tr, td);
+                addEl(td, benignWidget);
+
+                const pathogenicWidget = pathogenic[i];
+                const pathogenicText = pathogenicWidget.textContent;
+                var td = document.createElement('td');
+                if (pathogenicText) {
+                    pathogenicWidget.classList.add('pred_damaging');
+                }
+                addEl(td, pathogenicWidget);
                 addEl(tr, td);
                 addEl(tbody, tr);
             }
-            counts.push(dam_count);
-            counts.push(tol_count);
-            counts.push(uncertain_count);
-            var total_count = dam_count + tol_count + uncertain_count
             addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
-            var sdiv = getEl('div');
-            sdiv.className = "prediction"
-            var chartDiv = getEl('canvas');
-            var span = getEl('span')
-            span.innerHTML = tol_count + "/" + total_count + " Tolerated or Benign"
-            if (total_count > 0 ) {
-                addEl(sdiv, chartDiv);
-            }
-            addEl(sdiv, span)
-            var chart = new Chart(chartDiv, {
-                type: 'doughnut',
-                data: {
-                    datasets: [{
-                        data: counts,
-                        backgroundColor: ['rgba(153, 27, 27, 1)', 'rgba(6, 95, 70, 1)', 'black']
-                    }],
-                    labels: ['Damaging / Pathogenic', 'Tolerated / Benign', 'Uncertain']
-                },
-                options: {
-                    responsive: true,
-                    responsiveAnimationDuration: 500,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                        position: 'right',
-                    },
-                    plugins: {
-                        labels: {
-                            render: 'label',
-                            fontColor: 'black',
-                            overlap: false,
-                            outsidePadding: 4,
-                        }
-                    },
-                },
-            });
-            addDlRow(dl, sdiv, wdiv)
+            var sdiv = 'Variant Effect Predictions';
+            addEl(dl, wdiv);
             var br = getEl("br");
             addEl(div, br);
         }
