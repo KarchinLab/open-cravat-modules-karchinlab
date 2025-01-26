@@ -15,11 +15,11 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 FATHMM scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Pathogenic Supporting, and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| FATHMM Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
-|-|-|	≥4.69|	[3.32, 4.69)|	(−5.04, −4.14]|	≤ −5.04|-|   -   |
+| FATHMM Thresholds |        |          |              |                  |          |        |             |   |
+|-------------------|--------|----------|--------------|------------------|----------|--------|-------------|---|
+| Benign (BP4)      |        |          |              | Pathogenic (PP3) |          |        |             |   |
+| Very Strong       | Strong | Moderate | Supporting   | Supporting       | Moderate | Strong | Very Strong |   |
+| -                 | -      | ≥4.69    | [3.32, 4.69) | (−5.04, −4.14]   | ≤ −5.04  | -      | -           |   |
 
 \* A "-" means that FATHMM did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

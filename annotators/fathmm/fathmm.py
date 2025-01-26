@@ -50,8 +50,8 @@ class CravatAnnotator(BaseAnnotator):
             out['fathmm_score'] = row[2]
             out['fathmm_rscore'] = float(row[3])
             out['fathmm_pred'] = row[4]
-            out['fathmm_benign'] = ';'.join(benign_list)
-            out['fathmm_pathogenic'] = ';'.join(pathogenic_list)
+            out['bp4_benign'] = ';'.join(benign_list)
+            out['pp3_pathogenic'] = ';'.join(pathogenic_list)
         return out
     
     def cleanup(self):
