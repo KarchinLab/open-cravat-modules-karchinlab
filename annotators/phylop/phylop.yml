@@ -55,7 +55,7 @@ output_columns:
   width: 54
   filterable: false
   hidden: false
-- name: benign
+- name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
   hidden: false
@@ -63,7 +63,7 @@ output_columns:
   filterable: true
   width: 100
   desc: Strength of evidence for benignity, based upon the 100-way Vertebrate Score.
-- name: pathogenic
+- name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
   hidden: false

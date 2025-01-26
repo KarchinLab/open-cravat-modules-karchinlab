@@ -11,8 +11,8 @@ widgetGenerators['phylop'] = {
 			addInfoLine(div, 'Mammalian Ranked Score', getWidgetData(tabName, 'phylop', row, 'phylop470_mamm_r'), tabName);
 			addInfoLine(div, 'Primate Score', getWidgetData(tabName, 'phylop', row, 'phylop17_primate'), tabName);
 			addInfoLine(div, 'Primate Ranked Score', getWidgetData(tabName, 'phylop', row, 'phylop17_primate_r'), tabName);
-			var bp4 = getWidgetData(tabName, 'phylop', row, 'benign')
-			var pp3 = getWidgetData(tabName, 'phylop', row, 'pathogenic')
+			var bp4 = getWidgetData(tabName, 'phylop', row, 'bp4_benign')
+			var pp3 = getWidgetData(tabName, 'phylop', row, 'pp3_pathogenic')
 			let pathogenicity = null
 			if (bp4 !== null) {
 				pathogenicity = "BP4 " + bp4
@@ -21,7 +21,7 @@ widgetGenerators['phylop'] = {
 			} else if (pp3 === null && bp4 === null && vert_score !== null) {
 				pathogenicity = "Indeterminate"
 			}
-			addInfoLine(div, 'Primate Ranked Score', pathogenicity);
+			addInfoLine(div, 'ACMG/AMP Pathogenicity', pathogenicity);
 		}
 	}
 }
