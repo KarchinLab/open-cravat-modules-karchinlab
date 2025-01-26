@@ -16,7 +16,7 @@ output_columns:
     of each variant relative to all possible 8.6 billion substitutions in the human
     reference genome. A scaled score of 10, for example, refers to the top 10% of
     all reference genome SNVs.
-- name: benign
+- name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
   hidden: false
@@ -24,7 +24,7 @@ output_columns:
   filterable: true
   width: 100
   desc: Strength of evidence for benignity.
-- name: pathogenic
+- name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
   hidden: false
