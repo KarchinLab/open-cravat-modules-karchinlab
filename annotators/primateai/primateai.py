@@ -30,8 +30,8 @@ class CravatAnnotator(BaseAnnotator):
             out = {'primateai_score': row[0],
                    'primateai_rankscore': row[1], 
                    'primateai_pred': row[2], 
-                   'benign': benign,
-                   'pathogenic': pathogenic
+                   'bp4_benign': benign,
+                   'pp3_pathogenic': pathogenic
                    }
         else:
             out = None
