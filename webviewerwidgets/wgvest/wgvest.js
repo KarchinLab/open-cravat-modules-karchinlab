@@ -14,7 +14,7 @@ widgetGenerators['vest'] = {
                 }
                 var results = JSON.parse(allMappings);
 				var table = getWidgetTableFrame();
-				var thead = getWidgetTableHead(['Transcript', 'Score', 'Pathogenicity']);
+				var thead = getWidgetTableHead(['Transcript', 'Score', 'ACMG/AMP Pathogenicity']);
 				addEl(table, thead);
 				var tbody = getEl('tbody');
                 for (var i = 0; i < results.length; i++) {
@@ -23,7 +23,7 @@ widgetGenerators['vest'] = {
 					var score = row[1].toFixed(3);
                     var bp4 = row[3]
                     var pp3 = row[4]
-                    let pathogenicity
+                    let pathogenicity = ""
                     if (bp4 !== "") {
 						pathogenicity = "BP4 " + bp4
 					} else if (pp3 !== "") {

@@ -105,8 +105,8 @@ class CravatAnnotator(BaseAnnotator):
                     'transcript': worst_transcript,
                     'score': max_score,
                     'pval': worst_pval,
-                    'pathogenic': worst_pathogenic,
-                    'benign': worst_benign,
+                    'pp3_pathogenic': worst_pathogenic,
+                    'bp4_benign': worst_benign,
                     'all': all_results_list,
                     'hugo': input_data['hugo'],
                 }
