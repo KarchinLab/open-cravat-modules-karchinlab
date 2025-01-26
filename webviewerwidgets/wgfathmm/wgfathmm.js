@@ -18,9 +18,9 @@ widgetGenerators['fathmm'] = {
 			var pidls = pid != null ? pid.split(';') : [];
 			var score = getWidgetData(tabName, 'fathmm', row, 'fathmm_score');
 			var scorels = score != null ? score.split(';') : [];
-			var pathogenic = getWidgetData(tabName, 'fathmm', row, 'fathmm_pathogenic');
+			var pathogenic = getWidgetData(tabName, 'fathmm', row, 'bp4_pathogenic');
 			var pathogenicls = pathogenic != null ? pathogenic.split(';') : [];
-			var benign = getWidgetData(tabName, 'fathmm', row, 'fathmm_benign');
+			var benign = getWidgetData(tabName, 'fathmm', row, 'pp3_benign');
 			var benignls = benign != null ? benign.split(';') : [];
 			for (var i=0;i<scorels.length;i++){
 				if (scorels[i] == '.'){
@@ -36,7 +36,7 @@ widgetGenerators['fathmm'] = {
 			}
 			var table = getWidgetTableFrame();
 			addEl(div, table);
-			var thead = getWidgetTableHead(['Transcript', 'Protein', 'Score', 'Prediction', 'ACMG Pathogenicity'],['25%','22%','10%','12%', '30%']);
+			var thead = getWidgetTableHead(['Transcript', 'Protein', 'Score', 'Prediction', 'ACMG/AMP Pathogenicity'],['25%','22%','10%','12%', '30%']);
 			addEl(table, thead);
 			var tbody = getEl('tbody');
 			addEl(table, tbody);
