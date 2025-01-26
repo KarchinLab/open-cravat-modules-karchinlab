@@ -29,7 +29,7 @@ output_columns:
   width: 60
   filterable: false
   desc: Rank of the score in dbNSFP divided by the total number of scores in dbNSFP
-- name: gerp_benign
+- name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
   hidden: false
@@ -37,6 +37,14 @@ output_columns:
   filterable: true
   width: 100
   desc: Strength of evidence for benignity.
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 tags:
 - variants
 - evolution
