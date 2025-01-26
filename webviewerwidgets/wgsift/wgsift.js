@@ -7,7 +7,7 @@ widgetGenerators['sift'] = {
 			if (allMappings != undefined && allMappings != null) {
                 var results = JSON.parse(allMappings);
 				var table = getWidgetTableFrame();
-				var thead = getWidgetTableHead(['Transcript', 'Prediction', 'Confidence', 'Score', 'Rank Score', 'Median Info', 'Seqs at Position', 'Pathogenicity'],['15%']);
+				var thead = getWidgetTableHead(['Transcript', 'Prediction', 'Confidence', 'Score', 'Rank Score', 'Median Info', 'Seqs at Position', 'ACMG/AMP Pathogenicity'],['15%']);
 				addEl(table, thead);
 				var tbody = getEl('tbody');
                 for (var i = 0; i < results.length; i++) {
