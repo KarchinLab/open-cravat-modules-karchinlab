@@ -12,11 +12,11 @@ widgetGenerators['bayesdel'] = {
                 return;
 			}
 			var table = getWidgetTableFrame();
-            var thead = getWidgetTableHead(['Score (no MaxAF)', 'Pathogenicity']);
+            var thead = getWidgetTableHead(['Score (no AF)', 'ACMG/AMP Pathogenicity']);
             addEl(table, thead);
             var tbody = getEl('tbody');
-            var bp4 = getWidgetData(tabName, 'bayesdel', row, 'benign');
-            var pp3 = getWidgetData(tabName, 'bayesdel', row, 'pathogenic');
+            var bp4 = getWidgetData(tabName, 'bayesdel', row, 'bp4_benign');
+            var pp3 = getWidgetData(tabName, 'bayesdel', row, 'pp3_pathogenic');
             let pathogenicity 
             if (bp4 !== null) {
                 pathogenicity = "BP4 " + bp4
