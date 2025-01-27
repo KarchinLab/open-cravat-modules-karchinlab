@@ -34,7 +34,7 @@ output_columns:
   hidden: false
   width: 80
   desc: The variant is predicted as either "Tolerated" or "Deleterious" based on the threshold of -7.5 described in their paper that yields a true-positive rate of 81% and a true-negative rate of 82% in their ClinVar and HGMD test datasets.
-- name: benign
+- name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
   hidden: false
@@ -42,7 +42,7 @@ output_columns:
   filterable: true
   width: 100
   desc: Strength of evidence for benignity.
-- name: pathogenic
+- name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
   hidden: false

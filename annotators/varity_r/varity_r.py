@@ -24,17 +24,17 @@ def get_bin(score, cutoffs):
 
 
 BP4_CUTOFFS = [
-    (0.036, 'BP4 Strong (-4 Benign)'),
-    (0.116, 'BP4 Moderate (-2 Benign)'),
-    (0.251, 'BP4 Supporting (-1 Benign)'),
+    (0.036, 'Strong'),
+    (0.116, 'Moderate '),
+    (0.251, 'Supporting'),
     (float("inf"), '')
 ]
 
 PP3_CUTOFFS = [
     (0.675, ''),
-    (0.841, 'PP3 Supporting (+1 Pathogenic)'),
-    (0.964, 'PP3 Moderate (+2 Pathogenic)'),
-    (float("inf"), 'PP3 Strong (+4 Pathogenic)')
+    (0.841, 'Supporting'),
+    (0.964, 'Moderate'),
+    (float("inf"), 'Strong')
 ]
 
 class CravatAnnotator(BaseAnnotator):
@@ -52,11 +52,12 @@ class CravatAnnotator(BaseAnnotator):
         )
         row = self.cursor.fetchone()
         if row is not None:
+            varity_r = float(row[1])
             return {
                 'p_vid': row[0],
-                'varity_r': row[1],
-                'varity_r_benign': get_bin(row[1], BP4_CUTOFFS),
-                'varity_r_pathogenic': get_bin(row[1], PP3_CUTOFFS),
+                'varity_r': varity_r,
+                'bp4_benign': get_bin(varity_r, BP4_CUTOFFS),
+                'pp3_pathogenic': get_bin(varity_r, PP3_CUTOFFS),
                 'varity_er': row[2],
                 'varity_r_loo': row[3],
                 'varity_er_loo': row[4],

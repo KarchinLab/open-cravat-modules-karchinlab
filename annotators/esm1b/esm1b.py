@@ -71,8 +71,8 @@ class CravatAnnotator(BaseAnnotator):
                         'rankscore': rankscore,
                         'prediction': prediction,
                         'full_result' : transc_revel_result,
-                        'benign': get_bin(score, BP4_CUTOFFS),
-                        'pathogenic': get_bin(score, PP3_CUTOFFS)
+                        'bp4_benign': get_bin(score, BP4_CUTOFFS),
+                        'pp3_pathogenic': get_bin(score, PP3_CUTOFFS)
                     })
             if precomp_data:
                 all_transcripts = set()
@@ -86,8 +86,8 @@ class CravatAnnotator(BaseAnnotator):
                     if x['score'] == min_score:
                         all_transcripts.add(x['transcript'])
                         all_predictions.add(x['prediction'])
-                        benign = x['benign']
-                        pathogenic = x['benign']
+                        benign = x['bp4_benign']
+                        pathogenic = x['pp3_pathogenic']
                 all_transcripts = list(all_transcripts)
                 all_transcripts = ';'.join(all_transcripts)
                 all_predictions = list(all_predictions )
@@ -100,8 +100,8 @@ class CravatAnnotator(BaseAnnotator):
                     'score': min_score,
                     'rankscore': rankscore,
                     'prediction': all_predictions,
-                    'benign': benign,
-                    'pathogenic': pathogenic,
+                    'bp4_benign': benign,
+                    'pp3_pathogenic': pathogenic,
                     'all': all_results_list
                 }
 
