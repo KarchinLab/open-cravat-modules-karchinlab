@@ -1,23 +1,20 @@
-datasource: Latest Available
-description: The ClinGen Evidence Repository is an expert curated repository for variant
-  interpretation/classification that have been submitted in the context of a specific
-  condition/disease and an interpretation guideline. The reasoning engine is run on
-  all the evidence codes to generate a classification such as Pathogenic, Likely Pathogenic,
-  etc. This module includes a summary of the Variant Pathogenicity curations completed
-  by ClinGen's VCEPs.
+datasource: ClinGen Allele Registry API
+description: The ClinGen Allele Registry provides a canonical identifier for human genetic variants. The Allele Registry 
+  allows cross‐referencing information about variants across major databases by collating alternate variant identifiers.
+
+  This annotator calls the ClinGen Allele Registry API for each variant, and requires an active internet connection to run.
 developer:
-  citation: ClinGen The Clinical Genome Resource. Heidi L. Rehm, Ph.D., Jonathan S.
-    Berg, M.D., Ph.D., Lisa D. Brooks, Ph.D., Carlos D. Bustamante, Ph.D., James P.
-    Evans, M.D., Ph.D., Melissa J. Landrum, Ph.D., David H. Ledbetter, Ph.D., Donna
-    R. Maglott, Ph.D., Christa Lese Martin, Ph.D., Robert L. Nussbaum, M.D., Sharon
-    E. Plon, M.D., Ph.D., Erin M. Ramos, Ph.D., Stephen T. Sherry, Ph.D., and Michael
-    S. Watson, Ph.D., for ClinGen. N Engl J Med 2015; 372:2235-2242 June 4, 2015 DOI.
-    10.1056/NEJMsr1406261.
+  citation: Pawliczek P, Patel RY, Ashmore LR, Jackson AR, Bizon C, Nelson T, Powell B, Freimuth RR, Strande N, 
+    Shah N, Paithankar S, Wright MW, Dwight S, Zhen J, Landrum M, McGarvey P, Babb L, Plon SE, Milosavljevic A, 
+    Clinical Genome (ClinGen) Resource. ClinGen Allele Registry links information about genetic variants.
+    Hum Mutat. 2018 Nov,39(11) 1690-1701. doi 10.1002/humu.23637. PMID 30311374, PMCID PMC6519371.
   email: support@opencravat.org
   name: ClinGen - Clinical Genome Resource
   organization: ClinGen - Clinical Genome Resource
   website: https://clinicalgenome.org/
 level: variant
+input_format: crx
+api_url: https://reg.clinicalgenome.org/allele?hgvs=
 output_columns:
 - name: allele_registry_id
   title: Allele Registry ID
@@ -27,32 +24,6 @@ output_columns:
   link_format: 
     https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/by_canonicalid?canonicalid=${.*}
   hidden: false
-- hidden: false
-  name: disease
-  title: Disease
-  width: 180
-  type: string
-  filterable: false
-- hidden: true
-  name: mode_of_inheritance
-  title: Mode of Inheritance
-  type: string
-  filterable: false
-- name: assertion
-  title: Assertion
-  type: string
-  width: 120
-  hidden: false
-- name: evidence_codes
-  title: Applied Evidence Codes
-  type: string
-  width: 75
-  hidden: true
-- name: summary_of_interpretation
-  title: Summary of Interpretation
-  type: string
-  width: 400
-  hidden: true
 smartfilters:
 - name: hasdata
   title: ClinGen Allele Registry
@@ -70,4 +41,5 @@ type: annotator
 requires_opencravat: '>=1.4.0'
 version: 1.0.0
 release_note:
+  1.1.0: Change data source to call API
   1.0.0: New annotator for the ClinGen Allele Registry
