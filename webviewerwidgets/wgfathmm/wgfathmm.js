@@ -36,7 +36,7 @@ widgetGenerators['fathmm'] = {
 			}
 			var table = getWidgetTableFrame();
 			addEl(div, table);
-			var thead = getWidgetTableHead(['Transcript', 'Protein', 'Score', 'Prediction', 'ACMG/AMP Benignity', 'ACMG/AMP Pathogenicity'],['25%','22%','10%','12%', '15%', '15%']);
+			var thead = getWidgetTableHead(['Transcript', 'Protein', 'Score', 'Prediction', 'ACMG/AMP Pathogenicity'],['25%','22%','10%','12%', '30%']);
 			addEl(table, thead);
 			var tbody = getEl('tbody');
 			addEl(table, tbody);
@@ -47,21 +47,19 @@ widgetGenerators['fathmm'] = {
 				var pitr = predls[i];
 				var bp4 = benignls[i]
 				var pp3 = pathogenicls[i];
+				let pathogenicity = null;
 				if (bp4) {
-					bp4 = "BP4 " + bp4;
+					pathogenicity = "BP4 " + bp4;
 				} else if (pp3) {
-					pp3 = "PP3 " + pp3;
-				} 
-				var tr = getWidgetTableTr([tiditr, piditr, sitr, pitr, bp4, pp3]);
-				const bp4Color = getCalibrationGradientColor(bp4);
-				if (bp4) {
-					$(tr).children().eq(4).css("background-color", bp4Color);
-					$(tr).children().eq(4).css("color", bp4.includes("Strong") ? "white" : "black");
+					pathogenicity = "PP3 " + pp3;
+				} else {
+					pathogenicity = "Indeterminate";
 				}
-				const pp3Color = getCalibrationGradientColor(pp3);
-				if (pp3) {
-					$(tr).children().eq(5).css("background-color", pp3Color);
-					$(tr).children().eq(5).css("color", pp3.includes("Strong") ? "white" : "black");
+				var tr = getWidgetTableTr([tiditr, piditr, sitr, pitr, pathogenicity]);
+				const color = getCalibrationGradientColor(pathogenicity);
+				if (pathogenicity) {
+					$(tr).children().eq(4).css("background-color", color);
+					$(tr).children().eq(4).css("color", pathogenicity.includes("Strong") ? "white" : "black");
 				}
 				addEl(tbody, tr);
 			}
