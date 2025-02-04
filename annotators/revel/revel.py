@@ -80,7 +80,7 @@ class CravatAnnotator(BaseAnnotator):
                 worst_rankscore = worst_mapping['rankscore']
                 worst_pathogenic = worst_mapping['pathogenic']
                 worst_benign = worst_mapping['benign']
-                out = {'transcript': all_transcripts, 'score': max_score, 'rankscore': worst_rankscore, 'pathogenic': worst_pathogenic, 'benign': worst_benign, 'all': all_results_list}
+                out = {'transcript': all_transcripts, 'score': max_score, 'rankscore': worst_rankscore, 'pp3_pathogenic': worst_pathogenic, 'bp4_benign': worst_benign, 'all': all_results_list}
                 return out
 
         

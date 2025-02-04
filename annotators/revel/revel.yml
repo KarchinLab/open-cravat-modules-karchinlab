@@ -30,7 +30,7 @@ output_columns:
   hidden: true
   desc: Max rank score across all transcripts. The ratio of the rank of the score
     over the total number of REVEL scores.
-- name: benign
+- name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
   hidden: false
@@ -38,7 +38,7 @@ output_columns:
   filterable: true
   width: 100
   desc: Strength of evidence for benignity.
-- name: pathogenic
+- name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
   hidden: false

@@ -86,8 +86,8 @@ class CravatAnnotator(BaseAnnotator):
                     out['med'] = worst_med
                     out['confidence'] = worst_confidence
                     out['seqs'] = worst_seqs
-                    out['benign'] = worst_benign
-                    out['pathogenic'] = worst_pathogenic
+                    out['bp4_benign'] = worst_benign
+                    out['pp3_pathogenic'] = worst_pathogenic
                     out['all'] = all_results_list
                     out['multsite'] = 'True' if len(all_results_list) > 1 else None
                     return out

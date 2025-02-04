@@ -44,8 +44,8 @@ class CravatAnnotator(BaseAnnotator):
             out['phylop470_mamm_r'] = float(row[3])
             out['phylop17_primate'] = float(row[4])
             out['phylop17_primate_r'] = float(row[5])
-            out['benign'] = benign
-            out['pathogenic'] = pathogenic
+            out['bp4_benign'] = benign
+            out['pp3_pathogenic'] = pathogenic
         return out
     
     def cleanup(self):

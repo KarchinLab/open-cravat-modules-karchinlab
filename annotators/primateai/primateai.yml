@@ -22,7 +22,7 @@ output_columns:
   hidden: true
   width: 90
   desc: Prediction of PrimateAI score based on the authors' recommendation, "T(olerated)" or "D(amaging)". The score cutoff between "D" and "T" is 0.803.
-- name: benign
+- name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
   hidden: false
@@ -30,7 +30,7 @@ output_columns:
   filterable: true
   width: 100
   desc: Strength of evidence for benignity.
-- name: pathogenic
+- name: pp4_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
   hidden: false

@@ -13,11 +13,11 @@ widgetGenerators['cadd_exome'] = {
 			}
 			if (phred != undefined && phred != null) {
                 var table = getWidgetTableFrame();
-                var thead = getWidgetTableHead(['Phred','Pathogenicity']);
+                var thead = getWidgetTableHead(['Phred','ACMG/AMP Pathogenicity']);
                 addEl(table, thead);
                 var tbody = getEl('tbody');
-                var bp4 = getWidgetData(tabName, 'cadd_exome', row, 'benign');
-                var pp3 = getWidgetData(tabName, 'cadd_exome', row, 'pathogenic');
+                var bp4 = getWidgetData(tabName, 'cadd_exome', row, 'bp4_benign');
+                var pp3 = getWidgetData(tabName, 'cadd_exome', row, 'pp3_pathogenic');
                 let pathogenicity 
                 if (bp4 !== null) {
                     pathogenicity = "BP4 " + bp4

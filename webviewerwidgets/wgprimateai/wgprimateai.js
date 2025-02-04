@@ -12,11 +12,11 @@ widgetGenerators['primateai'] = {
                 return;
 			}
             var table = getWidgetTableFrame();
-            var thead = getWidgetTableHead(['Score', 'Pathogenicity']);
+            var thead = getWidgetTableHead(['Score', 'ACMP/AMP Pathogenicity']);
             addEl(table, thead);
             var tbody = getEl('tbody');
-            var bp4 = getWidgetData(tabName, 'primateai', row, 'benign');
-            var pp3 = getWidgetData(tabName, 'primateai', row, 'pathogenic');
+            var bp4 = getWidgetData(tabName, 'primateai', row, 'bp4_benign');
+            var pp3 = getWidgetData(tabName, 'primateai', row, 'pp3_pathogenic');
             let pathogenicity 
             if (bp4 !== null) {
                 pathogenicity = "BP4 " + bp4

@@ -44,8 +44,8 @@ class CravatAnnotator(BaseAnnotator):
                    'bayesdel_noAF_score': no_af_score,
                    'bayesdel_noAF_rankscore': row[4],
                    'bayesdel_noAF_pred': noaf_pred,
-                   'benign': benign,
-                   'pathogenic': pathogenic
+                   'bp4_benign': benign,
+                   'pp3_pathogenic': pathogenic
                    }
         else:
             out = None

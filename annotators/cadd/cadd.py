@@ -40,7 +40,7 @@ class CravatAnnotator(BaseAnnotator):
                 else:
                     benign = ""
                     pathogenic = ""
-                return {'score':record[4], 'phred': phred, 'benign': benign, 'pathogenic': pathogenic}
+                return {'score':record[4], 'phred': phred, 'bp4_benign': benign, 'pp3_pathogenic': pathogenic}
     
     def cleanup(self):
         pass
