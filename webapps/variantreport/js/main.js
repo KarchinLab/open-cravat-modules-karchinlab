@@ -4285,106 +4285,131 @@ widgetGenerators['predictionpanel'] = {
             let benign = [];
             let pathogenic = [];
             // var names = ['dann_coding', 'fathmm', 'fathmm_mkl', 'fathmm_xf_coding', 'lrt', 'metalr', 'metasvm', 'mutation_assessor', 'mutpred1', 'mutationtaster2', 'polyphen2hdiv', 'polyphen2hvar', 'provean2', 'revel2', 'sift2', 'vest2'];
-            var names = ['bayesdel', 'cadd', 'cadd_exome', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'vest']
+            const names = ['bayesdel', 'cadd', 'cadd_exome', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'vest'];
+            const scoreIds = ['bayesdel_noAF_score', 'score', 'score', 'fathmm_score', 'gerp_rs', 'phylop100_vert', 'primateai_score', 'score', 'score', 'score'];
+            const multiValuePredictors = ['fathmm'];
 
-            // bayesdel
-            const bdScore = getWidgetData(tabName, 'bayesdel', row, 'bayesdel_noAF_score');
-            const bdBenign = getWidgetData(tabName, 'bayesdel', row, 'benign');
-            const bdPathogenic = getWidgetData(tabName, 'bayesdel', row, 'pathogenic');
-            scores.push(predWidget(bdScore));
-            benign.push(predWidget(bdBenign));
-            pathogenic.push(predWidget(bdPathogenic));
+            for (let i=0; i<names.length; i++) {
+                const name = names[i];
+                const scoreId = scoreIds[i];
 
-            // cadd
-            const caddScore = getWidgetData(tabName, 'cadd', row, 'score');
-            const caddBenign = getWidgetData(tabName, 'cadd', row, 'benign');
-            const caddPathogenic = getWidgetData(tabName, 'cadd', row, 'pathogenic');
-            scores.push(predWidget(caddScore));
-            benign.push(predWidget(caddBenign));
-            pathogenic.push(predWidget(caddPathogenic));
-
-            // cadd_exome
-            const ceScore = getWidgetData(tabName, 'cadd_exome', row, 'score');
-            const ceBenign = getWidgetData(tabName, 'cadd_exome', row, 'benign');
-            const cePathogenic = getWidgetData(tabName, 'cadd_exome', row, 'pathogenic');
-            scores.push(predWidget(ceScore));
-            benign.push(predWidget(ceBenign));
-            pathogenic.push(predWidget(cePathogenic));
-
-            // Fathmm
-            const fathmm_score = getWidgetData(tabName, 'fathmm', row, 'fathmm_score');
-            if (fathmm_score != undefined || fathmm_score != null) {
-                let scoreArray = fathmm_score.split(";").map(Number);
-                let maxIndex;
-                if (fathmm_score.endsWith(';.')) {
-                    maxIndex = 0
+                if (multiValuePredictors.indexOf(name) > -1) {
+                    // Fathmm
+                    const rawScoreString = getWidgetData(tabName, name, row, scoreId);
+                    if (rawScoreString != undefined || fathmm_score != null) {
+                        let scoreArray = rawScoreString.split(";").map(Number);
+                        let maxIndex;
+                        if (rawScoreString.endsWith(';.')) {
+                            maxIndex = 0
+                        } else {
+                            maxIndex = scoreArray.indexOf(Math.max(...scoreArray));
+                        }
+                        const b = getWidgetData(tabName, name, row, 'bp4_benign');
+                        const p = getWidgetData(tabName, name, row, 'pp3_pathogenic');
+                        const pathogenicArray = p.split(";");
+                        const pathogenicText = pathogenicArray[maxIndex];
+                        const benignArray = p.split(";");
+                        const benignText = benignArray[maxIndex];
+                        scores.push(predWidget(scoreArray[maxIndex]));
+                        benign.push(predWidget(benignText));
+                        pathogenic.push(predWidget(pathogenicText));
+                        // if (prediction && prediction.startsWith('BP4')) {
+                        //     benign.push(predWidget(prediction));
+                        //     pathogenic.push(predWidget(null));
+                        // } else if (prediction && prediction.startsWith('PP3')) {
+                        //     benign.push(predWidget(null));
+                        //     pathogenic.push(predWidget(prediction));
+                        // }
+                    } else {
+                        scores.push(predWidget(null));
+                        benign.push(predWidget(null));
+                        pathogenic.push(predWidget(null));
+                    }
+                    scores.push(predWidget(-1));
+                    benign.push(predWidget(name));
+                    pathogenic.push(predWidget(name));
                 } else {
-                    maxIndex = scoreArray.indexOf(Math.max(...scoreArray));
+                    const score = getWidgetData(tabName, name, row, scoreId);
+                    const b = getWidgetData(tabName, name, row, 'bp4_benign');
+                    const p = getWidgetData(tabName, name, row, 'pp3_pathogenic');
+                    scores.push(predWidget(score));
+                    benign.push(predWidget(b));
+                    pathogenic.push(predWidget(p));
                 }
-                scores.push(predWidget(scoreArray[maxIndex]));
-                const fathmPathogenic = getWidgetData(tabName, 'fathmm', row, 'fathmm_pathogenicity');
-                const pathogenicArray = fathmPathogenic.split(";");
-                const prediction = pathogenicArray[maxIndex];
-                if (prediction && prediction.startsWith('BP4')) {
-                    benign.push(predWidget(prediction));
-                    pathogenic.push(predWidget(null));
-                } else if (prediction && prediction.startsWith('PP3')) {
-                    benign.push(predWidget(null));
-                    pathogenic.push(predWidget(prediction));
-                }
-            } else {
-                scores.push(predWidget(null));
-                benign.push(predWidget(null));
-                pathogenic.push(predWidget(null));
             }
 
-            // gerp
-            const gerpScore = getWidgetData(tabName, 'gerp', row, 'gerp_rs');
-            const gerpBenign = getWidgetData(tabName, 'gerp', row, 'gerp_benign');
-            scores.push(predWidget(gerpScore));
-            benign.push(predWidget(gerpBenign));
-            pathogenic.push(predWidget(null));
+            // // bayesdel
+            // const bdScore = getWidgetData(tabName, 'bayesdel', row, 'bayesdel_noAF_score');
+            // const bdBenign = getWidgetData(tabName, 'bayesdel', row, 'benign');
+            // const bdPathogenic = getWidgetData(tabName, 'bayesdel', row, 'pathogenic');
+            // scores.push(predWidget(bdScore));
+            // benign.push(predWidget(bdBenign));
+            // pathogenic.push(predWidget(bdPathogenic));
+            //
+            // // cadd
+            // const caddScore = getWidgetData(tabName, 'cadd', row, 'score');
+            // const caddBenign = getWidgetData(tabName, 'cadd', row, 'benign');
+            // const caddPathogenic = getWidgetData(tabName, 'cadd', row, 'pathogenic');
+            // scores.push(predWidget(caddScore));
+            // benign.push(predWidget(caddBenign));
+            // pathogenic.push(predWidget(caddPathogenic));
+            //
+            // // cadd_exome
+            // const ceScore = getWidgetData(tabName, 'cadd_exome', row, 'score');
+            // const ceBenign = getWidgetData(tabName, 'cadd_exome', row, 'benign');
+            // const cePathogenic = getWidgetData(tabName, 'cadd_exome', row, 'pathogenic');
+            // scores.push(predWidget(ceScore));
+            // benign.push(predWidget(ceBenign));
+            // pathogenic.push(predWidget(cePathogenic));
 
-            // phylop
-            const phylopScore = getWidgetData(tabName, 'phylop', row, 'phylop100_vert');
-            const phylopBenign = getWidgetData(tabName, 'phylop', row, 'benign');
-            const phylopPathogenic = getWidgetData(tabName, 'phylop', row, 'pathogenic');
-            scores.push(predWidget(phylopScore));
-            benign.push(predWidget(phylopBenign));
-            pathogenic.push(predWidget(phylopPathogenic));
 
-            // primateai
-            const paiScore = getWidgetData(tabName, 'primateai', row, 'primateai_score');
-            const paiBenign = getWidgetData(tabName, 'primateai', row, 'benign');
-            const paiPathogenic = getWidgetData(tabName, 'primateai', row, 'pathogenic');
-            scores.push(predWidget(paiScore));
-            benign.push(predWidget(paiBenign));
-            pathogenic.push(predWidget(paiPathogenic));
 
-            // revel
-            const revelScore = getWidgetData(tabName, 'revel', row, 'score');
-            const revelBenign = getWidgetData(tabName, 'revel', row, 'benign');
-            const revelPathogenic = getWidgetData(tabName, 'revel', row, 'pathogenic');
-            scores.push(predWidget(revelScore))
-            benign.push(predWidget(revelBenign))
-            pathogenic.push(predWidget(revelPathogenic))
-
-            // sift
-            const siftScore = getWidgetData(tabName, 'sift', row, 'score');
-            const siftBenign = getWidgetData(tabName, 'sift', row, 'benign');
-            const siftPathogenic = getWidgetData(tabName, 'sift', row, 'pathogenic');
-            scores.push(predWidget(siftScore))
-            benign.push(predWidget(siftBenign))
-            pathogenic.push(predWidget(siftPathogenic))
-            
-            // vest
-            const vestScore = getWidgetData(tabName, 'vest', row, 'score');
-            const vestBenign = getWidgetData(tabName, 'vest', row, 'benign');
-            const vestPathogenic = getWidgetData(tabName, 'vest', row, 'pathogenic');
-            scores.push(predWidget(vestScore))
-            benign.push(predWidget(vestBenign))
-            pathogenic.push(predWidget(vestPathogenic))
-
+            // // gerp
+            // const gerpScore = getWidgetData(tabName, 'gerp', row, 'gerp_rs');
+            // const gerpBenign = getWidgetData(tabName, 'gerp', row, 'gerp_benign');
+            // scores.push(predWidget(gerpScore));
+            // benign.push(predWidget(gerpBenign));
+            // pathogenic.push(predWidget(null));
+            //
+            // // phylop
+            // const phylopScore = getWidgetData(tabName, 'phylop', row, 'phylop100_vert');
+            // const phylopBenign = getWidgetData(tabName, 'phylop', row, 'benign');
+            // const phylopPathogenic = getWidgetData(tabName, 'phylop', row, 'pathogenic');
+            // scores.push(predWidget(phylopScore));
+            // benign.push(predWidget(phylopBenign));
+            // pathogenic.push(predWidget(phylopPathogenic));
+            //
+            // // primateai
+            // const paiScore = getWidgetData(tabName, 'primateai', row, 'primateai_score');
+            // const paiBenign = getWidgetData(tabName, 'primateai', row, 'benign');
+            // const paiPathogenic = getWidgetData(tabName, 'primateai', row, 'pathogenic');
+            // scores.push(predWidget(paiScore));
+            // benign.push(predWidget(paiBenign));
+            // pathogenic.push(predWidget(paiPathogenic));
+            //
+            // // revel
+            // const revelScore = getWidgetData(tabName, 'revel', row, 'score');
+            // const revelBenign = getWidgetData(tabName, 'revel', row, 'benign');
+            // const revelPathogenic = getWidgetData(tabName, 'revel', row, 'pathogenic');
+            // scores.push(predWidget(revelScore))
+            // benign.push(predWidget(revelBenign))
+            // pathogenic.push(predWidget(revelPathogenic))
+            //
+            // // sift
+            // const siftScore = getWidgetData(tabName, 'sift', row, 'score');
+            // const siftBenign = getWidgetData(tabName, 'sift', row, 'benign');
+            // const siftPathogenic = getWidgetData(tabName, 'sift', row, 'pathogenic');
+            // scores.push(predWidget(siftScore))
+            // benign.push(predWidget(siftBenign))
+            // pathogenic.push(predWidget(siftPathogenic))
+            //
+            // // vest
+            // const vestScore = getWidgetData(tabName, 'vest', row, 'score');
+            // const vestBenign = getWidgetData(tabName, 'vest', row, 'benign');
+            // const vestPathogenic = getWidgetData(tabName, 'vest', row, 'pathogenic');
+            // scores.push(predWidget(vestScore))
+            // benign.push(predWidget(vestBenign))
+            // pathogenic.push(predWidget(vestPathogenic))
 
             var table = getWidgetTableFrame();
             table.setAttribute("id", "pred");
