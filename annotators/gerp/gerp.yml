@@ -46,6 +46,7 @@ output_columns:
   category: multi
   filterable: true
 tags:
+- variant effect prediction
 - variants
 - evolution
 - clinical relevance

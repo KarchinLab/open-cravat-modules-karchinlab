@@ -73,6 +73,7 @@ output_columns:
   filterable: true
 tags:
 - variants
+- variant effect prediction
 - evolution
 - clinical revelance
 title: PhyloP
