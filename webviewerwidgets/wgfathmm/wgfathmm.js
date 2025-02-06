@@ -18,8 +18,10 @@ widgetGenerators['fathmm'] = {
 			var pidls = pid != null ? pid.split(';') : [];
 			var score = getWidgetData(tabName, 'fathmm', row, 'fathmm_score');
 			var scorels = score != null ? score.split(';') : [];
-			var pathogenicity = getWidgetData(tabName, 'fathmm', row, 'fathmm_pathogenicity');
-			var pathogenicityls = pathogenicity != null ? pathogenicity.split(';') : [];
+			var pathogenic = getWidgetData(tabName, 'fathmm', row, 'pp3_pathogenic');
+			var pathogenicls = pathogenic != null ? pathogenic.split(';') : [];
+			var benign = getWidgetData(tabName, 'fathmm', row, 'bp4_benign');
+			var benignls = benign != null ? benign.split(';') : [];
 			for (var i=0;i<scorels.length;i++){
 				if (scorels[i] == '.'){
 					scorels[i] = null;
@@ -34,7 +36,7 @@ widgetGenerators['fathmm'] = {
 			}
 			var table = getWidgetTableFrame();
 			addEl(div, table);
-			var thead = getWidgetTableHead(['Transcript', 'Protein', 'Score', 'Prediction', 'ACMG Pathogenicity'],['25%','22%','10%','12%', '30%']);
+			var thead = getWidgetTableHead(['Transcript', 'Protein', 'Score', 'Prediction', 'ACMG/AMP Pathogenicity'],['25%','22%','10%','12%', '30%']);
 			addEl(table, thead);
 			var tbody = getEl('tbody');
 			addEl(table, tbody);
@@ -43,12 +45,21 @@ widgetGenerators['fathmm'] = {
 				var piditr = pidls[i];
 				var sitr = scorels[i];
 				var pitr = predls[i];
-				var pathogenicityr = pathogenicityls[i]
-				var tr = getWidgetTableTr([tiditr, piditr, sitr, pitr, pathogenicityr]);
-				const color = getCalibrationGradientColor(pathogenicityr)
-				if (pathogenicity !== "") {
+				var bp4 = benignls[i]
+				var pp3 = pathogenicls[i];
+				let pathogenicity = null;
+				if (bp4) {
+					pathogenicity = "BP4 " + bp4;
+				} else if (pp3) {
+					pathogenicity = "PP3 " + pp3;
+				} else {
+					pathogenicity = "Indeterminate";
+				}
+				var tr = getWidgetTableTr([tiditr, piditr, sitr, pitr, pathogenicity]);
+				const color = getCalibrationGradientColor(pathogenicity);
+				if (pathogenicity) {
 					$(tr).children().eq(4).css("background-color", color);
-					$(tr).children().eq(4).css("color", pathogenicityr.includes("Strong") ? "white" : "black");
+					$(tr).children().eq(4).css("color", pathogenicity.includes("Strong") ? "white" : "black");
 				}
 				addEl(tbody, tr);
 			}

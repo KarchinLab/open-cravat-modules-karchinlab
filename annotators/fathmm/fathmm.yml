@@ -42,12 +42,20 @@ output_columns:
   type: string
   filterable: false
   width: 68
-- name: fathmm_pathogenicity
-  title: ACMG/AMP Pathogenicity
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
   type: string
   hidden: false
   width: 110
-  desc: Strength of evidence for benignity or pathogenicity.
+  desc: Strength of evidence for benignity.
+  category: multi
+  filterable: true
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenicity (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
   category: multi
   filterable: true
 tags:
@@ -64,3 +72,4 @@ release_note:
   2.3.7: non-canonical chrom support for older oc versions
   2.3.6: handle only specific alt chroms
 
+  
