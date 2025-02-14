@@ -37,8 +37,8 @@ widgetGenerators['alphamissense'] = {
 				var thead = getWidgetTableHead(['Score','Pathogenicity']);
 				addEl(table, thead);
                 var tbody = getEl('tbody');
-                var bp4 = getWidgetData(tabName, 'alphamissense', row, 'benign');
-                var pp3 = getWidgetData(tabName, 'alphamissense', row, 'pathogenic');
+                var bp4 = getWidgetData(tabName, 'alphamissense', row, 'bp4_benign');
+                var pp3 = getWidgetData(tabName, 'alphamissense', row, 'pp3_pathogenic');
                 let pathogenicity 
                 if (bp4 !== null) {
                     pathogenicity = "BP4 " + bp4

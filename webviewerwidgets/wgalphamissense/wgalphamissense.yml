@@ -13,3 +13,5 @@ tags:
 - visualization
 requires_opencravat: '>=2.2.1'
 private: true
+release_note:
+  1.0.0: initial release

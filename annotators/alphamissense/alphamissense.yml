@@ -44,12 +44,12 @@ output_columns:
   desc: 'Scored protein variant'
   hidden: true
   width: 60
-- name: benign
+- name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
   desc: Strength of evidence for benignity.
   width: 100
-- name: pathogenic
+- name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
   desc: Strength of evidence for pathogenicity.

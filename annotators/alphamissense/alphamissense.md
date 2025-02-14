@@ -10,11 +10,11 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 AlphaMissense scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign NA, Pathogenic Supporting, Pathogenic Moderate, Pathogenic NA, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| AlphaMissense Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Strong   |NA      |Moderate     |Supporting   |Supporting   |Moderate     |NA      |Strong   |
-|-|<= 0.700|[0.071, 0.099]|[0.100, 0.169]|[0.792, 0.905]|[0.906, 0.971]|	[0.972, 0.989]|≥0.990|
+| AlphaMissense Thresholds |          |                |                  |                 |        |
+|--------------------------|----------|----------------|------------------|-----------------|--------|
+| Benign (BP4)             |          |                | Pathogenic (PP3) |                 |        |
+| Strong                   | Moderate | Supporting     | Supporting       | Moderate        | Strong |
+| -                        | <= 0.099 | (0.099, 0.169] | [0.792, 0.906)   | [0.906, 0.990)  | ≥0.990 |
 
 \* A "-" means that BayesDel did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 
