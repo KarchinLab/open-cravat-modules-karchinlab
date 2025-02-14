@@ -1,10 +1,24 @@
 import json
+from itertools import chain, islice
 from json import JSONDecodeError
 
 from cravat import BaseConverter
 from cravat import BadFormatError
 import requests
 
+
+def batched(iterable, n):
+    """
+    group the iterator into a new iterator of batches of size n.
+
+    backfill for python 3.12 itertools.batched. borrowed from python.org discussion
+    https://discuss.python.org/t/add-batching-function-to-itertools-module/19357/19?page=2
+    """
+    it = iter(iterable)
+    for first in it:
+        batch = chain((first,), islice(it, n - 1))
+        yield batch
+        next(islice(batch, n, n), None)
 
 class CravatConverter(BaseConverter):
     """
@@ -25,6 +39,7 @@ class CravatConverter(BaseConverter):
         self.coordinates_endpoint = self.api_url + '/coordinates'
         self.format_name = 'hgvs'
         self.valid_sequence_types = ['c', 'g', 'm', 'n', 'o', 'p', 'r']
+        self.exc_handler = None
 
     def _check_line(self, line):
         """For non-comment lines, ensure that the first token is at least vaguely HGVS-like"""
@@ -111,3 +126,17 @@ class CravatConverter(BaseConverter):
             'assembly': tokens['assembly']
         }
         return [wdict]
+
+    def convert_file(self, file, exc_handler=None, *args, **kwargs):
+        self.exc_handler = exc_handler
+        for batch in self._get_batch(file):
+            hgvs_results = self._call_api(batch)
+            batch_wdicts = self._combine_data(batch, clingen_results)
+            for wdict in batch_wdicts:
+                if 'error' in wdict:
+                    if exc_handler:
+                        exc_handler(wdict.get('line_number'), wdict.get('line'), wdict.get('error'))
+                    else:
+                        raise BadFormatError(wdict.get('error'))
+                else:
+                    yield wdict['line_number'], wdict['line'], [wdict]
