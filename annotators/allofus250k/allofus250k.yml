@@ -1,0 +1,222 @@
+# 'title' is the name of the module that will be displayed to the user
+title: All of Us 250k Annotator
+
+# 'version' is the version of the annotator. It is primarily used when 
+# publishing a module, but is required for all modules.
+version: Variant Annotation Table v7.1
+
+# 'type' is the type of module described by this .yml file. In this case it is
+# 'annotator'
+type: annotator
+
+# 'level' is 'variant' or 'gene'
+level: variant
+
+# output_columns has the columns that will be included in the output file.
+# The columns are defined in a list. Each column has three required keys:
+# name, title, and type.
+output_columns:
+  # name is the internal name and is the key used to identify the column in the
+  # dictionary returned by the annotate method of annotator_name.py
+- name: gvs_all_ac
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_all_ac
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_all_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_all_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_all_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_all_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+- name: gvs_max_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_max_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+- name: gvs_max_ac
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_max_ac
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_max_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_max_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_max_subpop
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_max_subpop
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: string
+- name: gvs_afr_ac
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_afr_ac
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_afr_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_afr_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_afr_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_afr_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+- name: gvs_amr_ac
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_amr_ac
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_amr_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_amr_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_amr_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_amr_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+- name: gvs_eas_ac
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_eas_ac
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_eas_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_eas_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_eas_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_eas_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+- name: gvs_eur_ac
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_eur_ac
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_eur_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_eur_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_eur_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_eur_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+- name: gvs_mid_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_mid_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_mid_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_mid_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+- name: gvs_oth_ac
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_oth_ac
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_oth_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_oth_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_oth_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_oth_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+- name: gvs_sas_ac
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_sas_ac
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_sas_an
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_sas_an
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: gvs_sas_af
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: gvs_sas_af
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: float
+
+# description is a short description of what the annotator does. Try to limit it
+# to around 80 characters.
+description: Allele counts and frequencies stratified by calculated genetic ancestry groupings from the All of Us dataset; Variant Annotation Table v7.1
+
+# developer is you!
+developer: 
+  name: 'Moez Dawood'
+  organization: 'All of Us and the Baylor College of Medicine Human Genome Sequencing Center'
+  email: 'mdawood@bcm.edu'
+  website: 'https://support.researchallofus.org/hc/en-us/articles/4615256690836-Variant-Annotation-Table'
+  citation: 'Bick, A. G. et al. Genomic data in the All of Us Research Program. Nature 627, 340–346 (2024).'
+
