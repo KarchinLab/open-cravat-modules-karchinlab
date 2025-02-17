@@ -64,6 +64,7 @@ tags:
 - allele frequency
 title: gnomAD4
 type: annotator
-version: 4.1.0
+version: 4.1.1
 release_note:
   4.1.0: Initial v4 release
+  4.1.1: Fix annotation of indels
