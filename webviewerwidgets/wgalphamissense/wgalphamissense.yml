@@ -1,0 +1,17 @@
+title: AlphaMissense
+version: 1.0.0
+type: webviewerwidget
+required_annotator: alphamissense
+description: AlphaMissense webviewer widget
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
+tags:
+- visualization
+requires_opencravat: '>=2.2.1'
+private: true
+release_note:
+  1.0.0: initial release
