@@ -1,5 +1,5 @@
 title: ESM1b
-version: 1.0.1
+version: 1.1.0
 datasource: dbNSFP v4.7a
 type: annotator
 description: ESM1b is a 650-million-parameter protein language model to predict all ~450 million possible missense variant effects in the human genome.
@@ -34,6 +34,22 @@ output_columns:
   hidden: false
   width: 80
   desc: The variant is predicted as either "Tolerated" or "Deleterious" based on the threshold of -7.5 described in their paper that yields a true-positive rate of 81% and a true-negative rate of 82% in their ClinVar and HGMD test datasets.
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 - hidden: true
   name: all
   title: All Annotations
@@ -61,6 +77,7 @@ tags:
 - variant effect prediction
 - variants
 release_note:
+  1.1.0: pathogenicity calibration
   1.0.1: updated column descriptions
   1.0.0: initial release
 

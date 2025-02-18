@@ -1,5 +1,5 @@
 title: ESM1b
-version: 1.0.0
+version: 1.1.0
 type: webviewerwidget
 required_annotator: esm1b
 description: esm1b webviewer widget
@@ -12,3 +12,5 @@ developer:
 tags:
 - visualization
 requires_opencravat: '>=2.2.1'
+release_note:
+  1.1.0: display pathogenicity calibration
