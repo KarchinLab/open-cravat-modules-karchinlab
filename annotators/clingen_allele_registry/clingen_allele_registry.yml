@@ -1,8 +1,5 @@
 datasource: ClinGen Allele Registry API
-description: The ClinGen Allele Registry provides a canonical identifier for human genetic variants. The Allele Registry 
-  allows cross‐referencing information about variants across major databases by collating alternate variant identifiers.
-
-  This annotator calls the ClinGen Allele Registry API for each variant, and requires an active internet connection to run.
+description: Provide Clingen Allele Registry Identifiers for variants.
 developer:
   citation: Pawliczek P, Patel RY, Ashmore LR, Jackson AR, Bizon C, Nelson T, Powell B, Freimuth RR, Strande N, 
     Shah N, Paithankar S, Wright MW, Dwight S, Zhen J, Landrum M, McGarvey P, Babb L, Plon SE, Milosavljevic A, 
