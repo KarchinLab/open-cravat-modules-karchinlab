@@ -57,6 +57,8 @@ class CravatAnnotator(BaseAnnotator):
                 for i in range(len(transcripts)):
                     transc = transcripts[i]
                     score = scores[i]
+                    transc_benign = get_bin(score, BP4_CUTOFFS)
+                    transc_pathogenic = get_bin(score, PP3_CUTOFFS)
                     if predictions[i] == "T":
                         prediction = "Tolerated"
                     elif predictions[i] == "D":
@@ -64,7 +66,7 @@ class CravatAnnotator(BaseAnnotator):
                     else:
                         prediction = ""
                     
-                    transc_revel_result = [transc, score, rankscore, prediction]
+                    transc_revel_result = [transc, score, rankscore, prediction, transc_benign, transc_pathogenic]
                     precomp_data.append({
                         'transcript':transc,
                         'score': score,
