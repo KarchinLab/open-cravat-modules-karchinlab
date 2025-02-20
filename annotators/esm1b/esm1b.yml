@@ -70,6 +70,9 @@ output_columns:
   - name: prediction
     title: prediction
     type: string
+  - name: pathogenicity
+    title: Pathogenicity
+    type: string
 
 requires:
 - wgesm1b

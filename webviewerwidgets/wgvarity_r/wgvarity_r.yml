@@ -1,0 +1,17 @@
+title: VARITY_R
+version: 1.0.0
+type: webviewerwidget
+requires_opencravat: '>=2.4.2'
+required_annotator: varity_r
+description: VARITY_R webviewer widget
+developer:
+  name: OpenCRAVAT
+  organization: KarchinLab
+  email: support@opencravat.org
+  website:
+  citation: ''
+release_note:
+  1.0.0: intial release
+tags:
+- visualization
+

@@ -1,6 +1,4 @@
 title: AlphaMissense
-# Note: v1.1.0 of AlphaMissense has the calibration scores added but will need to be updated with the new ACMG category that is currently "NA"
-# this annotator should not be included in the first round of the release of these calibrations
 version: 1.1.0
 type: annotator
 level: variant
@@ -79,5 +77,4 @@ developer:
   citation: 'J. Cheng et al., Science 381, eadg7492 (2023). DOI: 10.1126/science.adg7492'
 release_note:
   1.1.0: pathogenicity callibration results.
-private: true
-
+  1.0.0: initial release
