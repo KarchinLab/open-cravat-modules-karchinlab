@@ -1,7 +1,7 @@
 type: annotator
 level: variant
 title: VARITY_R
-version: 1.0.0
+version: 1.1.0
 
 output_columns:
 - name: varity_r
@@ -58,6 +58,9 @@ developer:
 
 requires:
   - wgvarity_r
+release_note:
+  1.1.0: pathogenicity callibration results.
+  1.0.0: initial release
 tags:
 - variants
 - variant effect prediction
