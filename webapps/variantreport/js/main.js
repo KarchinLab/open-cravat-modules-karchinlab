@@ -375,16 +375,22 @@ function showModuleDetail(moduleName, evt) {
 function makeModuleDescUrlTitle(moduleName, text) {
     var div = getEl('div')
     var el = getEl('span')
-    if (text != undefined) {
+    if (text) {
         el.textContent = text
     } else {
-        el.textContent = widgetInfo[moduleName]["title"]
+        if (widgetInfo[moduleName]) {
+            el.textContent = widgetInfo[moduleName]["title"];
+        } else {
+            el.textContent = moduleName;
+        }
     }
     el.classList.add('infoimg')
     addEl(div, el)
-    var annotators = widgetGenerators[moduleName]['annotators']
-    if (annotators == undefined) {
-        annotators = moduleName
+    let annotators = null;
+    if (widgetGenerators[moduleName] && widgetGenerators[moduleName]['annotators']) {
+        annotators = widgetGenerators[moduleName]['annotators'];
+    } else {
+        annotators = moduleName;
     }
     el.addEventListener('click', function(evt) {
         fetch("modulesinfo?modules=" + annotators)
@@ -700,7 +706,7 @@ function showAnnotation(response) {
     showWidget('noncodingpanel', ['base', 'ccre_screen', 'encode_tfbs', 'genehancer', 'vista_enhancer', 'ensembl_regulatory_build', 'trinity', 'segway', 'javierre_promoters'],
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_prediction');
-    const predictionPanelModules = ['bayesdel', 'cadd', 'cadd_exome', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'vest'];
+    const predictionPanelModules = ['alphamissense', 'bayesdel', 'cadd', 'cadd_exome', 'esm1b', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'varity_r', 'vest'];
     showWidget('predictionpanel', predictionPanelModules,
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_functional');
@@ -4284,8 +4290,8 @@ widgetGenerators['predictionpanel'] = {
             var predictions = [];
             let benign = [];
             let pathogenic = [];
-            const names = ['bayesdel', 'cadd', 'cadd_exome', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'vest'];
-            const scoreIds = ['bayesdel_noAF_score', 'score', 'score', 'fathmm_score', 'gerp_rs', 'phylop100_vert', 'primateai_score', 'score', 'score', 'score'];
+            const names = ['alphamissense', 'bayesdel', 'cadd', 'cadd_exome', 'esm1b', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'varity_r', 'vest'];
+            const scoreIds = ['am_pathogenicity', 'bayesdel_noAF_score', 'score', 'score', 'score', 'fathmm_score', 'gerp_rs', 'phylop100_vert', 'primateai_score', 'score', 'score', 'varity_r', 'score'];
             const multiValuePredictors = ['fathmm'];
 
             for (let i=0; i<names.length; i++) {
