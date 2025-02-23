@@ -14,7 +14,6 @@ widgetGenerators['esm1b'] = {
 			if (allMappings != undefined && allMappings != null) {
                 var results = JSON.parse(allMappings);
 				var table = getWidgetTableFrame();
-				// TODO: cvaske should check with kylem about how a row is ordered... most likely by YML? This code is a stab in the dark...
 				var thead = getWidgetTableHead(['Transcript', 'Score', 'Rank score', 'Prediction', 'Pathogenicity']);
 				addEl(table, thead);
 				var tbody = getEl('tbody');
@@ -25,14 +24,15 @@ widgetGenerators['esm1b'] = {
 					var rankscore = row[2];
                     var pred = row[3]
 					var bp4 = row[4];
-					var pp3 = row[5]
+					var pp3 = row[5];
 					var pathogenicity = "Indeterminate";
-					if (bp4 != null) {
-						pathogenicity = "BP4 " + bp4
-					} else if(pp3 !== null) {
-						pathogenicity = "PP3 " + pp3
+					if (bp4) {
+						pathogenicity = "BP4 " + bp4;
+					} else if(pp3) {
+						pathogenicity = "PP3 " + pp3;
 					}
 					var tr = getWidgetTableTr([transcript, score, rankscore, pred, pathogenicity]);
+					const color = getCalibrationGradientColor(pathogenicity)
 					$(tr).children().eq(4).css("background-color", color);
 					$(tr).children().eq(4).css("color", pathogenicity.includes("Strong") ? "white" : "black");
 
