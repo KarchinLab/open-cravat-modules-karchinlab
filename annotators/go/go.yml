@@ -1,4 +1,4 @@
-datasource: 2024.12.10
+datasource: 2025.03.01
 description: Gene Ontology (GO) project provides a comprehensive computable knowledge
   regarding the functions of genes and gene products.
 developer:
@@ -48,8 +48,9 @@ tags:
 - genes
 title: Gene Ontology
 type: annotator
-version: 2024.12.10
+version: 2025.03.01
 release_note:
+  2025.03.01: Data update
   2024.12.10: Data update
   2024.05.01: Data update
   2024.02.01: Data update, fix non-ascii character issue
