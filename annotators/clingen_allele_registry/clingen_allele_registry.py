@@ -15,6 +15,11 @@ class CravatAnnotator(BaseAnnotator):
         alt = input_data['alt_base']
         transcript = input_data.get('transcript')
         cchange = input_data.get('cchange')
+        so = input_data.get('so')
+
+        if '2KD' == so or '2KU' == so or not cchange:
+            return { 'allele_registry_id': '' }
+
         hgvs = f'{transcript}:{cchange}'
         resp = requests.get(f'{ALLELE_REGISTRY_ENDPOINT}{hgvs}')
         resp.raise_for_status()
