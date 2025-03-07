@@ -1,0 +1,41 @@
+type: annotator
+title: EVE
+version: 1.0.0
+datasource: dbNSFP v4.9a
+description: EVE is a unsupervised model designed to predict the clinical relevance of human single amino acid variants by examining the sequences of various organisms throughout evolutionary history.
+
+developer:
+  name: 'Jonathan Frazer, Pascal Notin, Mafalda Dias'
+  organization: 'University of Oxford'
+  email: 'support@opencravat.org'
+  website: 'https://evemodel.org/'
+  citation: 'https://www.nature.com/articles/s41586-021-04043-8'
+
+level: variant
+
+output_columns:
+- name: transcript
+  title: Transcript ID
+  type: string
+  hidden: true
+  width: 120
+  desc: Transcript ID of the transcript containing the most pathogenic score
+- name: score
+  title: Score
+  type: float
+  desc: Most pathogenic score among all transcripts. Scores range from 0 to 1. Higher scores are predicted to be more likely pathogenic.
+- name: rank_score
+  title: Rank Score
+  type: float
+  desc: Ratio of the rank of the score over the total number of EVE scores
+- name: all_annotations
+  title: All Annotations
+  type: string
+  width: 85
+  hidden: true
+
+tags:
+- variant effect prediction
+- variants
+release_note:
+  1.0.0: initial release
