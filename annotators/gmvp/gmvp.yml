@@ -1,0 +1,41 @@
+type: annotator
+title: gMVP
+version: 1.0.0
+datasource: dbNSFP v4.9a
+description: gMVP is a graph attention neural network
+
+developer:
+  name: 'Haicang Zhang'
+  organization: 'Columbia University'
+  email: 'support@opencravat.org'
+  website: 'https://github.com/ShenLab/gMVP'
+  citation: 'https://www.nature.com/articles/s42256-022-00561-w'
+
+level: variant
+
+output_columns:
+- name: transcript
+  title: Transcript ID
+  type: string
+  hidden: true
+  width: 120
+  desc: Transcript ID of the transcript containing the most pathogenic score
+- name: score
+  title: Score
+  type: float
+  desc: Most pathogenic score among all transcripts. Scores range from 0 to 1. Higher scores are predicted to be more likely pathogenic.
+- name: rank_score
+  title: Rank Score
+  type: float
+  desc: Ratio of the rank of the score over the total number of gMVP scores
+- name: all_annotations
+  title: All Annotations
+  type: string
+  width: 85
+  hidden: true
+
+tags:
+- variant effect prediction
+- variants
+release_note:
+  1.0.0: initial release
