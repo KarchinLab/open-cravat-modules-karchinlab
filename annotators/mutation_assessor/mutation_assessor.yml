@@ -37,6 +37,22 @@ output_columns:
   filterable: false
   desc: 'Functional impact: high (H), medium (M), low (L) or neutral (N)'
   hidden: false
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 - hidden: true
   name: all
   title: All Annotations
@@ -60,9 +76,10 @@ tags:
 - variants
 title: Mutation Assessor
 type: annotator
-version: 3.1.1
+version: 3.1.2
 release_note:
-  3.1.0: query now uses gene and protein level annotation.
+  3.1.3: add ACMG calibration for BP4 Benign and PP3 Pathogenic
   3.1.1: fix bug during cleanup method
+  3.1.0: query now uses gene and protein level annotation.
 requires:
 - wgmutation_assessor
