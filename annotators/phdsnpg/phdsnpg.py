@@ -4,6 +4,38 @@ from cravat import InvalidData
 import sqlite3
 import os
 
+
+def discretize_scalar(score, cutoffs):
+    """Locate the location of `score` in a list[tuple(float, str)] of
+    `cutoffs`, where the float cutoff is the maximum value, inclusive
+    of the value, for that label. The last tuple should typically have
+    `float("inf")` as the cutoff, otherwise the function may retun
+    `None`
+
+    The cutoffs must be sorted in increasing value.
+    """
+    prev_cutoff = None
+    for cutoff, label in cutoffs:
+        if score <= cutoff:
+            return label
+        if prev_cutoff is not None and prev_cutoff > cutoff:
+            raise ValueError("cutoffs are not sorted")
+        prev_cutoff = cutoff
+
+
+BP4_CUTOFFS = [
+    (0.322, "Moderate"),
+    (0.771, "Supporting"),
+    (float("inf"), "")
+]
+
+PP3_CUTOFFS = [
+    (0.968, ""),
+    (,0.987 "Supporting"),
+    (float("inf"), "Moderate"),
+]
+
+
 class CravatAnnotator(BaseAnnotator):
 
     def setup(self): 
@@ -36,6 +68,8 @@ class CravatAnnotator(BaseAnnotator):
                     out['prediction'] = 'Benign'
                 out['score'] = row[1]
                 out['fdr'] = row[2]
+                out['bp4_benign'] = discretize_scalar(row[1], BP4_CUTOFFS)
+                out['pp3_pathogenic'] = discretize_scalar(row[1], PP3_CUTOFFS)
         return out
     
     def cleanup(self):
