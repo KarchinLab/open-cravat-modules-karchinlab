@@ -36,19 +36,32 @@ class CravatConverter(BaseConverter):
     def __init__(self):
         super().__init__()
         self.api_url = self.conf['api_url']
-        self.coordinates_endpoint = self.api_url + '/coordinates'
+        self.batch_size = self.conf.get('batch_size', 10000)
+        self.coordinates_endpoint = self.api_url + '/coordinates_all'
         self.format_name = 'hgvs'
         self.valid_sequence_types = ['c', 'g', 'm', 'n', 'o', 'p', 'r']
         self.exc_handler = None
 
-    def _check_line(self, line):
-        """For non-comment lines, ensure that the first token is at least vaguely HGVS-like"""
-        tokens = line.strip('\r\n').split('\t')
-        if len(tokens) == 1:
-            tokens = tokens[0].split()
+    def _initialize_dict(self, line_number, line):
+        hgvs_string, sample, tags = self._get_string_sample_and_tags(line)
+        return {
+            'line': line,
+            'line_number': line_number,
+            'hgvs': hgvs_string,
+            'sample_id': sample,
+            'tags': tags
+        }
 
-        # check that the first token is something like aaaa:X.bbb where X is a valid reference sequence type
-        parts = tokens[0].split(':')
+    def _get_batch(self, file):
+        numbered_file = enumerate(file, start=1)
+        filtered_file = [self._initialize_dict(ln, l) for (ln, l) in numbered_file if self._check_line(ln, l)]
+        for batch in batched(filtered_file, self.batch_size):
+            yield list(batch)
+
+
+    def _validate_id(self, hgvs_string):
+        # check that the hgvs string is something like aaaa:X.bbb where X is a valid reference sequence type
+        parts = hgvs_string.split(':')
         if len(parts) != 2:
             return False, 'HGVS token incorrectly formatted'
         desc_parts = parts[1].split('.')
@@ -57,6 +70,25 @@ class CravatConverter(BaseConverter):
         if desc_parts[0] not in self.valid_sequence_types:
             return False, 'HGVS token incorrectly formatted'
         return True, ''
+
+    def _check_line(self, line_number, line):
+        """For non-comment lines, ensure that the first token is an HGVS string
+
+        Check Line has a side effect of logging an error for invalid lines
+        that are not comments."""
+        tokens = line.strip(' \r\n').split('\t')
+        if len(tokens) == 1:
+            # ignore blank lines
+            if not tokens[0]:
+                return False
+            tokens = tokens[0].split()
+
+        # check that the first token is hgvs-like
+        valid, message = self._validate_id(tokens[0])
+        # report invalid lines
+        if not valid and not tokens[0].startswith('#') and self.exc_handler:
+            self.exc_handler(line_number, line, message)
+        return valid
 
     def _get_string_sample_and_tags(self, line):
         sample = ''
@@ -75,20 +107,23 @@ class CravatConverter(BaseConverter):
         if f.name.endswith('.hgvs'):
             return True
         format_correct = False
+        ln = 1
         for l in f:
             if not (l.startswith('#')) and not len(l.strip()) == 0:
-                format_correct, _ = self._check_line(l)
+                format_correct = self._check_line(ln, l)
                 if format_correct:
                     break
+            ln += 1
         return format_correct
 
     def setup(self, f):
         """Ensure connection to the HGVS API, raise exception if anything goes wrong"""
-        r = requests.get(f'{self.api_url}/hello', timeout=1)
+        r = requests.get(f'{self.api_url}/hello', timeout=2)
         r.raise_for_status()
 
-    def _call_api(self, hgvs):
-        data = {'hgvs': hgvs}
+    def _call_api(self, hgvs_wdicts):
+        hgvs_list = [x['hgvs'] for x in hgvs_wdicts]
+        data = {'hgvs': hgvs_list}
         headers = {'Content-Type': 'application/json'}
         r = requests.post(self.coordinates_endpoint, data=json.dumps(data), headers=headers)
         r.raise_for_status()
@@ -98,40 +133,27 @@ class CravatConverter(BaseConverter):
             js = f'{{"body": "{r.status_code} - {r.text}"}}'
         return r.json()
 
-    def convert_line(self, line):
-        line = line.strip()
-        if not line:
-            return self.IGNORE
-        if line.startswith('#'):
-            return self.IGNORE
-        format_correct, format_msg = self._check_line(line)
-        if not format_correct:
-            raise BadFormatError(format_msg)
+    def _combine_data(self, batch, results):
+        for variant in batch:
+            hgvs_string = variant.get('hgvs')
+            if hgvs_string in results.get('coordinates'):
+                # add coordinates to wdict
+                result = results.get('coordinates').get(hgvs_string)
+                variant['chrom'] = result.get('chrom')
+                variant['pos'] = result.get('pos')
+                variant['alt_base'] = result.get('alt')
+                variant['ref_base'] = result.get('ref')
+            elif hgvs_string in results.get('errors'):
+                variant['error'] = results.get('errors').get(hgvs_string)
 
-        hgvs_string, sample, tags = self._get_string_sample_and_tags(line)
+        return batch
 
-        tokens = self._call_api(hgvs_string)
-        # {'alt': 'A', 'assembly': 'hg38', 'body': 'HGVS successfully converted to coordinates', 'chrom': 'chrX', 'code': 200, 'hgvs': 'NC_000023.11:g.32389644G>A', 'is_valid': True, 'original': 'NM_004006.2:c.4375C>T', 'pos': 32389644, 'ref': 'G'}
-        assembly = tokens['assembly']
-        if self.input_assembly and self.input_assembly != assembly:
-            raise BadFormatError(
-                f'HGVS {hgvs_string} found to be from assembly {assembly}; expected {self.input_assembly}')
-        wdict = {
-            'tags': tags,
-            'chrom': tokens['chrom'],
-            'pos': tokens['pos'],
-            'ref_base': tokens['ref'],
-            'alt_base': tokens['alt'],
-            'sample_id': sample,
-            'assembly': tokens['assembly']
-        }
-        return [wdict]
 
     def convert_file(self, file, exc_handler=None, *args, **kwargs):
         self.exc_handler = exc_handler
         for batch in self._get_batch(file):
             hgvs_results = self._call_api(batch)
-            batch_wdicts = self._combine_data(batch, clingen_results)
+            batch_wdicts = self._combine_data(batch, hgvs_results)
             for wdict in batch_wdicts:
                 if 'error' in wdict:
                     if exc_handler:
