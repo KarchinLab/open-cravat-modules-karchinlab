@@ -5,6 +5,37 @@ import sqlite3
 import os
 import time
 
+
+def discretize_scalar(score, cutoffs):
+    """Locate the location of `score` in a list[tuple(float, str)] of
+    `cutoffs`, where the float cutoff is the maximum value, inclusive
+    of the value, for that label. The last tuple should typically have
+    `float("inf")` as the cutoff, otherwise the function may retun
+    `None`
+
+    The cutoffs must be sorted in increasing value.
+    """
+    prev_cutoff = None
+    for cutoff, label in cutoffs:
+        if score <= cutoff:
+            return label
+        if prev_cutoff is not None and prev_cutoff > cutoff:
+            raise ValueError("cutoffs are not sorted")
+        prev_cutoff = cutoff
+
+
+BP4_CUTOFFS = [
+    (0.76, "Moderate"),
+    (1.24, "Supporting"),
+    (float("inf"), "")
+]
+
+PP3_CUTOFFS = [
+    (2.77, ""),
+    (3.52, "Supporting"),
+    (float("inf"), "Moderate"),
+]
+
 class CravatAnnotator(BaseAnnotator):    
     def annotate(self, input_data, secondary_data=None):
         out = {}
@@ -52,7 +83,15 @@ class CravatAnnotator(BaseAnnotator):
                 worst_mapping = precomp[max_index]
                 worst_rankscore = worst_mapping['rankscore']
                 worst_impact = worst_mapping['impact']
-                out = {'transcript': all_transcripts, 'score': max_score, 'rankscore': worst_rankscore,'impact': worst_impact, 'all': all_results_list}
+                out = {
+                    'transcript': all_transcripts,
+                    'score': max_score,
+                    'rankscore': worst_rankscore,
+                    'impact': worst_impact,
+                    'bp4_benign': discretize_scalar(max_score, BP4_CUTOFFS),
+                    'pp3_pathogenic', discretize_scalar(max_score, PP3_CUTOFFS),
+                    'all': all_results_list
+                }
                 return out
     
 if __name__ == '__main__':

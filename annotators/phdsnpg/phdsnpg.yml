@@ -27,13 +27,31 @@ output_columns:
   type: float
   filterable: false
   desc: False discovery rate
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 tags:
 - variant effect prediction
 - variants
 title: PhD-SNPg
 type: annotator
-version: 0.0.9
+version: 0.1.0
 requires:
 - wgphdsnpg
 release_note:
+  0.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
   0.0.9: non-canonical chrom support for older oc versions
+

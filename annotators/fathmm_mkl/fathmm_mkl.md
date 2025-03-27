@@ -40,3 +40,20 @@ We used 10 feature groups, denoted [A–J], which could be predictive of disease
 
 Information from http://fathmm.biocompute.org.uk/fathmmMKL.htm#interpretation and https://academic.oup.com/bioinformatics/article/31/10/1536/177080
 
+
+## Clinical Application
+
+ The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select variant effect predictors are reliable as Very Strong, Strong, or Moderate evidence for Pathogenicity (PP3) or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013). FATHMM MKL scores have been calbrated by the Karchin Lab according to these methods using the code and variant sites.
+
+ | FATHMM MKL Thresholds |        |              |                 |                  |          |        |             |
+ |------------------|--------|--------------|-----------------|------------------|----------|--------|-------------|
+ | Benign (BP4)     |        |              |                 | Pathogenic (PP3) |          |        |             |
+ | Very Strong      | Strong | Moderate     | Supporting      | Supporting       | Moderate | Strong | Very Strong |
+ | -                | <=0    | (0 , 0.4274] | (0.4274, 0.806] | > 0.9722         | -        | -      | -           |
+
+
+ \* A "-" means that FATHMM MKL did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
+
+ ### Indeterminate Scores
+
+ If the FATHMM MKL score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding FATHMM MKL widget.
