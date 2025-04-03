@@ -4627,7 +4627,7 @@ class Mapper(cravat.BaseMapper):
     def setup(self):
         self.module_dir = os.path.dirname(__file__)
         data_dir = os.path.join(self.module_dir, "data")
-        db_path = os.path.join(data_dir, "gene_33_10000.sqlite")
+        db_path = os.path.join(data_dir, "gene_47_10000.sqlite")
         self.db = Mapper._get_db(db_path)
         self.c = self.db.cursor()
         self.c2 = self.db.cursor()
@@ -4637,7 +4637,7 @@ class Mapper(cravat.BaseMapper):
         q = 'select v from info where k="gencode_ver"'
         self.c.execute(q)
         self.ver = self.c.fetchone()[0]
-        mrnas_path = os.path.join(data_dir, "mrnas_33.pickle")
+        mrnas_path = os.path.join(data_dir, "mrnas_47.pickle")
         f = open(mrnas_path, "rb")
         self.mrnas = pickle.load(f)
         self.prots = pickle.load(f)
