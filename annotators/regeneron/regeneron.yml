@@ -1,0 +1,58 @@
+# 'title' is the name of the module that will be displayed to the user
+title: Regeneron 
+
+# 'version' is the version of the annotator. It is primarily used when 
+# publishing a module, but is required for all modules.
+version: RGC-ME dataset derived from 983,578 exomes at https://rgc-research.regeneron.com/me/home
+
+# 'type' is the type of module described by this .yml file. In this case it is
+# 'annotator'
+type: annotator
+
+# 'level' is 'variant' or 'gene'
+level: variant
+
+# output_columns has the columns that will be included in the output file.
+# The columns are defined in a list. Each column has three required keys:
+# name, title, and type.
+output_columns:
+  # name is the internal name and is the key used to identify the column in the
+  # dictionary returned by the annotate method of annotator_name.py
+- name: ALL_AC
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: Total Allele Count
+  # type is the data type of the value. It is primarily used when storing the 
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: ALL_AN
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: Total Allele Number
+  # type is the data type of the value. It is primarily used when storing the
+  # results in a database. It may be one of string, int, or float.
+  type: int
+- name: ALL_AF
+  # title is the display name of this column, similar to the title of the module.
+  # It can be changed without affecting the functionality of CRAVAT
+  title: Total Allele Frequency
+  # type is the data type of the value. It is primarily used when storing the
+  # results in a database. It may be one of string, int, or float.
+  type: float
+
+# description is a short description of what the annotator does. Try to limit it
+# to around 80 characters.
+description: Allele counts and frequencies from the Regeneron Million Exomes dataset.
+
+tags:
+- variant
+- allele frequency
+
+# developer is you!
+developer: 
+  name: 'Moez Dawood'
+  organization: 'Regeneron Genetics Center and Baylor College of Medicine Human Genome Sequencing Center'
+  email: 'mdawood@bcm.edu'
+  website: 'https://rgc-research.regeneron.com/me/home'
+  citation: 'Sun, K. Y. et al. A deep catalogue of protein-coding variation in 983,578 individuals. Nature 631, 583–592 (2024).'
+
