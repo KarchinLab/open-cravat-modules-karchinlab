@@ -3,7 +3,7 @@ title: Regeneron
 
 # 'version' is the version of the annotator. It is primarily used when 
 # publishing a module, but is required for all modules.
-version: RGC-ME dataset derived from 983,578 exomes at https://rgc-research.regeneron.com/me/home
+version: 1.0.0
 
 # 'type' is the type of module described by this .yml file. In this case it is
 # 'annotator'
