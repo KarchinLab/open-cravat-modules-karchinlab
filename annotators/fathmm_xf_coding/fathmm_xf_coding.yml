@@ -32,12 +32,30 @@ output_columns:
   hidden: false
   width: 65
   category: single
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 
 tags:
 - variant effect prediction
 - variants
 title: FATHMM XF Coding
-version: 1.0.0
+version: 1.1.0
+release_note:
+  1.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
 type: annotator
 smartfilters:
 - name: rankscore

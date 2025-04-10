@@ -5,6 +5,48 @@ import sqlite3
 import os
 import re
 
+
+def discretize_scalar(score, cutoffs):
+    """Locate the location of `score` in a list[tuple(float, str)] of
+    `cutoffs`, where the float cutoff is the maximum value, inclusive
+    of the value, for that label. The last tuple should typically have
+    `float("inf")` as the cutoff, otherwise the function may retun
+    `None`
+
+    The cutoffs must be sorted in increasing value.
+    """
+    prev_cutoff = None
+    for cutoff, label in cutoffs:
+        if score <= cutoff:
+            return label
+        if prev_cutoff is not None and prev_cutoff > cutoff:
+            raise ValueError("cutoffs are not sorted")
+        prev_cutoff = cutoff
+
+
+## If our version of cravat is recent enough to have discretize_scalar,
+## use that.
+##
+## TODO: replace with a direct import after broad distribution
+try:
+    from cravat.util import discretize_scalar as cravat_discretize_scalar
+    discretize_scalar = cravat_discretize_scalar
+except (ImportError, AttributeError):
+    pass
+
+
+BP4_CUTOFFS = [
+    (0.222, "Moderate"),
+    (0.395, "Supporting"),
+    (float("inf"), "")
+]
+
+PP3_CUTOFFS = [
+    (0.707, ""),
+    (0.82, "Supporting"),
+    (float("inf"), "Moderate")
+]
+
 class CravatAnnotator(BaseAnnotator):
 
     def setup(self):
@@ -84,6 +126,8 @@ class CravatAnnotator(BaseAnnotator):
                     out['external_protein_id'] = worst_protein_id
                     out['amino_acid_substitution'] = worst_aa
                     out['mutpred_general_score'] = worst_score
+                    out['bp4_benign'] = discretize_scalar(worst_score, BP4_CUTOFFS)
+                    out['pp3_benign'] = discretize_scalar(worst_score, PP3_CUTOFFS)
                     if mutpred_top5_mechanisms is not None:
                         out['mutpred_top5_mechanisms'] = all_results_list
                     else:
