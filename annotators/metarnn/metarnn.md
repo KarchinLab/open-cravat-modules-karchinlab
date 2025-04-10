@@ -1,3 +1,20 @@
 # MetaRNN
 
 MetaRNN is a pathogenicity prediction score for human nonsynonymous SNVs (nsSNVs). It integrates information from 28 high-level annotation scores (16 functional prediction scores including SIFT, Polyphen2_HDIV, Polyphen2_HVAR, MutationAssessor, PROVEAN, VEST4, M-CAP, REVEL, MutPred, MVP, PrimateAI, DEOGEN2, CADD, fathmm-XF, Eigen and GenoCanyon, 8 conservation scores including GERP, phyloP100way_vertebrate, phyloP30way_mammalian, phyloP17way_primate, phastCons100way_vertebrate, phastCons30way_mammalian, phastCons17way_primate and SiPhy, and 4 allele frequency information from the 1000 Genomes Project, ExAC, gnomAD exome, and gnomAD genome) to produce an ensemble prediction model with a deep recurrent neural network (RNN). The final prediction is the likelihood of a nsSNV being pathogenic. 
+
+## Clinical Application
+
+ The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select variant effect predictors are reliable as Very Strong, Strong, or Moderate evidence for Pathogenicity (PP3) or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013). MetaRNN scores have been calbrated by the Karchin Lab according to these methods using the code and variant sites.
+
+ | MetaRNN Thresholds |             |                      |                      |                      |                      |            |             |
+ |--------------------|-------------|----------------------|----------------------|----------------------|----------------------|------------|-------------|
+ | Benign (BP4)       |             |                      |                      | Pathogenic (PP3)     |                      |            |             |
+ | Very Strong        | Strong      | Moderate             | Supporting           | Supporting           | Moderate             | Strong     | Very Strong |
+ | -                  | <= 0.052789 | (0.052789, 0.188378] | (0.188378, 0.295726] | (0.655095, 0.786338] | (0.786338, 0.934075] | > 0.934075 | -           |
+
+
+ \* A "-" means that MetaRNN did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
+
+ ### Indeterminate Scores
+
+ If the MetaRNN score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding MetaRNN widget.

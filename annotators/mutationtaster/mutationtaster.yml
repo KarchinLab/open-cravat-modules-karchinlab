@@ -45,6 +45,22 @@ output_columns:
   width: 80
   hidden: true
   category: multi
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 - hidden: true
   name: all
   title: All Annotations
@@ -77,8 +93,10 @@ tags:
 requires_opencravat: '>=2.2.1'
 
 title: MutationTaster
-version: 1.0.0
+version: 1.1.0
 type: annotator
+release_note:
+  1.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
 
 
 

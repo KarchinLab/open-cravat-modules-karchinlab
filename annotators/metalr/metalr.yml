@@ -51,9 +51,9 @@ tags:
 - variant effect prediction
 - variants
 title: MetaLR
-version: 1.0.4
+version: 1.1.0
 type: annotator
 release_note:
-  1.0.4: added bp4_benign and pp3_pathogenic columns
+  1.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
   1.0.3: bugfix
   1.0.1: bugfix for variants without annotation

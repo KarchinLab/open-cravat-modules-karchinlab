@@ -5,14 +5,13 @@ import sqlite3
 import os
 
 BP4_CUTOFFS = [
-    (0, "Strong"),
-    (0.4274, "Moderate"),
-    (0.806, "Supporting"),
+    (0.2513, "Moderate"),
+    (0.6779, "Supporting"),
     (float("inf"), "")
 ]
 
 PP3_CUTOFFS = [
-    (0.9722, ""),
+    (0.9747, ""),
     (float("inf"), "Supporting"),
 ]
 
@@ -35,6 +34,17 @@ def discretize_scalar(score, cutoffs):
         prev_cutoff = cutoff
 
 
+## If our version of cravat is recent enough to have discretize_scalar,
+## use that.
+##
+## TODO: replace with a direct import after broad distribution
+try:
+    from cravat.util import discretize_scalar as cravat_discretize_scalar
+    discretize_scalar = cravat_discretize_scalar
+except (ImportError, AttributeError):
+    pass
+
+
 class CravatAnnotator(BaseAnnotator):
     def annotate(self, input_data, secondary_data=None):
         q = 'select fathmm_mkl_coding_score, fathmm_mkl_coding_rankscore, fathmm_mkl_coding_pred, fathmm_mkl_group from {chr} where pos = {pos} and ref = "{ref}" and alt = "{alt}"'.format(
@@ -52,7 +62,7 @@ class CravatAnnotator(BaseAnnotator):
                 'fathmm_mkl_coding_score': row[0],
                 'fathmm_mkl_coding_rankscore': row[1],
                 'fathmm_mkl_coding_pred': pred,
-                'fathmm_mkl_group': row[3]
+                'fathmm_mkl_group': row[3],
                 'bp4_pathogenic': discretize_scalar(row[0], BP4_CUTOFFS),
                 'pp3_pathogenic': discretize_scalar(row[0], PP3_CUTOFFS),
             }

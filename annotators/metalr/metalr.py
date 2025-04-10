@@ -22,19 +22,27 @@ def discretize_scalar(score, cutoffs):
             raise ValueError("cutoffs are not sorted")
         prev_cutoff = cutoff
 
+## If our version of cravat is recent enough to have discretize_scalar,
+## use that.
+##
+## TODO: replace with a direct import after broad distribution
+try:
+    from cravat.util import discretize_scalar as cravat_discretize_scalar
+    discretize_scalar = cravat_discretize_scalar
+except (ImportError, AttributeError):
+    pass
+
 
 BP4_CUTOFFS = [
-    (0.0042, "Strong"),
-    (0.0965, "Moderate"),
-    (0.2447, "Supporting"),
+    (0.0576, "Moderate"),
+    (0.1762, "Supporting"),
     (float("inf"), "")
 ]
 
 PP3_CUTOFFS = [
-    (0.805, ""),
-    (0.8926, "Supporting"),
-    (0.9992, "Moderate"),
-    (float("inf"), "Strong")
+    (0.8198, ""),
+    (0.9025, "Supporting"),
+    (float("inf"), "Moderate"),
 ]
 
 class CravatAnnotator(BaseAnnotator):
@@ -54,30 +62,6 @@ class CravatAnnotator(BaseAnnotator):
                 pred = 'Damaging'
             else:
                 pred = None
-                
-            # Determine bp4_benign and pp3_pathogenic based on score
-            # These cutoffs should be adjusted based on your new cutoffs
-            bp4_benign = ""
-            pp3_pathogenic = ""
-            
-            if score <= 0.1:
-                bp4_benign = "Strong"
-                pp3_pathogenic = ""
-            elif score > 0.1 and score <= 0.3:
-                bp4_benign = "Moderate"
-                pp3_pathogenic = ""
-            elif score > 0.3 and score <= 0.45:
-                bp4_benign = "Supporting"
-                pp3_pathogenic = ""
-            elif score >= 0.7 and score < 0.8:
-                bp4_benign = ""
-                pp3_pathogenic = "Supporting"
-            elif score >= 0.8 and score < 0.9:
-                bp4_benign = ""
-                pp3_pathogenic = "Moderate"
-            elif score >= 0.9:
-                bp4_benign = ""
-                pp3_pathogenic = "Strong"
             
             out = {
                 'score': score, 

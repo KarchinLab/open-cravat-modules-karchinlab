@@ -15,7 +15,7 @@ Functional impact is calculated based on evolutionary conservation of the affect
  |------------------------------|--------|----------|--------------|------------------|----------|--------|-------------|
  | Benign (BP4)                 |        |          |              | Pathogenic (PP3) |          |        |             |
  | Very Strong                  | Strong | Moderate | Supporting   | Supporting       | Moderate | Strong | Very Strong |
- | -                            | -      | <= 0.76  | (0.76, 1.24] | (2.77, 3.52]     | > 3.52   | -      | -           |
+ | -                            | -      | <= -0.3  | (-0.3, 0.99] | (2.88, 3.62]     | > 3.62   | -      | -           |
 
  \* A "-" means that Mutation Assessor did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

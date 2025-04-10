@@ -15,7 +15,7 @@ PhD-SNPg is a binary classifier that implements Gradient Boosting-based algorith
  |---------------------|--------|----------|----------------|------------------|----------|--------|-------------|
  | Benign (BP4)        |        |          |                | Pathogenic (PP3) |          |        |             |
  | Very Strong         | Strong | Moderate | Supporting     | Supporting       | Moderate | Strong | Very Strong |
- | -                   | -      | <= 0.322 | (0.322, 0.771] | (0.968, 0.987]   | >0.987   | -      | -           |
+ | -                   | -      | <= 0.298 | (0.298, 0.665] | (0.972, 0.988]   | >0.988   | -      | -           |
 
  \* A "-" means that PhD-SNPg did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

@@ -23,15 +23,26 @@ def discretize_scalar(score, cutoffs):
         prev_cutoff = cutoff
 
 
+## If our version of cravat is recent enough to have discretize_scalar,
+## use that.
+##
+## TODO: replace with a direct import after broad distribution
+try:
+    from cravat.util import discretize_scalar as cravat_discretize_scalar
+    discretize_scalar = cravat_discretize_scalar
+except (ImportError, AttributeError):
+    pass
+
+
 BP4_CUTOFFS = [
-    (0.322, "Moderate"),
-    (0.771, "Supporting"),
+    (0.298, "Moderate"),
+    (0.665, "Supporting"),
     (float("inf"), "")
 ]
 
 PP3_CUTOFFS = [
-    (0.968, ""),
-    (,0.987 "Supporting"),
+    (0.972, ""),
+    (0.988, "Supporting"),
     (float("inf"), "Moderate"),
 ]
 

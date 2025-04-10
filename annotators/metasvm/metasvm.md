@@ -35,7 +35,7 @@ Information from https://academic.oup.com/hmg/article/24/8/2125/651446#81269181
  |--------------------|--------|----------|------------|------------------|----------|--------|-------------|
  | Benign (BP4)       |        |          |            | Pathogenic (PP3) |          |        |             |
  | Very Strong        | Strong | Moderate | Supporting | Supporting       | Moderate | Strong | Very Strong |
- | -                  | -      | -        | -          | (0.5804, 0.8573] | > 0.8573 | -      | -           |
+ | -                  | -      | -        | -          | (0.6516, 0.8744] | > 0.8744 | -      | -           |
 
 
  \* A "-" means that MetaSVM did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
