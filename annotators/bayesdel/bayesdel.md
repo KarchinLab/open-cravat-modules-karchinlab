@@ -2,6 +2,8 @@
 
 BayesDel is a meta-score that assesses the pathogenicity of genetic variants. BayesDel provides scores and prediction both with and without the inclusion of Max Allele Frequency (this is the highest background population frequency among available continental popoulations). The higher the score, the more likely the variant is pathogenic. The author provides a universal cutoff value between Deleterious and Tolerated predictions that was obtained by maximizing sensitivity and specificity in classifying ClinVar variants. The cutoff is 0.0692655 with MaxAF and -0.0570105 without MaxAF.
 
+The component scores for BayesDel include PolyPhen2, SIFT, FATHMM, LRT, Mutation Taster, Mutation Assessor, PhyloP, GERP++, and SiPhy. Scores with population allele frequency information include the maximum minor allele frequence across populations in the Exome Aggregation Consortium (ExAC) version 0.3 and the 1000 Genomes Project (G1K) phase 3.
+
 ## Data Disclaimer
 
 The author of BayesDel does not provide precalculated scores for all genomic variants, therefore the BayesDel annotator only includes missense variants.
