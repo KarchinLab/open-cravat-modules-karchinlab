@@ -3421,6 +3421,8 @@ widgetGenerators['mavedb2'] = {
                 score = prettyVal(score)
             }
             var acc = getWidgetData(tabName, 'mavedb', row, 'accession')
+            var dl = getEl('dl')
+            addEl(div, dl)
             if (acc != null || acc != undefined) {
                 var link = 'https://www.mavedb.org/scoreset/' + acc;
                 var a = makeA(acc, link);
