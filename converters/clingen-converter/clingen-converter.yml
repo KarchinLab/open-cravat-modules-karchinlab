@@ -1,5 +1,5 @@
 title: Clingen Allele Registry Converter
-version: 1.0.0
+version: 1.0.1
 type: converter
 description: File converter for Clingen Allele Registry Canonical Allele Identifiers
 api_url: https://reg.clinicalgenome.org/alleles?file=id
@@ -14,4 +14,5 @@ requires_opencravat: '>=1.8.0'
 tags:
   - input/output
 release_note:
+  1.0.1: Fix 0-based indexing error
   1.0.0: Initial release of Clingen Allele Registry input
