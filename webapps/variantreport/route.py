@@ -91,7 +91,7 @@ def coordinates_from_clingen_json(ca_id, data):
             coords = ga.get('coordinates')[0]
             return {
                 'chrom': f'chr{ga.get("chromosome")}',
-                'pos': int(coords.get('start')),
+                'pos': int(coords.get('start')) + 1,
                 'ref_base': format_allele(coords.get('referenceAllele')),
                 'alt_base': format_allele(coords.get('allele')),
                 'assembly': 'hg38'

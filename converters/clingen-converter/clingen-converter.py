@@ -157,7 +157,9 @@ class CravatConverter(BaseConverter):
                 pos_data = coord_data['coordinates'][0]
 
                 info['chrom'] = f"chr{coord_data['chromosome']}"
-                info['pos'] = str(pos_data['start'])
+                # change to 1-base indexing
+                start_pos = int(pos_data['start']) + 1
+                info['pos'] = str(start_pos)
                 info['ref_base'] = self._format_allele(pos_data['referenceAllele'])
                 info['alt_base'] = self._format_allele(pos_data['allele'])
             except Exception as e:
