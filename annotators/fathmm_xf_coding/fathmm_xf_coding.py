@@ -53,7 +53,13 @@ class CravatAnnotator(BaseAnnotator):
         if row:
             pred = str(row[2]).replace('N', 'Neutral')
             pred = pred.replace('D', 'Damaging')
-            out = {'fathmm_xf_coding_score': row[0], 'fathmm_xf_coding_rankscore': row[1], 'fathmm_xf_coding_pred': pred}
+            out = {
+                'fathmm_xf_coding_score': row[0],
+                'fathmm_xf_coding_rankscore': row[1],
+                'fathmm_xf_coding_pred': pred,
+                'bp4_pathogenic': discretize_scalar(row[0], BP4_CUTOFFS),
+                'pp3_pathogenic': discretize_scalar(row[0], PP3_CUTOFFS),
+            }
         else:
             out = None
         return out
