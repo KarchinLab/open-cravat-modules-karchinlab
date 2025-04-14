@@ -1,0 +1,154 @@
+title: All of Us
+tags:
+- variants
+- allele frequency
+
+
+version: 7.1.0
+datasource: Variant Annotation Table v7.1
+
+description: Allele counts and frequencies stratified by calculated genetic ancestry groupings from the All of Us dataset; Variant Annotation Table v7.1
+
+developer: 
+  name: 'Moez Dawood'
+  organization: 'All of Us and the Baylor College of Medicine Human Genome Sequencing Center'
+  email: 'mdawood@bcm.edu'
+  website: 'https://support.researchallofus.org/hc/en-us/articles/4615256690836-Variant-Annotation-Table'
+  citation: 'Bick, A. G. et al. Genomic data in the All of Us Research Program. Nature 627, 340–346 (2024).'
+
+type: annotator
+
+level: variant
+
+output_columns:
+- name: gvs_all_ac
+  title: All AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_all_an
+  title: All AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_all_af
+  title: All AF
+  type: float
+  width: 65
+- name: gvs_max_ac
+  title: Max AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_max_an
+  title: Max AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_max_af
+  title: Max AF
+  type: float
+  width: 65
+- name: gvs_max_subpop
+  title: Max Sub-Population
+  type: string
+  width: 70
+- name: gvs_afr_ac
+  title: African AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_afr_an
+  title: African AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_afr_af
+  title: African AF
+  type: float
+  width: 65
+- name: gvs_amr_ac
+  title: Ad-Mixed American AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_amr_an
+  title: Ad-Mixed American AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_amr_af
+  title: Ad-Mixed American AF
+  type: float
+  width: 65
+- name: gvs_eas_ac
+  title: East Asian AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_eas_an
+  title: East Asian AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_eas_af
+  title: East Asian AF
+  type: float
+  width: 65
+- name: gvs_eur_ac
+  title: European AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_eur_an
+  title: European AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_eur_af
+  title: European AF
+  type: float
+  width: 65
+- name: gvs_mid_ac
+  title: Middle Eastern AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_mid_an
+  title: Middle Eastern AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_mid_af
+  title: Middle Eastern AF
+  type: float
+  width: 65
+- name: gvs_oth_ac
+  title: Other AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_oth_an
+  title: Other AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_oth_af
+  title: Other AF
+  type: float
+  width: 65
+- name: gvs_sas_ac
+  title: South Asian AC
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_sas_an
+  title: South Asian AN
+  type: int
+  width: 65
+  hidden: true
+- name: gvs_sas_af
+  title: South Asian AF
+  type: float
+  width: 65
+
