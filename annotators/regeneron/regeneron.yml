@@ -45,7 +45,7 @@ output_columns:
 description: Allele counts and frequencies from the Regeneron Million Exomes dataset.
 
 tags:
-- variant
+- variants
 - allele frequency
 
 # developer is you!
