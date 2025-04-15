@@ -19,9 +19,9 @@ FATHMM scores have been calbrated and validated as reliable to support Benign Su
 |------------------|-------------|------------------:|
 | Benign (BP4)     | Very Strong |                 - |
 |                  | Strong      |                 - |
-|                  | Moderate    |             ≥4.69 |
+|                  | Moderate    |             >4.69 |
 |                  | Supporting  |      [3.32, 4.69) |
-| Pathogenic (PP3) | Supporting  |    (−5.04, −4.14] |
+| Pathogenic (PP3) | Supporting  |    [−5.04, −4.14) |
 |                  | Moderate    |           ≤ −5.04 |
 |                  | Strong      |                 - |
 |                  | Very Strong |                 - |

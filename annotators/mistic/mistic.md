@@ -14,16 +14,16 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 MISTIC scores (that do not include the background population frequency of the variant) have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Pathogenic Supporting, Pathogenic Moderate, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| ACMG Category    | Strength    | MISTIC Thresholds |
-|------------------|-------------|------------------:|
-| Benign (BP4)     | Very Strong |                 - |
-|                  | Strong      |                 - |
-|                  | Moderate    |           ≤ −0.36 |
-|                  | Supporting  |    (−0.36, −0.18] |
-| Pathogenic (PP3) | Supporting  |      [0.13, 0.27) |
-|                  | Moderate    |      [0.27, 0.50) |
-|                  | Strong      |             ≥0.50 |
-|                  | Very Strong |                 - |
-|                  |             |                   |
+| ACMG Category    | Strength    |    MISTIC Thresholds |
+|------------------|-------------|---------------------:|
+| Benign (BP4)     | Very Strong |           <= 0.01331 |
+|                  | Strong      |  (0.01331, 0.026637] |
+|                  | Moderate    | (0.026637, 0.455706] |
+|                  | Supporting  | (0.455706, 0.700749] |
+| Pathogenic (PP3) | Supporting  | (0.700749, 0.799214] |
+|                  | Moderate    | [0.799214, 0.909142] |
+|                  | Strong      |            >0.909142 |
+|                  | Very Strong |                    - |
+|                  |             |                      |
 
 \* A "-" means that MISTIC did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
