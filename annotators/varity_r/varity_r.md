@@ -13,11 +13,16 @@ The VARITY approach for pathogenicity prediction, which has been specifically op
 
 VARITY scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Benign Very Strong, Pathogenic Supporting, Pathogenic Moderate, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic. Calibration cutoffs were obtained from Bergquist et al., “Calibration of Additional Computational Tools Expands ClinGen Recommendation Options for Variant Classification with PP3/BP4 Criteria.” bioRxiv 2024.09.17.611902; doi:10.1101/2024.09.17.611902
 
- | ESM1b Thresholds |        |                |                 |                  |                |         |             |
- |------------------|--------|----------------|-----------------|------------------|----------------|---------|-------------|
- | Benign (BP4)     |        |                |                 | Pathogenic (PP3) |                |         |             |
- | Very Strong      | Strong | Moderate       | Supporting      | Supporting       | Moderate       | Strong  | Very Strong |
- | -                | ≤0.036 | (0.036, 0.116] | (0.0116, 0.251] | (0.675, 0.841]   | (0.841, 0.964] | >0.964 | -           |
+| ACMG Category    | Strength    | ESM1b Thresholds |
+|------------------|-------------|-----------------:|
+| Benign (BP4)     | Very Strong |                - |
+|                  | Strong      |           ≤0.036 |
+|                  | Moderate    |   (0.036, 0.116] |
+|                  | Supporting  |  (0.0116, 0.251] |
+| Pathogenic (PP3) | Supporting  |   (0.675, 0.841] |
+|                  | Moderate    |   (0.841, 0.964] |
+|                  | Strong      |           >0.964 |
+|                  | Very Strong |                - |
 
 
  \* A "-" means that Varity did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.

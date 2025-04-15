@@ -18,13 +18,13 @@ FATHMM scores have been calbrated and validated as reliable to support Benign Su
 | ACMG Category    | Strength    | FATHMM Thresholds |
 |------------------|-------------|------------------:|
 | Benign (BP4)     | Very Strong |                 - |
-| Benign (BP4)     | Strong      |                 - |
-| Benign (BP4)     | Moderate    |             ≥4.69 |
-| Benign (BP4)     | Supporting  |      [3.32, 4.69) |
+|                  | Strong      |                 - |
+|                  | Moderate    |             ≥4.69 |
+|                  | Supporting  |      [3.32, 4.69) |
 | Pathogenic (PP3) | Supporting  |    (−5.04, −4.14] |
-| Pathogenic (PP3) | Moderate    |           ≤ −5.04 |
-| Pathogenic (PP3) | Strong      |                 - |
-| Pathogenic (PP3) | Very Strong |                 - |
+|                  | Moderate    |           ≤ −5.04 |
+|                  | Strong      |                 - |
+|                  | Very Strong |                 - |
 
 \* A "-" means that FATHMM did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

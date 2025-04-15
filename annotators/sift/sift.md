@@ -21,11 +21,16 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 SIFT scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Pathogenic Supporting and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| SIFT Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
-|-|-|≥0.327|[0.080, 0.327)|(0, 0.001]|0|	-|   -   |
+| ACMG Category    | Strength    | SIFT Thresholds |
+|------------------|-------------|----------------:|
+| Benign (BP4)     | Very Strong |               - |
+|                  | Strong      |               - |
+|                  | Moderate    |          ≥0.327 |
+|                  | Supporting  |  [0.080, 0.327) |
+| Pathogenic (PP3) | Supporting  |      (0, 0.001] |
+|                  | Moderate    |               0 |
+|                  | Strong      |               - |
+|                  | Very Strong |               - |
 
 \* A "-" means that BayesDel did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

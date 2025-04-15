@@ -8,11 +8,16 @@ WARNING: This predictor used population allele frequency of a variant as a featu
 
  The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select variant effect predictors are reliable as Very Strong, Strong, or Moderate evidence for Pathogenicity (PP3) or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013). MetaRNN scores have been calbrated by the Karchin Lab according to these methods using the code and variant sites.
 
- | MetaRNN Thresholds |             |                      |                      |                      |                      |            |             |
- |--------------------|-------------|----------------------|----------------------|----------------------|----------------------|------------|-------------|
- | Benign (BP4)       |             |                      |                      | Pathogenic (PP3)     |                      |            |             |
- | Very Strong        | Strong      | Moderate             | Supporting           | Supporting           | Moderate             | Strong     | Very Strong |
- | -                  | <= 0.052789 | (0.052789, 0.188378] | (0.188378, 0.295726] | (0.655095, 0.786338] | (0.786338, 0.934075] | > 0.934075 | -           |
+| ACMG Category    | Strength    |   MetaRNN Thresholds |
+|------------------|-------------|---------------------:|
+| Benign (BP4)     | Very Strong |                    - |
+|                  | Strong      |          <= 0.052789 |
+|                  | Moderate    | (0.052789, 0.188378] |
+|                  | Supporting  | (0.188378, 0.295726] |
+| Pathogenic (PP3) | Supporting  | (0.655095, 0.786338] |
+|                  | Moderate    | (0.786338, 0.934075] |
+|                  | Strong      |           > 0.934075 |
+|                  | Very Strong |                    - |
 
 
  \* A "-" means that MetaRNN did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.

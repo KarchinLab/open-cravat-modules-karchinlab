@@ -28,11 +28,16 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 CADD phred scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Benign Very Strong, Pathogenic Supporting and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| CADD Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
-|-|<= 0.15|(0.15, 17.3]|(17.3, 22.7]|[25.3, 28.1)|>= 28.1|-|   -   |
+| ACMG Category    | Strength    | CADD Thresholds |
+|------------------|-------------|----------------:|
+| Benign (BP4)     | Very Strong |               - |
+|                  | Strong      |         <= 0.15 |
+|                  | Moderate    |    (0.15, 17.3] |
+|                  | Supporting  |    (17.3, 22.7] |
+| Pathogenic (PP3) | Supporting  |    [25.3, 28.1) |
+|                  | Moderate    |         >= 28.1 |
+|                  | Strong      |               - |
+|                  | Very Strong |               - |
 
 \* A "-" means that CADD did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

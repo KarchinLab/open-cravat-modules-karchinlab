@@ -7,11 +7,16 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 phyloP 100-way Vertebrate scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Pathogenic Supporting, and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| phyloP Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
-|-|-|≤0.021|(0.021, 1.879]|[7.367, 9.741)|≥9.741|-|   -   |
+| ACMG Category    | Strength    | phyloP Thresholds |
+|------------------|-------------|------------------:|
+| Benign (BP4)     | Very Strong |                 - |
+|                  | Strong      |                 - |
+|                  | Moderate    |            ≤0.021 |
+|                  | Supporting  |    (0.021, 1.879] |
+| Pathogenic (PP3) | Supporting  |    [7.367, 9.741) |
+|                  | Moderate    |            ≥9.741 |
+|                  | Strong      |                 - |
+|                  | Very Strong |                 - |
 
 \* A "-" means that phyloP did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

@@ -8,11 +8,16 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 REVEL scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Benign Very Strong, Pathogenic Supporting, Pathogenic Moderate, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| REVEL Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
-|≤0.003|(0.003, 0.016]|(0.016, 0.183]|(0.183, 0.290]|[0.644, 0.773)|[0.773, 0.932)|	≥0.932|   -   |
+| ACMG Category    | Strength    | REVEL Thresholds |
+|------------------|-------------|-----------------:|
+| Benign (BP4)     | Very Strong |           ≤0.003 |
+|                  | Strong      |   (0.003, 0.016] |
+|                  | Moderate    |   (0.016, 0.183] |
+|                  | Supporting  |   (0.183, 0.290] |
+| Pathogenic (PP3) | Supporting  |   [0.644, 0.773) |
+|                  | Moderate    |   [0.773, 0.932) |
+|                  | Strong      |           ≥0.932 |
+|                  | Very Strong |                - |
 
 \* A "-" means that Revel did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 
