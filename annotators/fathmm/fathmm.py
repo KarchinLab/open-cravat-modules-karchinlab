@@ -4,8 +4,6 @@ from cravat import InvalidData
 import sqlite3
 import os
 
-4.69 [3.32, 4.69) ( 5.04, 4.14] % 5.04
-
 BP4_CUTOFFS = [
     (3.32, ""),
     (4.69, "Supporting"),
