@@ -8,11 +8,16 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 PrimateAI scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Pathogenic Supporting, and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| PrimateAI Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
-|-|-|≤0.362	|(0.362, 0.483]|[0.790, 0.867)|	≥0.867|-|   -   |
+| ACMG Category    | Strength    | PrimateAI Thresholds |
+|------------------|-------------|---------------------:|
+| Benign (BP4)     | Very Strong |                    - |
+|                  | Strong      |                    - |
+|                  | Moderate    |               ≤0.362 |
+|                  | Supporting  |       (0.362, 0.483] |
+| Pathogenic (PP3) | Supporting  |       [0.790, 0.867) |
+|                  | Moderate    |               ≥0.867 |
+|                  | Strong      |                    - |
+|                  | Very Strong |                    - |
 
 \* A "-" means that PrimateAI did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

@@ -13,11 +13,16 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 VEST4 scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Pathogenic Supporting, Pathogenic Moderate, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| VEST4 Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
-|-|-|≤0.302|(0.302, 0.449]|[0.764, 0.861)|[0.861, 0.965)|≥0.965|   -   |
+| ACMG Category    | Strength    | VEST4 Thresholds |
+|------------------|-------------|-----------------:|
+| Benign (BP4)     | Very Strong |                - |
+|                  | Strong      |                - |
+|                  | Moderate    |           ≤0.302 |
+|                  | Supporting  |   (0.302, 0.449] |
+| Pathogenic (PP3) | Supporting  |   [0.764, 0.861) |
+|                  | Moderate    |   [0.861, 0.965) |
+|                  | Strong      |           ≥0.965 |
+|                  | Very Strong |                - |
 
 \* A "-" means that VEST4 did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

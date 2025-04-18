@@ -7,11 +7,16 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 GERP++ RS (Rejected Substitution) scores have been calbrated and validated as reliable to support Benign Supporting and Benign Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
-| GERP++ Thresholds |                 |                |                |                |                |                |                |                |
-|--------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Benign (BP4) |||| Pathogenic (PP3)|
-|Very Strong   |Strong      |Moderate     |Supporting   |Supporting   |Moderate     |Strong      |Very Strong   |
-|-|-|	≤ −4.54|	(−4.54, 2.70]|-|-|-|   -   |
+| ACMG Category    | Strength    | GERP++ Thresholds |
+|------------------|-------------|------------------:|
+| Benign (BP4)     | Very Strong |                 - |
+|                  | Strong      |                 - |
+|                  | Moderate    |           ≤ −4.54 |
+|                  | Supporting  |     (−4.54, 2.70] |
+| Pathogenic (PP3) | Supporting  |                 - |
+|                  | Moderate    |                 - |
+|                  | Strong      |                 - |
+|                  | Very Strong |                 - |
 
 \* A "-" means that GERP++ did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 

@@ -25,3 +25,22 @@ If an alteration was found more than 4 times homozygously in TGP, it is automati
 We also display known disease variants from dbSNP ClinVar. If a variant is marked as probable-pathogenic or pathogenic in ClinVar, it is automatically predicted to be disease-causing, i.e. disease causing automatic (the naive Bayes classifier is run nevertheless and the p value for the prediction is shown).
 
 Information from http://www.mutationtaster.org/info/documentation.html
+
+## Clinical Application
+
+The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select variant effect predictors are reliable as Very Strong, Strong, or Moderate evidence for Pathogenicity (PP3) or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013).
+
+MutationTaster scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Pathogenic Supporting, and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
+
+| ACMG Category    | Strength    | MutationTaster Thresholds |
+|------------------|-------------|--------------------------:|
+| Benign (BP4)     | Very Strong |                         - |
+|                  | Strong      |                         - |
+|                  | Moderate    |                         - |
+|                  | Supporting  |               < 0.995135) |
+| Pathogenic (PP3) | Supporting  |                         - |
+|                  | Moderate    |                         - |
+|                  | Strong      |                         - |
+|                  | Very Strong |                         - |
+
+\* A "-" means that MutationTaster did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.

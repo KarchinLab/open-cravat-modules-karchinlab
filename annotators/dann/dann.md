@@ -15,3 +15,25 @@ oc module install dann
 ```
 DANN uses the python package pytabix for querying the data. On Mac and Linux systems, this can be installed with `pip3 install --user pytabix`. If this does not work, consult the [pytabix website](https://pypi.org/project/pytabix/) for more options.
 
+
+## Clinical Application
+
+ The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select variant effect predictors are reliable as Very Strong, Strong, or Moderate evidence for Pathogenicity (PP3) or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013). DANN scores have been calbrated by the Karchin Lab according to these methods using the code and variant sites.
+
+| ACMG Category    | Strength    |     DANN Thresholds |
+|------------------|-------------|--------------------:|
+| Benign (BP4)     | Very Strong |                   - |
+|                  | Strong      |         <= 0.356222 |
+|                  | Moderate    | (0.356222, 0.90647] |
+|                  | Supporting  | (0.90647, 0.949523] |
+| Pathogenic (PP3) | Supporting  |          > 0.999145 |
+|                  | Moderate    |                   - |
+|                  | Strong      |                   - |
+|                  | Very Strong |                   - |
+
+
+ \* A "-" means that DANN did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
+
+ ### Indeterminate Scores
+
+ If the DANN score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding DANN widget.

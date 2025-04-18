@@ -31,12 +31,29 @@ output_columns:
   category: single
   desc: The cutoff between "Damaging" and "Tolerated" is a score of 0.5 and a rankscore
     of 0.81101.
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity.
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity.
+  category: multi
+  filterable: true
 tags:
 - variant effect prediction
 - variants
 title: MetaLR
-version: 1.0.3
+version: 1.1.0
 type: annotator
 release_note:
+  1.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
   1.0.3: bugfix
   1.0.1: bugfix for variants without annotation

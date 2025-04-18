@@ -2,7 +2,7 @@
 
 The success of personalized genomic medicine depends on our ability to assess the pathogenicity of rare human variants, including the important class of missense variation. There are many challenges in training accurate computational systems, e.g., in finding the balance between quantity, quality, and bias in the variant sets used as training examples and avoiding predictive features that can accentuate the effects of bias. Here, we describe VARITY, which judiciously exploits a larger reservoir of training examples with uncertain accuracy and representativity. To limit circularity and bias, VARITY excludes features informed by variant annotation and protein identity. To provide a rationale for each prediction, we quantified the contribution of features and feature combinations to the pathogenicity inference of each variant. VARITY outperformed all previous computational methods evaluated, identifying at least 10% more pathogenic variants at thresholds achieving high (90% precision) stringency.
 
-The VARITY approach for pathogenicity prediction, which has been specifically optimized for rare missense variation. While VARITY uses a meta-prediction strategy, it limits the circularity that can arise in such approaches by excluding any feature that was informed by variant pathogenicity annotation. We also exclude features that may serve as proxies for protein identity because these may lead to predictions that are biased by the fraction of each protein’s variants in the training set that are annotated pathogenic (which may be inaccurate in future application settings). VARITY judiciously harnesses a larger set of training examples with uncertain accuracy and representativity and uses differential weighting strategies to ensure that training set expansion improves performance on a high-quality test set.
+The VARITY approach for pathogenicity prediction, which has been specifically optimized for rare missense variation. While VARITY uses a meta-prediction strategy, it limits the circularity that can arise in such approaches by excluding any feature that was informed by variant pathogenicity annotation. We also exclude features that may serve as proxies for protein identity because these may lead to predictions that are biased by the fraction of each protein’s variants in the training set that are annotated pathogenic (which may be inaccurate in future application settings). VARITY judiciously harnesses a larger set of training examples with uncertain accuracy and representativity and uses differential weighting strategies to ensure that training set expansion improves performance on a high-quality test set. Amongst other features, VARITY uses scores from PROVEAN, SIFT, LRT, GERP++, phyloP, phastCons, and SiPhy.
 
 ![The VARITY framework](fig_01.jpg)
 
@@ -13,11 +13,16 @@ The VARITY approach for pathogenicity prediction, which has been specifically op
 
 VARITY scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Benign Very Strong, Pathogenic Supporting, Pathogenic Moderate, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic. Calibration cutoffs were obtained from Bergquist et al., “Calibration of Additional Computational Tools Expands ClinGen Recommendation Options for Variant Classification with PP3/BP4 Criteria.” bioRxiv 2024.09.17.611902; doi:10.1101/2024.09.17.611902
 
- | ESM1b Thresholds |        |                |                 |                  |                |         |             |
- |------------------|--------|----------------|-----------------|------------------|----------------|---------|-------------|
- | Benign (BP4)     |        |                |                 | Pathogenic (PP3) |                |         |             |
- | Very Strong      | Strong | Moderate       | Supporting      | Supporting       | Moderate       | Strong  | Very Strong |
- | -                | ≤0.036 | (0.036, 0.116] | (0.0116, 0.251] | (0.675, 0.841]   | (0.841, 0.964] | >0.964 | -           |
+| ACMG Category    | Strength    | ESM1b Thresholds |
+|------------------|-------------|-----------------:|
+| Benign (BP4)     | Very Strong |                - |
+|                  | Strong      |           ≤0.036 |
+|                  | Moderate    |   (0.036, 0.116] |
+|                  | Supporting  |  (0.0116, 0.251] |
+| Pathogenic (PP3) | Supporting  |   (0.675, 0.841] |
+|                  | Moderate    |   (0.841, 0.964] |
+|                  | Strong      |           >0.964 |
+|                  | Very Strong |                - |
 
 
  \* A "-" means that Varity did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.

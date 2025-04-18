@@ -1,5 +1,5 @@
 title: MISTIC (MISsense deleTeriousness predICtor)
-version: 1.0.0
+version: 1.1.0
 datasource: 2021
 type: annotator
 level: variant
@@ -21,8 +21,27 @@ output_columns:
   category: single
   width: 70
   desc: Scores >0.5 are classified as deleterious and scores <0.5 are classified as benign.
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: false
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity. Based on scores that do not include the background population frequency of the variant
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: false
+  width: 110
+  desc: Strength of evidence for pathogenicity. Based on scores that do not include the background population frequency of the variant
+  category: multi
+  filterable: true
+
 
 description: A supervised machine-learning model dedicated to the prediction of deleterious missense variants. 
+release_note:
+  1.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
 tags:
 - variants
 - variant effect prediction
