@@ -1,5 +1,5 @@
 title: OpenCRAVAT Variant Report
-version: 1.6.1
+version: 1.6.2
 type: webapp
 live_modules:
 - alphamissense
@@ -213,6 +213,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.6.2: Include more CCR calibrated variant effect predictors.
   1.6.1: Update Variant Effect Predictors panel with CCR calibrated predictors.
   1.6.0: Add Clingen Allele Registry and dbSNP support. Add new single input form.
   1.5.1: Update example inputs
