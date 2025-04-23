@@ -4365,15 +4365,23 @@ widgetGenerators['predictionpanel'] = {
                         } else {
                             maxIndex = scoreArray.indexOf(Math.max(...scoreArray));
                         }
-                        const b = getWidgetData(tabName, name, row, 'bp4_benign');
                         const p = getWidgetData(tabName, name, row, 'pp3_pathogenic');
-                        const pathogenicArray = p.split(";");
-                        const pathogenicText = pathogenicArray[maxIndex];
-                        const benignArray = b.split(";");
-                        const benignText = benignArray[maxIndex];
+                        if (p) {
+                            const pathogenicArray = p.split(";");
+                            const pathogenicText = pathogenicArray[maxIndex];
+                            pathogenic.push(predWidget(pathogenicText));
+                        } else {
+                            pathogenic.push('');
+                        }
+                        const b = getWidgetData(tabName, name, row, 'bp4_benign');
+                        if (b) {
+                            const benignArray = b.split(";");
+                            const benignText = benignArray[maxIndex];
+                            benign.push(predWidget(benignText));
+                        } else {
+                            benign.push('');
+                        }
                         scores.push(predWidget(scoreArray[maxIndex]));
-                        benign.push(predWidget(benignText));
-                        pathogenic.push(predWidget(pathogenicText));
                     } else {
                         scores.push(predWidget(null));
                         benign.push(predWidget(null));
