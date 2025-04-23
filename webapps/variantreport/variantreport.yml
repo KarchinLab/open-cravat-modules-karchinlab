@@ -24,6 +24,7 @@ live_modules:
 - cosmic
 - cscape_coding
 - cvdkp
+- dann
 - dann_coding
 - dbsnp
 - denovo
@@ -56,8 +57,10 @@ live_modules:
 - lrt
 - mavedb
 - metalr
+- metarnn
 - metasvm
 - mirbase
+- mistic
 - mutation_assessor
 - mutationtaster
 - mutpred1
@@ -69,6 +72,7 @@ live_modules:
 - pangalodb
 - pharmgkb
 - phastcons
+- phdsnpg
 - phi
 - phylop
 - polyphen2
@@ -114,6 +118,7 @@ requires:
 - cosmic
 - cscape_coding
 - cvdkp
+- dann
 - dann_coding
 - dbsnp
 - dbsnp-converter
@@ -147,8 +152,10 @@ requires:
 - lrt
 - mavedb
 - metalr
+- metarnn
 - metasvm
 - mirbase
+- mistic
 - mutation_assessor
 - mutationtaster
 - mutpred1
@@ -160,6 +167,7 @@ requires:
 - pangalodb
 - pharmgkb
 - phastcons
+- phdsnpg
 - phi
 - phylop
 - polyphen2

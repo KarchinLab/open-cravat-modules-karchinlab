@@ -6,6 +6,10 @@ import os
 
 class CravatAnnotator(BaseAnnotator):    
     def annotate(self, input_data, secondary_data=None):
+        ref = input_data['ref_base']
+        alt = input_data['alt_base']
+        if ref == '-' or alt == '-':
+            return None
         q = 'select trans, uniprot, score, rankscore, prediction from {chrom} where pos = {pos} and alt = "{alt}"'.format(
             chrom = input_data["chrom"], pos = int(input_data["pos"]), alt = input_data["alt_base"])
         self.cursor.execute(q)
@@ -35,7 +39,7 @@ class CravatAnnotator(BaseAnnotator):
                 worst_uniprot = worst_mapping['uniprot']
                 worst_rankscore = worst_mapping['rankscore']
                 worst_prediction = worst_mapping['prediction']
-                out = {'transcript': worst_transcript, 'uniprot': worst_uniprot, 'score': min_scores, 'rankscore': worst_rankscore,'prediction': prediction, 'all': all_results_list}
+                out = {'transcript': worst_transcript, 'uniprot': worst_uniprot, 'score': min_scores, 'rankscore': worst_rankscore,'prediction': prediction, 'all': all_results_list, 'bp4_benign': None, 'pp3_pathogenic': None }
                 return out
 
                 

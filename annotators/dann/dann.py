@@ -64,7 +64,7 @@ class CravatAnnotator(BaseAnnotator):
             pass
         for record in records:
             if record[3] == alt:
-                score = record[4]
+                score = float(record[4])
                 return {
                     'score': score,
                     'bp4_benign': discretize_scalar(score, BP4_CUTOFFS),

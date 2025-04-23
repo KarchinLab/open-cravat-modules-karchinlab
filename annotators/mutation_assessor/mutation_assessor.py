@@ -75,8 +75,8 @@ class CravatAnnotator(BaseAnnotator):
                 row = self.cursor.fetchone()
                 if row:
                     impact = row[0]
-                    score = row[1]
-                    rankscore = row[2]
+                    score = float(row[1])
+                    rankscore = float(row[2])
                     mut_data = [transcript, impact, score, rankscore]
                     precomp.append({'transcript': transcript, 'impact': impact, 'score': score, 'rankscore': rankscore, 'full_result': mut_data})
             if precomp:
@@ -96,8 +96,8 @@ class CravatAnnotator(BaseAnnotator):
                 worst_impact = worst_mapping['impact']
                 out = {
                     'transcript': all_transcripts,
-                    'score': max_score,
-                    'rankscore': worst_rankscore,
+                    'score': float(max_score),
+                    'rankscore': float(worst_rankscore),
                     'impact': worst_impact,
                     'bp4_benign': discretize_scalar(max_score, BP4_CUTOFFS),
                     'pp3_pathogenic': discretize_scalar(max_score, PP3_CUTOFFS),

@@ -706,7 +706,7 @@ function showAnnotation(response) {
     showWidget('noncodingpanel', ['base', 'ccre_screen', 'encode_tfbs', 'genehancer', 'vista_enhancer', 'ensembl_regulatory_build', 'trinity', 'segway', 'javierre_promoters'],
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_prediction');
-    const predictionPanelModules = ['alphamissense', 'bayesdel', 'cadd', 'cadd_exome', 'esm1b', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'varity_r', 'vest'];
+    const predictionPanelModules = ['alphamissense', 'bayesdel', 'cadd', 'cadd_exome', 'dann', 'dann_coding', 'esm1b', 'fathmm', 'fathmm_mkl', 'fathmm_xf_coding', 'gerp', 'metalr', 'metarnn', 'metasvm', 'mistic', 'mutation_assessor', 'mutationtaster', 'mutpred1', 'phdsnpg', 'phylop', 'primateai', 'provean', 'revel', 'sift', 'varity_r', 'vest'];
     showWidget('predictionpanel', predictionPanelModules,
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_functional');
@@ -4292,8 +4292,62 @@ widgetGenerators['predictionpanel'] = {
             var predictions = [];
             let benign = [];
             let pathogenic = [];
-            const names = ['alphamissense', 'bayesdel', 'cadd', 'cadd_exome', 'esm1b', 'fathmm', 'gerp', 'phylop', 'primateai', 'revel', 'sift', 'varity_r', 'vest'];
-            const scoreIds = ['am_pathogenicity', 'bayesdel_noAF_score', 'score', 'score', 'score', 'fathmm_score', 'gerp_rs', 'phylop100_vert', 'primateai_score', 'score', 'score', 'varity_r', 'score'];
+            const names = [
+                'alphamissense',
+                'bayesdel',
+                'cadd',
+                'cadd_exome',
+                'dann',
+                'dann_coding',
+                'esm1b',
+                'fathmm',
+                'fathmm_mkl',
+                'fathmm_xf_coding',
+                'gerp',
+                'metalr',
+                'metarnn',
+                'metasvm',
+                'mistic',
+                'mutation_assessor',
+                'mutationtaster',
+                'mutpred1',
+                'phdsnpg',
+                'phylop',
+                'primateai',
+                'provean',
+                'revel',
+                'sift',
+                'varity_r',
+                'vest'
+            ];
+            const scoreIds = [
+                'am_pathogenicity',
+                'bayesdel_noAF_score',
+                'score',
+                'score',
+                'score',
+                'dann_coding_score',
+                'score',
+                'fathmm_score',
+                'fathmm_mkl_coding_score',
+                'fathmm_xf_coding_score',
+                'gerp_rs',
+                'score',
+                'score',
+                'score',
+                'score',
+                'score',
+                'score',
+                'mutpred_general_score',
+                'score',
+                'phylop100_vert',
+                'primateai_score',
+                'score',
+                'score',
+                'score',
+                'varity_r',
+                'score'
+            ];
             const multiValuePredictors = ['fathmm'];
 
             for (let i=0; i<names.length; i++) {

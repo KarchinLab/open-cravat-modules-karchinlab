@@ -38,6 +38,9 @@ class CravatAnnotator(BaseAnnotator):
             elif phylop100Vert >= 9.741:
                 benign = ''
                 pathogenic = 'Moderate'
+            else:
+                benign = ''
+                pathogenic = ''
             out['phylop100_vert'] = float(row[0])
             out['phylop100_vert_r'] = float(row[1])
             out['phylop470_mamm'] = float(row[2])
