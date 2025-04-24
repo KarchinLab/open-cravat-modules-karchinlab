@@ -72,6 +72,7 @@ class CravatAnnotator(BaseAnnotator):
             out['fathmm_score'] = row[2]
             out['fathmm_rscore'] = float(row[3])
             out['fathmm_pred'] = row[4]
+            out['score'] = min_score
             out['bp4_benign'] = discretize_scalar(min_score, BP4_CUTOFFS)
             out['pp3_pathogenic'] = discretize_scalar(min_score, PP3_CUTOFFS)
         return out

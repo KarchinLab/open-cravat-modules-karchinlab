@@ -4328,7 +4328,7 @@ widgetGenerators['predictionpanel'] = {
                 'score',
                 'dann_coding_score',
                 'score',
-                'fathmm_score',
+                'score',
                 'fathmm_mkl_coding_score',
                 'fathmm_xf_coding_score',
                 'gerp_rs',
@@ -4348,7 +4348,7 @@ widgetGenerators['predictionpanel'] = {
                 'varity_r',
                 'score'
             ];
-            const multiValuePredictors = ['fathmm'];
+            const multiValuePredictors = [];
 
             for (let i=0; i<names.length; i++) {
                 const name = names[i];
@@ -4371,7 +4371,7 @@ widgetGenerators['predictionpanel'] = {
                             const pathogenicText = pathogenicArray[maxIndex];
                             pathogenic.push(predWidget(pathogenicText));
                         } else {
-                            pathogenic.push('');
+                            pathogenic.push(predWidget(''));
                         }
                         const b = getWidgetData(tabName, name, row, 'bp4_benign');
                         if (b) {
@@ -4379,7 +4379,7 @@ widgetGenerators['predictionpanel'] = {
                             const benignText = benignArray[maxIndex];
                             benign.push(predWidget(benignText));
                         } else {
-                            benign.push('');
+                            benign.push(predWidget(''));
                         }
                         scores.push(predWidget(scoreArray[maxIndex]));
                     } else {
