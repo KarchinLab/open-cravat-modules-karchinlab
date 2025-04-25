@@ -12,6 +12,7 @@ developer:
   citation: ''
 report_substitution:
   so:
+    PNC: protein_coding_CDS_not_defined
     PTR: processed_transcript
     TU1: transcribed_unprocessed_pseudogene
     UNP: unprocessed_pseudogene
@@ -77,6 +78,7 @@ report_substitution:
     EXL: exon_loss_variant
     TAB: transcript_ablation
   all_so:
+    PNC: protein_coding_CDS_not_defined
     PTR: processed_transcript
     TU1: transcribed_unprocessed_pseudogene
     UNP: unprocessed_pseudogene
@@ -142,6 +144,7 @@ report_substitution:
     EXL: exon_loss_variant
     TAB: transcript_ablation
   all_mappings:
+    PNC: protein_coding_CDS_not_defined
     PTR: processed_transcript
     TU1: transcribed_unprocessed_pseudogene
     UNP: unprocessed_pseudogene
