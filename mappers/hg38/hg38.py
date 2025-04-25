@@ -134,7 +134,8 @@ INS = 22
 DEL = 23
 COM = 24
 # sequence ontology
-SO_NSO = -44
+SO_NSO = -45
+SO_PNC = -44  # protein_coding_CDS_not_defined
 SO_PTR = -43  # processed_transcript
 SO_TU1 = -42  # transcribed_unprocessed_pseudogene
 SO_UNP = -41  # unprocessed_pseudogene
@@ -203,6 +204,7 @@ SO_TAB = 51  # transcript_ablation
 CODING = 60
 NONCODING = 61
 transcripttype_to_so = {
+    "protein_coding_CDS_not_defined": SO_PNC,
     "processed_transcript": SO_PTR,
     "transcribed_unprocessed_pseudogene": SO_TU1,
     "unprocessed_pseudogene": SO_UNP,
@@ -249,6 +251,7 @@ transcripttype_to_so = {
 }
 sonum_to_so = {
     SO_NSO: "",
+    SO_PNC: "PNC",
     SO_PTR: "PTR",
     SO_TU1: "TU1",
     SO_UNP: "UNP",
