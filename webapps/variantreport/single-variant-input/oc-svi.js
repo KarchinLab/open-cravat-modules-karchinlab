@@ -251,9 +251,9 @@ document.addEventListener('DOMContentLoaded', ()  => {
                             <div class="example-label">ClinGen Allele Registry</div>
                             <div class="">CA10578967</div>
                         </button>
-                        <button class="example oc-svi-text-button" value="chr3 179218293 G A">
+                        <button class="example oc-svi-text-button" value="chr1 11796321 G A">
                             <div class="example-label">SNV</div><div>
-                            <div>chr3 179218293 G A</div></div>
+                            <div>chr1 11796321 G A</div></div>
                         </button>
                             <button class="example oc-svi-text-button" value="chr10 87960891 - T">
                             <div class="example-label">Insertion</div>
