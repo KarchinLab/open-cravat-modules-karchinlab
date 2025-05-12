@@ -1322,18 +1322,9 @@ widgetGenerators['base2'] = {
                 variant_length = nalt;
             }
             var so = getWidgetData(tabName, 'base', row, 'so');
-            var consequence = '';
-            if (so == 'synonymous_variant') {
-                consequence = 'synonymous';
-            } else {
-                consequence = 'nonsynonymous';
-            }
             var sequenceOntology = baseWidget('Sequence Ontology', so.replace('_', ' '))
             sequenceOntology.classList.add("basepaneldiv")
             addEl(sdiv, sequenceOntology)
-            var consequences = baseWidget('Variant consequence', consequence)
-            consequences.classList.add("basepaneldiv")
-            addEl(sdiv, consequences)
             var link = "https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&position=" + chrom + "%3A" + getWidgetData(tabName, 'base', row, 'pos')
             var genomic_location = baseWidgetlink('Genomic location', 'chr' + chrom + ':' + getWidgetData(tabName, 'base', row, 'pos'), link)
             genomic_location.classList.add("basepaneldiv")

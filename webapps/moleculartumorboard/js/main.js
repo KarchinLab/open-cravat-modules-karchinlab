@@ -649,14 +649,6 @@ widgetGenerators['base2'] = {
       addDlRow(dl, 'Genomic location', sdiv)
       //addInfoLine3(div, 'Genomic location',  'chr' + chrom + ':' + getWidgetData(tabName, 'base', row, 'pos') + ' '+ '(genome build GRCh38)', tabName);
       var so = getWidgetData(tabName, 'base', row, 'so');
-      var consequence = '';
-      if (so == 'synonymous_variant') {
-        consequence = 'synonymous';
-      } else {
-        consequence = 'nonsynonymous';
-      }
-      //addInfoLine3(div, 'Variant consequence', consequence + ' (' + so.replace('_', ' ') + ')', tabName);
-      addDlRow(dl, 'Variant consequence', consequence + ' (' + so.replace('_', ' ') + ')', tabName)
       var max_af = null;
       if (thous_af != undefined && gnomad_af != undefined) {
         if (thous_af > gnomad_af) {
