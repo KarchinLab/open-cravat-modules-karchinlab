@@ -1,5 +1,5 @@
 title: OpenCRAVAT Variant Report
-version: 1.6.2
+version: 1.7.0
 type: webapp
 live_modules:
 - alphamissense
@@ -203,8 +203,7 @@ requires:
 - wgdgi
 - wgndex_chdsummary
 - wgthousandgenomes
-hgvs_api_url: https://hgvs.opencravat.org/coordinates
-clingen_api_url: http://reg.genome.network/allele
+oc_api_url: http://localhost:8080/api/v1/annotate
 description: OpenCRAVAT Variant Report Webapp
 developer:
   name: OpenCravat
@@ -213,6 +212,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.7.0: Update to use the new OC backend
   1.6.2: Include more CCR calibrated variant effect predictors.
   1.6.1: Update Variant Effect Predictors panel with CCR calibrated predictors.
   1.6.0: Add Clingen Allele Registry and dbSNP support. Add new single input form.
