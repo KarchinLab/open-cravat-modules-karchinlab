@@ -23,6 +23,7 @@ output_columns:
   width: 90
   filterable: false
 release_note:
+  48.0.0: data update to v48
   47.0.0: data update to v47
   46.0.0: data update to V46
   45.0.0: data update to v45
@@ -32,7 +33,7 @@ tags:
 - non coding
 title: Pseudogene
 type: annotator
-version: 47.0.0
+version: 48.0.0
 requires:
 - wgpseudogene
 requires_opencravat: '>=1.4.4'
