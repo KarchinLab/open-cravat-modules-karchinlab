@@ -17,7 +17,7 @@ def test (request):
 def get_live_annotation_post(request):
     queries = request.json if request.is_json else request.form.to_dict()
     if not queries:
-        return "Variant Information Required", 400
+        return jsonify({'error': "Variant Information Required"}), 400
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
     confloader = ConfigLoader()
     vr_config = confloader.get_module_conf('variantreport')
@@ -82,7 +82,7 @@ def get_oncokb_annotation (request):
                 oncokb_cache[cache_key] = {'date': datetime.datetime.now(), 'rjson': rjson}
     return response
 
-async def get_hallmarks (request):
+def get_hallmarks (request):
     queries = request.values
     hugo = queries['hugo']
     if hugo == '':

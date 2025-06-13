@@ -325,7 +325,7 @@ function showAnnotation(response) {
   hideSpinner();
   showSectionTitles();
   var parentDiv = document.querySelector('#contdiv_vannot');
-  var retDivs = showWidget('basepanel', ['base'], 'variant', parentDiv);
+  var retDivs = showWidget('basepanel', ['base', 'hg19'], 'variant', parentDiv);
   var parentDiv = document.querySelector('#contdiv_action');
   showWidget('actionpanel', ['base', 'target', 'civic', 'pharmgkb',
     'cancer_genome_interpreter', 'litvar'
@@ -637,14 +637,12 @@ widgetGenerators['base2'] = {
       //addInfoLine3(div, 'Variant Length', variant_length);
       var sdiv = getEl('div')
       var ssdiv = getEl('div')
-      var coord = row['base__hg38_coord']
-      ssdiv.textContent = coord['chrom'] + ':' + 
-          coord['pos'] + ' ' + '(genome build GRCh38)'
+      ssdiv.textContent = row['base__chrom'] + ':' +
+          row['base__pos'] + ' ' + '(genome build GRCh38)'
       addEl(sdiv, ssdiv)
       var ssdiv = getEl('div')
-      var coord = row['base__hg19_coord']
-      ssdiv.textContent = coord['chrom'] + ':' + 
-          coord['pos'] + ' ' + '(genome build GRCh37)'
+      ssdiv.textContent = row['hg19__chrom'] + ':' +
+          row['hg19__pos'] + ' ' + '(genome build GRCh37)'
       addEl(sdiv, ssdiv)
       addDlRow(dl, 'Genomic location', sdiv)
       //addInfoLine3(div, 'Genomic location',  'chr' + chrom + ':' + getWidgetData(tabName, 'base', row, 'pos') + ' '+ '(genome build GRCh38)', tabName);
@@ -1095,7 +1093,9 @@ widgetGenerators['ncbi'] = {
           span.textContent = getNoAnnotMsgGeneLevel()
         })
       var desc = getWidgetData(tabName, 'ncbigene', row, 'ncbi_desc')
-      desc = desc.split(/\[.*\]$/)[0]
+      if (desc) {
+          desc = desc.split(/\[.*\]$/)[0]
+      }
       if (desc == null) {
         addDlRow(dl, 'RefSeq Gene Summary', getNoAnnotMsgGeneLevel())
       } else {
@@ -1477,7 +1477,7 @@ widgetGenerators['basepanel'] = {
     'height': '100%',
     'function': function (div, row, tabName) {
       var generator = widgetGenerators['base2']['variant'];
-      var divs = showWidget('base2', ['base', 'dbsnp', 'thousandgenomes', 'gnomad'], 'variant', div, null, null, false);
+      var divs = showWidget('base2', ['base', 'dbsnp', 'thousandgenomes', 'gnomad', 'hg19'], 'variant', div, null, null, false);
       var generator = widgetGenerators['ncbi']['gene'];
       var divs = showWidget('ncbi', ['base', 'ncbigene'], 'gene', div, null, null);
     }
