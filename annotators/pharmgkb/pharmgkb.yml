@@ -1,5 +1,5 @@
 title: PharmGKB
-version: 2025.06.01
+version: 2025.06.25
 datasource: 2025.06.01
 type: annotator
 level: variant
@@ -20,6 +20,12 @@ output_columns:
   hidden: true
 - name: drug_assoc
   title: All Annotations
+  type: string
+  hidden: true
+  width: 100
+  table: true
+- name: has_sig
+  title: Significance
   type: string
   hidden: true
   width: 100
@@ -56,6 +62,7 @@ developer:
 requires:
 - wgpharmgkb>=2.0.0
 release-note:
+  2025.06.25: Add Significance column to the top level annotation to easily filter on whethere there is a significant drug interaction.
   2025.06.01: Data update
   2025.05.01: Data update
   2025.04.01: Data update
