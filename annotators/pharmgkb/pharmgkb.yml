@@ -24,32 +24,32 @@ output_columns:
   hidden: true
   width: 100
   table: true
+  table_headers:
+    - name: chemicals
+      title: Chemicals
+      type: string
+      desc: Chemicals and links
+    - name: sentence
+      title: Description
+      type: string
+    - name: pheno_cat
+      title: Phenotype Category
+      type: string
+    - name: sig
+      title: Significance
+      type: string
+    - name: pmid
+      title: Study
+      type: string
+    - name: notes
+      title: Notes
+      type: string
 - name: has_sig
   title: Significance
   type: string
   hidden: true
   width: 100
-  table: true
-  table_headers:
-  - name: chemicals
-    title: Chemicals
-    type: string
-    desc: Chemicals and links
-  - name: sentence
-    title: Description
-    type: string
-  - name: pheno_cat
-    title: Phenotype Category
-    type: string
-  - name: sig
-    title: Significance
-    type: string
-  - name: pmid
-    title: Study
-    type: string
-  - name: notes
-    title: Notes
-    type: string
+
 description: Clinically actionable gene-drug associations and genotype-phenotype relationships
 developer:
   name: Teri E. Klein
