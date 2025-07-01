@@ -1,26 +1,15 @@
-type: package
-description:
-  Provides ACMG/AMP-aligned classifications (PP3/BP4) using calibrated scores 
-  from seven top-performing variant effect predictors for clinical interpretation 
-  of missense variants, based on ClinGen recommendations.
+private: true
 type: package
 
 title: Calibrated Classification Package
 version: '1.0'
+description:
+  Provides ACMG/AMP-aligned classifications (PP3/BP4) using calibrated scores 
+  from seven top-performing variant effect predictors for clinical interpretation 
+  of missense variants, based on ClinGen recommendations.
 
 #Modules required for this package
 requires:
-- alphamissense
-- bayesdel
-- cadd_exome
-- esm1b
-- metarnn
-- revel
-- vest
-
-#Default settings for oc run and oc report
-run:
-  annotators:
   - alphamissense
   - bayesdel
   - cadd_exome
@@ -28,10 +17,20 @@ run:
   - metarnn
   - revel
   - vest
-reports: 
-  - tsv
-  -vcf
-	
+
+#Default settings for oc run and oc report
+run:
+  annotators:
+    - alphamissense
+    - bayesdel
+    - cadd_exome
+    - esm1b
+    - metarnn
+    - revel
+    - vest
+  reports: 
+   - tsv
+   - vcf
   filter: '{"filterSet":{"sample":{"require":[],"reject":[]},"genes":[],"variant":{"operator":"and","rules":[{"column":"base__so","test":"select","value":["MIS"]}]},"smartfilter":{"base":{"so":["MIS"]}},"samplefilter":{"operator":"and","rules":[],"negate":false}}}'
   viewer: '{"tableSettings":{"variant":[{"title":"Variant Annotation","cols":[{"col":"base__uid","dataIndx":0,"width":60,"hidden":true},{"col":"base__chrom","dataIndx":1,"width":50,"hidden":false},{"col":"base__pos","dataIndx":2,"width":80,"hidden":false},{"col":"base__ref_base","dataIndx":3,"width":50,"hidden":false},{"col":"base__alt_base","dataIndx":4,"width":50,"hidden":false},{"col":"base__note_variant","dataIndx":5,"width":50,"hidden":true},{"col":"base__coding","dataIndx":6,"width":50,"hidden":false},{"col":"base__hugo","dataIndx":7,"width":70,"hidden":false},{"col":"base__transcript","dataIndx":8,"width":135,"hidden":false},{"col":"base__so","dataIndx":9,"width":120,"hidden":false},{"col":"base__exonno","dataIndx":10,"width":100,"hidden":true},{"col":"base__cchange","dataIndx":11,"width":70,"hidden":false},{"col":"base__achange","dataIndx":12,"width":55,"hidden":false},{"col":"base__all_mappings","dataIndx":13,"width":100,"hidden":true},{"col":"base__gposend","dataIndx":14,"width":100,"hidden":true},{"col":"base__numsample","dataIndx":15,"width":55,"hidden":true},{"col":"base__samples","dataIndx":16,"width":65,"hidden":false},{"col":"base__tags","dataIndx":17,"width":65,"hidden":true}]},{"title":"MetaRNN","cols":[{"col":"metarnn__transcript","dataIndx":47,"width":120,"hidden":true},{"col":"metarnn__score","dataIndx":48,"width":50,"hidden":true},{"col":"metarnn__pred","dataIndx":49,"width":65,"hidden":true},{"col":"metarnn__rank_score","dataIndx":50,"width":50,"hidden":true},{"col":"metarnn__all_annotations","dataIndx":51,"width":85,"hidden":true},{"col":"metarnn__bp4_benign","dataIndx":52,"width":100,"hidden":false},{"col":"metarnn__pp3_pathogenic","dataIndx":53,"width":110,"hidden":false}]},{"title":"AlphaMissense","cols":[{"col":"alphamissense__am_pathogenicity","dataIndx":18,"width":70,"hidden":true},{"col":"alphamissense__am_class","dataIndx":19,"width":100,"hidden":true},{"col":"alphamissense__transcript_id","dataIndx":20,"width":125,"hidden":true},{"col":"alphamissense__uniprot_id","dataIndx":21,"width":60,"hidden":true},{"col":"alphamissense__protein_variant","dataIndx":22,"width":60,"hidden":true},{"col":"alphamissense__bp4_benign","dataIndx":23,"width":100,"hidden":false},{"col":"alphamissense__pp3_pathogenic","dataIndx":24,"width":100,"hidden":false}]},{"title":"BayesDel","cols":[{"col":"bayesdel__bayesdel_addAF_score","dataIndx":25,"width":80,"hidden":true},{"col":"bayesdel__bayesdel_addAF_rankscore","dataIndx":26,"width":100,"hidden":true},{"col":"bayesdel__bayesdel_addAF_pred","dataIndx":27,"width":90,"hidden":true},{"col":"bayesdel__bayesdel_noAF_score","dataIndx":28,"width":70,"hidden":true},{"col":"bayesdel__bayesdel_noAF_rankscore","dataIndx":29,"width":90,"hidden":true},{"col":"bayesdel__bayesdel_noAF_pred","dataIndx":30,"width":80,"hidden":true},{"col":"bayesdel__bp4_benign","dataIndx":31,"width":100,"hidden":false},{"col":"bayesdel__pp3_pathogenic","dataIndx":32,"width":110,"hidden":false}]},{"title":"CADD
     Exome","cols":[{"col":"cadd_exome__score","dataIndx":33,"width":50,"hidden":true},{"col":"cadd_exome__phred","dataIndx":34,"width":50,"hidden":true},{"col":"cadd_exome__bp4_benign","dataIndx":35,"width":100,"hidden":false},{"col":"cadd_exome__pp3_pathogenic","dataIndx":36,"width":110,"hidden":false}]},{"title":"ESM1b","cols":[{"col":"esm1b__transcript","dataIndx":37,"width":70,"hidden":true},{"col":"esm1b__score","dataIndx":38,"width":null,"hidden":true},{"col":"esm1b__rankscore","dataIndx":39,"width":50,"hidden":true},{"col":"esm1b__prediction","dataIndx":40,"width":80,"hidden":true},{"col":"esm1b__bp4_benign","dataIndx":41,"width":100,"hidden":false},{"col":"esm1b__pp3_pathogenic","dataIndx":42,"width":110,"hidden":false},{"col":"esm1b__all","dataIndx":43,"width":75,"hidden":true}]},{"title":"Extra
