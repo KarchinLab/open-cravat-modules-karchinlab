@@ -1,7 +1,4 @@
 type: package
-description: Package Calibrated Classification Package created from user job with
-  --saveaspackage
-
 description:
   Provides ACMG/AMP-aligned classifications (PP3/BP4) using calibrated scores 
   from seven top-performing variant effect predictors for clinical interpretation 
