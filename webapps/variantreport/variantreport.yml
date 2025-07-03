@@ -1,5 +1,5 @@
 title: OpenCRAVAT Variant Report
-version: 1.6.2
+version: 1.6.3
 type: webapp
 live_modules:
 - alphamissense
@@ -23,7 +23,6 @@ live_modules:
 - clinvar_acmg
 - cosmic
 - cscape_coding
-- cvdkp
 - dann
 - dann_coding
 - dbsnp
@@ -117,7 +116,6 @@ requires:
 - clinvar_acmg
 - cosmic
 - cscape_coding
-- cvdkp
 - dann
 - dann_coding
 - dbsnp
@@ -213,6 +211,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.6.3: Fix required modules
   1.6.2: Include more CCR calibrated variant effect predictors.
   1.6.1: Update Variant Effect Predictors panel with CCR calibrated predictors.
   1.6.0: Add Clingen Allele Registry and dbSNP support. Add new single input form.
