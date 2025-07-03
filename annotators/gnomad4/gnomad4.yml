@@ -1,3 +1,6 @@
+title: gnomAD4
+type: annotator
+version: 4.1.2
 datasource: v4.1
 description: Genome Aggregation Database (gnomAD) is a resource developed by an international
   coalition of investigators, with the goal of aggregating and harmonizing both exome
@@ -10,61 +13,230 @@ developer:
   website: http://gnomad.broadinstitute.org/
 level: variant
 output_columns:
-- name: af
-  title: Global AF
-  type: float
-  width: 70
-  hidden: false
-- name: af_afr
-  title: African AF
-  type: float
-  width: 70
-  hidden: true
-- name: af_ami
-  title: Amish AF
-  type: float
-  width: 70
-  hidden: true
-- name: af_amr
-  title: American AF
-  type: float
-  width: 70
-  hidden: true
-- name: af_asj
-  title: Ashkenazi Jewish AF
-  type: float
-  width: 70
-  hidden: true
-- name: af_eas
-  title: East Asian AF
-  type: float
-  width: 70
-  hidden: true
-- name: af_fin
-  title: Finnish AF
-  type: float
-  width: 70
-  hidden: true
-- name: af_mid
-  title: Mid-East AF
-  type: float
-  width: 70
-  hidden: true
-- name: af_nfe
-  title: Non-Fin Eur AF
-  type: float
-  width: 70
-  hidden: true
-- name: af_sas
-  title: South Asian AF
-  type: float
-  width: 70
-  hidden: true
+  - name: af
+    title: Global AF
+    type: float
+    width: 70
+    hidden: false
+  - name: an
+    title: Global AN
+    type: int
+    width: 70
+    hidden: false
+  - name: ac
+    title: Global AC
+    type: int
+    width: 70
+    hidden: false
+  - name: nhomalt
+    title: Global Alt Homozygotes
+    type: int
+    width: 85
+    hidden: false
+  - name: af_afr
+    title: African AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_afr
+    title: African AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_afr
+    title: African AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_afr
+    title: African Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_ami
+    title: Amish AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_ami
+    title: Amish AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_ami
+    title: Amish AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_ami
+    title: Amish Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_amr
+    title: Admixed American AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_amr
+    title: Admixed American AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_amr
+    title: Admixed American AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_amr
+    title: Admixed American Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_asj
+    title: Ashkenazi Jewish AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_asj
+    title: Ashkenazi Jewish AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_asj
+    title: Ashkenazi Jewish AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_asj
+    title: Ashkenazi Jewish Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_eas
+    title: East Asian AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_eas
+    title: East Asian AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_eas
+    title: East Asian AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_eas
+    title: East Asian Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_fin
+    title: Finnish AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_fin
+    title: Finnish AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_fin
+    title: Finnish AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_fin
+    title: Finnish Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_mid
+    title: Mid-East AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_mid
+    title: Mid-East AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_mid
+    title: Mid-East AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_mid
+    title: Mid-East Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_nfe
+    title: Non-Fin Eur AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_nfe
+    title: Non-Fin Eur AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_nfe
+    title: Non-Fin Eur AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_nfe
+    title: Non-Fin Eur Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_sas
+    title: South Asian AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_sas
+    title: South Asian AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_sas
+    title: South Asian AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_sas
+    title: South Asian Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
+  - name: af_rem
+    title: Remaining AF
+    type: float
+    width: 70
+    hidden: true
+  - name: an_rem
+    title: Remaining AN
+    type: int
+    width: 70
+    hidden: true
+  - name: ac_rem
+    title: Remaining AC
+    type: int
+    width: 70
+    hidden: true
+  - name: nhomalt_rem
+    title: Remaining Alt Homozygotes
+    type: int
+    width: 85
+    hidden: true
 tags:
 - allele frequency
-title: gnomAD4
-type: annotator
-version: 4.1.1
+
 release_note:
   4.1.0: Initial v4 release
   4.1.1: Fix annotation of indels
+  4.1.2: Add AC, AN, nhomalt columns
