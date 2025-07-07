@@ -1,5 +1,5 @@
 title: GWAS Catalog
-version: 2025.07.02
+version: 2025.07.07
 datasource: 2025.07.02
 description: GWAS Catalog Annotator
 level: variant
@@ -97,6 +97,7 @@ output_columns:
       title: Risk Allele Match
       type: string
 release-note:
+  2025.07.07: Fix reporting errors on no-annotation rows
   2025.07.02: Annotator rebuild with new monthly auto-updater. Add 'All Annotations' column that includes multiple rows when an input variant. Add 'Risk Allele Match' column to indicate if the input variant matches the risk allele for any matching study.
   1.0.0: Initial Release
 requires:

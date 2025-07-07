@@ -28,8 +28,8 @@ class CravatAnnotator(BaseAnnotator):
             input_data['pos']
         )
         self.cursor.execute(q)
-        if self.cursor.rowcount:
-            first_row = next(self.cursor)
+        first_row = self.cursor.fetchone()
+        if first_row:
             main = dict(zip(cols, first_row))
             match = main['risk_allele'] == input_data['ref_base'] or main['risk_allele'] == input_data['alt_base']
             main['risk_allele_match'] = match
