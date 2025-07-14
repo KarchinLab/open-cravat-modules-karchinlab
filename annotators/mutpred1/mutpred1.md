@@ -46,7 +46,7 @@ We welcome any suggestions and comments.
 
  \* A "-" means that MutPred did not meet the posterior probability threshold. Note that "(" and ")" indicate exclusion of the end value and “[” and “]” indicate inclusion of the end value.
 
- ### Indeterminate Scores
+### Indeterminate Scores
 
  If the MutPred score does not fit within the thresholds above, Benign (BP4) and Pathogenic (PP3) columns are left blank and described as "Indeterminate" in the corresponding MutPred widget.
 
