@@ -54,7 +54,7 @@ output_columns:
   desc: Strength of evidence for pathogenicity.
   width: 100
   category: multi
-
+  
 smartfilters:
 - name: class
   title: AlphaMissense Class
@@ -78,5 +78,6 @@ developer:
   website: ''
   citation: 'J. Cheng et al., Science 381, eadg7492 (2023). DOI: 10.1126/science.adg7492'
 release_note:
+  1.1.1: update bp4_benign and pp3_pathogenic columns to multi-value
   1.1.0: pathogenicity callibration results.
   1.0.0: initial release
