@@ -47,11 +47,13 @@ output_columns:
   type: string
   desc: Strength of evidence for benignity.
   width: 100
+  category: multi
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
   desc: Strength of evidence for pathogenicity.
   width: 100
+  category: multi
 
 smartfilters:
 - name: class
