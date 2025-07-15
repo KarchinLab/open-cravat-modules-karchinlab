@@ -55,6 +55,7 @@ output_columns:
   hidden: false
   width: 110
   desc: Strength of evidence for benignity.
+  category: multi
   filterable: true
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenicity (PP3)
@@ -62,6 +63,7 @@ output_columns:
   hidden: false
   width: 110
   desc: Strength of evidence for pathogenicity.
+  category: multi
   filterable: true
 tags:
 - variant effect prediction
@@ -73,6 +75,7 @@ version: 2.4.0
 requires:
 - wgfathmm
 release_note:
+  2.4.1: update bp4_benign and pp3_pathogenic columns to multi-value
   2.4.0: pathogenicity callibration results.
   2.3.7: non-canonical chrom support for older oc versions
   2.3.6: handle only specific alt chroms
