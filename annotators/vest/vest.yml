@@ -107,9 +107,10 @@ tags:
 - clinical relevance
 title: VEST4
 type: annotator
-version: 4.5.1
+version: 4.5.2
 requires_opencravat: '>=2.2.1'
 release_note:
+  4.5.2: Update docs to clearly note only misssense variatns available
   4.5.1: Update citation.
   4.5.0: pathogencity callibration results.
   4.4.0: works with variantreport.
