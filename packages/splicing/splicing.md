@@ -36,5 +36,5 @@ Reports:
 - Tab delimited
 
 
-![Screenshot](splice_screenshot.png)
+![Screenshot](splicing_screenshot.png)
 <br />
