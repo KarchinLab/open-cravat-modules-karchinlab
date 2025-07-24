@@ -34,7 +34,7 @@ output_columns:
   hidden: true
 tags:
 - variants
-- clinical relevance
+- mendelian disease
 title: Denovo-DB
 type: annotator
 version: 1.6.11
