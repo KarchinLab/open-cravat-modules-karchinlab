@@ -42,7 +42,7 @@ output_columns:
   type: string
   width: 85
   desc: Organ Systems affected by mutations in affected genes.
-  hidden: false
+  hidden: true
 - name: intervention
   title: Intervention
   type: string
@@ -84,8 +84,7 @@ output_columns:
     title: More Information
     type: string
 tags:
-- clinical relevance
-- genes
+- mendelian disease
 requires:
 - wgcgd
 title: 'CGD: Clinical Genomic Database'
