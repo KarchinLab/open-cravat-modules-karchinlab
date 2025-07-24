@@ -16,7 +16,6 @@ developer:
   website: http://chasmplus.readthedocs.io/en/latest/
 level: variant
 tags:
-- cancer
 - variant effect prediction
 title: CHASMplus MSK-IMPACT
 type: group
