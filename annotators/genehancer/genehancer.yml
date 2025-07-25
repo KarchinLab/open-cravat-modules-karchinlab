@@ -28,7 +28,7 @@ output_columns:
 - name: ident
   title: GeneHancer ID
   type: string 
-  hidden: false
+  hidden: true
   width: 85
 
 - name: target_genes
@@ -43,7 +43,7 @@ requires:
 - wgenhancer
 
 tags:
-- non coding
+- regulation
 
 commercial_warning: 'Freely available for non-commercial use.'
 

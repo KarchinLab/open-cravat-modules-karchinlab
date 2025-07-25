@@ -9,7 +9,7 @@ developer:
 input_format: crv
 level: variant
 output_columns:
-- hidden: true
+- hidden: false
   name: gtex_gene
   title: Target Gene
   type: string
@@ -21,7 +21,7 @@ output_columns:
   type: string
   desc: Tissue type of the expression data with which the eQTL/gene pair is detected
 tags:
-- variants
+- regulation
 title: GTEx eQTLs
 type: annotator
 version: 8.0.0

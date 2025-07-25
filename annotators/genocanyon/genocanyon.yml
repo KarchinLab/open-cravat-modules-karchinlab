@@ -19,10 +19,11 @@ output_columns:
   type: float
   desc: GenoCanyon scores were ranked among all GenoCanyon scores. The rankscore is the ratio of the rank of the score over the total number of GenoCanyon scores.
   width: 75
+  hidden: true
 
 
 tags:
-  - non coding
+  - variant effect prediction
 title: GenoCanyon
 version: 1.0.0
 type: annotator
