@@ -22,7 +22,7 @@ output_columns:
   type: string
   width: 80
 tags:
-- genes
+- proteins
 title: IntAct
 type: annotator
 version: 2019.08.23
