@@ -28,11 +28,11 @@ output_columns:
   title: Ensembl ID
   type: string
   width: 80
-  hidden: false
+  hidden: true
   link_format: http://www.ensembl.org/Homo_sapiens/Regulation/Context?db=core;fdb=funcgen;rf=${.*}
   desc: An Ensembl stable ID consists of five parts; ENS(species)(object type)(identifier).(version).
 tags:
-- non coding
+- regulation
 requires:
 - wgensembl_regulatory_build
 title: Ensembl Regulatory Build
