@@ -36,8 +36,6 @@ release_note:
   4.3.0: new gene summary architecture
   4.2.2: data in sync with production MuPIT
 tags:
-- genes
-- variants
 - visualization
 title: MuPIT
 type: annotator

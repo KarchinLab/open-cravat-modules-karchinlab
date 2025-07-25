@@ -30,9 +30,9 @@ output_columns:
   width: 185
   hidden: false
 tags:
-- variants
-- genes
-- cancer
+- cardiovascular
+- networks
+- visualization
 title: NDEx Congenital Heart Disease
 type: annotator
 version: 1.0.2

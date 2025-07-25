@@ -15,18 +15,18 @@ output_columns:
   title: Score
   type: float
   desc: Prediction score.
-  hidden: true
+  hidden: false
   width: 60
 - name: rankscore
   title: Rank score
   type: float
   desc: Ratio of the rank of the score over the total number of MetaSVM scores.
-  hidden: false
+  hidden: true
   width: 70
 - name: pred
   title: Prediction
   type: string
-  hidden: false
+  hidden: true
   width: 70
   category: single
   desc: The cutoff between "Damaging" and "Tolerated" is a score of 0.5 and a rankscore
@@ -34,7 +34,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -42,14 +42,13 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
   filterable: true
 tags:
 - variant effect prediction
-- variants
 title: MetaSVM
 version: 1.1.0
 type: annotator
