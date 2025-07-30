@@ -67,7 +67,7 @@ output_columns:
   hidden: true
 
 tags:
-- non coding
+- regulation
 title: RegulomeDB
 version: 1.0.1
 type: annotator

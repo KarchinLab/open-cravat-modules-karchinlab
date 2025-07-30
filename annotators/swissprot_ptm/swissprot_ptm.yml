@@ -129,7 +129,7 @@ output_columns:
     type: int
 
 tags:
-- functional studies
+- proteins
 
 input_format: crx
 title: Swiss-Prot PTM

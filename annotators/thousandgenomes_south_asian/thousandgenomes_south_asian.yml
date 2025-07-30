@@ -9,31 +9,35 @@ developer:
   website: http://www.internationalgenome.org/home
 level: variant
 output_columns:
-- desc: Gujarati Indian from Houston, Texas
-  name: gih_af
-  title: GIH AF
-  type: float
-  width: 60
-- desc: Punjabi from Lahore, Pakistan
-  name: pjl_af
-  title: PJL AF
-  type: float
-  width: 60
 - desc: Bengali from Bangladesh
   name: beb_af
   title: BEB AF
   type: float
   width: 60
-- desc: Sri Lankan Tamil from the UK
-  name: stu_af
-  title: STU AF
+- desc: Gujarati Indian from Houston, Texas
+  name: gih_af
+  title: GIH AF
   type: float
   width: 60
+  hidden: true
 - desc: Indian Telugu from the UK
   name: itu_af
   title: ITU AF
   type: float
   width: 60
+  hidden: true
+- desc: Punjabi from Lahore, Pakistan
+  name: pjl_af
+  title: PJL AF
+  type: float
+  width: 60
+  hidden: true
+- desc: Sri Lankan Tamil from the UK
+  name: stu_af
+  title: STU AF
+  type: float
+  width: 60
+  hidden: true
 tags:
 - allele frequency
 title: 1000 Genomes-South Asian

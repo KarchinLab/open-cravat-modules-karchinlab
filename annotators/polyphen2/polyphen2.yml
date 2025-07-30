@@ -8,7 +8,7 @@ output_columns:
   title: HDIV Prediction
   type: string
   width: 65
-  hidden: false
+  hidden: true
   desc: PolyPhen-2 prediction based on HumDiv, "D" ("probably damaging", HDIV Raw
     score in [0.957,1] or rankscore in [0.55859,0.91137]), "P" ("possibly damaging",
     HDIV Raw score in [0.454,0.956] or rankscore in [0.37043,0.55681]) and "B" ("benign",
@@ -20,7 +20,7 @@ output_columns:
   title: HVAR Prediction
   type: string
   width: 65
-  hidden: false
+  hidden: true
   desc: PolyPhen-2 prediction based on HumVar, "D" ("probably damaging", HVAR Raw
     score in [0.909,1] or rankscore in [0.65694,0.97581]), "P" ("possibly damaging",
     HVAR Raw score in [0.447,0.908] or rankscore in [0.47121,0.65622]) and "B" ("benign",
@@ -32,7 +32,7 @@ output_columns:
   title: HDIV Rank Score
   type: float
   width: 72
-  hidden: false
+  hidden: true
   desc: Max rank score across all transcripts. PolyPhen-2 HDIV scores were first ranked
     among all HDIV scores. The rankscore is the ratio of the rank the score over the
     total number of the scores. If there are multiple scores, only the most damaging
@@ -41,7 +41,7 @@ output_columns:
   title: HVAR Rank Score
   type: float
   width: 72
-  hidden: false
+  hidden: true
   desc: Max rank score across all transcripts. PolyPhen-2 HVAR scores were first ranked
     among all HVAR scores. The rankscore is the ratio of the rank the score over the
     total number of the scores. If there are multiple scores, only the most damaging
@@ -148,7 +148,6 @@ smartfilters:
     value: ${value}
 tags:
 - variant effect prediction
-- variants
 release-note:
   2024.01.12: fix to not annotate small indels with len(alt_base) == 1
   1.1.0: table data enabled
