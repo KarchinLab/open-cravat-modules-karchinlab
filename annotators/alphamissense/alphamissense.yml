@@ -4,8 +4,6 @@ type: annotator
 level: variant
 tags:
 - variant effect prediction
-- variants
-- clinical relevance
 requires:
 - wgalphamissense
 output_columns:
@@ -48,13 +46,15 @@ output_columns:
   desc: Strength of evidence for benignity.
   width: 100
   category: multi
+  hidden: true
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
   desc: Strength of evidence for pathogenicity.
   width: 100
   category: multi
-  
+  hidden: true
+
 smartfilters:
 - name: class
   title: AlphaMissense Class

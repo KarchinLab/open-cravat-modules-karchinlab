@@ -4,23 +4,8 @@ type: annotator
 level: variant
 output_columns:
 - filterable: true
-  name: european_allele_freq
-  title: European AF
-  type: float
-  width: 68
-- filterable: true
   name: african_allele_freq
   title: African AF
-  type: float
-  width: 68
-- filterable: true
-  name: middle_eastern_allele_freq
-  title: Middle Eastern AF
-  type: float
-  width: 68
-- filterable: true
-  name: east_asian_allele_freq
-  title: East Asian AF
   type: float
   width: 68
 - filterable: true
@@ -28,16 +13,38 @@ output_columns:
   title: CS Asian AF
   type: float
   width: 68
+  hidden: true
 - filterable: true
-  name: oceanian_allele_freq
-  title: Oceanian AF
+  name: east_asian_allele_freq
+  title: East Asian AF
   type: float
   width: 68
+  hidden: true
+- filterable: true
+  name: european_allele_freq
+  title: European AF
+  type: float
+  width: 68
+  hidden: true
+- filterable: true
+  name: middle_eastern_allele_freq
+  title: Middle Eastern AF
+  type: float
+  width: 68
+  hidden: true
 - filterable: true
   name: native_american_allele_freq
   title: Native American AF
   type: float
   width: 68
+  hidden: true
+- filterable: true
+  name: oceanian_allele_freq
+  title: Oceanian AF
+  type: float
+  width: 68
+  hidden: true
+
 tags:
 - allele frequency
 description: Human Genome Diversity Panel (HGDP) DNA from individuals among 51 different

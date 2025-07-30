@@ -9,31 +9,35 @@ developer:
   website: http://www.internationalgenome.org/home
 level: variant
 output_columns:
-- desc: Han Chinese in Beijing, China
-  name: chb_af
-  title: CHB AF
-  type: float
-  width: 60
-- desc: Japanese in Tokyo, Japan
-  name: jpt_af
-  title: JPT AF
-  type: float
-  width: 60
-- desc: Southern Han Chinese
-  name: chs_af
-  title: CHS AF
-  type: float
-  width: 60
 - desc: Chinese Dai in Xishuangbanna, China
   name: cdx_af
   title: CDX AF
   type: float
   width: 60
+- desc: Han Chinese in Beijing, China
+  name: chb_af
+  title: CHB AF
+  type: float
+  width: 60
+  hidden: true
+- desc: Japanese in Tokyo, Japan
+  name: jpt_af
+  title: JPT AF
+  type: float
+  width: 60
+  hidden: true
 - desc: Kinh in Ho Chi Minh City, Vietnam
   name: khv_af
   title: KHV AF
   type: float
   width: 60
+  hidden: true
+- desc: Southern Han Chinese
+  name: chs_af
+  title: CHS AF
+  type: float
+  width: 60
+  hidden: true
 tags:
 - allele frequency
 title: 1000 Genomes-East Asian

@@ -20,6 +20,7 @@ output_columns:
   title: Name
   type: string
   width: 70
+  hidden: true
 tags:
 - non coding
 title: ncRNA

@@ -57,10 +57,7 @@ pypi_dependency:
 - pytabix
 requires_opencravat: '>=2.2.6'
 tags:
-- cancer
-- non coding
 - variant effect prediction
-- variants
 title: FunSeq2
 version: 1.0.1
 type: annotator

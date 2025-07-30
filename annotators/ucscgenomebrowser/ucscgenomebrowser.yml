@@ -11,6 +11,8 @@ output_columns:
   link_format: ${.*}
   width: 60
 
+tags:
+- visualization
 description: Link to UCSC Genome Browser
 
 developer:

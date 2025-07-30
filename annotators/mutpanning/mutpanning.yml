@@ -13,14 +13,14 @@ output_columns:
 - name: No_Cancer_Types
   title: No. of Cancer Types
   type: float
-  hidden: false
+  hidden: true
   width: 120
   desc: The number of cancer types, in which the genes were found to be significantly
     mutated.
 - name: Max_Frequency
   title: Mutation Frequency
   type: float
-  hidden: false
+  hidden: true
   desc: The maximal mutation frequency across the significantly mutated cancer types.
 - name: Best_Q_Value
   title: Best Q Value
@@ -65,11 +65,10 @@ output_columns:
 - name: Cancer_Type
   title: Cancer Type
   type: string
-  hidden: true
+  hidden: false
   desc: The specific cancer types that each gene effects.
 tags:
-- genes
-- cancer
+- variant effect prediction
 title: Mutpanning
 type: annotator
 version: 1.0.0

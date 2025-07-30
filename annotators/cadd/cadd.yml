@@ -12,6 +12,7 @@ output_columns:
 - name: phred
   title: Phred
   type: float
+  hidden: true
   desc: phred-like scores ("scaled C-scores") range from 1 to 99, based on the rank
     of each variant relative to all possible 8.6 billion substitutions in the human
     reference genome. A scaled score of 10, for example, refers to the top 10% of
@@ -19,7 +20,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -27,7 +28,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -46,8 +47,6 @@ commercial_warning: CADD scores are freely available for all non-commercial appl
   you are planning on using them in a commercial application, please obtain a license.
 tags:
 - variant effect prediction
-- variants
-- clinical relevance
 pypi_dependency:
 - pytabix
 requires_opencravat: '>=2.2.6'

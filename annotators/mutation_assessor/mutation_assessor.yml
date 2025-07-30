@@ -22,25 +22,25 @@ output_columns:
   title: Score
   type: float
   desc: Functional impact combined score
-  hidden: true
+  hidden: false
 - name: rankscore
   title: Rank score
   type: float
   width: 54
   filterable: false
   desc: Rank of the score in dbNSFP divided by the total number of scores in dbNSFP
-  hidden: false
+  hidden: true
 - name: impact
   title: Functional Impact
   type: string
   width: 68
   filterable: false
   desc: 'Functional impact: high (H), medium (M), low (L) or neutral (N)'
-  hidden: false
+  hidden: true
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -48,7 +48,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -73,7 +73,6 @@ output_columns:
 
 tags:
 - variant effect prediction
-- variants
 title: Mutation Assessor
 type: annotator
 version: 3.1.3

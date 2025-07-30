@@ -72,7 +72,6 @@ release_note:
   1.0.4: updated email,
   1.0.3: added gene level summary
 tags:
-- cancer
 - variant effect prediction
 title: CHASMplus
 type: annotator

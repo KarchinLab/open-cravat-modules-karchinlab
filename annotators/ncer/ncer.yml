@@ -1,4 +1,3 @@
-datasource: v2
 description: ncER has a good performance for the identification of deleterious variants in the non-coding genome. ncER can also identify non-coding regions associated with cell viability, an in vitro surrogate of essentiality9, and with regulation of an essential gene.
 developer:
   name: ''
@@ -17,6 +16,7 @@ output_columns:
 
 tags:
 - non coding
+- regulation
 
 title: "ncER: non-coding essential regulation"
 version: 2022.09.22

@@ -20,4 +20,4 @@ developer:
 options:
   flanking_bases: 60
 tags:
-- variants
+- proteins

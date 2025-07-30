@@ -16,4 +16,5 @@ developer:
   citation: 'Lappalainen, Tuuli, et al. "Transcriptome and genome sequencing uncovers
     functional variation in humans." Nature 501.7468 (2013): 506-511.'
 tags:
-- variants
+- regulation
+- non coding

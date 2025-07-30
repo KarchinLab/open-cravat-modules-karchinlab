@@ -43,10 +43,7 @@ smartfilters:
     column: civic__id
     test: hasData
 tags:
-- variants
-- clinical relevance
 - cancer
-- literature
 title: CIViC
 type: annotator
 version: 2025.07.01

@@ -81,8 +81,7 @@ output_columns:
     type: int
 
 tags:
-- clinical relevance
-- variants
+- drugs
 requires_opencravat: '>=2.2.1'
 requires:
 - wgdgi

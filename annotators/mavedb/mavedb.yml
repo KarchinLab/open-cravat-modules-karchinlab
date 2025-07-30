@@ -22,11 +22,11 @@ output_columns:
   type: string
   link_format: https://www.mavedb.org/scoreset/${.*}
   width: 80
-  hidden: false
+  hidden: true
   desc: Information from the study specific to each gene.
 
 tags:
-- functional studies
+- variant effect prediction
 
 title: MaveDB
 version: 1.0.1

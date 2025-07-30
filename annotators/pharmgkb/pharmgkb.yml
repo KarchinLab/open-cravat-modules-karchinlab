@@ -8,11 +8,13 @@ output_columns:
   title: ID
   type: string
   width: 85
+  hidden: true
   link_format: https://www.pharmgkb.org/variant/${.*}
 - name: chemicals
   title: Chemicals
   type: string
   width: 85
+  hidden: true
 - name: pheno_cat
   title: Phenotype Category
   type: string
@@ -88,7 +90,5 @@ release-note:
   1.1.1: added table-data columns
   1.1.0: Data update
 tags:
-- clinical relevance
-- literature
-- variants
+- drugs
 requires_opencravat: '>=2.2.2'

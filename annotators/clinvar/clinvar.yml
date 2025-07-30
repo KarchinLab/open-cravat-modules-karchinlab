@@ -18,7 +18,7 @@ output_columns:
   type: string
   width: 90
   filterable: false
-  hidden: true
+  hidden: false
 - hidden: true
   name: disease_refs
   title: Disease Ref Nums
@@ -37,7 +37,7 @@ output_columns:
   title: Disease Names
   type: string
   width: 55
-  hidden: false
+  hidden: true
 - name: clinvar_preferred_names
   title: Preferred Disease Names
   type: string
@@ -284,7 +284,7 @@ release_note:
   2019.01.022: updated data set, widget overhaul
   2019.01.023: changed id column format for web linking
 tags:
-- clinical relevance
+- mendelian disease
 - variants
 title: ClinVar
 type: annotator

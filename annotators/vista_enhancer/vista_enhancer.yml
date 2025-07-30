@@ -17,13 +17,13 @@ output_columns:
   width: 70
   link_format: https://enhancer.lbl.gov/cgi-bin/imagedb3.pl?form=presentation&show=1&experiment_id=${element
     (.*)}&organism_id=1
-  hidden: true
+  hidden: false
 - desc: ''
   name: features
   title: Features
   type: string
   width: 70
-  hidden: false
+  hidden: true
 tags:
 - non coding
 - functional studies

@@ -17,8 +17,7 @@ output_columns:
   width: 70
   link_format: https://omim.org/entry/${[^;]+}
   tags:
-  - clinical relevance
-  - literature
+  - mendelian disease
   requires:
   - wgomim
 title: OMIM

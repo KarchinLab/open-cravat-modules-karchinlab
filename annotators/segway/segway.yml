@@ -26,7 +26,6 @@ private: false
 groups:
 - segway_group
 tags:
-- variants
 - non coding
 requires:
 - segway_group

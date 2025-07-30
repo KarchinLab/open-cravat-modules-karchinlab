@@ -83,8 +83,7 @@ output_columns:
     type: string
 
 tags:
-- variants
-- variant effect prediction
+- genes
 
 requires_opencravat: '>=2.2.1'
 requires:

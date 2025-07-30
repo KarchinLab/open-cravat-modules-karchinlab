@@ -103,7 +103,4 @@ release-note:
 requires:
 - wggwas_catalog
 tags:
-- variants
-- non coding
-- clinical relevance
-- literature
+- GWAS

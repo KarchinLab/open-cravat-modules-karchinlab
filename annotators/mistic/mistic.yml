@@ -20,11 +20,12 @@ output_columns:
   filterable: true
   category: single
   width: 70
+  hidden: true
   desc: Scores >0.5 are classified as deleterious and scores <0.5 are classified as benign.
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -32,7 +33,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity. Based on scores that do not include the background population frequency of the variant
   category: multi
@@ -43,6 +44,5 @@ description: A supervised machine-learning model dedicated to the prediction of 
 release_note:
   1.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
 tags:
-- variants
 - variant effect prediction
 commercial_warning: MISTIC is freely available for all non-commercial applications. For a commercial application, please contact here https://lbgi.fr/mistic/contact.
