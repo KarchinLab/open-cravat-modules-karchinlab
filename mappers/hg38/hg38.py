@@ -4599,11 +4599,13 @@ class Mapper(cravat.BaseMapper):
                 toks = f.readline().split("\t")
                 hugo_colno = toks.index("symbol")
                 enst_colno = toks.index("Ensembl_nuc")
+                mane_status_colno = toks.index('MANE_status')
                 for line in f:
                     toks = line[:-1].split("\t")
                     hugo = toks[hugo_colno]
                     enst = toks[enst_colno].split(".")[0]
-                    if hugo not in self.primary_transcript:
+                    mane_status = toks[mane_status_colno]
+                    if mane_status=='MANE Select' or hugo not in self.primary_transcript:
                         self.primary_transcript[hugo] = enst
                 f.close()
             else:
