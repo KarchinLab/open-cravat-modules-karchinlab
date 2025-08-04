@@ -111,7 +111,7 @@ output_columns:
     type: int
 
 tags:
-- functional studies
+- proteins
 requires_opencravat: '>=2.2.1'
 requires:
 - wgswissprot_domains

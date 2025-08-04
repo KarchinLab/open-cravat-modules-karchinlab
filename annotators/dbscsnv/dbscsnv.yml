@@ -30,7 +30,6 @@ output_columns:
     it predicts the splicing will not be changed
 
 tags:
-- variant effect prediction
 - variants
 release_note:
   1.1.0: Fixed position to be in hg38

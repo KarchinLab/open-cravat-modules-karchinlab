@@ -56,6 +56,5 @@ requires:
 - wgclingen
 tags:
 - genes
-- clinical relevance
 release_notes:
   1.1.0: Updated data with new links

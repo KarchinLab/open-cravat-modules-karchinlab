@@ -16,14 +16,14 @@ output_columns:
   name: phylop100_vert
   title: Vert Score
   type: float
-  hidden: true
+  hidden: false
 - desc: Rank of the score in dbNSFP divided by the total number of scores in dbNSFP
   name: phylop100_vert_r
   title: Vert Ranked Score
   type: float
   width: 54
   filterable: false
-  hidden: false
+  hidden: true
 - desc: phyloP (phylogenetic p-values) conservation score based on the
     multiple alignments of 470 mammalian genomes (including human). The larger the score, 
     the more conserved the site. Scores range from -20 to 11.936.
@@ -40,7 +40,7 @@ output_columns:
   type: float
   width: 54
   filterable: false
-  hidden: false
+  hidden: true
 - desc: Conservation score based on 17-way alignment primate set. The larger the score,
     the more conserved the site.
   filterable: true
@@ -54,11 +54,11 @@ output_columns:
   type: float
   width: 54
   filterable: false
-  hidden: false
+  hidden: true
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -66,14 +66,12 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity, based upon the 100-way Vertebrate Score.
   category: multi
   filterable: true
 tags:
-- variants
-- variant effect prediction
 - evolution
 title: PhyloP
 type: annotator

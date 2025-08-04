@@ -37,5 +37,4 @@ release_note:
 type: annotator
 tags:
 - cancer
-- variants
 requires_opencravat: '>=2.2.1'

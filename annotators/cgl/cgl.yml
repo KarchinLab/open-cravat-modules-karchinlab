@@ -14,7 +14,6 @@ output_columns:
   type: string
   width: 105
 tags:
-- genes
 - cancer
 requires_opencravat: '>=2.0.0'
 release-note:

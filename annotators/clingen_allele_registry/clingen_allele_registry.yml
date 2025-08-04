@@ -31,9 +31,6 @@ smartfilters:
   filter:
     column: clingen_allele_registry__allele_registry_id
     test: hasData
-tags:
-- clinical relevance
-- variants
 title: ClinGen Allele Registry
 type: annotator
 requires_opencravat: '>=2.14.0'

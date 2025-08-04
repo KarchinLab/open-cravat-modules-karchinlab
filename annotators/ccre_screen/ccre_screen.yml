@@ -18,7 +18,7 @@ output_columns:
 - name: acc_e
   title: cCRE Accession ID
   type: string
-  hidden: false
+  hidden: true
   width: 100
   link_format: 'https://screen.encodeproject.org/search/?q=${.*}&assembly=GRCh38'
 - name: _group
@@ -43,7 +43,7 @@ output_columns:
   category: single
 
 tags:
-- non coding
+- regulation
 requires:
 - wgccre_screen
 

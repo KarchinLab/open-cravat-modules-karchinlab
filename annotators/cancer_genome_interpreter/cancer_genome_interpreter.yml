@@ -30,6 +30,7 @@ output_columns:
   title: Number of Other Effects
   type: int
   width: 100
+  hidden: true
   desc: The number of Other responses due to how the presence of the biomarker affects
     the response to the drug.
 
@@ -65,9 +66,6 @@ requires:
 
 tags:
 - cancer
-- clinical relevance
-- genes
-- variant effect prediction
 commercial_warning: Freely available for non-commercial use.
 
 title: Cancer Genome Interpreter

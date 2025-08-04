@@ -20,26 +20,25 @@ output_columns:
   title: Score
   type: float
   desc: Score > 0.5 suggests pathogenicity.
-  hidden: true
+  hidden: false
 
 - name: rankscore
   title: Rank score
   type: float
   desc: The ratio of the rank of the score over the total number of scores in MutPred-Indel.
   width: 65
-  hidden: false
+  hidden: true
 
 - name: property
   title: Property
   type: string
   desc: Property scores that reflect the impact of a variant on different properties.
   width: 75
-  hiden: false
+  hidden: true
 
 
 tags:
 - variant effect prediction
-- variants
 title: MutPred-Indel
 version: 1.1.1
 type: annotator

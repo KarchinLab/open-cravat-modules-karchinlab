@@ -14,7 +14,6 @@ output_columns:
 - name: bayesdel_addAF_score
   title: Score (AF)
   type: float
-  hidden: true
   width: 80
   desc: AF score includes the background population frequency of the variant. The scores range from -1.11707 to 0.750927.
 - name: bayesdel_addAF_rankscore
@@ -26,44 +25,44 @@ output_columns:
 - name: bayesdel_addAF_pred
   title: Prediction (AF)
   type: string
-  hidden: true
   width: 90
   desc: AF prediction includes the background population frequency of the variant.
 - name: bayesdel_noAF_score
   title: Score (no AF)
   type: float
   width: 70
+  hidden: true
   desc: No AF score does not include the background population frequency of the variant. The scores range from -1.31914 to 0.840878.
 - name: bayesdel_noAF_rankscore
   title: Rank Score (no AF)
   type: float
   width: 90
+  hidden: true
   desc: Ratio of the rank of the score over the total number of BayesDel no maxAF scores
 - name: bayesdel_noAF_pred
   title: Prediction (no AF)
   type: string
   width: 80
+  hidden: true
   desc: No AF prediction does not include the background population frequency of the variant. The score cutoff between Deleterious and Tolerated is -0.0570105, based upon the authors recommendation.
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
   category: multi
   filterable: true
   width: 100
+  hidden: true
   desc: Strength of evidence for benignity. Based on scores that do not include the background population frequency of the variant
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
   width: 110
+  hidden: true
   desc: Strength of evidence for pathogenicity. Based on scores that do not include the background population frequency of the variant
   category: multi
   filterable: true
 tags:
-- clinical relevance
 - variant effect prediction
-- variants
 requires:
 - wgbayesdel
 release_note:

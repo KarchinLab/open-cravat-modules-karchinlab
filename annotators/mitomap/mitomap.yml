@@ -21,7 +21,7 @@ output_columns:
   title: MitoTip Score
   type: float
   width: 75
-  hidden: false
+  hidden: true
   desc: Scores range from -5.9 to 21.8, with a median score of 12.7. If the score
     is < 8.44 it is considered Q4, 8.44 - 12.66 = Q3, 12.66 - 16.25 = Q2, and scores
     > 16.24 = Q1.
@@ -31,7 +31,7 @@ output_columns:
   width: 75
   desc: Quartile level determines pathogenicity. Q4 = Likely Begin, Q3 = Possibly
     Benign, Q2 = Possibly Pathogenic, Q1 = Likely Pathogenic.
-  hidden: false
+  hidden: true
   category: single
 - name: status
   title: Status
@@ -50,8 +50,7 @@ output_columns:
   hidden: true
 
 tags:
-- variant effect prediction
-- variants
+- non coding
 requires:
 - wgmitomap
 title: MITOMAP

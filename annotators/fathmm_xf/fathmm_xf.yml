@@ -13,9 +13,7 @@ output_columns:
 release_note:
   1.0.2: Bug fix
 tags:
-- non coding
 - variant effect prediction
-- variants
 pypi_dependency:
 - pytabix
 requires_opencravat: '>=2.2.6'

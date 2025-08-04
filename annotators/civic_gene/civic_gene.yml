@@ -16,7 +16,7 @@ output_columns:
   type: string
   filterable: false
   link_format: https://civicdb.org/links/gene/${.*}
-- hidden: true
+- hidden: false
   name: description
   title: Description
   type: string
@@ -28,9 +28,6 @@ output_columns:
   hidden: true
 tags:
 - cancer
-- clinical relevance
-- genes
-- literature
 title: CIViC Gene
 type: annotator
 version: 2025.07.01

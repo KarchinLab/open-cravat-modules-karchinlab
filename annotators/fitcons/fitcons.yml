@@ -35,8 +35,7 @@ output_columns:
   desc: 0 - highly significant scores; 2 - significant scores; 2 - informative scores;
     3 - other scores.
 tags:
-- variant effect prediction
-- variants
+- regulation
 title: fitCons
 version: 1.0.0
 type: annotator

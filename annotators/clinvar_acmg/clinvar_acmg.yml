@@ -52,7 +52,7 @@ smartfilters:
 type: annotator
 requires_opencravat: '>=1.4.0'
 tags:
-- clinical relevance
+- mendelian disease
 - variants
 release_note:
   2025.05.01: Monthly data update

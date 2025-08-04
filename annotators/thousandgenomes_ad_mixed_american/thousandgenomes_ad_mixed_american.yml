@@ -9,26 +9,29 @@ developer:
   website: http://www.internationalgenome.org/home
 level: variant
 output_columns:
-- name: mxl_af
-  desc: Mexican Ancestry from Los Angeles USA
-  title: MXL AF
-  type: float
-  width: 60
-- name: pur_af
-  desc: Puerto Ricans from Puerto Rico
-  title: PUR AF
-  type: float
-  width: 60
 - name: clm_af
   desc: Colombians from Medellin, Colombia
   title: CLM AF
   type: float
   width: 60
+- name: mxl_af
+  desc: Mexican Ancestry from Los Angeles USA
+  title: MXL AF
+  type: float
+  width: 60
+  hidden: true
 - name: pel_af
   desc: Peruvians from Lima, Peru
   title: PEL AF
   type: float
   width: 60
+  hidden: true
+- name: pur_af
+  desc: Puerto Ricans from Puerto Rico
+  title: PUR AF
+  type: float
+  width: 60
+  hidden: true
 tags:
 - allele frequency
 title: 1000 Genomes-Ad Mixed American

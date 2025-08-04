@@ -19,9 +19,7 @@ output_columns:
   filterable: true
   desc: Interacting regions
 tags:
-- genes
-- non coding
-- functional studies
+- regulation
 title: Promoter IR
 type: annotator
 version: '2022.12.12'
