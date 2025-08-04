@@ -18,7 +18,6 @@ output_columns:
   link_format: https://www.ncbi.nlm.nih.gov/snp/${.*}
 tags:
 - variants
-- literature
 title: dbSNP
 type: annotator
 version: 156.0.1

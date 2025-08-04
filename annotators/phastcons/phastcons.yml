@@ -16,14 +16,14 @@ output_columns:
   name: phastcons100_vert
   title: Vert Score
   type: float
-  hidden: true
+  hidden: false
 - desc: Rank of the score in dbNSFP divided by the total number of scores in dbNSFP
   filterable: false
   name: phastcons100_vert_r
   title: Vert Ranked Score
   type: float
   width: 58
-  hidden: false
+  hidden: true
 - desc: phastCons conservation score based on the multiple alignments 
     of 470 mammalian genomes (including human). The larger the score, the more conserved 
     the site. Scores range from 0 to 1. 
@@ -40,7 +40,7 @@ output_columns:
   title: Mamm Ranked Score
   type: float
   width: 56
-  hidden: false
+  hidden: true
 - desc: Conservation score based on 17way alignment primate set. The larger the score,
     the more conserved the site.
   filterable: true
@@ -55,9 +55,8 @@ output_columns:
   title: Primate Ranked Score
   type: float
   width: 56
-  hidden: false
+  hidden: true
 tags:
-- variants
 - evolution
 title: Phast Cons
 type: annotator

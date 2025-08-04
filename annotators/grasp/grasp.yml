@@ -35,24 +35,24 @@ output_columns:
   - name: nhlbi
     title: NHLBI Key
     type: int
+    hidden: true
   - name: pmid
     title: PMID
     type: int
     desc: PubMed ID
+    hidden: true
   - name: phenotype
     title: Phenotype
     type: string
   - name: pvalue
     title: p-value
     type: float
+    hidden: true
 release_note:
   2.0.2: removed double quotation from phenotype in data
   2.0.3: test key encoded in UTF-8
 tags:
-- variants
-- non coding
-- clinical relevance
-- literature
+- GWAS
 title: GRASP
 type: annotator
 version: 2.0.8

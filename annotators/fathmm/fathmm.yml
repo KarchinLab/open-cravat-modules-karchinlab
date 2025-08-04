@@ -25,7 +25,7 @@ output_columns:
   filterable: false
   desc: Ensembl protein ID
 - filterable: true
-  hidden: true
+  hidden: false
   name: fathmm_score
   title: Score
   type: string
@@ -35,6 +35,7 @@ output_columns:
   type: float
   width: 68
   filterable: false
+  hidden: true
   desc: Rank of the score in dbNSFP divided by the total number of scores in dbNSFP
 - hidden: true
   name: fathmm_pred
@@ -52,7 +53,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for benignity.
   category: multi
@@ -60,15 +61,13 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenicity (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
   filterable: true
 tags:
 - variant effect prediction
-- variants
-- clinical relevance
 title: FATHMM
 type: annotator
 version: 2.4.1

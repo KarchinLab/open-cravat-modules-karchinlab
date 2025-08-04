@@ -20,7 +20,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -28,16 +28,14 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
   filterable: true
 
 tags:
-- non coding
 - variant effect prediction
-- variants
 pypi_dependency:
 - pytabix
 requires_opencravat: '>=2.2.6'

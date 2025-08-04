@@ -14,14 +14,14 @@ output_columns:
 - name: lqt
   title: LQT
   type: float
-  hidden: false
+  hidden: true
   width: 55
   desc: Number of heterozygotes diagnosed with Long QT Syndrome.
 
 - name: brs
   title: BrS
   type: float
-  hidden: false
+  hidden: true
   desc: Number of heterozygotes diagnosed with Brugada Syndrome.
   width: 55
 
@@ -66,14 +66,14 @@ output_columns:
 - name: brs_structure
   title: BrS Hotspot
   type: string
-  hidden: false
+  hidden: true
   desc: Regions in protein structure with higher BrS penetrance.
   width: 85
 
 - name: lqt_structure
   title: LQT Hotspot
   type: string
-  hidden: false
+  hidden: true
   desc: Regions in protein structure with higher LQT penetrance.
   width: 85
 
@@ -86,9 +86,7 @@ output_columns:
 
 
 tags:
-- clinical relevance
-- variant effect prediction
-- variants
+- cardiovascular
 title: Arrhythmia Channelopathy Variants
 version: 1.2.0
 release_note:

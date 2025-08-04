@@ -24,19 +24,19 @@ output_columns:
   title: Score
   type: float
   desc: Scores range from -14 to 14. The smaller the score the more likely the SNP has damaging effect.
-  hidden: true
+  hidden: false
   width: 60
 - name: rankscore
   title: Rank Score
   type: float
   desc: The ratio of the rank the PROVEAN score over the total number of PROVEAN scores.
-  hidden: false
+  hidden: true
   width: 70
 - name: prediction
   title: Prediction
   type: string
   desc: If score <= -2.5 (rankscore>=0.54382) the corresponding nsSNV is predicted as "D(amaging)"; otherwise it is predicted as "N(eutral)". 
-  hidden: false
+  hidden: true
   width: 65
   category: multi
 - name: bp4_benign

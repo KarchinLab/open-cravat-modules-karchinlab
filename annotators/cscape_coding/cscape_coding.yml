@@ -24,11 +24,10 @@ output_columns:
   desc: The rankscore is the ratio of the rank of the score over the total number
     of CScape scores.
   width: 75
+  hidden: true
 
 tags:
-- cancer
 - variant effect prediction
-- variants
 title: CScape Coding
 version: 1.0.0
 type: annotator

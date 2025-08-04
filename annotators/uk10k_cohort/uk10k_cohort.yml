@@ -21,6 +21,7 @@ output_columns:
   name: uk10k_twins_af
   title: Twins AF
   type: float
+  hidden: true
 - hidden: true
   desc: Allele count in the Avon Longitudinal Study of Parents and Children
   name: uk10k_alspac_ac
@@ -34,13 +35,14 @@ output_columns:
   title: ALSPAC AF
   type: float
   width: 56
-- hidden: true
+  hidden: true
+- hidden: false
   name: uk10k_ac
   desc: Alternative allele count in combined genotypes in UK10K cohort (TWINSUK+ALSPAC).
   title: UK10K AC
   type: float
   filterable: false
-- hidden: true
+- hidden: false
   name: uk10k_af
   desc: Alternative allele frequency in combined genotypes in UK10K cohort (TWINSUK+ALSPAC).
   title: UK10K AF

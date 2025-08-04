@@ -16,26 +16,26 @@ output_columns:
   type: float
   desc: Scores are p-values and range from 0 to 1. SNVs with scores >0.5 are predicted
     to be deleterious, and those <0.5 are predicted to be neutral or benign.
-  hidden: true
+  hidden: false
   width: 60
 - name: fathmm_xf_coding_rankscore
   title: Rank score
   type: float
   desc: Ratio of the rank of the score over the total number of FATHMM XF scores.
-  hidden: false
+  hidden: true
   width: 70
 - name: fathmm_xf_coding_pred
   title: Prediction
   type: string
   desc: If score is >0.5, the corresponding nsSNV is predicted as "Damaging"; otherwise
     it is predicted as "Neutral".
-  hidden: false
+  hidden: true
   width: 65
   category: single
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -43,7 +43,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -51,7 +51,6 @@ output_columns:
 
 tags:
 - variant effect prediction
-- variants
 title: FATHMM XF Coding
 version: 1.1.0
 release_note:

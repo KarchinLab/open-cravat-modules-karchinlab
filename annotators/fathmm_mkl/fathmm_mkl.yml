@@ -16,20 +16,20 @@ output_columns:
   title: Score
   type: float
   width: 60
-  hidden: true
+  hidden: false
   desc: p-values. Scores range from 0 to 1. SNVs with scores >0.5 are predicted to
     be deleterious, and those <0.5 are predicted to be neutral or benign.
 - name: fathmm_mkl_coding_rankscore
   title: Rank score
   type: float
   width: 60
-  hidden: false
+  hidden: true
   desc: Ratio of the rank of the score over the total number of FATHMM MKL scores.
 - name: fathmm_mkl_coding_pred
   title: Prediction
   type: string
   width: 70
-  hidden: false
+  hidden: true
   category: single
   desc: If a score is >0.5 (or rankscore >0.28317) the corresponding nsSNV is predicted
     as "Damaging"; otherwise it is predicted as "Neutral"
@@ -42,7 +42,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -50,7 +50,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -58,7 +58,6 @@ output_columns:
 
 tags:
 - variant effect prediction
-- variants
 title: FATHMM MKL
 version: 1.1.0
 release-note:

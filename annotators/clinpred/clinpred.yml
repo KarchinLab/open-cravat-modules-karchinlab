@@ -1,0 +1,28 @@
+datasource: October 2018
+description: Prediction tool to identify disease-relevant nonsynonymous single nucleotide variants.
+developer:
+  name: 'Najmeh Alirezaie and Jacek Majewski'
+  organization: 'McGill University'
+  email: 'support@cravat.us'
+  website: 'https://sites.google.com/site/clinpred/home'
+  citation: 'Alirezaie N, Kernohan KD, Hartley T, Majewski J, Hocking TD. “ClinPred: Prediction Tool to Identify Disease-Relevant Nonsynonymous Single-Nucleotide Variants.”  American Journal of Human 2018 Oct 4;103(4):474-483. PMID:30220433'
+
+level: variant
+output_columns:
+- name: score
+  title: Score
+  type: float
+  desc: Scores are between 0 and 1, representing the probability of a pathogenic variant. The cutoff for pathogenic or benign is 0.5 (lower for benign, higher for pathogenic).
+  width: 80
+- name: rankscore
+  title: Rank Score
+  type: float
+  hidden: true
+  desc: The rankscore is the ratio of the rank of the score over the total number of Clinpred scores.
+
+tags:
+- variant effect prediction
+
+title: ClinPred
+version: 1.0.0
+type: annotator

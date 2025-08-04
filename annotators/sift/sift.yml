@@ -14,6 +14,7 @@ output_columns:
   type: string
   desc: Tolerated if Score > 0.05. Damaging if Score <= 0.05
   width: 70
+  hidden: true
   category: single
   categories:
   - Tolerated
@@ -33,11 +34,11 @@ output_columns:
   type: float
   desc: Ranges from 0 to 1. The amino acid substitution is predicted damaging is the
     score is <= 0.05, and tolerated if the score is > 0.05.
-  hidden: true
+  hidden: false
 - name: rankscore
   title: Rank Score
   type: float
-  hidden: false
+  hidden: true
   desc: Max rank score across all transcripts. The ratio of the rank of the score
     over the total number of SIFT scores.
 - name: med
@@ -59,7 +60,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -67,7 +68,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -120,8 +121,6 @@ developer:
 datasource: SIFT4G 2016-02-22
 tags:
 - variant effect prediction
-- variants
-- clinical relevance
 requires:
 - wgsift
 requires_opencravat: '>=2.2.1'
