@@ -33,7 +33,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -41,7 +41,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -67,8 +67,6 @@ output_columns:
 requires_opencravat: '>=2.2.1'
 tags:
 - variant effect prediction
-- variants
-- clinical relevance
 title: REVEL
 type: annotator
 version: 2024.07.30
