@@ -26,7 +26,6 @@ output_columns:
   hidden: true
 tags:
 - non coding
-- functional studies
 title: VISTA Enhancer Browser
 type: annotator
 version: 2019.08.02
