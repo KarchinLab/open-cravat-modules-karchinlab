@@ -24,7 +24,6 @@ title: OMIM
 version: 1.1.0
 type: annotator
 tags:
-- variants
-- clinical relevance
+- mendelian disease
 release_note:
   1.1.0: support chrM
