@@ -60,20 +60,6 @@ class Reporter(CravatReport):
             self.filenames.append(self.filename)
         self.wf = open(self.filename, 'w', encoding='utf-8', newline='')
         self.csvwriter = csv.writer(self.wf, delimiter='\t', lineterminator='\n')
-        lines = []
-        if self.separate_header_file:
-            lines.append("title=\"OpenCRAVAT Report Header\"")
-            lines.append(f"datafile={self.filename[:-7]}")
-        else:
-            lines.append("title=\"OpenCRAVAT Report\"")
-        lines.extend(
-            [
-                "created=" + datetime.datetime.now().strftime("%A %m/%d/%Y %X"),
-                "level=" + level,
-            ]
-        )
-        lines.append(f"datasource={self.dbpath}")
-        self.write_preface_lines(lines)
 
     def write_header (self, level):
         if level not in self.levels_to_write:
@@ -94,8 +80,6 @@ class Reporter(CravatReport):
                     new_colname = module_name + self.module_col_sep + col_name
                 if module_col_name in self.colnames_to_display[level]:
                     row.append(new_colname)
-                    line = f'Column description. Column {display_colno} {new_colname}={col["col_title"]}'
-                    self.write_preface_line(line)
                     display_colno += 1
                 colno += 1
         if self.separate_header_file:
