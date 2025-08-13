@@ -51,6 +51,8 @@ output_columns:
 
 tags:
 - non coding
+- proteins
+- regulation
 requires:
 - wgmitomap
 title: MITOMAP
