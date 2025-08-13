@@ -2,7 +2,7 @@
 
 ## Package for clinical interpretation of variant effect predictor scores
 
-This package helps users apply ACMG/AMP variant interpretation guidelines—specifically PP3 (support for pathogenicity) and BP4 (support for benignity)—using calibrated computational scores. It enables standardized, evidence-based integration of predictive tools within OpenCRAVAT to support clinical curation and rare disease analysis.
+This package helps users apply ACMG/AMP variant interpretation guidelines—specifically PP3 (support for pathogenicity) and BP4 (support for benignity)—using calibrated computational scores. It enables standardized, evidence-based integration of predictive tools within OpenCRAVAT to support clinical curation.
 
 It is especially valuable for:
 
@@ -10,16 +10,12 @@ It is especially valuable for:
 * Genomic researchers prioritizing candidate variants
 * Pipelines requiring harmonized pathogenicity classification from multiple in silico tools
 
-The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select 
-variant effect predictors are reliable as Strong, NA, Moderate, or Supporting evidence for Pathogenicity (PP3) 
+The ClinGen Sequence Variant Interpretation Working Group published a procedure to map variant effect predictor scores to strength of evidence categories for Pathogenicity (PP3) 
 or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools 
 for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” 
-nAmerican journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013).
+American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013).
 
-OpenCRAVAT provides calibrated score classifications for pathogenic or benign categories as additional columns 
-in the variant interface. Additionally, widgets show the score categorization for each calibrated variant annotator.
-
-The Calibrated Classification Package provides pathogenicity and benignity classifictions the top seven predictors, as ranked by accuracy yield. The accuracy of the predictors was assessed on a set of ClinVar variants as described in a forthcoming manuscript.
+The Calibrated Classification Package provides pathogenicity and benignity strength of evidence classifictions for seven variant effect predictors. These predictors were selected based on a test set ClinVar variants not used in the training of these predictors. The following table shows the performance of these predictors according to Yield (percentage of variants with a score yielding a strength of evidence classification), Accuracy (percentage of predictions that match the ClinVar label), F1 Score (a balanced accuracy metric), F1 * Yield (the mathematical product of F1 Score and Yield).
 
 | Predictor     | Yield | Accuracy | F1 Score | F1 * Yield |
 |---------------|-------|----------|----------|------------|
