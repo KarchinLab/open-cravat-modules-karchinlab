@@ -7,6 +7,13 @@ description:
   from seven top-performing variant effect predictors for clinical interpretation 
   of missense variants, based on ClinGen recommendations.
 
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
+
 #Modules required for this package
 requires:
   - alphamissense
