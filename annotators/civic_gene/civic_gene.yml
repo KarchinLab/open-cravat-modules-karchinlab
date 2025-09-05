@@ -1,4 +1,4 @@
-datasource: 2025.08.01
+datasource: 2025.09.01
 description: Provides descriptions and linkouts to CIViC
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
@@ -30,8 +30,9 @@ tags:
 - cancer
 title: CIViC Gene
 type: annotator
-version: 2025.08.01
+version: 2025.09.01
 release_note:
+  2025.09.01: Monthly data update
   2025.08.01: Monthly data update
   2025.07.01: Monthly data update
   2025.06.01: Monthly data update
