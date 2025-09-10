@@ -33,7 +33,7 @@ smartfilters:
     test: hasData
 title: ClinGen Allele Registry
 type: annotator
-requires_opencravat: '>=2.14.0'
+requires_opencravat: '>=2.16.0'
 version: 1.2.0
 release_note:
   1.2.0: Update to use new OC batch annotation
