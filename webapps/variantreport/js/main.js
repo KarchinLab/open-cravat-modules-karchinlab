@@ -5081,6 +5081,12 @@ function variantSubmitHandler(event) {
         showContentDiv();
         submitAnnotate(inputData['chrom'], inputData['pos'], inputData['ref_base'],
             inputData['alt_base'], inputData['assembly'], inputData['hgvs'], inputData['clingen'], inputData['dbsnp'])
+        const currentURL = new URL(window.location.href);
+        currentURL.search = '';
+        for (let inputKey in inputData) {
+            currentURL.searchParams.set(inputKey, inputData[inputKey])
+        }
+        window.history.pushState({},"", currentURL);
     } else {
         alert('No variant input.');
     }
@@ -5091,6 +5097,9 @@ function searchBackButtonHandler(event) {
     document.getElementById('annotation_errors').style.display = 'none';
     hideContentDiv();
     writeToVariantArea(null);
+    const currentURL = new URL(window.location.href);
+    currentURL.search = '';
+    window.history.pushState({},"", currentURL);
 }
 
 function ocSVIReadyHandler() {
