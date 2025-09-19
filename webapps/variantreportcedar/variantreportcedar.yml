@@ -89,6 +89,7 @@ requires:
 - wgtarget
 - wgdgi
 - wgthousandgenomes
+oc_api_url: https://run.opencravat.org/api/annotate
 description: OpenCRAVAT / CEDAR Variant Report Webapp
 developer:
   name: OpenCravat
@@ -97,6 +98,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.2.0: Update to new flask OC backend
   1.1.0: Requested updates by CEDAR group
   1.0.0: Initial release
 tags:
