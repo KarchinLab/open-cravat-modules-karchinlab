@@ -1,14 +1,5 @@
 import os
-import webbrowser
-import multiprocessing
-import aiosqlite
-import urllib.parse
 import json
-import sys
-import argparse
-import imp
-import yaml
-import re
 from cravat import ConfigLoader
 from cravat import admin_util as au
 from cravat import CravatFilter
@@ -17,7 +8,6 @@ from cravat.config_loader import ConfigLoader
 import requests
 import oyaml
 import datetime
-from pyliftover import LiftOver
 import cravat
 from flask import jsonify, abort
 
