@@ -1,0 +1,18 @@
+title: FATHMM XF Coding WebViewer Widget
+version: 1.0.0
+type: webviewerwidget
+required_annotator: fathmm_xf_coding
+description: FATHMM XF Coding webviewer widget
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
+tags:
+- visualization
+hidden: true
+requires_opencravat: '>=1.7.0'
+release_note:
+  1.0.0: Initial release
+

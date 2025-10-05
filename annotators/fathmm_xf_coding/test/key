@@ -1,34 +1,37 @@
 #CRAVAT Report
-#Created at Monday 01/11/2021 05:27:07
+#Created at Sunday 10/05/2025 16:15:25
 #Report level: variant
 #
-Variant Annotation																FATHMM XF Coding		
-UID	Chrom	Position	Ref Base	Alt Base	Note	Coding	Gene	Transcript	Sequence Ontology	cDNA change	Protein Change	All Mappings	Sample Count	Samples	Tags	Score	Rank score	Prediction
-1	chr1	69091	A	C		Yes	OR4F5	ENST00000335137.4	start_lost	c.1A>C	p.Met1?	ENST00000335137.4:OR4F5:Q8NH21:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000641515.2:OR4F5::missense_variant:p.Met22Leu:c.64A>C	1	s0		0.011693	0.00109	Neutral
-2	chr14	18601117	A	C		Yes	OR11H12	ENST00000550708.1	start_lost	c.1A>C	p.Met1?	ENST00000550708.1:OR11H12:B2RN74:missense_variant,start_lost:p.Met1?:c.1A>C	1	s1		0.010613	0.00079	Neutral
-3	chr18	47394	G	A		Yes	TUBB8B	ENST00000308911.8	missense_variant	c.1331C>T	p.Ala444Val	ENST00000308911.8:TUBB8B:A6NNZ2:missense_variant:p.Ala444Val:c.1331C>T; ENST00000594555.1:TUBB8B::2kb_downstream_variant,processed_transcript::	1	s2		0.085266	0.17282999999999998	Neutral
-4	chr1	69233	T	C		Yes	OR4F5	ENST00000641515.2	missense_variant	c.206T>C	p.Leu69Pro	ENST00000335137.4:OR4F5:Q8NH21:missense_variant:p.Leu48Pro:c.143T>C; ENST00000641515.2:OR4F5::missense_variant:p.Leu69Pro:c.206T>C	1	s5		0.67381	0.63974	Damaging
-5	chr6	292540	A	C		Yes	DUSP22	ENST00000419235.6	start_lost	c.1A>C	p.Met1?	ENST00000344450.9:DUSP22:Q9NRW4:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000419235.6:DUSP22:Q9NRW4:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000603005.5:DUSP22::processed_transcript::; ENST00000603453.5:DUSP22::5_prime_UTR_variant::c.-226A>C; ENST00000603726.5:DUSP22::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>C; ENST00000603795.5:DUSP22::missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>C; ENST00000605035.5:DUSP22::5_prime_UTR_variant::c.-259A>C; ENST00000605315.5:DUSP22::5_prime_UTR_variant::c.-142A>C; ENST00000605863.5:DUSP22::5_prime_UTR_variant::c.-142A>C; ENST00000665870.1:AL365272.1::2kb_upstream_variant,lnc_RNA::	1	s3		0.0327	0.03741	Neutral
-6	chr19	110698	T	A		Yes	OR4F17	ENST00000618231.3	missense_variant	c.83T>A	p.Phe28Tyr	ENST00000318050.4:OR4F17:Q8NGA8:missense_variant:p.Phe7Tyr:c.20T>A; ENST00000585993.3:OR4F17:Q8NGA8:missense_variant:p.Phe7Tyr:c.20T>A; ENST00000618231.3:OR4F17::missense_variant:p.Phe28Tyr:c.83T>A; ENST00000641591.1:OR4F17::intron_variant,processed_transcript::	1	s3		0.5886859999999999	0.58585	Damaging
-7	chr21	10538725	T	G		Yes	TPTE	ENST00000618007.4	start_lost	c.2T>G	p.Met1?	ENST00000427445.6:TPTE:P56180:missense_variant,start_lost:p.Met1?:c.2T>G; ENST00000612267.1:AF254983.1::lnc_RNA::; ENST00000612746.1:TPTE:P56180:intron_variant::c.-182+11313T>G; ENST00000618007.4:TPTE:P56180:missense_variant,start_lost:p.Met1?:c.2T>G; ENST00000622113.4:TPTE:P56180:missense_variant,start_lost:p.Met1?:c.2T>G	1	s4		0.012375	0.00133	Neutral
-8	chr7	193200	A	T		Yes	FAM20C	ENST00000313766.6	start_lost	c.1A>T	p.Met1?	ENST00000313766.6:FAM20C:Q8IXL6:missense_variant,start_lost:p.Met1?:c.1A>T; ENST00000467050.1:AC093627.3::intron_variant,lnc_RNA::	1	s5		0.0387	0.05515	Neutral
-9	chr3	319817	T	C		Yes	CHL1	ENST00000256509.7	missense_variant	c.41T>C	p.Leu14Pro	ENST00000256509.7:CHL1:O00533:missense_variant:p.Leu14Pro:c.41T>C; ENST00000397491.6:CHL1:O00533:missense_variant:p.Leu14Pro:c.41T>C; ENST00000453040.5:CHL1::NMD_transcript_variant,3_prime_UTR_variant::c.*379T>C; ENST00000461289.2:CHL1::processed_transcript::; ENST00000620033.4:CHL1::missense_variant:p.Leu14Pro:c.41T>C	1	s6		0.658501	0.62976	Damaging
+Variant Annotation																		FATHMM XF Coding					Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Score	Rank score	Prediction	ACMG/AMP Benign (BP4)	ACMG/AMP Pathogenic (PP3)	Chrom	Pos	Reference allele	Alternate allele
+1	chr1	69091	A	C		Yes	OR4F5	ENST00000641515.2	missense_variant	3	c.64A>C	p.Met22Leu	ENST00000641515.2:OR4F5:A0A2U3U0J3:missense_variant:p.Met22Leu:c.64A>C	69091	1	s0		0.011693	0.00109	Neutral			chr1	69091	A	C
+2	chr14	18601117	A	C										18601117	1	s1		0.010613	0.00079	Neutral			chr14	18601117	A	C
+3	chr18	47394	G	A		Yes	TUBB8B	ENST00000308911.9	missense_variant	4	c.1331C>T	p.Ala444Val	ENST00000308911.9:TUBB8B:A6NNZ2:missense_variant:p.Ala444Val:c.1331C>T	47394	1	s2		0.085266	0.17282999999999998	Neutral			chr18	47394	G	A
+4	chr1	69233	T	C		Yes	OR4F5	ENST00000641515.2	missense_variant	3	c.206T>C	p.Leu69Pro	ENST00000641515.2:OR4F5:A0A2U3U0J3:missense_variant:p.Leu69Pro:c.206T>C	69233	1	s5		0.67381	0.63974	Damaging			chr1	69233	T	C
+5	chr6	292540	A	C		Yes	DUSP22	ENST00000419235.7	start_lost	1	c.1A>C	p.Met1?	ENST00000344450.9:DUSP22:Q9NRW4:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000419235.7:DUSP22:Q9NRW4:missense_variant,start_lost:p.Met1?:c.1A>C; ENST00000603296.5:DUSP22:S4R3A4:intron_variant::c.-109+840A>C; ENST00000603453.5:DUSP22:S4R3M1:5_prime_UTR_variant::c.-226A>C; ENST00000603795.5:DUSP22:S4R459:missense_variant,start_lost,NMD_transcript_variant:p.Met1?:c.1A>C; ENST00000603881.5:DUSP22:S4R3K1:5_prime_UTR_variant::c.-253A>C; ENST00000605035.5:DUSP22:S4R378:5_prime_UTR_variant::c.-259A>C; ENST00000605315.5:DUSP22:S4R3M1:5_prime_UTR_variant::c.-142A>C; ENST00000605863.5:DUSP22:S4R378:5_prime_UTR_variant::c.-142A>C	292540	1	s3		0.0327	0.03741	Neutral			chr6	292540	A	C
+6	chr19	110698	T	A		Yes	OR4F17	ENST00000585993.3	missense_variant	3	c.20T>A	p.Phe7Tyr	ENST00000318050.4:OR4F17:Q8NGA8:missense_variant:p.Phe7Tyr:c.20T>A; ENST00000585993.3:OR4F17:Q8NGA8:missense_variant:p.Phe7Tyr:c.20T>A; ENST00000618231.3:OR4F17:A0A2U3U062:missense_variant:p.Phe28Tyr:c.83T>A	110698	1	s3		0.5886859999999999	0.58585	Damaging			chr19	110698	T	A
+7	chr21	10538725	T	G		Yes	TPTE	ENST00000618007.5	start_lost	4	c.2T>G	p.Met1?	ENST00000427445.6:TPTE:P56180:missense_variant,start_lost:p.Met1?:c.2T>G; ENST00000612746.1:TPTE:P56180:intron_variant::c.-182+11313T>G; ENST00000612957.4:TPTE:A0A087X1C4:missense_variant,start_lost:p.Met1?:c.2T>G; ENST00000618007.5:TPTE:P56180:missense_variant,start_lost:p.Met1?:c.2T>G; ENST00000622113.4:TPTE:P56180:missense_variant,start_lost:p.Met1?:c.2T>G	10538725	1	s4		0.012375	0.00133	Neutral			chr21	10538725	T	G
+8	chr7	193200	A	T		Yes	FAM20C	ENST00000313766.6	start_lost	1	c.1A>T	p.Met1?	ENST00000313766.6:FAM20C:Q8IXL6:missense_variant,start_lost:p.Met1?:c.1A>T	193200	1	s5		0.0387	0.05515	Neutral			chr7	193200	A	T
+9	chr3	319817	T	C		Yes	CHL1	ENST00000256509.7	missense_variant	3	c.41T>C	p.Leu14Pro	ENST00000256509.7:CHL1:O00533:missense_variant:p.Leu14Pro:c.41T>C; ENST00000397491.6:CHL1:O00533:missense_variant:p.Leu14Pro:c.41T>C; ENST00000421198.5:CHL1:C9JW79:missense_variant:p.Leu14Pro:c.41T>C; ENST00000427688.5:CHL1:C9JEY3:missense_variant:p.Leu14Pro:c.41T>C; ENST00000435603.5:CHL1:C9J905:missense_variant:p.Leu14Pro:c.41T>C; ENST00000449294.6:CHL1:C9JH37:missense_variant:p.Leu14Pro:c.41T>C; ENST00000453040.5:CHL1:F8WEP4:NMD_transcript_variant,3_prime_UTR_variant::c.*379T>C; ENST00000620033.4:CHL1:A0A087X0M8:missense_variant:p.Leu14Pro:c.41T>C	319817	1	s6		0.658501	0.62976	Damaging			chr3	319817	T	C
+10	chr19	55154175	A	G		Yes	TNNI3	ENST00000344887.10	missense_variant	7	c.404T>C	p.Leu135Pro	ENST00000344887.10:TNNI3:P19429:missense_variant:p.Leu135Pro:c.404T>C; ENST00000586858.2:TNNI3:K7EJP0:NMD_transcript_variant,3_prime_UTR_variant::c.*175T>C; ENST00000588882.1:TNNI3:K7EN02:missense_variant:p.Leu110Pro:c.329T>C; ENST00000665070.1:TNNI3:A0A590UJN1:missense_variant:p.Leu146Pro:c.437T>C; ENST00000714236.1:TNNI3::missense_variant:p.Leu121Pro:c.362T>C; ENST00000714237.1:TNNI3::missense_variant:p.Leu107Pro:c.320T>C; ENST00000714238.1:TNNI3::missense_variant:p.Leu131Pro:c.392T>C; ENST00000714239.1:TNNI3::NMD_transcript_variant,3_prime_UTR_variant::c.*78T>C; ENST00000714240.1:TNNI3::missense_variant:p.Leu66Pro:c.197T>C	55154175	1	pp3moderate		0.9939459999999999	0.9999899999999999	Damaging		Moderate	chr19	55154175	A	G
+11	chr2	178576736	C	T		Yes	TTN	ENST00000589042.5	missense_variant	325	c.69508G>A	p.Glu23170Lys	ENST00000342992.11:TTN:Q8WZ42:missense_variant:p.Glu20602Lys:c.61804G>A; ENST00000412264.2:TTN:C9JQJ2:missense_variant:p.Glu23170Lys:c.69508G>A; ENST00000425332.3:TTN:H7C0U7:missense_variant:p.Glu23142Lys:c.69424G>A; ENST00000426232.6:TTN:H0Y4J7:missense_variant:p.Glu22984Lys:c.68950G>A; ENST00000436599.2:TTN:A0A0C4DG59:missense_variant:p.Glu23078Lys:c.69232G>A; ENST00000446966.2:TTN:A0A1B0GXE3:missense_variant:p.Glu23118Lys:c.69352G>A; ENST00000460472.6:TTN:Q8WZ42:missense_variant:p.Glu14105Lys:c.42313G>A; ENST00000589042.5:TTN:A0A0A0MTS7:missense_variant:p.Glu23170Lys:c.69508G>A; ENST00000591111.5:TTN:Q8WZ42:missense_variant:p.Glu21529Lys:c.64585G>A; ENST00000715174.1:TTN::missense_variant:p.Glu23032Lys:c.69094G>A	178576736	1	pp3supporting		0.9427270000000001	0.9476700000000001	Damaging		Supporting	chr2	178576736	C	T
 #CRAVAT Report
-#Created at Monday 01/11/2021 05:27:07
+#Created at Sunday 10/05/2025 16:15:25
 #Report level: gene
 #
 Variant Annotation					
-Gene	Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
-OR4F5		2	0	start_lost	missense_variant(2),start_lost(1)
-OR11H12		1	0	start_lost	missense_variant(1),start_lost(1)
-TUBB8B		1	0	missense_variant	missense_variant(1),processed_transcript(1)
-DUSP22		1	0	start_lost	missense_variant(1),start_lost(1),NMD_transcript_variant(1),processed_transcript(1),5_prime_UTR_variant(1)
-OR4F17		1	0	missense_variant	intron_variant(1),missense_variant(1),processed_transcript(1)
+Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
+OR4F5		2	0	missense_variant	missense_variant(2)
+TUBB8B		1	0	missense_variant	missense_variant(1)
+DUSP22		1	0	start_lost	intron_variant(1),missense_variant(1),start_lost(1),NMD_transcript_variant(1),5_prime_UTR_variant(1)
+OR4F17		1	0	missense_variant	missense_variant(1)
 TPTE		1	0	start_lost	intron_variant(1),missense_variant(1),start_lost(1)
 FAM20C		1	0	start_lost	missense_variant(1),start_lost(1)
-CHL1		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),processed_transcript(1),3_prime_UTR_variant(1)
+CHL1		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),3_prime_UTR_variant(1)
+TNNI3		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),3_prime_UTR_variant(1)
+TTN		1	0	missense_variant	missense_variant(1)
 #CRAVAT Report
-#Created at Monday 01/11/2021 05:27:07
+#Created at Sunday 10/05/2025 16:15:25
 #Report level: sample
 #
 Variant Annotation	
@@ -42,8 +45,10 @@ UID	Sample
 7	s4
 8	s5
 9	s6
+10	pp3moderate
+11	pp3supporting
 #CRAVAT Report
-#Created at Monday 01/11/2021 05:27:07
+#Created at Sunday 10/05/2025 16:15:25
 #Report level: mapping
 #
 Variant Annotation			
@@ -57,3 +62,5 @@ Original Line	User Tags	UID	Input File Number
 7		7	0
 8		8	0
 9		9	0
+10		10	0
+11		11	0
