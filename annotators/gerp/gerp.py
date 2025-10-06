@@ -17,6 +17,7 @@ class CravatAnnotator(BaseAnnotator):
     
     def annotate(self, input_data, secondary_data=None):
         out = {}
+        self.logger.error(f"gerp annotate f{input_data}")
         stmt = 'SELECT gerp_nr, gerp_rs, gerp_rs_rank FROM {chr} WHERE pos = {pos} AND alt = "{alt}"'.format(chr=input_data["chrom"], pos=int(input_data["pos"]), alt = input_data["alt_base"])
         self.cursor.execute(stmt)
         row = self.cursor.fetchone()
