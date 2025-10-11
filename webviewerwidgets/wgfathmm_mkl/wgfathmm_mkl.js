@@ -11,7 +11,7 @@ widgetGenerators['fathmm_mkl'] = {
                 addEl(div, addEl(span, getTn('No data')));
                 return;
             }
-            addInfoLine(div, 'FATHMM Converted Rank Score', rankscore, tabName);
+            addInfoLine(div, 'FATHMM MKL Converted Rank Score', rankscore, tabName);
             var score = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_score');
             var pred = getWidgetData(tabName, 'fathmm_mkl', row, 'fathmm_mkl_coding_pred');
             var pp3 = getWidgetData(tabName, 'fathmm_mkl', row, 'pp3_pathogenic');
