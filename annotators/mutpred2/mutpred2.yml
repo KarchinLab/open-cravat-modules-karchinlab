@@ -1,0 +1,85 @@
+datasource: v5.2
+description: MutPred is a random forest model for the prediction of pathogenic missense
+  variants and automated inference of molecular mechanisms of disease.
+developer:
+  citation: 'Pejaver V, Urresti J, Lugo-Martinez J, Pagel KA, Lin GN, Nam H, Mort M, Cooper DN, Sebat J, 
+    Iakoucheva LM, Mooney SD, Radivojac P. Inferring the molecular and phenotypic impact of amino acid variants 
+    with MutPred2. Nat. Commun. 11, 5918 (2020).'
+  email: vikas.pejaver@mssm.edu
+  name: Vikas Pejaver
+  organization: University of Washington
+  website: http://mutpred.mutdb.org/
+level: variant
+output_columns:
+- desc: Max Pathogenicity score across all transcripts.
+  title: Score
+  filterable: true
+  name: score
+  type: float
+  width: 85
+  hidden: false
+- desc: 'Prediction of MutPred2 score after calibration :
+		PS (Strong Evidence of Pathogenic, score>=0.932), PM (Moderate Evidence of Pathogenic (Moderate evidence
+		of pathogenicity, score >=0.829 and < 0.932), PP (Supporting Evidence of Pathogenic, score >=0.737 and
+		<0.829), UC (Uncertain, score >0.391 and <0.737), BP (Supporting Evidence of Benign, score >0.197 and
+		<=0.391), BM (Moderate Evidence of Benign, score >0.010 and <=0.197), BS (Strong Evidence of Benign,
+		score <=0.010).'
+  title: Prediction
+  filterable: true
+  name: prediction
+  type: string
+  width: 65
+  hidden: true
+- hidden: true
+  name: rankscore
+  title: Rank Score
+  type: float
+  width: 70
+  desc: The max rank score across all transcripts. The ratio of the rank of the score
+    over the total number of MutPred scores.
+- hidden: true
+  name: top5_mechanisms
+  title: Top 5 Mechanisms
+  width: 200
+  type: string
+  desc: Top 5 molecular mechanisms as predicted by MutPred
+- name: all_annotations
+  title: All Annotations
+  type: string
+  width: 90
+  filterable: false
+  table: true
+  table_headers:
+  - name: transcript
+    title: Transcripts
+    type: string
+  - name: score
+    title: Score
+    type: float
+  - name: rankscore
+    title: Rank Score
+    type: float
+  - name: pred
+    title: Prediction
+    type: float
+tags:
+- variant effect prediction
+release-note:
+  1.0.0: MutPred2 Initial release
+title: MutPred2
+type: annotator
+version: 1.0.0
+requires_opencravat: '>=2.12.0'
+requires:
+- wgmutpred2
+smartfilters:
+- name: rankscore
+  title: Mutpred Rank Score >=
+  description: Include variants which have a rank score greater than or equal to 0.90.
+  selector:
+    type: inputFloat
+    defaultValue: 0.90
+  filter:
+    column: mutpred2__rankscore
+    test: greaterThanEq
+    value: ${value}
