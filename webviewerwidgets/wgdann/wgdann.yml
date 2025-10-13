@@ -1,0 +1,17 @@
+title: DANN
+version: 1.0.0
+type: webviewerwidget
+required_annotator: dann
+description: DANN webviewer widget
+developer:
+  name: OpenCRAVAT Team
+  organization: KarchinLab
+  email: support@opencravat.org
+  website: https://opencravat.org
+  citation: ''
+tags:
+- visualization
+hidden: true
+requires_opencravat: ">=1.7.0"
+release_note:
+  1.0.0: initial release
