@@ -4614,19 +4614,12 @@ class Mapper(cravat.BaseMapper):
                     if line.startswith("#"):
                         continue
                     toks = line[:-1].split()
-                    # if tokslen == 1:
-                    #    self.primary_transcript += (toks[0],)
-                    #    for line in f:
-                    #        if line.startswith('#'):
-                    #            continue
-                    #        toks = line[:-1].split()
-                    #        self.primary_transcript += (toks[0],)
                     if len(toks) != 2:
                         continue
                     else:
                         hugo = toks[0]
                         enst = toks[1]
-                        self.primary_transcript[hugo] = enst
+                        self.primary_transcript[hugo] = enst.split('.')[0]
                 f.close()
 
     def setup(self):
