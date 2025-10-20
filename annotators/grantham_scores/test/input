@@ -1,0 +1,7 @@
+#Chrom	Position	Strand	Ref Base	Alt Base	Sample Id	Tags
+chr18	45622439	+	C	T		plus_SBS_SLC14A2
+chr18	45666191	+	G	A		plus_SBS2_SLC14A2
+chr19	44819487	+	A	G		plus_coding_BCAM
+chr17	7674797	+	T	C		minus_SBS_TP53
+chr7	11555251	+	G	T		minus_SBS_THSD7A
+chr6	29643212	+	G	T	plus_behcet
