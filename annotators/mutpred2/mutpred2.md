@@ -1,24 +1,43 @@
-# About MutPred
+# About MutPred2
 
-MutPred2 is a machine learning-based method and software package that integrates genetic and molecular data to reason probabilistically about the pathogenicity of amino acid substitutions. This is achieved by providing (1) a general pathogenicity prediction, and (2) a ranked list of specific molecular alterations potentially affecting the phenotype. It is trained on a set of 53,180 pathogenic and 206,946 unlabeled (putatively neutral) variants obtained from the Human Gene Mutation Database (HGMD) [1], SwissVar [2], dbSNP [3] and inter-species pairwise alignment. The MutPred2 model is a bagged ensemble of 30 feed-forward neural networks, each trained on a balanced subset of pathogenic and unlabeled variants.
-
-MutPred2 was developed by Vikas Pejaver at Indiana University, Bloomington, and was a joint project of the Mooney group at the University of Washington and the Radivojac group at Indiana University. The Iakoucheva and Sebat groups at the University of California, San Diego provided additional validation and support. More information on the method and detailed instructions can be seen in the help page.
-
-# Supported By
-
-The work is funded by:
-- NIH R01LM009722 (PI: Mooney)
-- NIH R01MH105524 (PI: Iakoucheva and Radivojac)
-- NIH R01MH104766 (PI: Iakoucheva)
-- NIH R01MH076431 (PI: Sebat)
-- Indiana University Precision Health Initiative (PI: Radivojac)
-- NIH K99LM012992 (PI: Pejaver)
-
-# References
-
-1. Stenson PD, Mort M, Ball EV, Evans K, Hayden M, Heywood S, Hussain M, Phillips AD, Cooper DN. The Human Gene Mutation Database: towards a comprehensive repository of inherited mutation data for medical research, genetic diagnosis and next-generation sequencing studies. Hum Genet (2017)
-2. Mottaz A, David FP, Veuthey AL, Yip YL. Easy retrieval of single amino-acid polymorphisms and phenotype information using SwissVar. Bioinformatics (2010) 26(6):851-852
-3. Sherry ST, Ward MH, Kholodov M, Baker J, Phan L, Smigielski EM, Sirotkin K. dbSNP: the NCBI database of genetic variation. Nucleic Acids Res (2001) 29(1):308-311
+## What is MutPred2
+**MutPred2** is a computational tool (available as both a web server and standalone software) designed to predict the pathogenicity of **missense (single amino acid substitution)** variants in human proteins, and to propose the likely **molecular mechanisms** by which such variants may have deleterious effects.
+:arrow_right: [mutpred.mutdb.org](https://mutpred.mutdb.org/?utm_source=chatgpt.com)
+In other words, beyond simply classifying a variant as “pathogenic” or “benign,” MutPred2 attempts to provide hypotheses about *how* a given amino acid change might disrupt protein function (for example, via altered stability, loss/gain of binding sites, disruption of post-translational modifications, etc.).
+:page_facing_up: [Nature Communications, 2020](https://www.nature.com/articles/s41467-020-19669-x.pdf?utm_source=chatgpt.com)
+MutPred2 is part of the broader “MutPred” suite of tools. Other related tools include versions tailored for non-frameshifting insertions/deletions (**MutPred-Indel**), splice disruptions (**MutPred-Splice**), and loss-of-function (**MutPred-LOF**) variants.
+:link: [mutpred2.mutdb.org](https://mutpred2.mutdb.org/mutpredindel/about.html?utm_source=chatgpt.com)
+---
+## Underlying Methodology
+### Training Data and Model Design
+- MutPred2 is trained using a large set of known or presumed variant data: **~53,180 pathogenic variants** and **~206,946 unlabeled (putatively benign or unknown)** variants.
+- The model uses a **bagged ensemble of 30 feed-forward neural networks**, each trained on balanced subsets of pathogenic vs. unlabeled variants.
+- It is a *sequence-based* predictor, meaning it does not rely on 3D structural data, but instead uses inferred structural and functional properties derived from sequence.
+- MutPred2 maintains an ontology of **50+ protein properties** (e.g. secondary structure, catalytic or binding residues, post-translational modifications, metal binding, disorder, allostery) to track potential gain or loss of function.
+### Feature Extraction and Scoring
+When evaluating a variant, MutPred2 performs the following steps:
+1. **Feature Extraction** – For both wild-type and mutant sequences, MutPred2 computes a large number of sequence-derived features (e.g. conservation, amino acid physicochemical changes, predicted structural context, and functional annotations).
+2. **Loss/Gain Modeling** – For each protein property in its ontology, MutPred2 estimates whether the substitution is likely to cause a *loss* or *gain* of that property.
+3. **Neural Network Ensemble Scoring** – All features (including gain/loss estimates) are input to the ensemble of neural networks, which yield a general **pathogenicity score** (0–1; higher indicates more likely pathogenic).
+4. **Mechanism Ranking** – MutPred2 also reports a ranked list of molecular mechanisms (from its ontology) that are most likely impacted, with associated probabilities or *p*-values.
+For each variant, users receive:
+- A **pathogenicity score** (0–1)
+- A **list of candidate molecular consequences** (e.g. “loss of metal binding,” “gain of disorder,” “loss of phosphorylation site”)
+- Associated **confidence metrics** or *p*-values for each predicted mechanism
+---
+## Strengths and Applications
+- **Interpretability & Mechanistic Insight** – MutPred2 does not just classify variants as pathogenic vs. benign; it offers mechanistic hypotheses that can guide experimental validation.
+- **Competitive Performance** – Benchmarks show that MutPred2 often improves the prioritization of deleterious variants while maintaining good specificity.
+- **Broad Functional Coverage** – Because it considers many structural and functional properties (not just conservation or stability), it can capture diverse molecular effects.
+- **Scalability & Usability** – The web server supports small batch submissions (~100 substitutions), while the standalone version can handle genome-scale datasets (with higher computational cost).
+---
+## Limitations and Caveats
+- **Probabilistic, Not Definitive** – Predictions are hypothesis-generating; they should not be treated as conclusive evidence of pathogenicity.
+- **Training Biases** – The pathogenic/unlabeled training data may contain biases, affecting generalizability.
+- **Lack of Structural Resolution** – Since it primarily uses sequence-based features, subtle 3D structural effects may be missed.
+- **Resource Requirements** – The standalone version depends on tools like MATLAB and PSI-BLAST, requiring substantial disk space and memory.
+- **Scope** – MutPred2 is designed for **missense variants** only; other variant types (nonsense, frameshift, splice) require other modules like MutPred-Indel, MutPred-LOF, or MutPred-Splice.
+---
 
 # Disclaimer
 
