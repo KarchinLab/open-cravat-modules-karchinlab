@@ -1,0 +1,71 @@
+private: true
+datasource: dbNSFPv5.2
+description: MutPred2 is a random forest model for the prediction of pathogenic missense
+  variants and automated inference of molecular mechanisms of disease.
+developer:
+  citation: 'Pejaver V, Urresti J, Lugo-Martinez J, Pagel KA, Lin GN, Nam H, Mort M, Cooper DN, Sebat J, 
+    Iakoucheva LM, Mooney SD, Radivojac P. Inferring the molecular and phenotypic impact of amino acid variants 
+    with MutPred2. Nat. Commun. 11, 5918 (2020).'
+  email: vikas.pejaver@mssm.edu
+  name: Vikas Pejaver
+  organization: Icahn School of Medicine at Mount Sinai
+  website: http://mutpred.mutdb.org/
+level: variant
+output_columns:
+- desc: Max Pathogenicity score across all transcripts.
+  title: Score
+  filterable: true
+  name: score
+  type: float
+  width: 85
+  hidden: false
+- hidden: true
+  name: rankscore
+  title: Rank Score
+  type: float
+  width: 70
+  desc: The max rank score across all transcripts. The ratio of the rank of the score
+    over the total number of MutPred scores.
+- hidden: true
+  name: top5_mechanisms
+  title: Top 5 Mechanisms
+  width: 200
+  type: string
+  desc: Top 5 molecular mechanisms as predicted by MutPred2
+- name: all_annotations
+  title: All Annotations
+  type: string
+  width: 90
+  filterable: false
+  table: true
+  table_headers:
+  - name: transcript
+    title: Transcripts
+    type: string
+  - name: score
+    title: Score
+    type: float
+  - name: rankscore
+    title: Rank Score
+    type: float
+tags:
+- variant effect prediction
+release-note:
+  1.0.0: MutPred2 Initial release
+title: MutPred2
+type: annotator
+version: 1.0.0
+requires_opencravat: '>=2.12.0'
+requires:
+- wgmutpred2
+smartfilters:
+- name: rankscore
+  title: Mutpred2 Rank Score >=
+  description: Include variants which have a rank score greater than or equal to 0.90.
+  selector:
+    type: inputFloat
+    defaultValue: 0.90
+  filter:
+    column: mutpred2__rankscore
+    test: greaterThanEq
+    value: ${value}
