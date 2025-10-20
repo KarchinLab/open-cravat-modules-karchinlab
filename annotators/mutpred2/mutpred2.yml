@@ -47,9 +47,6 @@ output_columns:
   - name: rankscore
     title: Rank Score
     type: float
-  - name: pred
-    title: Prediction
-    type: float
 tags:
 - variant effect prediction
 release-note:
