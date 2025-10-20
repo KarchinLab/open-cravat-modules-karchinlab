@@ -1,3 +1,4 @@
+private: true
 datasource: dbNSFPv5.2
 description: MutPred2 is a random forest model for the prediction of pathogenic missense
   variants and automated inference of molecular mechanisms of disease.
