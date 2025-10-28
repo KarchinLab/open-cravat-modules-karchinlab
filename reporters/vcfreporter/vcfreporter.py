@@ -6,7 +6,6 @@ import csv
 import zipfile
 import os
 import sqlite3
-import aiosqlite
 from cravat.util import detect_encoding
 import json
 
@@ -77,7 +76,7 @@ class Reporter(CravatReport):
             self.wf.close()
         return self.filename
 
-    async def connect_db (self, dbpath=None):
+    def connect_db (self, dbpath=None):
         if dbpath != None:
             self.dbpath = dbpath
         if self.dbpath == None:
@@ -86,17 +85,17 @@ class Reporter(CravatReport):
         if os.path.exists(self.dbpath) == False:
             sys.stderr.write(self.dbpath + ' does not exist.')
             exit()
-        self.conn = await aiosqlite.connect(self.dbpath)
-        self.cursor = await self.conn.cursor()
+        self.conn = sqlite3.connect(self.dbpath)
+        self.cursor = self.conn.cursor()
         self.conn2 = sqlite3.connect(self.dbpath)
         self.cursor2 = self.conn2.cursor()
 
-    async def close_db (self):
+    def close_db (self):
         self.cursor2.close()
         self.conn2.close()
-        await self.cursor.close()
-        await self.conn.close()
-        await self.cf.close_db()
+        self.cursor.close()
+        self.conn.close()
+        self.cf.close_db()
 
     def write_preface (self, level): 
         self.level = level
