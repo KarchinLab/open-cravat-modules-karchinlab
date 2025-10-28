@@ -20,5 +20,5 @@ tags:
 - variant effect prediction
 title: Grantham Scores
 type: annotator
-version: 1.0.0
+version: 1.0.1
 requires_opencravat: '>=2.2.1'
