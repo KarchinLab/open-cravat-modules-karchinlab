@@ -14,9 +14,10 @@ output_columns:
   title: Score
   type: string
 release_note:
+  1.0.1: Fix tag in store
   1.0.0: Initial Release
 tags:
-- Variant Effect Predictor
+- variant effect prediction
 title: Grantham Scores
 type: annotator
 version: 1.0.0
