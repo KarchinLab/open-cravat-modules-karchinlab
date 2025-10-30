@@ -1,3 +1,4 @@
+private: true
 title: VCF Reporter
 version: 3.1.0
 type: reporter
@@ -14,6 +15,7 @@ developer:
 private: false
 hidden: false
 release_note:
+  3.2.0: Enable flask backend
   3.1.0: Supports GVCF format NON_REF.
   3.0.0: Default to 'separate' INFO key structure. URL encode invalid characters according to vcf spec
   2.2.0: works with --concise-report option.
