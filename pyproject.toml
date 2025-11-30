@@ -1,0 +1,7 @@
+[project]
+name = "open-cravat-modules-karchinlab"
+version = "1.0.1"
+description = "Modules for open-cravat created by the KarchinLab team"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
