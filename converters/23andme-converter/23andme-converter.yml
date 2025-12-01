@@ -1,5 +1,5 @@
 title: 23andMe Converter
-version: 1.5.0
+version: 1.5.1
 type: converter
 description: Allows user to input files in 23andMe format. In both the graphical interface
   and command line usage, file format will be automatically detected after this converter
@@ -14,6 +14,7 @@ requires_opencravat: '>=1.8.0'
 tags:
 - input/output
 release_note:
+  1.5.1: check for 23andMe header on lines other than first
   1.5.0: skip duplicate variants
   1.4.0: handle ref base without pseudoerror
   1.3.1: test update for 1.8.0
