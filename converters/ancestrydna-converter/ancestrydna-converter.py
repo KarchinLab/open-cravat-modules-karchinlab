@@ -18,6 +18,7 @@ class CravatConverter(BaseConverter):
                 'type':'string'
             },
         ]
+        self.logger.info(f"in customized ancestrydna-converter v0.0.1")
     
     def check_format(self, f):
         return 'AncestryDNA' in f.readline()
