@@ -84,6 +84,7 @@ def get_retry_session(
         allowed_methods=["GET", "POST", "PUT", "DELETE", "PATCH"],
         raise_on_status=False,
     )
+    print("in super fancy retry custom!!!!!!!!!!!!!!")
 
     adapter = requests.adapters.HTTPAdapter(max_retries=retry)
     session.mount("http://", adapter)

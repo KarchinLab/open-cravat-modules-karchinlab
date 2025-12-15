@@ -1034,28 +1034,32 @@ class Mapper(cravat.BaseMapper):
                     apos = -1
                 # so, refaa, altaa
                 if var_type == SNV:
-                    so, achange, cchange, coding = self._get_snv_map_data(
-                        tid,
-                        cpos,
-                        cstart,
-                        tpos,
-                        tstart,
-                        tr_ref_base,
-                        tr_alt_base,
-                        strand,
-                        kind,
-                        apos,
-                        strand_gpos,
-                        start,
-                        end,
-                        chrom,
-                        fragno,
-                        lenref,
-                        lenalt,
-                        prevcont,
-                        nextcont,
-                        exonno,
-                    )
+                    try:
+                        so, achange, cchange, coding = self._get_snv_map_data(
+                            tid,
+                            cpos,
+                            cstart,
+                            tpos,
+                            tstart,
+                            tr_ref_base,
+                            tr_alt_base,
+                            strand,
+                            kind,
+                            apos,
+                            strand_gpos,
+                            start,
+                            end,
+                            chrom,
+                            fragno,
+                            lenref,
+                            lenalt,
+                            prevcont,
+                            nextcont,
+                            exonno,
+                        )
+                    except IndexError:
+                        self.logger.info("failure duing self._get_snv_map_data({tid=},{cpos=},{cstart=},{tpos=},{tstart=},{tr_ref_base=},{tr_alt_base=},{strand=},{kind=},{apos=},{strand_gpos=},{start=},{end=},{chrom=},{fragno=},{lenref=},{lenalt=},{prevcont=},{nextcont=},{exonno=}, )")
+                        so, achange, cchange, coding = None, None, None, None
                 elif var_type == INS:
                     so, achange, cchange, coding = self._get_ins_map_data(
                         tid,
