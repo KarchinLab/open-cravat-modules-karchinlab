@@ -5784,7 +5784,12 @@ class Mapper(cravat.BaseMapper):
                 break
             seqbyteno = int((tpos_q - 1) / 4)
             seqbitno = ((tpos_q - 1) % 4) * 2
-            basebits = (seq[seqbyteno] >> (6 - seqbitno)) & 0b00000011
+            try:
+                seq_at = seq[seqbyteno]
+            except IndexError:
+                seq_at = None
+                continue
+            basebits = (seq_at >> (6 - seqbitno)) & 0b00000011
             num_shift = (2 - i) << 1
             shifted_basebits = basebits << num_shift
             ref_codonnum = ref_codonnum | shifted_basebits
