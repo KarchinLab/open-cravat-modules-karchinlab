@@ -48,6 +48,8 @@ class CravatConverter(BaseConverter):
             raise InvalidData(f'Bad chrom {chrom}')
         except IndexError:
             raise InvalidData(f'Bad position {pos}')      
+        except ValueError:
+            raise InvalidData(f'Bad position {pos}')
         sample = ''
         zygosity = None
         try:
