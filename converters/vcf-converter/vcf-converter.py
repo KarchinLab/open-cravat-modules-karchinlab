@@ -193,6 +193,7 @@ class CravatConverter(BaseConverter):
         wdicts = []
         self.gt_occur = []
         if len(variant.samples) > 0:
+            # Main repo dislikes this, but I'm very OK with it
             # all_gt_zero = True
             for call in variant.samples:
                 # Handle case where GT field not present
