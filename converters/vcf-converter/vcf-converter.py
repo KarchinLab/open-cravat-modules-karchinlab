@@ -168,12 +168,12 @@ class CravatConverter(BaseConverter):
         wdict_blanks = {}
         wdict_blanks[0] = {
                 'chrom': variant.CHROM,
-                'pos': new_pos,
-                'ref_base': new_ref,
-                'alt_base': new_alt,
+                'pos': variant.POS,
+                'ref_base': variant.REF,
+                'alt_base': variant.ALT,
                 'tags': variant.ID,
                 'phred': variant.QUAL,
-                'filter': filter_val,
+                'filter': variant.FILTER,
         }
         for alt_index, alt in enumerate(variant.ALT):
             if alt is None:
