@@ -166,15 +166,6 @@ class CravatConverter(BaseConverter):
         except StopIteration:
             return self.IGNORE
         wdict_blanks = {}
-        wdict_blanks[0] = {
-                'chrom': variant.CHROM,
-                'pos': variant.POS,
-                'ref_base': variant.REF,
-                'alt_base': variant.ALT,
-                'tags': variant.ID,
-                'phred': variant.QUAL,
-                'filter': variant.FILTER,
-        }
         for alt_index, alt in enumerate(variant.ALT):
             if alt is None:
                 alt_base = variant.REF
@@ -202,16 +193,15 @@ class CravatConverter(BaseConverter):
         wdicts = []
         self.gt_occur = []
         if len(variant.samples) > 0:
-            # Main repo dislikes this, but I'm very OK with it
-            # all_gt_zero = True
+            all_gt_zero = True
             for call in variant.samples:
                 # Handle case where GT field not present
                 if call.gt_alleles is not None:
                     # Dedup gt but maintain order
                     for gt in list(OrderedDict.fromkeys(call.gt_alleles)):
-                        #if gt == '0' or gt is None:
-                        #    continue
-                        # all_gt_zero = False
+                        if gt == '0' or gt is None:
+                            continue
+                        all_gt_zero = False
                         gt = int(gt)
                         wdict = copy.copy(wdict_blanks[gt])
                         if wdict['alt_base'] == '*':
@@ -244,8 +234,8 @@ class CravatConverter(BaseConverter):
                     })
                     wdicts.append(wdict)
                     self.gt_occur.append(gt)
-            # if all_gt_zero:
-            #     raise BadFormatError('All samples have the reference genotype.')
+            if all_gt_zero:
+                raise BadFormatError('All samples have the reference genotype.')
         else:
             for gt in wdict_blanks:
                 wdict = copy.copy(wdict_blanks[gt])
