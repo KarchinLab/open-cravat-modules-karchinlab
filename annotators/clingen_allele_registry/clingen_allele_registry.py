@@ -1,6 +1,5 @@
 import sys
-import urllib.parse
-
+from urllib3.util.retry import Retry
 import requests
 from cravat import BaseAnnotator
 
@@ -30,7 +29,9 @@ class CravatAnnotator(BaseAnnotator):
         # list hgvs strings to post to allele registry api
         post_data = '\n'.join(hgvs_strings.values())
         ALLELE_REGISTRY_ENDPOINT = self.conf['api_url']
-        resp = requests.post(ALLELE_REGISTRY_ENDPOINT, data=post_data)
+
+        session = get_retry_session(total_retries=3, backoff_factor=1)
+        resp = session.post(ALLELE_REGISTRY_ENDPOINT, data=post_data)
         if resp.status_code != 200:
             self.logger.error(f'Clingen Allele Registry API Error: {resp.status_code}\n{resp.text}')
 
@@ -61,6 +62,35 @@ class CravatAnnotator(BaseAnnotator):
                 }
                 out_batch.append((lnum, line, input_data, secondary_data, out))
         return out_batch
+
+
+def get_retry_session(
+    total_retries=3,
+    backoff_factor=1,
+    status_forcelist=(500, 502, 503, 504),
+    session=None,
+):
+    """
+    Returns a Session object configured with retries and exponential backoff.
+    """
+    session = session or requests.Session()
+
+    retry = Retry(
+        total=total_retries,
+        read=total_retries,
+        connect=total_retries,
+        backoff_factor=backoff_factor,
+        status_forcelist=status_forcelist,
+        allowed_methods=["GET", "POST", "PUT", "DELETE", "PATCH"],
+        raise_on_status=False,
+    )
+    print("in super fancy retry custom!!!!!!!!!!!!!!")
+
+    adapter = requests.adapters.HTTPAdapter(max_retries=retry)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+
+    return session
 
 
 if __name__ == '__main__':

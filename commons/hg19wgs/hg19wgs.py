@@ -45,4 +45,8 @@ class CravatCommonModule (BaseCommonModule):
             raise IndexError(start)
         else:
             start = start - 1
-        return self.wgs_reader[chrom][start:end]
+        try:
+            out = self.wgs_reader[chrom][start:end]
+            return out
+        except ValueError as e:
+            return None
