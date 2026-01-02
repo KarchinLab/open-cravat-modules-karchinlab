@@ -1,36 +1,9 @@
 #CRAVAT Report
-#Created at Monday 07/07/2025 16:54:33
+#Created at Friday 01/02/2026 12:09:50
 #Report level: variant
 #
 Variant Annotation																		CIViC				Original Input			
 UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Diseases	ID	Variant Evidence Score	Description	Chrom	Pos	Reference allele	Alternate allele
 1	chr7	140753336	A	T		Yes	BRAF	ENST00000644969.1	missense_variant	16	c.1919T>A	p.Val640Glu	ENST00000288602.11:BRAF::missense_variant:p.Val640Glu:c.1919T>A; ENST00000496384.7:BRAF::missense_variant:p.Val600Glu:c.1799T>A; ENST00000497784.2:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*1249T>A; ENST00000642228.1:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*877T>A; ENST00000644120.1:BRAF::processed_transcript::; ENST00000644969.1:BRAF::missense_variant:p.Val640Glu:c.1919T>A; ENST00000646730.1:BRAF::NMD_transcript_variant,3_prime_UTR_variant::c.*375T>A; ENST00000646891.1:BRAF:P15056:missense_variant:p.Val600Glu:c.1799T>A	140753336	1	s3	civic001	Anaplastic Thyroid Carcinoma, Cancer, Childhood Low-grade Glioma, Cholangiocarcinoma, Colon Cancer, Colorectal Adenocarcinoma, Colorectal Cancer, Diffuse Large B-cell Lymphoma, Ganglioglioma, Gastrointestinal Neuroendocrine Tumor, Hairy Cell Leukemia, High Grade Glioma, Histiocytoma, Intrahepatic Cholangiocarcinoma, Langerhans-cell Histiocytosis, Low Grade Glioma, Lung Adenocarcinoma, Lung Non-small Cell Carcinoma, Malignant Peripheral Nerve Sheath Tumor, Melanoma, Multiple Myeloma, Ovarian Cancer, Ovarian Serous Carcinoma, Papillary Thyroid Carcinoma, Pilocytic Astrocytoma, Pleomorphic Xanthoastrocytoma, Skin Melanoma, Thyroid Cancer, Thyroid Gland Carcinoma	12	1433.5	BRAF V600E has been shown to be recurrent in many cancer types. It is one of the most widely studied variants in cancer. This variant is correlated with poor prognosis in certain cancer types, including colorectal cancer and papillary thyroid cancer. The targeted therapeutic dabrafenib has been shown to be effective in clinical trials with an array of BRAF mutations and cancer types. Dabrafenib has also shown to be effective when combined with the MEK inhibitor trametinib in colorectal cancer and melanoma. However, in patients with TP53, CDKN2A and KRAS mutations, dabrafenib resistance has been reported. Ipilimumab, regorafenib, vemurafenib, and a number of combination therapies have been successful in treating V600E mutations. However, cetuximab and panitumumab have been largely shown to be ineffective without supplementary treatment.	chr7	140753336	A	T
 2	chr10	87957915	C	T		Yes	PTEN	ENST00000371953.8	stop_gained	7	c.697C>T	p.Arg233Ter	ENST00000371953.8:PTEN:P60484:stop_gained:p.Arg233Ter:c.697C>T	87957915	1	s4	civic002	Breast Cancer, Glioblastoma	110	19.0	PTEN R233* has been shown to be a loss of function mutation, and PTEN loss has been the subject of considerable research in breast cancer. PTEN loss may sensitize cells to PI3K-mTOR inhibition. While still being debated, there is data to support that PTEN loss is both associated with poorer prognosis, and no change in prognosis.	chr10	87957915	C	T
-3	chr3	179234297	A	G		Yes	PIK3CA	ENST00000263967.4	missense_variant	21	c.3140A>G	p.His1047Arg	ENST00000263967.4:PIK3CA:P42336:missense_variant:p.His1047Arg:c.3140A>G; ENST00000643187.1:PIK3CA::3_prime_UTR_variant::c.*220A>G	179234297	1	s5	civic003	Breast Cancer, Colorectal Cancer, Head And Neck Cancer, Head And Neck Squamous Cell Carcinoma, Her2-receptor Negative Breast Cancer, Her2-receptor Positive Breast Cancer, Lung Adenocarcinoma, PIK3CA-Related Overgrowth Spectrum, Thyroid Cancer	107	96.5	PIK3CA H1047R is one of the most recurrent single nucleotide variants in cancer, especially breast cancer. Of PIK3CA-mutant breast cancers, over half harbor this mutation. Meta-analyses have shown that patients harboring this mutation may have worse overall survival, but other studies have shown no difference between H1047R and other PIK3CA mutants from a prognostic standpoint. While very prevalent, targeted therapies for this particular mutation are still in early clinical trial phases.	chr3	179234297	A	G
-#CRAVAT Report
-#Created at Monday 07/07/2025 16:54:33
-#Report level: gene
-#
-Variant Annotation					
-Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies
-BRAF		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),processed_transcript(1),3_prime_UTR_variant(1)
-PTEN		1	0	stop_gained	stop_gained(1)
-PIK3CA		1	0	missense_variant	missense_variant(1),3_prime_UTR_variant(1)
-#CRAVAT Report
-#Created at Monday 07/07/2025 16:54:33
-#Report level: sample
-#
-Variant Annotation	
-UID	Sample
-1	s3
-2	s4
-3	s5
-#CRAVAT Report
-#Created at Monday 07/07/2025 16:54:33
-#Report level: mapping
-#
-Variant Annotation			
-Original Line	User Tags	UID	Input File Number
-1	civic001	1	0
-2	civic002	2	0
-3	civic003	3	0
+3	chr3	179234297	A	G		Yes	PIK3CA	ENST00000263967.4	missense_variant	21	c.3140A>G	p.His1047Arg	ENST00000263967.4:PIK3CA:P42336:missense_variant:p.His1047Arg:c.3140A>G; ENST00000643187.1:PIK3CA::3_prime_UTR_variant::c.*220A>G	179234297	1	s5	civic003	Breast Cancer, Colorectal Cancer, Head And Neck Cancer, Head And Neck Squamous Cell Carcinoma, Her2-receptor Negative Breast Cancer, Her2-receptor Positive Breast Cancer, Lung Adenocarcinoma, PIK3CA-Related Overgrowth Spectrum, Thyroid Cancer	107	102.5	PIK3CA H1047R is one of the most recurrent single nucleotide variants in cancer, especially breast cancer. Of PIK3CA-mutant breast cancers, over half harbor this mutation. Meta-analyses have shown that patients harboring this mutation may have worse overall survival, but other studies have shown no difference between H1047R and other PIK3CA mutants from a prognostic standpoint. While very prevalent, targeted therapies for this particular mutation are still in early clinical trial phases.	chr3	179234297	A	G
