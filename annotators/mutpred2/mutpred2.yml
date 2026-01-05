@@ -1,4 +1,3 @@
-private: true
 datasource: dbNSFPv5.2
 description: MutPred2 is a random forest model for the prediction of pathogenic missense
   variants and automated inference of molecular mechanisms of disease.
@@ -26,6 +25,22 @@ output_columns:
   width: 70
   desc: The max rank score across all transcripts. The ratio of the rank of the score
     over the total number of MutPred scores.
+- name: bp4_benign
+  title: ACMG/AMP Benign (BP4)
+  type: string
+  hidden: true
+  category: multi
+  filterable: true
+  width: 100
+  desc: Strength of evidence for benignity of mutpred_general_score.
+- name: pp3_pathogenic
+  title: ACMG/AMP Pathogenic (PP3)
+  type: string
+  hidden: true
+  width: 110
+  desc: Strength of evidence for pathogenicity of mutpred_general_score.
+  category: multi
+  filterable: true
 - hidden: true
   name: top5_mechanisms
   title: Top 5 Mechanisms
@@ -37,6 +52,7 @@ output_columns:
   type: string
   width: 90
   filterable: false
+  hidden: true
   table: true
   table_headers:
   - name: transcript

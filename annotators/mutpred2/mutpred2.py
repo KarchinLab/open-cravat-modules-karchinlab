@@ -2,9 +2,20 @@ import sys
 from cravat import BaseAnnotator
 from cravat import InvalidData
 from cravat.util import discretize_scalar
-import sqlite3
-import os
-import re
+
+BP4_CUTOFFS = [
+    (0.055126, "Strong"),
+    (0.218694, "Moderate"),
+    (0.402153, "Supporting"),
+    (float("inf"), "")
+]
+
+PP3_CUTOFFS = [
+    (0.730199, ""),
+    (0.791159, "Supporting"),
+    (0.921198, "Moderate"),
+    (float("inf"), "Strong")
+]
 
 class CravatAnnotator(BaseAnnotator):
 
@@ -41,12 +52,15 @@ class CravatAnnotator(BaseAnnotator):
                 m = all_mappings[i]
                 if m['score'] > max_score:
                     max_index = i
+                    max_score = m['score']
 
             max_mapping = all_mappings[max_index]
             out = {
                 'score': max_mapping['score'],
                 'prediction': max_mapping['prediction'],
                 'rankscore': max_mapping['rankscore'],
+                'bp4_benign': discretize_scalar(max_score, BP4_CUTOFFS),
+                'pp3_pathogenic': discretize_scalar(max_score, PP3_CUTOFFS),
                 'top5_mechanisms': max_mapping['top_5'],
                 'all_annotations': all_mappings
             }

@@ -36,6 +36,22 @@ For each variant, users receive:
 - **Lack of Structural Resolution** – Since it primarily uses sequence-based features, subtle 3D structural effects may be missed.
 - **Scope** – MutPred2 is designed for **missense variants** only; other variant types (nonsense, frameshift, splice) require other modules like MutPred-Indel, MutPred-LOF, or MutPred-Splice.
 
+## Clinical Application
+
+ The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select variant effect predictors are reliable as Very Strong, Strong, or Moderate evidence for Pathogenicity (PP3) or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013). MutPred2 scores have been calbrated by the Karchin Lab according to these methods using the code and variant sites.
+
+| ACMG Category    | Strength    | MutPred Thresholds   |
+|------------------|-------------|---------------------:|
+| Benign (BP4)     | Very Strong |                    - |
+|                  | Strong      |        <= 0.055126   |
+|                  | Moderate    | (0.055126, 0.218694] |
+|                  | Supporting  | (0.218694, 0.402153] |
+| Pathogenic (PP3) | Supporting  | (0.730199, 0.791159] |
+|                  | Moderate    | (0.791159, 0.921198] |
+|                  | Strong      |           > 0.921198 |
+|                  | Very Strong |                    - |
+
+
 # Disclaimer
 
 The purpose of this resource is to distribute functional prediction of mutation data. The data is meant to be used for basic research. Do not use this data to make clinical decisions. 
