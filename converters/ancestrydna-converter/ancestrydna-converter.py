@@ -45,11 +45,13 @@ class CravatConverter(BaseConverter):
         try:
             ref = self.wgs.slice(chrom, pos).upper()
         except KeyError:
-            raise InvalidData(f'Bad chrom {chrom}')
+            raise InvalidData(f'Bad chrom {chrom}:{pos}')
         except IndexError:
-            raise InvalidData(f'Bad position {pos}')      
+            raise InvalidData(f'Bad position {chrom}:{pos}')
         except ValueError:
-            raise InvalidData(f'Bad position {pos}')
+            raise InvalidData(f'Bad position {chrom}:{pos}')
+        except AttributeError:
+            raise InvalidData(f'Bad position {chrom}:{pos}')
         sample = ''
         zygosity = None
         try:
