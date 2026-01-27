@@ -206,6 +206,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.7.1: Remove COSMIC
   1.7.0: Update to use the new OC backend
   1.6.2: Include more CCR calibrated variant effect predictors.
   1.6.1: Update Variant Effect Predictors panel with CCR calibrated predictors.

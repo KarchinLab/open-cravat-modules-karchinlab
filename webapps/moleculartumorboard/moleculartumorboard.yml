@@ -5,11 +5,9 @@ live_modules:
 - cancer_genome_interpreter
 - cancer_hotspots
 - chasmplus
-- cgc
 - cgl
 - civic
 - clinvar
-- cosmic
 - dbsnp
 - fathmm
 - gnomad
@@ -26,11 +24,9 @@ requires:
 - cancer_genome_interpreter
 - cancer_hotspots
 - chasmplus
-- cgc
 - cgl
 - civic
 - clinvar
-- cosmic
 - dbsnp
 - fathmm
 - gnomad
@@ -44,11 +40,9 @@ requires:
 - thousandgenomes
 - wgbase
 - wgchasmplus
-- wgcgc
 - wgcgl
 - wgcivic
 - wgclinvar
-- wgcosmic
 - wggnomad
 - wgncbigene
 - wgpharmgkb
@@ -63,6 +57,7 @@ developer:
   website:
   citation: ''
 release_note:
+  1.3.1: Remove COSMIC
   1.3.0: Update to use the new OC backend
   1.2.6: remove imp module for use with python 3.12
   1.2.5: temporarily disable cosmic hallmarks query

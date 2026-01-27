@@ -86,18 +86,6 @@ def get_oncokb_annotation (request):
                 oncokb_cache[cache_key] = {'date': datetime.datetime.now(), 'rjson': rjson}
     return response
 
-def get_hallmarks (request):
-    return abort(500, description='Temporarily disabled to avoid scraping cosmic')
-    # queries = request.rel_url.query
-    # hugo = queries['hugo']
-    # if hugo == '':
-    #     return web.json_response({})
-    # url = 'https://cancer.sanger.ac.uk/cosmic/census-page/' + hugo
-    # r = requests.get(url)
-    # text = r.text[r.text.index('<p class="census-hallmark-desc">') + 32:]
-    # func_summary = text[:text.index('<a href=')].strip()
-    # content = {'func_summary': func_summary}
-    # return web.json_response(content)
 
 def get_litvar (request):
     queries = request.rel_url.query
@@ -132,7 +120,6 @@ routes = [
    ['POST', 'annotate', get_live_annotation_post],
    ['GET', 'oncokb', get_oncokb_annotation],
    ['GET', 'saveoncokbtoken', save_oncokb_token],
-   ['GET', 'hallmarks', get_hallmarks],
    ['GET', 'litvar', get_litvar],
 ]
 

@@ -334,7 +334,7 @@ function showAnnotation(response) {
   showWidget('diseasecausingpanel', ['base', 'clinvar', 'gnomad3', 'thousandgenomes', 'revel'],
     'variant', parentDiv, null, null, false);
   var parentDiv = document.querySelector('#contdiv_driver');
-  showWidget('driverpanel', ['base', 'cgc', 'cgl', 'chasmplus', 'cancer_hotspots', 'cosmic'],
+  showWidget('driverpanel', ['base', 'cgl', 'chasmplus', 'cancer_hotspots'],
     'variant', parentDiv, null, null, false);
   var parentDiv = document.querySelector('#contdiv_protein');
   showWidget('proteinpanel', ['base', 'lollipop2'], 'variant', parentDiv);
@@ -675,14 +675,6 @@ widgetGenerators['base2'] = {
           addDlRow(dl, '1000g/gnomAD max AF', prettyVal(max_af));
       }
       */
-      if (annotData['cosmic'] != null) {
-        var a = makeA(annotData['cosmic']['cosmic_id'],
-          'https://cancer.sanger.ac.uk/cosmic/search?q=' +
-          annotData['cosmic']['cosmic_id']);
-      } else {
-        var a = getNoAnnotMsgVariantLevel()
-      }
-      addDlRow(dl, 'COSMIC ID', a)
       var snp = getWidgetData(tabName, 'dbsnp', row, 'rsid');
       if (snp == null) {
         addDlRow(dl, 'dbSNP ID', 'No dbSNP ID is available');
@@ -1053,45 +1045,7 @@ widgetGenerators['ncbi'] = {
       var hugo = getWidgetData(tabName, 'base', row, 'hugo');
       var dl = getEl('dl')
       addEl(div, dl)
-      /*var sdiv = getEl('div')
-      var span = getEl('span')
-      span.textContent = 'Hallmarks of Cancer function summary: '
-      span.classList.add('detail-info-line-header')
-      addEl(sdiv, span)
-      */
-      var span = getEl('span')
-      span.id = 'hallmarks_func_summary'
-      span.style.color = 'gray'
-      span.textContent = 'Fetching data...'
-      addDlRow(dl, 'Hallmarks of Cancer Gene Summary', span)
-      var link = '/webapps/moleculartumorboard/hallmarks?hugo=' + hugo
-      fetch(link)
-        .then(data => {
-          console.log('@ data=', data)
-          if (data.ok == false) {
-            throw Error(data.statusText)
-          }
-          return data.json()
-        })
-        .then(response => {
-          console.log('@ resp=', response)
-          let span = document.querySelector('#hallmarks_func_summary')
-          let t = response['func_summary']
-          span.textContent = t.charAt(0).toUpperCase() + t.slice(1)
-          span.style.color = 'black'
-          let parentEl = span.parentElement
-          let a = getEl('a')
-          a.href = 'https://cancer.sanger.ac.uk/cosmic/census-page/' + hugo
-          a.target = '_blank'
-          a.textContent = ' \u{1f517}'
-          a.style.textDecoration = 'none'
-          addEl(parentEl, a)
-        })
-        .catch(e => {
-          let span = document.querySelector('#hallmarks_func_summary')
-          span.style.color = 'black'
-          span.textContent = getNoAnnotMsgGeneLevel()
-        })
+
       var desc = getWidgetData(tabName, 'ncbigene', row, 'ncbi_desc')
       if (desc) {
           desc = desc.split(/\[.*\]$/)[0]
@@ -1101,24 +1055,6 @@ widgetGenerators['ncbi'] = {
       } else {
         addDlRow(dl, 'RefSeq Gene Summary', desc)
       }
-    }
-  }
-}
-
-widgetInfo['cgc2'] = {
-  'title': 'Relation to tumor and tissue types (Cancer Gene Census)'
-};
-widgetGenerators['cgc2'] = {
-  'gene': {
-    'width': undefined,
-    'height': undefined,
-    'word-break': 'break-word',
-    'function': function (div, row, tabName) {
-      var cgc_class = getWidgetData(tabName, 'cgc', row, 'class');
-      var inheritance = getWidgetData(tabName, 'cgc', row, 'inheritance');
-      var tts = getWidgetData(tabName, 'cgc', row, 'tts');
-      var ttg = getWidgetData(tabName, 'cgc', row, 'ttg');
-      addInfoLineLink2(div, cgc_class + ' with inheritance ' + inheritance + '. Somatic types are ' + tts + '. Germline types are ' + ttg + '.');
     }
   }
 }
@@ -1299,129 +1235,6 @@ widgetGenerators['clinvar2'] = {
   }
 }
 
-widgetInfo['cosmic2'] = {
-  'title': 'Catalog of somatic mutations in cancer (COSMIC)'
-};
-widgetGenerators['cosmic2'] = {
-  'variant': {
-    'width': undefined,
-    'height': undefined,
-    'word-break': 'normal',
-    'function': function (div, row, tabName) {
-      var title = 'Catalog of somatic mutations in cancer (COSMIC)'
-      var dl = getEl('dl')
-      addEl(div, dl)
-      var wdiv = getEl('div')
-      wdiv.style.display = 'flex'
-      wdiv.style.flexWrap = 'wrap'
-      var divHeight = '400px';
-      var vcTissue = getWidgetData(tabName, 'cosmic', row, 'variant_count_tissue');
-      if (vcTissue != undefined && vcTissue !== null) {
-        if (typeof (vcTissue) == 'string') {
-          var toks = vcTissue.split(';')
-          var vcTissue = [];
-          for (var i = 0; i < toks.length; i++) {
-            var toks2 = toks[i].split('(')
-            var tissue = toks2[0];
-            var count = parseInt(toks2[1].split(')')[0]);
-            vcTissue.push([tissue, count]);
-          }
-          for (var i = 0; i < vcTissue.length - 1; i++) {
-            for (var j = i + 1; j < vcTissue.length; j++) {
-              if (vcTissue[i][1] < vcTissue[j][1]) {
-                var tmp = vcTissue[i];
-                vcTissue[i] = vcTissue[j];
-                vcTissue[j] = tmp;
-              }
-            }
-          }
-        }
-        var sdiv = getEl('div')
-        sdiv.style.width = '28rem'
-        sdiv.style.maxHeight = '400px'
-        sdiv.style.overflow = 'auto'
-        sdiv.style.marginRight = '5rem'
-        sdiv.style.border = '1px solid #aaaaaa'
-        sdiv.style.borderRadius = '0.5rem'
-        sdiv.style.padding = '1rem'
-        var table = getWidgetTableFrame();
-        //table.style.width = '400px'
-        //table.style.fontSize = '14px';
-        var thead = getWidgetTableHead(['Tissue', 'Count'], ['85%', '15%']);
-        addEl(table, thead);
-        //var titleEl = div.parentElement.firstChild.querySelector('legend');
-        //var title = titleEl.textContent;
-        //titleEl.textContent = '';
-        var link = 'https://cancer.sanger.ac.uk/cosmic/search?q=' +
-          annotData['cosmic']['cosmic_id'];
-        var a = makeA(title, link)
-        a.classList.add('linktitle')
-        //addEl(titleEl, a);
-        var tbody = getEl('tbody');
-        var tissues = [];
-        var counts = [];
-        for (var i = 0; i < vcTissue.length; i++) {
-          var tissue = vcTissue[i][0].replace(/_/g, ' ');
-          var count = vcTissue[i][1];
-          var tr = getWidgetTableTr([tissue, count]);
-          if (count > 25) {
-            //tr.style.backgroundColor = 'rgba(254, 202, 202, 255)';
-          }
-          addEl(tbody, tr);
-          /*if (tissue == 'breast' || tissue == 'urinary_tract') {
-              continue;
-          }*/
-          tissues.push(tissue)
-          counts.push(parseInt(count));
-        }
-        var labels = tissues.slice(0, 10)
-        var data = counts.slice(0, 10);
-        addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
-        var colors = ['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69', '#fccde5', '#d9d9d9', '#bc80bd', '#ccebc5', '#ffed6f']
-        var sdiv = getEl('div');
-        sdiv.style.overflow = 'auto';
-        //sdiv.style.width = 'calc(100% - 400px)';
-        sdiv.style.maxWidth = '400px';
-        sdiv.style.height = '400px';
-        var chartDiv = getEl('canvas');
-        chartDiv.width = '1000';
-        chartDiv.height = '1000';
-        addEl(sdiv, chartDiv);
-        addEl(wdiv, sdiv);
-        console.log('@ wdiv=', wdiv)
-        var chart = new Chart(chartDiv, {
-          type: 'pie',
-          data: {
-            datasets: [{
-              data: data,
-              backgroundColor: colors
-            }],
-            labels: labels
-          },
-          options: {
-            responsive: true,
-            responsiveAnimationDuration: 500,
-            maintainAspectRatio: false,
-            legend: {
-              display: false,
-              position: 'right',
-            },
-            plugins: {
-              labels: {
-                render: 'label',
-                fontColor: '#000000',
-                overlap: false,
-                outsidePadding: 4,
-              }
-            },
-          },
-        });
-        addDlRow(dl, a, wdiv)
-      }
-    }
-  }
-}
-
 widgetInfo['cgi'] = {
   'title': ''
 };
@@ -1560,39 +1373,12 @@ widgetGenerators['driverpanel'] = {
     'function': function (div, row, tabName) {
       var br = getEl("br");
       addEl(div, br);
-      var generator = widgetGenerators['cosmic2']['variant'];
-      var divs = showWidget('cosmic2', ['cosmic'], 'variant', div, null, null, false);
-      divs[0].style.position = 'relative';
-      divs[0].style.top = '0px';
-      divs[0].style.left = '0px';
-      var br = getEl("br");
-      //addEl(div, br);
-      //var generator = widgetGenerators['cancer_hotspots2']['variant'];
-      //generator['width'] = '100%'
-      //var divs = showWidget('cancer_hotspots2', ['cancer_hotspots'], 'variant', div, null, '16rem');
-      //divs[0].style.position = 'relative';
-      //divs[0].style.top = '0px';
-      //divs[0].style.left = '0px';
-      //divs[0].querySelector('div legend').textContent = 
-      //        'Hotspot mutation per cancer type (Cancer Hotspots)';
       var generator = widgetGenerators['chasmplus2']['variant'];
       generator['width'] = '100%'
       var divs = showWidget('chasmplus2', ['base', 'chasmplus'], 'variant', div, null, 220);
       divs[0].style.position = 'relative';
       divs[0].style.top = '0px';
       divs[0].style.left = '0px';
-      /*
-      var generator = widgetGenerators['cgc2']['gene'];
-      generator['width'] = '100%'
-      var divs = showWidget('cgc2', ['base', 'cgc'], 'gene', div, null, null);
-      divs[0].style.position = 'relative';
-      divs[0].style.top = '0px';
-      divs[0].style.left = '0px';
-      divs[1].style.paddingLeft = '1px';
-      divs[0].style.width = '92vw';
-      var br = getEl("br");
-      addEl(div, br);
-      */
     }
   }
 }
