@@ -4,12 +4,10 @@ type: webapp
 live_modules:
 - cancer_genome_interpreter
 - chasmplus
-- cgc
 - civic
 - clingen 
 - clinvar
 - clinvar_acmg
-- cosmic
 - cscape
 - dann_coding
 - dbsnp
@@ -43,12 +41,10 @@ requires:
 - hg38
 - cancer_genome_interpreter
 - chasmplus
-- cgc
 - civic
 - clingen 
 - clinvar
 - clinvar_acmg
-- cosmic
 - cscape
 - dann_coding
 - dbsnp
@@ -80,11 +76,9 @@ requires:
 - vest
 - wgbase
 - wgchasmplus
-- wgcgc
 - wgcgl
 - wgcivic
 - wgclinvar
-- wgcosmic
 - wggnomad
 - wgtarget
 - wgdgi
@@ -98,6 +92,7 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.2.1: Remove COSMIC
   1.2.0: Update to new flask OC backend
   1.1.0: Requested updates by CEDAR group
   1.0.0: Initial release
