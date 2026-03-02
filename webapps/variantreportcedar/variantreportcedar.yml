@@ -99,6 +99,6 @@ release_note:
 tags:
 - visualization
 hidden: false
-requires_opencravat: '>=2.1.3'
+requires_opencravat: '>=3.0.0'
 # Meant to be private 
 private: true 
