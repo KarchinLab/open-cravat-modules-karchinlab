@@ -2,6 +2,8 @@
 
 A machine learning method that predicts the functional significance of missense mutations based on the probability that they are pathogenic. Precomputed across the entire exome for rapid annotation.
 
+VEST scores in OpenCRAVAT are pre-computed only available for missense variants. For indel scoring please use [cravat.us](https://cravat.us).
+
 ![Screenshot](vest_screenshot_1.png)
 <br />
 

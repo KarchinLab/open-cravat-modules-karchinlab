@@ -30,7 +30,8 @@ output_columns:
   width: 185
   hidden: false
 tags:
-- genes
+- cancer
+- networks
 - visualization
 title: NDEx NCI Cancer Pathways
 type: annotator

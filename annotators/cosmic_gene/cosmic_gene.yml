@@ -42,7 +42,6 @@ release_note:
   85.0.2: added index to data for speed
 requires_opencravat: '>=2.2.1'
 tags:
-- genes
 - cancer
 title: COSMIC Gene
 type: annotator

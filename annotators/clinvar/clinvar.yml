@@ -1,4 +1,4 @@
-datasource: 2025.05.01
+datasource: 2026.02.01
 description: ClinVar is an archive of reports of the relationships among human variations
   and phenotypes, with supporting evidence.
 developer:
@@ -18,7 +18,7 @@ output_columns:
   type: string
   width: 90
   filterable: false
-  hidden: true
+  hidden: false
 - hidden: true
   name: disease_refs
   title: Disease Ref Nums
@@ -37,7 +37,7 @@ output_columns:
   title: Disease Names
   type: string
   width: 55
-  hidden: false
+  hidden: true
 - name: clinvar_preferred_names
   title: Preferred Disease Names
   type: string
@@ -248,6 +248,15 @@ output_columns:
   width: 55
   hidden: true
 release_note:
+  2026.02.01: Monthly data update
+  2026.01.01: Monthly data update
+  2025.12.01: Monthly data update
+  2025.11.01: Monthly data update
+  2025.10.01: Monthly data update
+  2025.09.01: Monthly data update
+  2025.08.01: Monthly data update
+  2025.07.01: Monthly data update
+  2025.06.01: Monthly data update
   2025.05.01: Monthly data update, update test key
   2025.04.01: Monthly data update, update test key
   2025.03.01: Monthly data update, update test key
@@ -282,11 +291,11 @@ release_note:
   2019.01.022: updated data set, widget overhaul
   2019.01.023: changed id column format for web linking
 tags:
-- clinical relevance
+- mendelian disease
 - variants
 title: ClinVar
 type: annotator
-version: 2025.05.01
+version: 2026.02.01
 requires_opencravat: '>=1.4.0'
 requires:
 - wgclinvar

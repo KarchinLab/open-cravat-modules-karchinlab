@@ -25,6 +25,7 @@ output_columns:
   # type is the data type of the value. It is primarily used when storing the 
   # results in a database. It may be one of string, int, or float.
   type: int
+  hidden: true
 - name: ALL_AN
   # title is the display name of this column, similar to the title of the module.
   # It can be changed without affecting the functionality of CRAVAT
@@ -32,6 +33,7 @@ output_columns:
   # type is the data type of the value. It is primarily used when storing the
   # results in a database. It may be one of string, int, or float.
   type: int
+  hidden: true
 - name: ALL_AF
   # title is the display name of this column, similar to the title of the module.
   # It can be changed without affecting the functionality of CRAVAT
@@ -45,7 +47,6 @@ output_columns:
 description: Allele counts and frequencies from the Regeneron Million Exomes dataset.
 
 tags:
-- variants
 - allele frequency
 
 # developer is you!

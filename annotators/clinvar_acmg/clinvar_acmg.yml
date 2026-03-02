@@ -1,7 +1,7 @@
 title: ClinVar ACMG
 description: ACMG PS1 and PM5 pathogenicity prediction based on ClinVar
-version: 2025.05.01
-datasource: 2025.05.01
+version: 2026.02.01
+datasource: 2026.02.01
 developer:
   citation: 'Landrum, M.J., Lee, J.M., Benson, M., et al. (2016). ClinVar: public
     archive of interpretations of clinically relevant variants. Nucleic Acids Research,
@@ -52,9 +52,16 @@ smartfilters:
 type: annotator
 requires_opencravat: '>=1.4.0'
 tags:
-- clinical relevance
+- mendelian disease
 - variants
 release_note:
+  2026.02.01: Monthly data update
+  2026.01.01: Monthly data update
+  2025.12.01: Monthly data update
+  2025.11.01: Monthly data update
+  2025.10.01: Monthly data update
+  2025.09.01: Monthly data update
+  2025.08.01: Monthly data update
   2025.05.01: Monthly data update
   2025.04.01: Monthly data update
   2025.03.01: Monthly data update

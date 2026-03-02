@@ -134,7 +134,8 @@ INS = 22
 DEL = 23
 COM = 24
 # sequence ontology
-SO_NSO = -44
+SO_NSO = -45
+SO_PNC = -44  # protein_coding_CDS_not_defined
 SO_PTR = -43  # processed_transcript
 SO_TU1 = -42  # transcribed_unprocessed_pseudogene
 SO_UNP = -41  # unprocessed_pseudogene
@@ -203,6 +204,7 @@ SO_TAB = 51  # transcript_ablation
 CODING = 60
 NONCODING = 61
 transcripttype_to_so = {
+    "protein_coding_CDS_not_defined": SO_PNC,
     "processed_transcript": SO_PTR,
     "transcribed_unprocessed_pseudogene": SO_TU1,
     "unprocessed_pseudogene": SO_UNP,
@@ -249,6 +251,7 @@ transcripttype_to_so = {
 }
 sonum_to_so = {
     SO_NSO: "",
+    SO_PNC: "PNC",
     SO_PTR: "PTR",
     SO_TU1: "TU1",
     SO_UNP: "UNP",
@@ -4596,11 +4599,13 @@ class Mapper(cravat.BaseMapper):
                 toks = f.readline().split("\t")
                 hugo_colno = toks.index("symbol")
                 enst_colno = toks.index("Ensembl_nuc")
+                mane_status_colno = toks.index('MANE_status')
                 for line in f:
                     toks = line[:-1].split("\t")
                     hugo = toks[hugo_colno]
                     enst = toks[enst_colno].split(".")[0]
-                    if hugo not in self.primary_transcript:
+                    mane_status = toks[mane_status_colno]
+                    if mane_status=='MANE Select' or hugo not in self.primary_transcript:
                         self.primary_transcript[hugo] = enst
                 f.close()
             else:
@@ -4609,25 +4614,18 @@ class Mapper(cravat.BaseMapper):
                     if line.startswith("#"):
                         continue
                     toks = line[:-1].split()
-                    # if tokslen == 1:
-                    #    self.primary_transcript += (toks[0],)
-                    #    for line in f:
-                    #        if line.startswith('#'):
-                    #            continue
-                    #        toks = line[:-1].split()
-                    #        self.primary_transcript += (toks[0],)
                     if len(toks) != 2:
                         continue
                     else:
                         hugo = toks[0]
                         enst = toks[1]
-                        self.primary_transcript[hugo] = enst
+                        self.primary_transcript[hugo] = enst.split('.')[0]
                 f.close()
 
     def setup(self):
         self.module_dir = os.path.dirname(__file__)
         data_dir = os.path.join(self.module_dir, "data")
-        db_path = os.path.join(data_dir, "gene_33_10000.sqlite")
+        db_path = os.path.join(data_dir, "gene_47_10000.sqlite")
         self.db = Mapper._get_db(db_path)
         self.c = self.db.cursor()
         self.c2 = self.db.cursor()
@@ -4637,7 +4635,7 @@ class Mapper(cravat.BaseMapper):
         q = 'select v from info where k="gencode_ver"'
         self.c.execute(q)
         self.ver = self.c.fetchone()[0]
-        mrnas_path = os.path.join(data_dir, "mrnas_33.pickle")
+        mrnas_path = os.path.join(data_dir, "mrnas_47.pickle")
         f = open(mrnas_path, "rb")
         self.mrnas = pickle.load(f)
         self.prots = pickle.load(f)

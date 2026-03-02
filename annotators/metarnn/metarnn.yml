@@ -29,10 +29,12 @@ output_columns:
   type: string
   desc: Prediction Damaging or Tolerated. The score cutoff is 0.5.
   width: 65
+  hidden: true
 - name: rank_score
   title: Rank Score
   type: float
   desc: Ratio of the rank of the score over the total number of MetaRNN scores
+  hidden: true
 - name: all_annotations
   title: All Annotations
   type: string
@@ -41,7 +43,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -49,7 +51,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -57,7 +59,6 @@ output_columns:
 
 tags:
 - variant effect prediction
-- variants
 release_note:
   1.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
   1.0.0: initial release

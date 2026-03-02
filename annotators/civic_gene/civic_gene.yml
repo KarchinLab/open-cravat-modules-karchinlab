@@ -1,4 +1,4 @@
-datasource: 2025.05.01
+datasource: 2026.02.01
 description: Provides descriptions and linkouts to CIViC
 developer:
   citation: Griffith, M., Spies, N.C., Krysiak, K., et al. (2017). CIViC is a community
@@ -16,7 +16,7 @@ output_columns:
   type: string
   filterable: false
   link_format: https://civicdb.org/links/gene/${.*}
-- hidden: true
+- hidden: false
   name: description
   title: Description
   type: string
@@ -28,13 +28,19 @@ output_columns:
   hidden: true
 tags:
 - cancer
-- clinical relevance
-- genes
-- literature
 title: CIViC Gene
 type: annotator
-version: 2025.05.01
+version: 2026.02.01
 release_note:
+  2026.02.01: Monthly data update
+  2026.01.01: Monthly data update
+  2025.12.01: Monthly data update
+  2025.11.01: Monthly data update
+  2025.10.01: Monthly data update
+  2025.09.01: Monthly data update
+  2025.08.01: Monthly data update
+  2025.07.01: Monthly data update
+  2025.06.01: Monthly data update
   2025.05.01: Monthly data update
   2025.04.01: Monthly data update
   2025.02.01: Monthly data update

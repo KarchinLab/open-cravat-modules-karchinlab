@@ -24,6 +24,7 @@ class CravatAnnotator(BaseAnnotator):
             assocs = []
             chem = set()
             cat = set()
+            has_sig = 'no'
             for hit in hits:
                 chemicals = hit['chemical']
                 category = hit['pheno_cat']
@@ -36,6 +37,7 @@ class CravatAnnotator(BaseAnnotator):
                     ca = ''.join(category)
                 chem.add(c)
                 cat.add(ca)
+                has_sig = hit['sig']
                 assocs.append([
                     list(zip(chemicals, chem_urls)),
                     hit['sentence'],
@@ -51,6 +53,7 @@ class CravatAnnotator(BaseAnnotator):
                 'chemicals': ';'.join(chems),
                 'pheno_cat': ';'.join(categories),
                 'drug_assoc': assocs,
+                'has_sig': 'yes' if has_sig == 'yes' else 'no'
             }
         else:
             return None

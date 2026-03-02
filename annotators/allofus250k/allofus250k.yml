@@ -1,6 +1,5 @@
 title: All of Us
 tags:
-- variants
 - allele frequency
 
 
@@ -35,6 +34,7 @@ output_columns:
   title: All AF
   type: float
   width: 65
+  hidden: true
 - name: gvs_max_ac
   title: Max AC
   type: int
@@ -49,10 +49,12 @@ output_columns:
   title: Max AF
   type: float
   width: 65
+  hidden: true
 - name: gvs_max_subpop
   title: Max Sub-Population
   type: string
   width: 70
+  hidden: true
 - name: gvs_afr_ac
   title: African AC
   type: int
@@ -67,6 +69,7 @@ output_columns:
   title: African AF
   type: float
   width: 65
+  hidden: true
 - name: gvs_amr_ac
   title: Ad-Mixed American AC
   type: int
@@ -81,6 +84,7 @@ output_columns:
   title: Ad-Mixed American AF
   type: float
   width: 65
+  hidden: true
 - name: gvs_eas_ac
   title: East Asian AC
   type: int
@@ -95,6 +99,7 @@ output_columns:
   title: East Asian AF
   type: float
   width: 65
+  hidden: true
 - name: gvs_eur_ac
   title: European AC
   type: int
@@ -109,6 +114,7 @@ output_columns:
   title: European AF
   type: float
   width: 65
+  hidden: true
 - name: gvs_mid_ac
   title: Middle Eastern AC
   type: int
@@ -123,6 +129,7 @@ output_columns:
   title: Middle Eastern AF
   type: float
   width: 65
+  hidden: true
 - name: gvs_oth_ac
   title: Other AC
   type: int
@@ -137,6 +144,7 @@ output_columns:
   title: Other AF
   type: float
   width: 65
+  hidden: true
 - name: gvs_sas_ac
   title: South Asian AC
   type: int
@@ -151,4 +159,5 @@ output_columns:
   title: South Asian AF
   type: float
   width: 65
+  hidden: true
 

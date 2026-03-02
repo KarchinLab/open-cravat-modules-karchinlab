@@ -24,7 +24,6 @@ output_columns:
 
 tags:
 - cancer
-- variants
 title: 'dbCID: Database of Cancer Driver InDels'
 version: 1.0.1
 release_note:

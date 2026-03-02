@@ -9,31 +9,6 @@ developer:
   website: http://www.internationalgenome.org/home
 level: variant
 output_columns:
-- desc: Yoruba in Ibadan, Nigeria
-  name: yri_af
-  title: YRI AF
-  type: float
-  width: 60
-- desc: Luhya in Webuye, Kenya
-  name: lwk_af
-  title: LWK AF
-  type: float
-  width: 60
-- desc: Gambian in Western Divisions in the Gambia
-  name: gwd_af
-  title: GWD AF
-  type: float
-  width: 60
-- desc: Mende in Sierra Leone
-  name: msl_af
-  title: MSL AF
-  type: float
-  width: 60
-- desc: Esan in Nigeria
-  name: esn_af
-  title: ESN AF
-  type: float
-  width: 60
 - desc: Americans of African Ancestry in SW USA
   name: asw_af
   title: ASW AF
@@ -44,6 +19,37 @@ output_columns:
   title: ACB AF
   type: float
   width: 60
+  hidden: true
+- desc: Esan in Nigeria
+  name: esn_af
+  title: ESN AF
+  type: float
+  width: 60
+  hidden: true
+- desc: Gambian in Western Divisions in the Gambia
+  name: gwd_af
+  title: GWD AF
+  type: float
+  width: 60
+  hidden: true
+- desc: Luhya in Webuye, Kenya
+  name: lwk_af
+  title: LWK AF
+  type: float
+  width: 60
+  hidden: true
+- desc: Mende in Sierra Leone
+  name: msl_af
+  title: MSL AF
+  type: float
+  width: 60
+  hidden: true
+- desc: Yoruba in Ibadan, Nigeria
+  name: yri_af
+  title: YRI AF
+  type: float
+  width: 60
+  hidden: true
 tags:
 - allele frequency
 title: 1000 Genomes-African

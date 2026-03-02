@@ -22,5 +22,5 @@ requires_opencravat: '>=2.0.0'
 release-note:
   1.1.0: updated gene names according to https://www.genenames.org/download/custom/
 tags:
-- literature
+- proteins
 

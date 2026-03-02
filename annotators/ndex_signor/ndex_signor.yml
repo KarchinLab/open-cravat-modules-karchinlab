@@ -30,9 +30,8 @@ output_columns:
   width: 185
   hidden: false
 tags:
-- variants
-- genes
-- cancer
+- networks
+- visualization
 title: NDEx SIGNOR
 type: annotator
 version: 1.0.2

@@ -32,8 +32,7 @@ requires:
 - dbsnp
 - wghaploreg_asn
 tags:
-- non coding
-- variants
+- regulation
 developer:
   name: Luke Ward
   organization: MIT Kellis Lab

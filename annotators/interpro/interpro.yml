@@ -42,7 +42,7 @@ output_columns:
     title: Ensembl Transcript ID
     type: string
 tags:
-- genes
+- proteins
 requires_opencravat: '>=2.2.1'
 title: InterPro
 type: annotator

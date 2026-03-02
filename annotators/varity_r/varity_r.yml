@@ -12,7 +12,7 @@ output_columns:
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -20,7 +20,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -30,16 +30,19 @@ output_columns:
   type: float
   desc: VARITY_ER score
   width: 72
+  hidden: true
 - name: varity_r_loo
   title: VARITY_R_LOO
   type: float
   desc: VARITY_R score when trained using using Leave-One-Variant out
   width: 72
+  hidden: true
 - name: varity_er_loo
   title: VARITY_ER_LOO
   type: float
   desc: VARITY_ER score when trained using using Leave-One-Variant out
   width: 72
+  hidden: true
 - name: p_vid
   title: P_VID
   type: string
@@ -62,5 +65,4 @@ release_note:
   1.1.0: pathogenicity callibration results.
   1.0.0: initial release
 tags:
-- variants
 - variant effect prediction

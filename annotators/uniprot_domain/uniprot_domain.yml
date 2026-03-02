@@ -1,7 +1,6 @@
 title: Uniprot Domain
 tags:
-- literature
-- variants
+- proteins
 
 version: 1.0.0
 type: annotator

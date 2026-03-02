@@ -1,6 +1,6 @@
 title: PharmGKB
-version: 2025.05.01
-datasource: 2025.05.01
+version: 2026.02.01
+datasource: 2026.02.01
 type: annotator
 level: variant
 output_columns:
@@ -8,11 +8,13 @@ output_columns:
   title: ID
   type: string
   width: 85
+  hidden: true
   link_format: https://www.pharmgkb.org/variant/${.*}
 - name: chemicals
   title: Chemicals
   type: string
   width: 85
+  hidden: true
 - name: pheno_cat
   title: Phenotype Category
   type: string
@@ -25,25 +27,31 @@ output_columns:
   width: 100
   table: true
   table_headers:
-  - name: chemicals
-    title: Chemicals
-    type: string
-    desc: Chemicals and links
-  - name: sentence
-    title: Description
-    type: string
-  - name: pheno_cat
-    title: Phenotype Category
-    type: string
-  - name: sig
-    title: Significance
-    type: string
-  - name: pmid
-    title: Study
-    type: string
-  - name: notes
-    title: Notes
-    type: string
+    - name: chemicals
+      title: Chemicals
+      type: string
+      desc: Chemicals and links
+    - name: sentence
+      title: Description
+      type: string
+    - name: pheno_cat
+      title: Phenotype Category
+      type: string
+    - name: sig
+      title: Significance
+      type: string
+    - name: pmid
+      title: Study
+      type: string
+    - name: notes
+      title: Notes
+      type: string
+- name: has_sig
+  title: Significance
+  type: string
+  hidden: true
+  width: 100
+
 description: Clinically actionable gene-drug associations and genotype-phenotype relationships
 developer:
   name: Teri E. Klein
@@ -56,6 +64,16 @@ developer:
 requires:
 - wgpharmgkb>=2.0.0
 release-note:
+  2026.02.01: Data update
+  2026.01.01: Data update
+  2025.12.01: Data update
+  2025.11.01: Data update
+  2025.10.01: Data update
+  2025.09.01: Data update
+  2025.08.01: Data update
+  2025.07.01: Data update
+  2025.06.25: Add Significance column to the top level annotation to easily filter on whethere there is a significant drug interaction.
+  2025.06.01: Data update
   2025.05.01: Data update
   2025.04.01: Data update
   2025.03.01: Data update
@@ -79,7 +97,5 @@ release-note:
   1.1.1: added table-data columns
   1.1.0: Data update
 tags:
-- clinical relevance
-- literature
-- variants
+- drugs
 requires_opencravat: '>=2.2.2'

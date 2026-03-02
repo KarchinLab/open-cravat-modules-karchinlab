@@ -1,7 +1,7 @@
 type: package
 description: Package that identifies variants related to splicing.
 title: Splicing Package
-version: '1.0.0'
+version: '1.0.1'
 requires_opencravat: '>=2.3.0'
 developer:
   name: OpenCRAVAT Team

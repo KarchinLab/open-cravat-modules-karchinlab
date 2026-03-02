@@ -48,6 +48,7 @@ developer:
     \ in the human genome. Nature 489, 57\u201374 (2012)."
 tags:
 - non coding
+- regulation
 requires:
 - wgencode_tfbs
 - hg19

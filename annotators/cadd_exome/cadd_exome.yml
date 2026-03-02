@@ -10,10 +10,11 @@ output_columns:
 - name: phred
   title: Phred
   type: float
+  hidden: true
 - name: bp4_benign
   title: ACMG/AMP Benign (BP4)
   type: string
-  hidden: false
+  hidden: true
   category: multi
   filterable: true
   width: 100
@@ -21,7 +22,7 @@ output_columns:
 - name: pp3_pathogenic
   title: ACMG/AMP Pathogenic (PP3)
   type: string
-  hidden: false
+  hidden: true
   width: 110
   desc: Strength of evidence for pathogenicity.
   category: multi
@@ -44,8 +45,6 @@ release_note:
   1.4.7: Initial release
 tags:
 - variant effect prediction
-- variants
-- clinical relevance
 requires:
 - wgcadd_exome
 

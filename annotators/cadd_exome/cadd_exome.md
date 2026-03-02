@@ -23,7 +23,7 @@ WARNING: This predictor used population allele frequency of a variant as a featu
 
 The ClinGen Sequence Variant Interpretation Working Group reccommends that calibrated scores from select variant effect predictors are reliable as Very Strong, Strong, or Moderate evidence for Pathogenicity (PP3) or Benignity (BP4) within ACMG/AMP Guidelines (Pejaver, Vikas et al. “Calibration of computational tools for missense variant pathogenicity classification and ClinGen recommendations for PP3/BP4 criteria.” American journal of human genetics vol. 109,12 (2022): 2163-2177. doi:10.1016/j.ajhg.2022.10.013).
 
-CADD phred scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Benign Very Strong, Pathogenic Supporting and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
+CADD phred scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Pathogenic Supporting and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
 | ACMG Category    | Strength    | CADD Thresholds |
 |------------------|-------------|----------------:|

@@ -41,7 +41,6 @@ output_columns:
   link_format: https://cancer.sanger.ac.uk/cosmic/gene/analysis?ln=${.*}
   hidden: true
 tags:
-- genes
 - cancer
 title: Cancer Gene Census
 type: annotator

@@ -1,4 +1,4 @@
-chr1 	69091	+	A	C	s0
+chr1	69091	+	A	C	s0
 chr14	18601117	+	A	C	s1
 chr18	47394	+	G	A	s2
 chr1	69233	+	T	C	s5
@@ -7,3 +7,6 @@ chr19	110698	+	T	A	s3
 chr21	10538725	+	T	G	s4
 chr7	193200	+	A	T	s5
 chr3	319817	+	T	C	s6
+chr8	60856563	+	G	A	pp3supporting
+chr16	3596371	+	G	A	bp4moderate
+chr19	11102684	+	G	A	bp4supporting

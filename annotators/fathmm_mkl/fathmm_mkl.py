@@ -63,7 +63,7 @@ class CravatAnnotator(BaseAnnotator):
                 'fathmm_mkl_coding_rankscore': row[1],
                 'fathmm_mkl_coding_pred': pred,
                 'fathmm_mkl_group': row[3],
-                'bp4_pathogenic': discretize_scalar(row[0], BP4_CUTOFFS),
+                'bp4_benign': discretize_scalar(row[0], BP4_CUTOFFS),
                 'pp3_pathogenic': discretize_scalar(row[0], PP3_CUTOFFS),
             }
     

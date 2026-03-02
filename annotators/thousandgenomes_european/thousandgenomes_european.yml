@@ -9,21 +9,6 @@ developer:
   website: http://www.internationalgenome.org/home
 level: variant
 output_columns:
-- desc: Utah Residents (CEPH) with Northern and Western European Ancestry
-  name: ceu_af
-  title: CEU AF
-  type: float
-  width: 60
-- desc: Toscani in Italia
-  name: tsi_af
-  title: TSI AF
-  type: float
-  width: 60
-- desc: Finnish in Finland
-  name: fin_af
-  title: FIN AF
-  type: float
-  width: 60
 - desc: British in England and Scotland
   name: gbr_af
   title: GBR AF
@@ -34,6 +19,25 @@ output_columns:
   title: IBS AF
   type: float
   width: 60
+  hidden: true
+- desc: Finnish in Finland
+  name: fin_af
+  title: FIN AF
+  type: float
+  width: 60
+  hidden: true
+- desc: Toscani in Italia
+  name: tsi_af
+  title: TSI AF
+  type: float
+  width: 60
+  hidden: true
+- desc: Utah Residents (CEPH) with Northern and Western European Ancestry
+  name: ceu_af
+  title: CEU AF
+  type: float
+  width: 60
+  hidden: true
 tags:
 - allele frequency
 title: 1000 Genomes-European
