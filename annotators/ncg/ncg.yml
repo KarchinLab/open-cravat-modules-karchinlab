@@ -1,35 +1,44 @@
 datasource: NCG7.2
 description: Network of Cancer Genes
 developer:
-  citation: TODO
+  citation:  Comparative assessment of genes driving cancer and somatic evolution 
+    in non-cancer tissues - an update of the Network of Cancer Genes (NCG) resource. 
+    Dressler L., Bortolomeazzi M., Keddar M.R., Misetic H., Sartini G., Acha-Sagredo A., 
+    Montorsi L., Wijewardhane N., Repana D., Nulsen J., Goldman J., Pollit M., Davis P., 
+    Strange A., Ambrose K. and Ciccarelli F.D.
   email: support@opencravat.org
-  name: TODO
+  name: Network of Cancer Genes
   website: http://network-cancer-genes.org/index.php
 level: gene
 output_columns:
 - name: entrez
   title: Entrez
   type: string
+  description: Entrez ID
   hidden: true
 - name: type
   title: Type
   type: string
   width: 75
+  description: Screen type (e.g. WES, WGS)
   hidden: true
 - name: pubmed_id
   title: PubMed Id
   type: string
   width: 75
+  description: PubMed ID
   hidden: true
 - name: organ_system
   title: Organ System
   type: string
   width: 75
+  description: Organ System
   hidden: false
 - name: primary_site
   title: Primary Site
   type: string
   width: 75
+  description: Primary Site
   hidden: true
 - name: cancer_type
   title: Cancer Type
@@ -39,35 +48,43 @@ output_columns:
   title: Method
   type: string
   width: 75
+  description: Method by which gene was identified
   hidden: true
 - name: coding_status
   title: Coding Status
   type: string
   width: 75
+  description: Coding Status
   hidden: true
 - name: cgc_annotation
   title: CGC Annotation
   type: string
   width: 75
+  description: CGC Driver Annotation
   hidden: true
 - name: vogelstein_annotation
   title: Vogelstein Annotation
   type: string
   width: 75
+  description: Vogelstein Driver Annotation
+  hidden: true
 - name: saito_annotation
   title: Saito Annotation
   type: string
   width: 75
+  description: Saito Driver Annotation
   hidden: true
 - name: NCG_oncogene
   title: NCG Oncogene
   type: string
   width: 75
+  description: Oncogene Annotation
   hidden: true
 - name: NCG_tsg
   title: NCG TSG
   type: string
   width: 75
+  description: Tumor suppressor gene annotation
   hidden: true
 tags:
 - cancer
