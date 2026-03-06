@@ -1,3 +1,4 @@
+private: true
 datasource: NCG7.2
 description: Network of Cancer Genes
 developer:

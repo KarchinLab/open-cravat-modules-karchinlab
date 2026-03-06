@@ -10,16 +10,16 @@ class CravatAnnotator(BaseAnnotator):
             'symbol': data[0][1],
             'pubmed_id': ';'.join([row[2] for row in data]),
             'type': ';'.join([row[3] for row in data]),
-            'organ_system': ';'.join([row[3] for row in data]),
-            'primary_site': ';'.join([row[4] for row in data]),
-            'cancer_type': ';'.join([row[5] for row in data]),
-            'method': ';'.join([row[6] for row in data]),
-            'coding_status': ';'.join([row[7] for row in data]),
-            'cgc_annotation': ';'.join([row[8] for row in data]),
-            'vogelstein_annotation': ';'.join([row[9] for row in data]),
-            'saito_annotation': ';'.join([row[10] for row in data]),
-            'NCG_oncogene': ';'.join([row[11] for row in data]),
-            'NCG_tsg': ';'.join([row[12] for row in data])
+            'organ_system': ';'.join([row[4] for row in data]),
+            'primary_site': ';'.join([row[5] for row in data]),
+            'cancer_type': ';'.join([row[6] for row in data]),
+            'method': ';'.join([row[7] for row in data]),
+            'coding_status': ';'.join([row[8] for row in data]),
+            'cgc_annotation': ';'.join([row[9] for row in data]),
+            'vogelstein_annotation': ';'.join([row[10] for row in data]),
+            'saito_annotation': ';'.join([row[11] for row in data]),
+            'NCG_oncogene': ';'.join([row[12] for row in data]),
+            'NCG_tsg': ';'.join([row[13] for row in data])
         }
         return out
 
