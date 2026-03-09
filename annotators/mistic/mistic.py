@@ -66,7 +66,7 @@ class CravatAnnotator(BaseAnnotator):
             out = {
                 'score': score,
                 'pred': pred,
-                'bp4_pathogenic': discretize_scalar(row[0], BP4_CUTOFFS),
+                'bp4_benign': discretize_scalar(row[0], BP4_CUTOFFS),
                 'pp3_pathogenic': discretize_scalar(row[0], PP3_CUTOFFS),
             }
         else:

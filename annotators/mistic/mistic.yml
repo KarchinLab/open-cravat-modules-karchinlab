@@ -1,5 +1,5 @@
 title: MISTIC (MISsense deleTeriousness predICtor)
-version: 1.1.0
+version: 1.1.1
 datasource: 2021
 type: annotator
 level: variant
@@ -42,6 +42,7 @@ output_columns:
 
 description: A supervised machine-learning model dedicated to the prediction of deleterious missense variants. 
 release_note:
+  1.1.1: fix amcg category name
   1.1.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
 tags:
 - variant effect prediction

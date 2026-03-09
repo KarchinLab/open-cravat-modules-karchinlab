@@ -127,7 +127,7 @@ class CravatAnnotator(BaseAnnotator):
                     out['amino_acid_substitution'] = worst_aa
                     out['mutpred_general_score'] = worst_score
                     out['bp4_benign'] = discretize_scalar(worst_score, BP4_CUTOFFS)
-                    out['pp3_benign'] = discretize_scalar(worst_score, PP3_CUTOFFS)
+                    out['pp3_pathogenic'] = discretize_scalar(worst_score, PP3_CUTOFFS)
                     if mutpred_top5_mechanisms is not None:
                         out['mutpred_top5_mechanisms'] = all_results_list
                     else:
