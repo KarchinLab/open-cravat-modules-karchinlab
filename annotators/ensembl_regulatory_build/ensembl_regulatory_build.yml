@@ -33,12 +33,11 @@ output_columns:
   desc: An Ensembl stable ID consists of five parts; ENS(species)(object type)(identifier).(version).
 tags:
 - regulation
-requires:
-- wgensembl_regulatory_build
 title: Ensembl Regulatory Build
-version: 1.0.3
+version: 1.0.4
 type: annotator
 release_note:
+  1.0.4: remove widget requirement
   1.0.3: non-canonical chrom support for older oc versions
   1.0.2: added widget
   1.0.1: handle only specific alt chroms

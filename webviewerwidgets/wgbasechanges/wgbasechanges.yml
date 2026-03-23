@@ -1,5 +1,5 @@
 title: Base Changes
-version: 1.1.0
+version: 1.1.1
 type: webviewerwidget
 required_annotator: base
 description: Base Changes webviewer widget
@@ -15,3 +15,4 @@ requires_opencravat: '>=1.8.1'
 release_note:
   1.1.0: New color scheme
   1.0.0: Initial release
+private: true

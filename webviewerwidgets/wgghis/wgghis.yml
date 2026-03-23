@@ -1,5 +1,5 @@
 title: GHIS
-version: 1.0.3
+version: 1.0.4
 type: webviewerwidget
 required_annotator: ghis
 description: GHIS webviewer widget
@@ -12,3 +12,4 @@ developer:
 tags:
 - visualization
 hidden: true
+private: true

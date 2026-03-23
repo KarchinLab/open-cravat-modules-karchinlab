@@ -1,5 +1,5 @@
 title: Candidate cis_Regulatory Elements by ENCODE (SCREEN)
-version: 1.0.0
+version: 1.0.1
 type: webviewerwidget
 required_annotator: ccre_screen
 description: Candidate cis_Regulatory Elements by ENCODE (SCREEN) webviewer widget
@@ -15,3 +15,4 @@ tags:
 - visualization
 release_note:
   1.0.0: Initial Release
+private: true

@@ -35,14 +35,15 @@ tags:
 - visualization
 title: NDEx NCI Cancer Pathways
 type: annotator
-version: 4.0.11
+version: 4.0.12
 requires:
-- wgndex
 - ndex_group
 - wgndexsummary
 groups:
 - ndex_group
-commercial_warning: 'For commercial users, contact the source databases and purchase an appropriate license if necessary. Screen reader support enabled.'
+commercial_warning: For commercial users, contact the source databases and purchase
+  an appropriate license if necessary. Screen reader support enabled.
 release_note:
+  4.0.12: remove widget requirement
   4.0.11: included in ndex_group
   4.0.9: removed categorical column definition for better UI in webresult

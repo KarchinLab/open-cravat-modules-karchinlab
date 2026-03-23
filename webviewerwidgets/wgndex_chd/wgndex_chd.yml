@@ -1,5 +1,5 @@
 title: NDEx CHD
-version: 1.0.0
+version: 1.0.1
 type: webviewerwidget
 required_annotator: ndex_chd
 description: NDEx Webviewer Widget Congenital Heart Disease Pathways
@@ -15,3 +15,4 @@ hidden: true
 requires_opencravat: '>=2.1.0'
 release_note:
   1.0.0: Initial release
+private: true

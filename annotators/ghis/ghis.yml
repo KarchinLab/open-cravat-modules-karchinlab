@@ -16,10 +16,9 @@ output_columns:
 requires_opencravat: '>=2.0.0'
 tags:
 - genes
-title: GHIS 
+title: GHIS
 type: annotator
-version: 3.6.0
-requires:
-- wgghis
-release-note:
+version: 3.6.1
+release_note:
+  3.6.1: remove widget requirement
   3.6.0: updated gene names according to https://www.genenames.org/download/custom/

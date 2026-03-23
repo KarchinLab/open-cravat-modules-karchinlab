@@ -1,5 +1,5 @@
 title: GERP++
-version: 1.1.0
+version: 1.1.1
 type: webviewerwidget
 required_annotator: gerp
 description: GERP++ web viewer widget
@@ -14,4 +14,4 @@ tags:
 hidden: true
 release_note:
   1.1.0: works with added pathogenicity callibration results.
-
+private: true

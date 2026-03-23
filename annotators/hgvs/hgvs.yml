@@ -42,8 +42,6 @@ tags:
 title: HGVS Format
 type: annotator
 version: 1.1.0
-requires:
-- wghgvs
 requires_opencravat: '>=1.6.0'
 release-note:
     1.0.7: fixed cravat import for open-cravat 1.6.0.

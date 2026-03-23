@@ -50,14 +50,12 @@ tags:
 - evolution
 title: GERP++
 type: annotator
-version: 3.7.1
+version: 3.7.2
 release-note:
   3.7.0: return None if no annotation
-requires:
-- wggerp
 release_note:
+  3.7.2: remove widget requirement
   3.7.1: fix amcg category name
   3.7.0: pathogenicity calibration results.
   3.6.2: non-canonical chrom support for older oc versions
   3.6.1: handle only specific alt chroms
-

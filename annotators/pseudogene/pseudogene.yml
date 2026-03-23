@@ -24,18 +24,17 @@ output_columns:
   filterable: false
   hidden: true
 release_note:
+  49.0.1: remove widget requirement
   49.0.0: data update to v49
   48.0.0: data update to v48
   47.0.0: data update to v47
   46.0.0: data update to V46
   45.0.0: data update to v45
-  27.0.3: corrected test key
   28.0.0: intervaltree and pickle
+  27.0.3: corrected test key
 tags:
 - genes
 title: Pseudogene
 type: annotator
-version: 49.0.0
-requires:
-- wgpseudogene
+version: 49.0.1
 requires_opencravat: '>=1.4.4'

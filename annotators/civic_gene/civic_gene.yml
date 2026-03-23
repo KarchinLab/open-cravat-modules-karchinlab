@@ -30,8 +30,9 @@ tags:
 - cancer
 title: CIViC Gene
 type: annotator
-version: 2026.02.01
+version: 2026.03.23
 release_note:
+  2026.03.23: remove widget requirement
   2026.02.01: Monthly data update
   2026.01.01: Monthly data update
   2025.12.01: Monthly data update
@@ -48,7 +49,8 @@ release_note:
   2024.10.01: Monthly data update
   2024.09.01: Monthly data update
   2024.08.01: Monthly data update
-  2024.07.02: Fix to the autoupdater to account for changes to Civic GraphQL model. Update test key.
+  2024.07.02: Fix to the autoupdater to account for changes to Civic GraphQL model.
+    Update test key.
   2024.07.01: Monthly data update
   2024.06.01: Monthly data update
   2024.04.01: Monthly data update
@@ -66,5 +68,3 @@ release_note:
     API. Add Gene Aliases column to the annotation. Add gene alias matching for annotation.
     The version number going forward will be the date when the data was gathered.
 requires_opencravat: '>=1.4.0'
-requires:
-- wgcivic_gene

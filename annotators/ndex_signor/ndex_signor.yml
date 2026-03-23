@@ -34,15 +34,16 @@ tags:
 - visualization
 title: NDEx SIGNOR
 type: annotator
-version: 1.0.2
+version: 1.0.3
 requires_opencravat: '>=2.1.0'
 requires:
-- wgndex_signor
 - ndex_group
 - wgndex_signorsummary
-commercial_warning: 'For commercial users, contact the source databases and purchase an appropriate license if necessary. Screen reader support enabled.'
+commercial_warning: For commercial users, contact the source databases and purchase
+  an appropriate license if necessary. Screen reader support enabled.
 groups:
 - ndex_group
 release_note:
+  1.0.3: remove widget requirement
   1.0.1: included in ndex_group
   1.0.0: initial version

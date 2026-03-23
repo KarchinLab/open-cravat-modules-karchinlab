@@ -29,9 +29,8 @@ tags:
 - genes
 title: P(rec)
 type: annotator
-version: 3.6.0
+version: 3.6.1
 requires_opencravat: '>=2.0.0'
-requires:
-- wgprec
-release-note:
+release_note:
+  3.6.1: remove widget requirement
   3.6.0: updated gene names according to https://www.genenames.org/download/custom/

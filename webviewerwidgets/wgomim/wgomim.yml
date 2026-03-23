@@ -1,5 +1,5 @@
 title: OMIM
-version: 1.0.0
+version: 1.0.1
 type: webviewerwidget
 required_annotator: omim
 description: OMIM webviewer widget
@@ -15,3 +15,4 @@ tags:
 - visualization
 release_note:
   1.0.0: Initial release
+private: true
