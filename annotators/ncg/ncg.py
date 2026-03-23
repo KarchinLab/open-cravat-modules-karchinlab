@@ -6,36 +6,50 @@ from cravat import BaseAnnotator
 class CravatAnnotator(BaseAnnotator):
     def format_data(self, data):
         out = {
-            'entrez': data[0][0],
-            'symbol': data[0][1],
-            'pubmed_id': ';'.join([row[2] for row in data]),
-            'type': ';'.join([row[3] for row in data]),
-            'organ_system': ';'.join([row[4] for row in data]),
-            'primary_site': ';'.join([row[5] for row in data]),
-            'cancer_type': ';'.join([row[6] for row in data]),
-            'method': ';'.join([row[7] for row in data]),
-            'coding_status': ';'.join([row[8] for row in data]),
-            'cgc_annotation': ';'.join([row[9] for row in data]),
-            'vogelstein_annotation': ';'.join([row[10] for row in data]),
-            'saito_annotation': ';'.join([row[11] for row in data]),
-            'NCG_oncogene': ';'.join([row[12] for row in data]),
-            'NCG_tsg': ';'.join([row[13] for row in data])
+            'entrez': data[0],
+            'symbol': data[1],
+            'organ_system': data[2],
+            'primary_site': data[3],
+            'cancer_type': data[4],
+            'cgl_annotation': data[5],
+            'saito_annotation': data[6],
+            'ncg_annotation': data[7],
+            'duplicability': data[8],
+            'origin': data[9],
+            'essential_celllines_percentage': data[10],
+            'ppin_degree': data[11],
+            'ppin_betweenness': data[12],
+            'ppin_clustering': data[13],
+            'complexes': data[14],
+            'mirna': data[15],
+            'expressed_tissues_mRNA_GTEx': data[16],
+            'expressed_tissues_mRNA_protatlas': data[17],
+            'expressed_tissues_protein_protatlas': data[18],
+            'expressed_celllines_CLP': data[19],
+            'expressed_celllines_GNE': data[20],
+            'expressed_celllines_CCLE': data[21],
+            'germline_SNVs': data[22],
+            'germline_SVs': data[23],
+            'LOEUF_score': data[24]
         }
         return out
 
     def annotate(self, input_data, secondary_data=None):
         hugo = input_data['hugo']
         query = '''
-            SELECT entrez, symbol, pubmed_id, type, organ_system, primary_site,
-                cancer_type, method, coding_status, cgc_annotation, vogelstein_annotation, saito_annotation,
-                NCG_oncogene, NCG_tsg
+            SELECT 
+                entrez, symbol, organ_system, primary_site, cancer_type, cgl_annotation, saito_annotation,
+                ncg_annotation, duplicability, origin, essential_celllines_percentage, ppin_degree,
+                ppin_betweenness, ppin_clustering, complexes, mirna, expressed_tissues_mRNA_GTEx,
+                expressed_tissues_mRNA_protatlas, expressed_tissues_protein_protatlas, expressed_celllines_CLP,
+                expressed_celllines_GNE, expressed_celllines_CCLE, germline_SNVs, germline_SVs, LOEUF_score
             FROM ncg
-            WHERE symbol = ?
+            WHERE symbol = ?;
             '''
 
         self.cursor.execute(query, (hugo,))
-        data = self.cursor.fetchall()
-        if len(data) == 0:
+        data = self.cursor.fetchone()
+        if not data:
             return None
 
         return self.format_data(data=data)
