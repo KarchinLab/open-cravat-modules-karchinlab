@@ -1,10 +1,10 @@
-widgetGenerators['ncg'] = {
+widgetGenerators['ncg_hd'] = {
 	'gene': {
 		'width': 600,
 		'height': 120,
 		'function': function (div, row, tabName) {
 
-			let organSystem = getWidgetData(tabName, 'ncg', row, 'organ_system').split(';');
+			let organSystem = getWidgetData(tabName, 'ncg', row, 'organ_system');
 			if (organSystem == null) {
 				let span = getEl('span');
 				span.classList.add('nodata');
@@ -12,28 +12,28 @@ widgetGenerators['ncg'] = {
 				return;
 			}
 			if (organSystem != undefined && organSystem != null) {
-				let organSystem = getWidgetData(tabName, 'ncg', row, 'organ_system').split(',');
-				let primarySite = getWidgetData(tabName, 'ncg', row, 'primary_site').split(',');
-				let cancerType = getWidgetData(tabName, 'ncg', row, 'cancer_type').split(',');
+				let organSystem = getWidgetData(tabName, 'ncg_hd', row, 'organ_system').split(',');
+				let organSite = getWidgetData(tabName, 'ncg_hd', row, 'organ_site').split(',');
+				let tissueType = getWidgetData(tabName, 'ncg_hd', row, 'tissue_type').split(',');
 				const table = getWidgetTableFrame();
 				addEl(div, table);
 				const thead = getWidgetTableHead(
-					['Organ System', 'Primary Site', 'Cancer Type'],
+					['Organ System', 'Organ Site', 'Tissue Type'],
 					[200,200,200]
 				);
 				addEl(table, thead);
 				const tbody = getEl('tbody');
 				addEl(table, tbody);
 				const osLength = organSystem?.length || 0;
-				const psLength = primarySite?.length || 0;
-				const ctLength = cancerType?.length || 0;
-				let maxLength = Math.max(osLength, psLength, ctLength)
+				const oSiteLength = organSite?.length || 0;
+				const ttLength = tissueType?.length || 0;
+				let maxLength = Math.max(osLength, oSiteLength, ttLength)
 				for (let i = 0; i < maxLength; i++) {
 					const tr = getWidgetTableTr(
 						[
 							i < osLength ? organSystem[i] : null,
-							i < psLength ? primarySite[i] : null,
-							i < ctLength ? cancerType[i] : null
+							i < oSiteLength ? organSite[i] : null,
+							i < ttLength ? tissueType[i] : null
 						]);
 					addEl(tbody, tr);
 				}

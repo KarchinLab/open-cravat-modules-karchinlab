@@ -1,5 +1,5 @@
 private: true
-title: Network of Cancer Genes
+title: NCG Cancer Drivers Widget
 version: 1.0.0
 type: webviewerwidget
 required_annotator: ncg

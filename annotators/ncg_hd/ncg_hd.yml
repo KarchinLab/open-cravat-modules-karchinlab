@@ -1,10 +1,10 @@
 private: true
-title: NCG Cancer Drivers
+title: NCG Healthy Drivers
 type: annotator
 level: gene
 version: 1.0.0
 datasource: NCG7.2
-description: Network of Cancer Genes Cancer Drivers
+description: Network of Cancer Genes Healthy Drivers
 developer:
   citation:  Comparative assessment of genes driving cancer and somatic evolution 
     in non-cancer tissues - an update of the Network of Cancer Genes (NCG) resource. 
@@ -12,7 +12,7 @@ developer:
     Montorsi L., Wijewardhane N., Repana D., Nulsen J., Goldman J., Pollit M., Davis P., 
     Strange A., Ambrose K. and Ciccarelli F.D.
   email: support@opencravat.org
-  name: Network of Cancer Genes
+  name: Network of Cancer Genes and Healthy Drivers
   website: http://network-cancer-genes.org/index.php
 output_columns:
 - name: entrez
@@ -26,34 +26,16 @@ output_columns:
   width: 200
   description: Organ System
   hidden: false
-- name: primary_site
-  title: Primary Site
+- name: organ_site
+  title: Organ Site
   type: string
   width: 200
-  description: Primary Site
+  description: Organ Site
   hidden: true
-- name: cancer_type
-  title: Cancer Type
+- name: tissue_type
+  title: Tissue Type
   type: string
   width: 200
-- name: cgl_annotation
-  title: CGL Annotation
-  type: string
-  width: 75
-  description: Cancer Genes Landscape Driver Annotation
-  hidden: true
-- name: saito_annotation
-  title: Saito Annotation
-  type: string
-  width: 75
-  description: Saito Driver Annotation
-  hidden: true
-- name: ncg_annotation
-  title: NCG Annotation
-  type: string
-  width: 75
-  description: NCG Driver Annotation
-  hidden: true
 - name: duplicability
   title: Duplicability
   type: int
@@ -151,10 +133,10 @@ output_columns:
   description: LOEUF score
   hidden: true
 tags:
-- cancer
 - genes
+
 release_note:
   1.0.0: Initial Release
 requires_opencravat: '>=1.4.0'
 requires:
-- wgncg
+- wgncg_hd
