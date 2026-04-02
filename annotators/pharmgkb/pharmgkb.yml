@@ -1,6 +1,6 @@
 title: PharmGKB
-version: 2026.03.01
-datasource: 2026.03.01
+version: 2026.04.01
+datasource: 2026.04.01
 type: annotator
 level: variant
 output_columns:
@@ -64,6 +64,7 @@ developer:
 requires:
 - wgpharmgkb>=2.0.0
 release-note:
+  2026.04.01: Data update
   2026.03.01: Data update
   2026.02.01: Data update
   2026.01.01: Data update

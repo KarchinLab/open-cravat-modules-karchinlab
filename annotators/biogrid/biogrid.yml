@@ -1,4 +1,4 @@
-datasource: v5.0.254
+datasource: v5.0.256
 description: Comprehensive interaction repository
 developer:
   citation: 'Oughtred R, Stark C, Breitkreutz BJ, et al. (2018). The BioGRID interaction
@@ -45,6 +45,7 @@ version: 3.9.8
 requires:
 - wgbiogrid
 release-note:
+  3.9.9: updated with v.5.0.256 Biogrid data
   3.9.8: updated with v.5.0.254 Biogrid data
   3.9.7: updated with v.5.0.253 Biogrid data
   3.9.6: updated with v.5.0.252 Biogrid data
