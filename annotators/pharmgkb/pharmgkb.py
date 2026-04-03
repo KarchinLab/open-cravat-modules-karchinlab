@@ -35,8 +35,8 @@ class CravatAnnotator(BaseAnnotator):
                 c = ' '.join(chemicals)
                 if category != '':
                     ca = ''.join(category)
+                    cat.add(ca)
                 chem.add(c)
-                cat.add(ca)
                 has_sig = hit['sig']
                 assocs.append([
                     list(zip(chemicals, chem_urls)),

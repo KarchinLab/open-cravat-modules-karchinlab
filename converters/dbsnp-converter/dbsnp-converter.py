@@ -8,7 +8,7 @@ class CravatConverter(BaseConverter):
     
     def __init__(self):
         self.format_name = 'dbsnp'
-        self.rsid_re = re.compile('rs\d+')
+        self.rsid_re = re.compile(r'rs\d+')
         curdir = os.path.dirname(__file__)
         dbpath = os.path.join(curdir,'data','dbsnp-converter.sqlite')
         try:
