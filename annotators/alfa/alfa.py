@@ -4,6 +4,10 @@ from cravat import InvalidData
 import sqlite3
 import os
 
+def _af(ac, an):
+    return ac / an if an > 0 else None
+
+
 class CravatAnnotator(BaseAnnotator):
     def annotate(self, input_data, secondary_data=None):
         out = {}
@@ -15,7 +19,7 @@ class CravatAnnotator(BaseAnnotator):
             total = str(row[0]).split(':')
             total_total = int(total[0])
             total_alt  = int(total[1])
-            total_freq = total_alt/total_total
+            total_freq = _af(total_alt, total_total)
             out['total_alt'] = total_alt
             out['total_freq'] = total_freq
             return out

@@ -7,6 +7,10 @@ from pathlib import Path
 import tabix
 
 
+def _af(ac, an):
+    return ac / an if an > 0 else None
+
+
 class CravatAnnotator(BaseAnnotator):
 
     def setup(self):
@@ -77,52 +81,52 @@ class CravatAnnotator(BaseAnnotator):
             return
         out = {
             # African
-            'af_afr': oc_data_d['AC_joint_afr']/oc_data_d['AN_joint_afr'],
+            'af_afr': _af(oc_data_d['AC_joint_afr'], oc_data_d['AN_joint_afr']),
             'an_afr': oc_data_d['AN_joint_afr'],
             'ac_afr': oc_data_d['AC_joint_afr'],
             'nhomalt_afr': oc_data_d['nhomalt_joint_afr'],
             # Amish
-            'af_ami': oc_data_d['AC_joint_ami']/oc_data_d['AN_joint_ami'],
+            'af_ami': _af(oc_data_d['AC_joint_ami'], oc_data_d['AN_joint_ami']),
             'an_ami': oc_data_d['AN_joint_ami'],
             'ac_ami': oc_data_d['AC_joint_ami'],
             'nhomalt_ami': oc_data_d['nhomalt_joint_ami'],
             # Ad-Mixed American
-            'af_amr': oc_data_d['AC_joint_amr']/oc_data_d['AN_joint_amr'],
+            'af_amr': _af(oc_data_d['AC_joint_amr'], oc_data_d['AN_joint_amr']),
             'an_amr': oc_data_d['AN_joint_amr'],
             'ac_amr': oc_data_d['AC_joint_amr'],
             'nhomalt_amr': oc_data_d['nhomalt_joint_amr'],
             # Ashkenazi Jewish
-            'af_asj': oc_data_d['AC_joint_asj']/oc_data_d['AN_joint_asj'],
+            'af_asj': _af(oc_data_d['AC_joint_asj'], oc_data_d['AN_joint_asj']),
             'an_asj': oc_data_d['AN_joint_asj'],
             'ac_asj': oc_data_d['AC_joint_asj'],
             'nhomalt_asj': oc_data_d['nhomalt_joint_asj'],
             # East Asian
-            'af_eas': oc_data_d['AC_joint_eas']/oc_data_d['AN_joint_eas'],
+            'af_eas': _af(oc_data_d['AC_joint_eas'], oc_data_d['AN_joint_eas']),
             'an_eas': oc_data_d['AN_joint_eas'],
             'ac_eas': oc_data_d['AC_joint_eas'],
             'nhomalt_eas': oc_data_d['nhomalt_joint_eas'],
             # Finnish
-            'af_fin': oc_data_d['AC_joint_fin']/oc_data_d['AN_joint_fin'],
+            'af_fin': _af(oc_data_d['AC_joint_fin'], oc_data_d['AN_joint_fin']),
             'an_fin': oc_data_d['AN_joint_fin'],
             'ac_fin': oc_data_d['AC_joint_fin'],
             'nhomalt_fin': oc_data_d['nhomalt_joint_fin'],
             # Middle Eastern
-            'af_mid': oc_data_d['AC_joint_mid']/oc_data_d['AN_joint_mid'],
+            'af_mid': _af(oc_data_d['AC_joint_mid'], oc_data_d['AN_joint_mid']),
             'an_mid': oc_data_d['AN_joint_mid'],
             'ac_mid': oc_data_d['AC_joint_mid'],
             'nhomalt_mid': oc_data_d['nhomalt_joint_mid'],
             # Non-Finnish European
-            'af_nfe': oc_data_d['AC_joint_nfe']/oc_data_d['AN_joint_nfe'],
+            'af_nfe': _af(oc_data_d['AC_joint_nfe'], oc_data_d['AN_joint_nfe']),
             'an_nfe': oc_data_d['AN_joint_nfe'],
             'ac_nfe': oc_data_d['AC_joint_nfe'],
             'nhomalt_nfe': oc_data_d['nhomalt_joint_nfe'],
             # South Asian
-            'af_sas': oc_data_d['AC_joint_sas']/oc_data_d['AN_joint_sas'],
+            'af_sas': _af(oc_data_d['AC_joint_sas'], oc_data_d['AN_joint_sas']),
             'an_sas': oc_data_d['AN_joint_sas'],
             'ac_sas': oc_data_d['AC_joint_sas'],
             'nhomalt_sas': oc_data_d['nhomalt_joint_sas'],
             # Remaining
-            'af_rem': oc_data_d['AC_joint_remaining']/oc_data_d['AN_joint_remaining'],
+            'af_rem': _af(oc_data_d['AC_joint_remaining'], oc_data_d['AN_joint_remaining']),
             'an_rem': oc_data_d['AN_joint_remaining'],
             'ac_rem': oc_data_d['AC_joint_remaining'],
             'nhomalt_rem': oc_data_d['nhomalt_joint_remaining'],
@@ -130,7 +134,7 @@ class CravatAnnotator(BaseAnnotator):
         out['an'] = sum(oc_data_l[0:10])
         out['ac'] = sum(oc_data_l[10:20])
         out['nhomalt'] = sum(oc_data_l[20:30])
-        out['af'] = out['ac']/out['an']
+        out['af'] = _af(out['ac'], out['an'])
         return out
     
     def cleanup(self):
