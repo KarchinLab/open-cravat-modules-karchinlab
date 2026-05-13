@@ -28,7 +28,9 @@ groups:
 - alfa_group
 
 title: 'ALFA: Allele Frequency Aggregator'
-version: 1.0.0
+version: 1.0.1
 type: annotator
 level: variant
 
+release_note:
+  1.0.1: Prevent rare crash from zero depth sites

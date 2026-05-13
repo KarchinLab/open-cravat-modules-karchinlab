@@ -1,6 +1,6 @@
 title: gnomAD4
 type: annotator
-version: 4.1.3
+version: 4.1.4
 datasource: v4.1
 description: Genome Aggregation Database (gnomAD) is a resource developed by an international
   coalition of investigators, with the goal of aggregating and harmonizing both exome
