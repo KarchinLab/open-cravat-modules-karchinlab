@@ -1,5 +1,5 @@
 title: 23andMe Converter
-version: 1.5.1
+version: 1.5.2
 type: converter
 description: Allows user to input files in 23andMe format. In both the graphical interface
   and command line usage, file format will be automatically detected after this converter

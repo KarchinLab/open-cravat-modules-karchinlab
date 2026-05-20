@@ -1034,28 +1034,32 @@ class Mapper(cravat.BaseMapper):
                     apos = -1
                 # so, refaa, altaa
                 if var_type == SNV:
-                    so, achange, cchange, coding = self._get_snv_map_data(
-                        tid,
-                        cpos,
-                        cstart,
-                        tpos,
-                        tstart,
-                        tr_ref_base,
-                        tr_alt_base,
-                        strand,
-                        kind,
-                        apos,
-                        strand_gpos,
-                        start,
-                        end,
-                        chrom,
-                        fragno,
-                        lenref,
-                        lenalt,
-                        prevcont,
-                        nextcont,
-                        exonno,
-                    )
+                    try:
+                        so, achange, cchange, coding = self._get_snv_map_data(
+                            tid,
+                            cpos,
+                            cstart,
+                            tpos,
+                            tstart,
+                            tr_ref_base,
+                            tr_alt_base,
+                            strand,
+                            kind,
+                            apos,
+                            strand_gpos,
+                            start,
+                            end,
+                            chrom,
+                            fragno,
+                            lenref,
+                            lenalt,
+                            prevcont,
+                            nextcont,
+                            exonno,
+                        )
+                    except IndexError:
+                        self.logger.info("failure duing self._get_snv_map_data({tid=},{cpos=},{cstart=},{tpos=},{tstart=},{tr_ref_base=},{tr_alt_base=},{strand=},{kind=},{apos=},{strand_gpos=},{start=},{end=},{chrom=},{fragno=},{lenref=},{lenalt=},{prevcont=},{nextcont=},{exonno=}, )")
+                        so, achange, cchange, coding = None, None, None, None
                 elif var_type == INS:
                     so, achange, cchange, coding = self._get_ins_map_data(
                         tid,
@@ -5780,7 +5784,12 @@ class Mapper(cravat.BaseMapper):
                 break
             seqbyteno = int((tpos_q - 1) / 4)
             seqbitno = ((tpos_q - 1) % 4) * 2
-            basebits = (seq[seqbyteno] >> (6 - seqbitno)) & 0b00000011
+            try:
+                seq_at = seq[seqbyteno]
+            except IndexError:
+                seq_at = None
+                continue
+            basebits = (seq_at >> (6 - seqbitno)) & 0b00000011
             num_shift = (2 - i) << 1
             shifted_basebits = basebits << num_shift
             ref_codonnum = ref_codonnum | shifted_basebits
