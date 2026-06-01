@@ -1,5 +1,11 @@
+title: Cancer Hotspots
+version: 2.0.0
+type: annotator
+level: variant
+
 datasource: December 2017
 description: A resource for statistically significant mutations in cancer.
+
 developer:
   name: Memorial Sloan Kettering Cancer Center
   organization: Memorial Sloan Kettering Cancer Center
@@ -8,9 +14,147 @@ developer:
   citation: Chang et al., Accelerating discovery of functional mutant alleles in cancer.
     Cancer Discovery, 10.1158/2159-8290.CD-17-0321 (2017).
 
-level: variant
+requires:
+- wgcancer_hotspots
+
+tags:
+- cancer
+
+requires_opencravat: '>=2.2.1'
+
+release_note:
+  2.0.0: v2 hotspots (SNV + INDEL) unified to per-nucleotide rows; all columns surfaced.
+  1.2.1: works with table data
+  1.2.0: Fix in data
+  1.1.0: Updated data to hg38
 
 output_columns:
+- name: hugo_symbol
+  title: Hugo Symbol
+  type: string
+  desc: HGNC gene symbol.
+- name: amino_acid_position
+  title: Amino Acid Position
+  type: string
+  desc: Codon position (or range for in-frame indels).
+- name: reference_amino_acid
+  title: Reference Amino Acid
+  type: string
+  desc: Reference amino acid(s) with per-variant counts.
+- name: variant_amino_acid
+  title: Variant Amino Acid
+  type: string
+  desc: Observed variant amino acid and count.
+- name: codon_change
+  title: Codon Change
+  type: string
+  desc: All observed codon-level changes at this codon, pipe-delimited with counts.
+- name: codon_change_entry
+  title: Codon Change Entry
+  type: string
+  desc: The specific codon_change entry that produced this nucleotide-level row.
+- name: codon_change_count
+  title: Codon Change Count
+  type: int
+  desc: Count for the specific codon_change entry in this row.
+- name: implied_variant_aa
+  title: Implied Variant AA
+  type: string
+  desc: Variant amino acid implied by this specific codon change.
+- name: genomic_position
+  title: Genomic Position
+  type: string
+  desc: Source genomic position string (chrom:pos_count, pipe-delimited).
+- name: ref_end_position
+  title: Ref End Position
+  type: int
+  desc: End coordinate (GRCh37) of the reference allele; equal to position for SNVs.
+- name: strand
+  title: Strand
+  type: string
+  desc: Coding strand of the gene (+ or -). Ref/Alt reported on plus strand.
+- name: ref_aa
+  title: Ref AA (single)
+  type: string
+  desc: Single-letter reference amino acid.
+- name: mutation_count
+  title: Mutation Count
+  type: int
+  desc: Mutations observed at this codon for this variant amino acid.
+- name: total_mutations_in_gene
+  title: Total Mutations in Gene
+  type: int
+- name: total_samples
+  title: Total Samples
+  type: int
+  desc: Total samples analyzed.
+- name: n_msk
+  title: MSK Sample Count
+  type: int
+- name: n_retro
+  title: Retrospective Sample Count
+  type: int
+- name: log10_pvalue
+  title: log10 P-value
+  type: float
+- name: qvalue
+  title: Q-value
+  type: float
+- name: qvalue_pancan
+  title: Q-value (pan-cancer)
+  type: float
+- name: qvaluect
+  title: Q-value (cancer-type)
+  type: float
+- name: mutability
+  title: Mutability
+  type: float
+- name: mu_protein
+  title: Mu (protein)
+  type: float
+- name: median_allele_freq_rank
+  title: Median Allele Freq Rank
+  type: float
+- name: allele_freq_rank
+  title: Allele Freq Rank
+  type: string
+- name: tri_nucleotides
+  title: Tri-nucleotide Contexts
+  type: string
+- name: analysis_type
+  title: Analysis Type
+  type: string
+- name: tm
+  title: TM
+  type: string
+- name: tp
+  title: TP
+  type: string
+  desc: True-positive flag.
+- name: judgement
+  title: Judgement
+  type: string
+- name: reason
+  title: Reason
+  type: string
+- name: in_nbt
+  title: In NBT
+  type: string
+  desc: Present in the original Nature Biotechnology publication.
+- name: in_oncokb
+  title: In OncoKB
+  type: string
+- name: ct
+  title: Cancer Type
+  type: string
+- name: organ_types
+  title: Organ Types
+  type: string
+  desc: Organ-type counts (organ:total:count, pipe-delimited).
+- name: detailed_cancer_types
+  title: Detailed Cancer Types
+  type: string
+  desc: Detailed cancer-type counts (type:total:count, pipe-delimited).
 - name: samples
   title: Cancer Types
   type: string
@@ -24,17 +168,36 @@ output_columns:
   - name: count
     title: Count
     type: int
-
-requires:
-- wgcancer_hotspots
-
-title: Cancer Hotspots
-version: 1.2.1
-release_note:
-  1.2.1: works with table data
-  1.2.0: Fix in data
-  1.1.0: Updated data to hg38
-type: annotator
-tags:
-- cancer
-requires_opencravat: '>=2.2.1'
+- name: is_repeat
+  title: Is Repeat
+  type: string
+- name: seq
+  title: Seq
+  type: string
+- name: length
+  title: Length
+  type: int
+- name: align100
+  title: Align100
+  type: int
+- name: pad12entropy
+  title: Pad12 Entropy
+  type: float
+- name: pad24entropy
+  title: Pad24 Entropy
+  type: float
+- name: pad36entropy
+  title: Pad36 Entropy
+  type: float
+- name: snp_id
+  title: SNP ID
+  type: string
+  desc: "INDEL-only: dbSNP identifier if available."
+- name: ccf
+  title: CCF
+  type: float
+  desc: "INDEL-only: cancer cell fraction."
+- name: indel_size
+  title: Indel Size
+  type: int
+  desc: "INDEL-only: length of the insertion/deletion in nucleotides."
