@@ -1,6 +1,6 @@
 title: GWAS Catalog
-version: 2026.06.01
-datasource: 2026.06.01
+version: 2026.07.01
+datasource: 2026.07.01
 description: GWAS Catalog Annotator
 level: variant
 type: annotator
@@ -97,6 +97,7 @@ output_columns:
       title: Risk Allele Match
       type: string
 release-note:
+  2026.07.01: Monthly data update, update test key
   2026.06.01: Monthly data update, update test key
   2026.05.01: Monthly data update, update test key
   2025.10.01: Monthly data update, update test key
