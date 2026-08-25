@@ -22,9 +22,23 @@ class CravatPostAggregator (BasePostAggregator):
             'hap_block': 'int',
             'hap_strand': 'int',
         }
-        self.cursor.execute('select count(distinct base__sample_id) from sample;')
-        n_samples = self.cursor.fetchone()[0]
-        self.multi_sample = n_samples > 1
+        # A caller can force multi_sample via --confs instead of letting it
+        # be derived from this db's own sample table - used by
+        # open-cravat's `mergesqlite --parallel` (OC-833): each contig
+        # shard's sample table only holds that shard's own chromosome
+        # subset, so a shard-local count would disagree with the
+        # cohort-wide truth other shards compute, producing inconsistent
+        # column typing/schema across the merged output. Any other caller
+        # that leaves this unset gets today's self-computed behavior.
+        override = self.confs.get('multi_sample') if self.confs else None
+        if override is None:
+            self.cursor.execute('select count(distinct base__sample_id) from sample;')
+            n_samples = self.cursor.fetchone()[0]
+            self.multi_sample = n_samples > 1
+        elif isinstance(override, str):
+            self.multi_sample = override.strip().lower() in ('1', 'true', 'yes')
+        else:
+            self.multi_sample = bool(override)
         if not self.multi_sample:
             for col in self.conf["output_columns"]:
                 col_base_name = col['name'].split('__')[1]
