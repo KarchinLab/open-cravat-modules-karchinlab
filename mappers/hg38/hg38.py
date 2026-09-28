@@ -1252,6 +1252,11 @@ class Mapper(cravat.BaseMapper):
             so, ref_aanum, alt_aanum = self._get_svn_cds_so(
                 tid, cpos, cstart, tpos, tstart, tr_alt_base, apos
             )
+            if ref_aanum == XAA or alt_aanum == XAA:
+                achange = "p.?"
+                cchange = f"c.{cpos}{tr_ref_base}>{tr_alt_base}"
+                coding = CODING
+                return so, achange, cchange, coding
             ref_aa = aanum_to_aa[ref_aanum]
             alt_aa = aanum_to_aa[alt_aanum]
             if ref_aanum == alt_aanum:
@@ -5766,6 +5771,7 @@ class Mapper(cravat.BaseMapper):
 
     def _get_svn_cds_so(self, tid, cpos, cstart, tpos, tstart, alt_base, apos):
         [seq, ex] = self.mrnas[tid]
+        tlen = self.tr_info[tid][TR_INFO_TLEN_I]
         # cpos_codonstart = int((cpos - 1) / 3) * 3 + 1
         cpos_codonstart = (apos - 1) * 3 + 1
         ref_codonnum = 0
@@ -5774,11 +5780,17 @@ class Mapper(cravat.BaseMapper):
         alt_basebits = base_to_basenum(alt_base[0])
         for i in range(3):
             tpos_q = tpos_codonstart + i
+            # Some source transcripts end with a partial CDS codon.  Do not
+            # infer the missing bases from byte padding (or index past it).
+            if tpos_q < 1 or tpos_q > tlen:
+                return (SO_UNK,), XAA, XAA
             if tpos_q in ex:
                 ref_codonnum = NBASENUM
                 alt_codonnum = NBASENUM
                 break
             seqbyteno = int((tpos_q - 1) / 4)
+            if seqbyteno >= len(seq):
+                return (SO_UNK,), XAA, XAA
             seqbitno = ((tpos_q - 1) % 4) * 2
             basebits = (seq[seqbyteno] >> (6 - seqbitno)) & 0b00000011
             num_shift = (2 - i) << 1
