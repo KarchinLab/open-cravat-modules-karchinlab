@@ -1,0 +1,40 @@
+#CRAVAT Report
+#Created at Thursday 03/26/2026 13:15:27
+#Report level: variant
+#
+Variant Annotation																		NCG Healthy Drivers																				Original Input			
+UID	Chrom	Position	Ref Base	Alt Base	Variant Note	Coding	Gene	Transcript	Sequence Ontology	Exon Number	cDNA change	Protein Change	All Mappings	End Position	Sample Count	Samples	Tags	Entrez	Organ System	Organ Site	Tissue Type	Duplicability	Origin	Essential Cell Lines %	PPIN Degree	PPIN Betweenness	PPIN Clustering	Complexes	miRNAs	mRNA GTEx	mRNA PA	Proteins PA	Cell Lines GNE	Cell Lines CCLE	Germline SNVs	Germline SVs	LOEUF score	Chrom	Pos	Reference allele	Alternate allele
+1	chr2	147926124	A	-		Yes	ACVR2A	ENST00000241416.12	frameshift_truncation	10	c.1310del	p.Lys437ArgfsTer5	ENST00000241416.12:ACVR2A:P27037:frameshift_truncation:p.Lys437ArgfsTer5:c.1310del; ENST00000404590.1:ACVR2A:P27037:frameshift_truncation:p.Lys437ArgfsTer5:c.1310del; ENST00000535787.5:ACVR2A:P27037:frameshift_truncation:p.Lys329ArgfsTer5:c.986del	147926124	1	s0	ncg	92	Developmental gastrointestinal	hepatobiliary	normal_hepatocytes_and_cirrhotic_hepatocytes	0	Last Universal Common Ancestor	0.0	89.0	17122.9	0.0574566	14	37	29	40	40	541	737	0.0220923	0.000649773	0.17	chr2	147926124	A	-
+2	chr3	179218294	G	A		Yes	PIK3CA	ENST00000263967.4	missense_variant	10	c.1624G>A	p.Glu542Lys	ENST00000263967.4:PIK3CA:P42336:missense_variant:p.Glu542Lys:c.1624G>A; ENST00000643187.1:PIK3CA:A0A2R8Y2F6:missense_variant:p.Glu542Lys:c.1624G>A; ENST00000675786.1:PIK3CA:A0A6Q8PGN9:NMD_transcript_variant,3_prime_UTR_variant::c.*191G>A	179218294	1	s0	ncg	5290	Gynecologic,Core gastrointestinal	endometrium,esophagus,colon	normal_endometrium_and_endometriotic_endometrium,endometriotic_endometrium,normal_endometrium,normal_oesophageal_epithelium,normal_colorectal_epithelium	0	Last Universal Common Ancestor	6.03229	134.0	35782.5	0.0795646	57	14	30	43	43	675	1019	0.0140449	0.00093633	0.117	chr3	179218294	G	A
+3	chr9	5073742	G	C		Yes	JAK2	ENST00000381652.4	missense_variant	14	c.1821G>C	p.Lys607Asn	ENST00000381652.4:JAK2:O60674:missense_variant:p.Lys607Asn:c.1821G>C; ENST00000636127.1:JAK2:A0A1B0GTR9:missense_variant:p.Lys607Asn:c.1821G>C	5073742	1	s0	ncg	3717	Hematologic and lymphatic	blood	normal_blood_cells	0	Last Universal Common Ancestor	0.358423	147.0	45104.1	0.105768	119	14	30	42	42	584	840	0.0665489	0.00117786	0.341	chr9	5073742	G	C
+4	chr17	31350290	C	T		Yes	NF1	ENST00000358273.9	missense_variant	50	c.7429C>T	p.Pro2477Ser	ENST00000356175.7:NF1:P21359:missense_variant:p.Pro2456Ser:c.7366C>T; ENST00000358273.9:NF1:P21359:missense_variant:p.Pro2477Ser:c.7429C>T; ENST00000684826.1:NF1:A0A8I5KSM3:missense_variant:p.Pro665Ser:c.1993C>T; ENST00000687027.1:NF1:A0A8I5KSC3:missense_variant:p.Pro529Ser:c.1585C>T; ENST00000691014.1:NF1:A0A8I5KWR6:missense_variant:p.Pro2487Ser:c.7459C>T; ENST00000693617.1:NF1:A0A8I5KYK6:missense_variant:p.Pro665Ser:c.1993C>T; ENST00000696138.1:NF1:A0A8Q3WL04:missense_variant:p.Pro2471Ser:c.7411C>T	31350290	1	s0	ncg	4763	Developmental gastrointestinal,Skin	hepatobiliary,skin	non-dysplastic_hepatocytes_from_diseased_liver,normal_melanocytes	0	Last Universal Common Ancestor	0.0938967	136.0	19806.4	0.18159	5	14	30	40	40	672	1012	0.0383938	0.000352237	0.29	chr17	31350290	C	T
+#CRAVAT Report
+#Created at Thursday 03/26/2026 13:15:27
+#Report level: gene
+#
+Variant Annotation						NCG Healthy Drivers																			
+Gene	Gene Note	Number of Coding Variants	Number of Noncoding Variants	Sequence Ontology	All Sequence Ontologies	Entrez	Organ System	Organ Site	Tissue Type	Duplicability	Origin	Essential Cell Lines %	PPIN Degree	PPIN Betweenness	PPIN Clustering	Complexes	miRNAs	mRNA GTEx	mRNA PA	Proteins PA	Cell Lines GNE	Cell Lines CCLE	Germline SNVs	Germline SVs	LOEUF score
+ACVR2A		1	0	frameshift_truncation	frameshift_truncation(1)	92	Developmental gastrointestinal	hepatobiliary	normal_hepatocytes_and_cirrhotic_hepatocytes	0	Last Universal Common Ancestor	0.0	89.0	17122.9	0.0574566	14	37	29	40	40	541	737	0.0220923	0.000649773	0.17
+PIK3CA		1	0	missense_variant	missense_variant(1),NMD_transcript_variant(1),3_prime_UTR_variant(1)	5290	Gynecologic,Core gastrointestinal	endometrium,esophagus,colon	normal_endometrium_and_endometriotic_endometrium,endometriotic_endometrium,normal_endometrium,normal_oesophageal_epithelium,normal_colorectal_epithelium	0	Last Universal Common Ancestor	6.03229	134.0	35782.5	0.0795646	57	14	30	43	43	675	1019	0.0140449	0.00093633	0.117
+JAK2		1	0	missense_variant	missense_variant(1)	3717	Hematologic and lymphatic	blood	normal_blood_cells	0	Last Universal Common Ancestor	0.358423	147.0	45104.1	0.105768	119	14	30	42	42	584	840	0.0665489	0.00117786	0.341
+NF1		1	0	missense_variant	missense_variant(1)	4763	Developmental gastrointestinal,Skin	hepatobiliary,skin	non-dysplastic_hepatocytes_from_diseased_liver,normal_melanocytes	0	Last Universal Common Ancestor	0.0938967	136.0	19806.4	0.18159	5	14	30	40	40	672	1012	0.0383938	0.000352237	0.29
+#CRAVAT Report
+#Created at Thursday 03/26/2026 13:15:27
+#Report level: sample
+#
+Variant Annotation	
+UID	Sample
+1	s0
+2	s0
+3	s0
+4	s0
+#CRAVAT Report
+#Created at Thursday 03/26/2026 13:15:27
+#Report level: mapping
+#
+Variant Annotation			
+Original Line	User Tags	UID	Input File Number
+1	ncg	1	0
+2	ncg	2	0
+3	ncg	3	0
+4	ncg	4	0

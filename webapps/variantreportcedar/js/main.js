@@ -622,7 +622,7 @@ function showAnnotation(response) {
         ['base', 'clinvar', 'clinvar_acmg', 'clingen', 'dgi'],
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_cancerassoc');
-    showWidget('cancerassocpanel', ['base', 'cgc', 'cosmic', 'cancer_genome_interpreter', 'target', 'civic', 'chasmplus', 'cscape'],
+    showWidget('cancerassocpanel', ['base', 'cancer_genome_interpreter', 'target', 'civic', 'chasmplus', 'cscape'],
         'variant', parentDiv, null, null, false);
     var parentDiv = document.querySelector('#contdiv_afreq');
     showWidget('allelefreqpanel', ['base', 'gnomad3', 'thousandgenomes'],
@@ -1221,53 +1221,6 @@ widgetGenerators['clinvar2'] = {
     }
 }
 
-widgetInfo['cosmic2'] = {
-    'title': 'Catalog of somatic mutations in cancer (COSMIC)'
-};
-widgetGenerators['cosmic2'] = {
-    'annotators': 'cosmic',
-    'variant': {
-        'width': undefined,
-        'height': undefined,
-        'word-break': 'normal',
-        'function': function (div, row, tabName) {
-            var titleEl = makeModuleDescUrlTitle("cosmic")
-            var title = 'COSMIC'
-            var dl = getEl('dl')
-            addEl(div, dl)
-            var wdiv = getEl('div')
-            wdiv.style.display = 'flex'
-            wdiv.style.flexWrap = 'wrap'
-            var cosmic_id = getWidgetData(tabName, 'cosmic', row, 'cosmic_id');
-            var tissue = getWidgetData(tabName, 'cosmic', row, 'variant_count_tissue');
-            var tissue2 = []
-            for (var i in tissue) {
-                tissue2.push(tissue[i].filter(x => isNaN(x)))
-            }
-
-            var link = 'https://cancer.sanger.ac.uk/cosmic/search?q=' + cosmic_id
-            var sdiv = getEl('div')
-            sdiv.style.maxWidth = '70rem'
-            sdiv.style.minWidth = '30rem'
-            sdiv.style.maxHeight = '250px'
-            sdiv.style.overflow = 'auto'
-            sdiv.style.marginRight = '5rem'
-            var table = getWidgetTableFrame();
-            table.setAttribute("id", "newtable");
-            addEl(div, table);
-            var thead = getWidgetTableHead(['COSMIC ID', 'Variant Type (Tissue)']);
-            addEl(table, thead);
-            var tbody = getEl('tbody');
-            addEl(table, tbody);
-            var tr = getWidgetTableTr2([link, tissue2], [cosmic_id]);
-            addEl(tbody, tr);
-            addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
-            addDlRow(dl, titleEl, wdiv)
-
-        }
-    }
-}
-
 widgetInfo['cgi2'] = {
     'title': 'Cancer Genome Interpreter'
 };
@@ -1693,49 +1646,6 @@ widgetGenerators['dgi2'] = {
     }
 }
 
-widgetInfo['cgc2'] = {
-    'title': 'Cancer Genome Census'
-};
-widgetGenerators['cgc2'] = {
-    'annotators': 'cgc',
-    'gene': {
-        'width': undefined,
-        'height': undefined,
-        'function': function (div, row, tabName) {
-            var titleEl = makeModuleDescUrlTitle("cgc")
-            var title = 'CGC'
-            var dl = getEl('dl')
-            addEl(div, dl)
-            var wdiv = getEl('div')
-            wdiv.style.display = 'flex'
-            wdiv.style.flexWrap = 'wrap'
-            var driver_class = getWidgetData(tabName, 'cgc', row, 'class');
-            var inheritance = getWidgetData(tabName, 'cgc', row, 'inheritance');
-            var tts = getWidgetData(tabName, 'cgc', row, 'tts');
-            var ttg = getWidgetData(tabName, 'cgc', row, 'ttg');
-            var gene_link = getWidgetData(tabName, 'cgc', row, 'link');
-            var link = 'https://cancer.sanger.ac.uk/cosmic/gene/analysis?ln=' + gene_link
-            var sdiv = getEl('div')
-            sdiv.style.maxWidth = '70rem'
-            sdiv.style.minWidth = '30rem'
-            sdiv.style.maxHeight = '250px'
-            sdiv.style.overflow = 'auto'
-            sdiv.style.marginRight = '5rem'
-            var table = getWidgetTableFrame();
-            table.setAttribute("id", "newtable");
-            addEl(div, table);
-            var thead = getWidgetTableHead(['Driver Class', 'Inheritence', 'Tumor Types Somatic', 'Tumor Types Germline', 'Link']);
-            addEl(table, thead);
-            var tbody = getEl('tbody');
-            addEl(table, tbody);
-            var tr = getWidgetTableTr2([driver_class, inheritance, tts, ttg, link], [gene_link]);
-            addEl(tbody, tr);
-            addEl(wdiv, addEl(sdiv, addEl(table, tbody)));
-            addDlRow(dl, titleEl, wdiv)
-        }
-    }
-}
-
 
 widgetInfo['basepanel'] = {
     'title': ''
@@ -1899,8 +1809,6 @@ widgetGenerators['cancerassocpanel'] = {
         'width': null,
         'height': null,
         'function': function (div, row, tabName) {
-            var divs = showWidget('cgc2', ['cgc'], 'gene', div, null, null, false);
-            var divs = showWidget('cosmic2', ['cosmic'], 'variant', div, null, null, false);
             var divs = showWidget('cgi2', ['cancer_genome_interpreter'], 'variant', div, null, null, false);
             var divs = showWidget('target2', ['target'], 'variant', div, null, null, false);
             var divs = showWidget('civic2', ['civic'], 'variant', div, null, null, false);

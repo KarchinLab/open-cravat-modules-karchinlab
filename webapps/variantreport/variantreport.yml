@@ -1,5 +1,5 @@
 title: OpenCRAVAT Variant Report
-version: 1.6.3
+version: 1.7.1
 type: webapp
 live_modules:
 - alphamissense
@@ -15,13 +15,11 @@ live_modules:
 - ccre_screen
 - cedar
 - chasmplus
-- cgc
 - cgl
 - civic
 - clingen 
 - clinvar
 - clinvar_acmg
-- cosmic
 - cscape_coding
 - dann
 - dann_coding
@@ -108,13 +106,11 @@ requires:
 - ccre_screen
 - cedar
 - chasmplus
-- cgc
 - cgl
 - civic
 - clingen 
 - clinvar
 - clinvar_acmg
-- cosmic
 - cscape_coding
 - dann
 - dann_coding
@@ -189,11 +185,9 @@ requires:
 - vista_enhancer
 - wgbase
 - wgchasmplus
-- wgcgc
 - wgcgl
 - wgcivic
 - wgclinvar
-- wgcosmic
 - wggnomad
 - wgncbigene
 - wgpharmgkb
@@ -201,8 +195,7 @@ requires:
 - wgdgi
 - wgndex_chdsummary
 - wgthousandgenomes
-hgvs_api_url: https://hgvs.opencravat.org/coordinates
-clingen_api_url: http://reg.genome.network/allele
+oc_api_url: http://localhost:8080/api/v1/annotate
 description: OpenCRAVAT Variant Report Webapp
 developer:
   name: OpenCravat
@@ -211,6 +204,8 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.7.1: Remove COSMIC
+  1.7.0: Update to use the new OC backend
   1.6.3: Fix required modules
   1.6.2: Include more CCR calibrated variant effect predictors.
   1.6.1: Update Variant Effect Predictors panel with CCR calibrated predictors.
@@ -233,4 +228,4 @@ release_note:
 tags:
 - visualization
 hidden: false
-requires_opencravat: '>=2.1.3'
+requires_opencravat: '>=3.0.0'

@@ -1,0 +1,15 @@
+title: NCG Cancer Drivers Widget
+version: 1.0.0
+type: webviewerwidget
+required_annotator: ncg
+requires_opencravat: '>=1.7.0'
+description: Base information webviewer widget
+developer:
+  name: Kyle Anderson
+  organization: Network of Cancer Genes
+  email: support@opencravat.org
+tags:
+- visualization
+release_note:
+  1.0.0: Initial release
+hidden: true

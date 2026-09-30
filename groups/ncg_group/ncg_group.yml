@@ -1,0 +1,20 @@
+datasource: NCG7.2
+description: The Network of Cancer Genes (NCG) is a curated, open-access 
+  resource that collects genes whose somatic alterations are reported to 
+  drive either cancer evolution or clonal expansion in non-cancer tissues. 
+  In addition to driver-gene labels, NCG annotates a broad set of gene systems-level 
+  properties including duplicability, evolutionary origin, expression breadth, 
+  essentiality, protein-network topology, miRNA regulation, and germline constraint.
+developer:
+  name: Kyle Anderson
+  organization: KarchinLabs
+  email: support@opencravat.org
+  website: http://network-cancer-genes.org/index.php
+level: variant
+tags:
+- cancer
+- genes
+title: Network of Cancer Genes and Healthy Drivers
+type: group
+version: 1.0.0
+requires_opencravat: '>=2.0.2'

@@ -1,0 +1,43 @@
+title: SigProfiler Reporter
+version: 1.0.0
+type: reporter
+description: >-
+  Exports somatic variants as a tab-delimited file in the CNAqc joint-table
+  format consumed by the nf-core sigprofiler module
+  (columns: chr, Indiv, from, to, ref, alt, NV). One row is written per
+  sample carrying each variant, with NV taken from the per-sample alternate
+  read count. The output can be supplied directly as the tsv_list input to
+  the nf-core sigprofiler module for SigProfiler mutational signature
+  analysis.
+requires_opencravat: '>=2.1.3'
+output_filename_schema:
+- '{run_name}.sigprofiler.tsv'
+developer:
+  name: OpenCRAVAT
+  organization: OpenCRAVAT
+  email: support@opencravat.org
+  website: https://www.opencravat.org
+  citation: ''
+private: false
+hidden: false
+options:
+  include-indels:
+    description: >-
+      Include indels and multi-nucleotide variants in addition to single-base
+      substitutions. Off by default because the nf-core sigprofiler module
+      assigns mut_type 'SNP' to every row.
+    type: bool
+    default: false
+  default-nv:
+    description: >-
+      Value to write for NV when per-sample alternate read count is
+      unavailable. Defaults to '1' so called variants are retained by the
+      nf-core module's NV != '0' filter.
+    type: string
+    default: '1'
+release_note:
+  1.0.0: initial release.
+tags:
+- input/output
+- mutational signatures
+- sigprofiler

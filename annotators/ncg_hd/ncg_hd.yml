@@ -1,0 +1,143 @@
+title: NCG Healthy Drivers
+type: annotator
+level: gene
+version: 1.0.0
+datasource: NCG7.2
+description: Network of Cancer Genes Healthy Drivers
+developer:
+  citation:  Comparative assessment of genes driving cancer and somatic evolution 
+    in non-cancer tissues - an update of the Network of Cancer Genes (NCG) resource. 
+    Dressler L., Bortolomeazzi M., Keddar M.R., Misetic H., Sartini G., Acha-Sagredo A., 
+    Montorsi L., Wijewardhane N., Repana D., Nulsen J., Goldman J., Pollit M., Davis P., 
+    Strange A., Ambrose K. and Ciccarelli F.D.
+  email: support@opencravat.org
+  name: Network of Cancer Genes and Healthy Drivers
+  website: http://network-cancer-genes.org/index.php
+output_columns:
+- name: entrez
+  title: Entrez
+  type: string
+  description: Entrez ID
+  hidden: true
+- name: organ_system
+  title: Organ System
+  type: string
+  width: 200
+  description: Organ System
+  hidden: false
+- name: organ_site
+  title: Organ Site
+  type: string
+  width: 200
+  description: Organ Site
+  hidden: true
+- name: tissue_type
+  title: Tissue Type
+  type: string
+  width: 200
+- name: duplicability
+  title: Duplicability
+  type: int
+  width: 75
+  description: Number of duplicated loci at 60% coverage
+  hidden: true
+- name: origin
+  title: Origin
+  type: string
+  width: 200
+  description: Evolutionary conservation (taxonomic group)
+  hidden: true
+- name: essential_celllines_percentage
+  title: Essential Cell Lines %
+  type: float
+  width: 75
+  description: Percentage of cell lines in which the gene was found to be essential
+  hidden: true
+- name: ppin_degree
+  title: PPIN Degree
+  type: float
+  width: 75
+  description: Degree of the gene in the protein-protein interaction network (PPIN)
+  hidden: true
+- name: ppin_betweenness
+  title: PPIN Betweenness
+  type: float
+  width: 75
+  description: Betweenness in the PPIN
+  hidden: true
+- name: ppin_clustering
+  title: PPIN Clustering
+  type: float
+  width: 75
+  description: Clustering coefficient in the PPIN
+  hidden: true
+- name: complexes
+  title: Complexes
+  type: int
+  width: 75
+  description: Betweenness in the PPIN
+  hidden: true
+- name: mirna
+  title: miRNAs
+  type: int
+  width: 75
+  description: Number of targeting miRNAs
+  hidden: true
+- name: expressed_tissues_mRNA_GTEx
+  title: mRNA GTEx
+  type: int
+  width: 75
+  description: Number of expressed tissues on mRNA level in GTEx
+  hidden: true
+- name: expressed_tissues_mRNA_protatlas
+  title: mRNA PA
+  type: int
+  width: 75
+  description: Number of expressed tissues on mRNA level in Protein Atlas
+  hidden: true
+- name: expressed_tissues_protein_protatlas
+  title: Proteins PA
+  type: int
+  width: 75
+  description: Number of expressed tissues on protein level in Protein Atlas
+  hidden: true
+- name: expressed_celllines_GNE
+  title: Cell Lines GNE
+  type: int
+  width: 75
+  description: Number of expressed cell lines in GNE
+  hidden: true
+- name: expressed_celllines_CCLE
+  title: Cell Lines CCLE
+  type: int
+  width: 75
+  description: Number of expressed cell lines in CCLE
+  hidden: true
+- name: germline_SNVs
+  title: Germline SNVs
+  type: float
+  width: 75
+  description: Number of germline damaging SNVs and indels/gene length
+  hidden: true
+- name: germline_SVs
+  title: Germline SVs
+  type: float
+  width: 75
+  description: Number of germline SVs/gene length
+  hidden: true
+- name: LOEUF_score
+  title: LOEUF score
+  type: float
+  width: 75
+  description: LOEUF score
+  hidden: true
+tags:
+- genes
+release_note:
+  1.0.0: Initial Release
+requires_opencravat: '>=1.4.0'
+groups:
+- ncg_group
+requires:
+- ncg_group
+- wgncg_hd

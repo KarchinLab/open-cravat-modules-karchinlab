@@ -24,6 +24,7 @@ output_columns:
   filterable: false
   hidden: true
 release_note:
+  50.0.0: data update to v50
   49.0.0: data update to v49
   48.0.0: data update to v48
   47.0.0: data update to v47
@@ -35,7 +36,7 @@ tags:
 - genes
 title: Pseudogene
 type: annotator
-version: 49.0.0
+version: 50.0.0
 requires:
 - wgpseudogene
 requires_opencravat: '>=1.4.4'

@@ -87,12 +87,13 @@ output_columns:
 tags:
 - variant effect prediction
 release-note:
+  1.5.1: fix amcg category name
   1.5.0: add ACMG calibration for BP4 Benign and PP3 Pathogenic
   1.4.0: table data enabled
   1.3.0: updated to include rank score.
 title: MutPred
 type: annotator
-version: 1.5.0
+version: 1.5.1
 requires_opencravat: '>=2.2.1'
 requires:
 - wgmutpred1

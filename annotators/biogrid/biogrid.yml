@@ -1,4 +1,4 @@
-datasource: v5.0.252
+datasource: v5.0.261
 description: Comprehensive interaction repository
 developer:
   citation: 'Oughtred R, Stark C, Breitkreutz BJ, et al. (2018). The BioGRID interaction
@@ -41,10 +41,17 @@ tags:
 - networks
 title: BioGRID
 type: annotator
-version: 3.9.6
+version: 3.9.13
 requires:
 - wgbiogrid
 release-note:
+  3.9.13: updated with v.5.0.261 Biogrid data
+  3.9.12: updated with v.5.0.260 Biogrid data
+  3.9.11: updated with v.5.0.258 Biogrid data
+  3.9.10: updated with v.5.0.257 Biogrid data
+  3.9.9: updated with v.5.0.256 Biogrid data
+  3.9.8: updated with v.5.0.254 Biogrid data
+  3.9.7: updated with v.5.0.253 Biogrid data
   3.9.6: updated with v.5.0.252 Biogrid data
   3.9.5: updated with v.5.0.250 Biogrid data
   3.9.4: updated with v.4.4.249 Biogrid data

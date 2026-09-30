@@ -4,12 +4,10 @@ type: webapp
 live_modules:
 - cancer_genome_interpreter
 - chasmplus
-- cgc
 - civic
 - clingen 
 - clinvar
 - clinvar_acmg
-- cosmic
 - cscape
 - dann_coding
 - dbsnp
@@ -43,12 +41,10 @@ requires:
 - hg38
 - cancer_genome_interpreter
 - chasmplus
-- cgc
 - civic
 - clingen 
 - clinvar
 - clinvar_acmg
-- cosmic
 - cscape
 - dann_coding
 - dbsnp
@@ -80,15 +76,14 @@ requires:
 - vest
 - wgbase
 - wgchasmplus
-- wgcgc
 - wgcgl
 - wgcivic
 - wgclinvar
-- wgcosmic
 - wggnomad
 - wgtarget
 - wgdgi
 - wgthousandgenomes
+oc_api_url: https://run.opencravat.org/api/annotate
 description: OpenCRAVAT / CEDAR Variant Report Webapp
 developer:
   name: OpenCravat
@@ -97,11 +92,13 @@ developer:
   website: 
   citation: ''
 release_note:
+  1.2.1: Remove COSMIC
+  1.2.0: Update to new flask OC backend
   1.1.0: Requested updates by CEDAR group
   1.0.0: Initial release
 tags:
 - visualization
 hidden: false
-requires_opencravat: '>=2.1.3'
+requires_opencravat: '>=3.0.0'
 # Meant to be private 
 private: true 

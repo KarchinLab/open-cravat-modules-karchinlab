@@ -32,7 +32,7 @@ class CravatAnnotator(BaseAnnotator):
             out['gerp_rs'] = self.myCast(row[1])
             out['gerp_rs_rank'] = self.myCast(row[2])
             out['bp4_benign'] = benign
-            out['bp4_pathogenic'] = ""
+            out['pp3_pathogenic'] = ""
             return out
     
     def cleanup(self):
