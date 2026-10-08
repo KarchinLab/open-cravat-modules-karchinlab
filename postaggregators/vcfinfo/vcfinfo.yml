@@ -1,5 +1,5 @@
 title: VCF Info
-version: 2.0.0
+version: 3.2.0
 type: postaggregator
 name: vcfinfo
 level: variant
@@ -51,11 +51,12 @@ output_columns:
 description: Writes VCF file information extracted by converter
 developer:
   name: Kyle Moad
-  organization: In Silico Solutions
-  email: kmoad@insilico.us.com
-  website: http://www.insilico.us.com
+  organization: Karchinlab
+  email: support@opencravat.org
+  website: opencravat.org
   citation: ''
 release_note:
+  3.2.0: allow multi-sample override from caller
   2.0.0: change output col types if single sample
   1.1.5: check info table to see if runnable
   1.1.1: handles vcf with only first 5 columns.
@@ -65,4 +66,4 @@ release_note:
   1.0.3: zygosity is multi category.
 requires:
 - wgvcfinfo
-requires_opencravat: '>2.3.0'
+requires_opencravat: '>=3.2.0'
