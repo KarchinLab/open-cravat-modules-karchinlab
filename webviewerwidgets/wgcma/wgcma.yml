@@ -1,0 +1,7 @@
+title: Cancer Mutation Atlas
+version: 0.1.0
+type: webviewerwidget
+required_annotator: cma
+description: OncoTree multi-column tree browser with somatic mutation prevalence and Wilson confidence intervals.
+developer:
+  name: Vaske Genomics
