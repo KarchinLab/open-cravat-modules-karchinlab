@@ -1,0 +1,64 @@
+title: Cancer Mutation Atlas
+version: 0.2.0
+type: annotator
+level: variant
+input_format: crx
+description: Patient-level somatic mutation prevalence by OncoTree cancer type.
+depth: 1
+nodes: []
+direct: []
+output_columns:
+  - name: variant_count
+    title: Variant count
+    type: int
+    hidden: false
+    desc: Total carrier occurrences across all matched atlas alleles.
+  - name: variant_count_tissue
+    title: Variant count by tissue
+    type: string
+    hidden: false
+    filterable: false
+    table: true
+    desc: OncoTree code, variant count, and tested-patient denominator.
+    table_headers:
+      - {name: oncotree_code, title: OncoTree code, type: string}
+      - {name: variant_count, title: Variant count, type: int}
+      - {name: tested_patients, title: Tested patients, type: int}
+  - name: match
+    title: Match
+    type: string
+    hidden: false
+    category: single
+    categories: [Exact Match, Protein Change, Genomic Location]
+  - name: direct_counts
+    title: Direct counts
+    type: string
+    hidden: true
+    desc: JSON dictionary mapping OncoTree codes to [variant_count, covered_patient_count].
+can_summarize_by_gene: true
+gene_summary_output_columns:
+  - name: positive_cases
+    title: Positive cases
+    type: int
+    width: 95
+    desc: Sum of mutation-positive case counts across atlas variants in the gene.
+  - name: gene_count
+    title: Cancer type count
+    type: string
+    width: 120
+    filterable: false
+    hidden: true
+    table: true
+    table_headers:
+      - {name: oncotree_code, title: OncoTree code, type: string}
+      - {name: positive_cases, title: Positive cases, type: int}
+      - {name: cases_tested, title: Cases tested, type: int}
+  - name: cases_tested
+    title: Cases tested
+    type: int
+    width: 120
+    desc: Total tested cases across all OncoTree codes.
+developer:
+  name: Vaske Genomics
+tags:
+  - cancer
