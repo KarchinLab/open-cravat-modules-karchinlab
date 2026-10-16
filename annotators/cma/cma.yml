@@ -1,5 +1,5 @@
 title: Cancer Mutation Atlas
-version: 0.2.0
+version: 0.2.1
 type: annotator
 level: variant
 input_format: crx
@@ -60,5 +60,13 @@ gene_summary_output_columns:
     desc: Total tested cases across all OncoTree codes.
 developer:
   name: Vaske Genomics
+  email: support@opencravat.org
+  organization: Cancer Mutation Atlas
+  website: https://cancermutationatlas.org/
 tags:
   - cancer
+requires:
+  - wgcma
+release_note:
+  0.2.1: Update config to require widget and additional meta info
+  0.2.0: Initial Release
