@@ -1,5 +1,5 @@
 title: AncestryDNA Converter
-version: 1.4.0
+version: 1.5.0
 type: converter
 description: Allows user to input files in AncestryDNA format. In both the graphical
   interface and command line usage, file format will be automatically detected after
@@ -14,6 +14,7 @@ requires_opencravat: '>=1.8.0'
 tags:
 - input/output
 release_note:
+  1.5.0: report calls homozygous for the input assembly's reference where the liftover target assembly differs (e.g. F5 rs6025); needs a cravat with BaseConverter.hom_ref_mismatch_row, otherwise unchanged
   1.4.0: handle ref base without pseudoerror
   1.3.1: test update for 1.8.0
   1.3.0: use hg19wgs module

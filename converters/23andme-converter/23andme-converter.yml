@@ -1,5 +1,5 @@
 title: 23andMe Converter
-version: 1.5.1
+version: 1.7.0
 type: converter
 description: Allows user to input files in 23andMe format. In both the graphical interface
   and command line usage, file format will be automatically detected after this converter
@@ -14,6 +14,8 @@ requires_opencravat: '>=1.8.0'
 tags:
 - input/output
 release_note:
+  1.7.0: report calls homozygous for the input assembly's reference where the liftover target assembly differs (e.g. F5 rs6025); needs a cravat with BaseConverter.hom_ref_mismatch_row, otherwise unchanged
+  1.6.0: read ref bases from the input assembly (hg18 via liftover to hg38wgs)
   1.5.1: check for 23andMe header on lines other than first
   1.5.0: skip duplicate variants
   1.4.0: handle ref base without pseudoerror
@@ -29,3 +31,4 @@ requires:
 - varmeta
 - vcfinfo>=1.1.5
 - hg19wgs
+- hg38wgs

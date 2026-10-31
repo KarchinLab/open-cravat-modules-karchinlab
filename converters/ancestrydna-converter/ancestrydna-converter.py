@@ -45,9 +45,13 @@ class CravatConverter(BaseConverter):
         try:
             ref = self.wgs.slice(chrom, pos).upper()
         except KeyError:
-            raise InvalidData(f'Bad chrom {chrom}')
+            raise InvalidData(f'Bad chrom {chrom}:{pos}')
         except IndexError:
-            raise InvalidData(f'Bad position {pos}')      
+            raise InvalidData(f'Bad position {chrom}:{pos}')
+        except ValueError:
+            raise InvalidData(f'Bad position {chrom}:{pos}')
+        except AttributeError:
+            raise InvalidData(f'Bad position {chrom}:{pos}')
         sample = ''
         zygosity = None
         try:
@@ -72,6 +76,16 @@ class CravatConverter(BaseConverter):
                     }
                 ret.append(wdict)
         if not ret:
+            # homozygous for the hg19 reference: a variant only where the liftover
+            # target assembly has a different reference base (needs newer cravat)
+            if (
+                hasattr(self, 'hom_ref_mismatch_row')
+                and len(toks) > 4
+                and toks[3] == toks[4] == ref
+            ):
+                row = self.hom_ref_mismatch_row(chrom, pos, ref, tags, sample)
+                if row:
+                    return [row]
             return self.IGNORE
         if zygosity == 'hom':
             ret = ret[:1]
