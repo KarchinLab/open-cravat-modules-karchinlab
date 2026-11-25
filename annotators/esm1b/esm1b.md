@@ -15,6 +15,8 @@ Information from https://doi.org/10.1038/s41588-023-01465-0
 
 ESM1b scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Pathogenic Supporting, Pathogenic Moderate, and Pathogenic Strong ACMG/AMP evidence for purposes of variant classification in the clinic. Calibration cutoffs were obtained from Bergquist et al., “Calibration of Additional Computational Tools Expands ClinGen Recommendation Options for Variant Classification with PP3/BP4 Criteria.” bioRxiv 2024.09.17.611902; doi:10.1101/2024.09.17.611902
 
+**ACMG/AMP evidence disclaimer.** The calibrated computational evidence labels for pathogenicity (PP3) and benignity (BP4) follow the baseline ACMG/AMP framework. ClinGen Variant Curation Expert Panels (VCEPs) may specify different criteria for the genes they curate.
+
 | ACMG Category    | Strength    | ESM1b Thresholds |
 |------------------|-------------|-----------------:|
 | Benign (BP4)     | Very Strong |                - |

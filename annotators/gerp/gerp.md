@@ -7,6 +7,8 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 GERP++ RS (Rejected Substitution) scores have been calbrated and validated as reliable to support Benign Supporting and Benign Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
+**ACMG/AMP evidence disclaimer.** The calibrated computational evidence labels for pathogenicity (PP3) and benignity (BP4) follow the baseline ACMG/AMP framework. ClinGen Variant Curation Expert Panels (VCEPs) may specify different criteria for the genes they curate.
+
 | ACMG Category    | Strength    | GERP++ Thresholds |
 |------------------|-------------|------------------:|
 | Benign (BP4)     | Very Strong |                 - |

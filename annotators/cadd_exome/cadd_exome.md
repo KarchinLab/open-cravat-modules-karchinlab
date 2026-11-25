@@ -25,6 +25,8 @@ The ClinGen Sequence Variant Interpretation Working Group reccommends that calib
 
 CADD phred scores have been calbrated and validated as reliable to support Benign Supporting, Benign Moderate, Benign Strong, Pathogenic Supporting and Pathogenic Moderate ACMG/AMP evidence for purposes of variant classification in the clinic.
 
+**ACMG/AMP evidence disclaimer.** The calibrated computational evidence labels for pathogenicity (PP3) and benignity (BP4) follow the baseline ACMG/AMP framework. ClinGen Variant Curation Expert Panels (VCEPs) may specify different criteria for the genes they curate.
+
 | ACMG Category    | Strength    | CADD Thresholds |
 |------------------|-------------|----------------:|
 | Benign (BP4)     | Very Strong | -               |
